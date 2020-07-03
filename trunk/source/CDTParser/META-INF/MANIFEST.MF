@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CDTParser
+Bundle-SymbolicName: de.uni_freiburg.informatik.ultimate.cdt.parser;singleton:=true
+Bundle-Version: 0.1.24
+Require-Bundle: de.uni_freiburg.informatik.ultimate.lib.core,
+ de.uni_freiburg.informatik.ultimate.core,
+ org.eclipse.cdt.core,
+ de.uni_freiburg.informatik.ultimate.acsl.parser,
+ org.eclipse.core.resources,
+ de.uni_freiburg.informatik.ultimate.lib.util
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.uni_freiburg.informatik.ultimate.cdt.parser,
+ de.uni_freiburg.informatik.ultimate.cdt.decorator

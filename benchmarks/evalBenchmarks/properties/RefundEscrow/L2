@@ -1,0 +1,3 @@
+// #LTLVariables: ben:Ref
+// #LTLFairness: <>(finished(RefundEscrow.deposit)) && <>(finished(RefundEscrow.beneficiaryWithdraw))
+// #LTLProperty: [](finished(RefundEscrow.close, (ben == RefundEscrow.beneficiary())) ==> <>(finished(send(from, to, amt), (to == ben && amt == fsum(RefundEscrow.deposit, 2)))))

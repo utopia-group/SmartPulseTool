@@ -1,0 +1,1 @@
+ZebiCoin token = new ZebiCoin();

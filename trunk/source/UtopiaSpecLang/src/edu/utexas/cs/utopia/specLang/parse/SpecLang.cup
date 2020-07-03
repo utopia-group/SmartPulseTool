@@ -1,0 +1,239 @@
+// CUP specification for a simple expression evaluator (w/ actions)
+package edu.utexas.cs.utopia.specLang.parse;
+import com.github.jhoenicke.javacup.runtime.*;
+import de.uni_freiburg.informatik.ultimate.ltl2aut.ast.*;
+import ast.*;
+import java.util.ArrayList;
+import java.math.BigInteger;
+
+parser SpecLangParser;
+option symbols=SpecLangSymbols;
+
+/* exprinals (tokens returned by the scanner). */
+terminal           	TRUE, FALSE, LPAR, RPAR, LOC, CONSTRAINT_BEGIN, CONSTRAINT_END, ALWAYS, EVENTUALLY, UNTIL, RELEASE, AND, OR, IMPLIES, NEXT, NEG, SEQ, LBRACKET, RBRACKET, PLUS, MINUS, UMINUS, MULTIPLY, DIVIDE, EQ, NEQ, GT, GEQ, LT, LEQ, CALL, SUCCESS, OUT_OF_GAS, REVERT, REQUIRE, ASSERT, FAILL, ARG_SEP, CALL_SUCCESS, OLD, SUM, FSUM, INV, STARTED, WILL_SUCCEED, FINISHED, REVERTED, SENT;
+terminal String 			NAME;
+terminal BigInteger 				INT;
+
+/* Non-exprinals */
+non terminal AstNode     		 name, expr, bexpr, texpr, event_func, event_constraint, args, func;
+
+precedence right IMPLIES;
+precedence left OR;
+precedence left AND;
+precedence left UNTIL, RELEASE, SEQ;
+precedence right ALWAYS, EVENTUALLY;
+precedence right NEXT;
+precedence left EQ, NEQ;
+precedence left LT, LEQ, GEQ,GT;
+precedence left PLUS, MINUS;
+precedence left MULTIPLY, DIVIDE;
+precedence left UMINUS, NEG;
+
+start with texpr;
+
+/*rules*/
+
+texpr ::=
+	INV event_constraint:c
+	{: RESULT = new Event(EventType.inv, c); :}
+	
+	| texpr:t1 AND texpr:t2
+	{: RESULT = new BinaryTemporalOperator(BinaryTemporalType.and, t1, t2); :}
+	
+	| texpr:t1 OR texpr:t2
+	{: RESULT = new BinaryTemporalOperator(BinaryTemporalType.or, t1, t2); :}
+	
+	| texpr:t1 IMPLIES texpr:t2
+	{: RESULT = new BinaryTemporalOperator(BinaryTemporalType.implies, t1, t2); :}
+	
+	| texpr:t1 SEQ texpr:t2
+	{: RESULT = new BinaryTemporalOperator(BinaryTemporalType.seq, t1, t2); :}
+	
+	| texpr:t1 UNTIL texpr:t2
+	{: RESULT = new BinaryTemporalOperator(BinaryTemporalType.until, t1, t2); :}
+	
+	| texpr:t1 RELEASE texpr:t2
+	{: RESULT = new BinaryTemporalOperator(BinaryTemporalType.release, t1, t2); :}
+	
+	| ALWAYS LPAR texpr:t RPAR
+	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.always, t); :}
+	
+	| EVENTUALLY LPAR texpr:t RPAR
+	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.eventually, t); :}
+	
+	| NEXT LPAR texpr:t RPAR
+	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.next, t); :}
+	
+	| NEG texpr:t
+	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.neg, t); :}
+
+	| STARTED LPAR func:f ARG_SEP bexpr:c RPAR
+	{: RESULT = new Event(EventType.call, f, c); :}
+	
+	| FINISHED LPAR func:f ARG_SEP bexpr:c RPAR
+	{: RESULT = new Event(EventType.succ, f, c); :}
+	
+	| WILL_SUCCEED LPAR func:f ARG_SEP bexpr:c RPAR
+	{: RESULT = new Event(EventType.call_succ, f, c); :}
+	
+	| REVERTED LPAR func:f ARG_SEP bexpr:c RPAR
+	{: RESULT = new Event(EventType.fail, f, c); :}
+	
+	| STARTED LPAR func:f RPAR
+	{: RESULT = new Event(EventType.call, f, null); :}
+	
+	| FINISHED LPAR func:f RPAR
+	{: RESULT = new Event(EventType.succ, f, null); :}
+	
+	| WILL_SUCCEED LPAR func:f RPAR
+	{: RESULT = new Event(EventType.call_succ, f, null); :}
+	
+	| REVERTED LPAR func:f RPAR
+	{: RESULT = new Event(EventType.fail, f, null); :}
+	
+	| SENT LPAR bexpr:c RPAR
+	{: RESULT = new Event(EventType.sent, c); :}
+	
+	| CALL event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.call, f, c); :}
+
+	| CALL_SUCCESS event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.call_succ, f, c); :}
+
+	| SUCCESS event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.succ, f, c); :}
+
+	| OUT_OF_GAS event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.oog, f, c); :}
+
+	| REVERT event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.rev, f, c); :}
+
+	| REQUIRE event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.req, f, c); :}
+
+	| ASSERT event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.ass, f, c); :}
+
+	| FAILL event_func:f event_constraint:c
+	{: RESULT = new Event(EventType.fail, f, c); :}
+	
+	| LPAR texpr:t RPAR
+	{: RESULT = t; :};
+
+event_func ::=
+	LPAR func:f RPAR
+	{: RESULT = f; :};
+
+func ::=
+	name:n LPAR args:a RPAR
+	{: RESULT = new Function(n, a); :}
+
+	| name:n
+	{: RESULT = new Function(n, new Arguments()); :};
+
+args ::=
+	name:n
+	{: RESULT = new Arguments(n); :}
+	
+	| name:n ARG_SEP args:a
+	{: RESULT = new Arguments(n,a); :};
+
+event_constraint ::=
+	CONSTRAINT_BEGIN bexpr:e CONSTRAINT_END
+	{: RESULT = e; :}
+	
+	| CONSTRAINT_BEGIN CONSTRAINT_END
+	{: RESULT = null; :};
+
+bexpr ::= 
+	expr:e1 EQ expr:e2
+	{: RESULT = new ExtendedComparativeOperator(ExtendedComparativeType.eq, e1, e2); :}
+	
+	| expr:e1 GT expr:e2
+	{: RESULT = new ExtendedComparativeOperator(ExtendedComparativeType.gt, e1, e2); :}
+	
+	| expr:e1 GEQ expr:e2
+	{: RESULT = new ExtendedComparativeOperator(ExtendedComparativeType.geq, e1, e2); :}
+	
+	| expr:e1 NEQ expr:e2
+	{: RESULT = new ExtendedComparativeOperator(ExtendedComparativeType.neq, e1, e2); :}
+	
+	| expr:e1 LT expr:e2
+	{: RESULT = new ExtendedComparativeOperator(ExtendedComparativeType.lt, e1, e2); :}
+	
+	| expr:e1 LEQ expr:e2
+	{: RESULT = new ExtendedComparativeOperator(ExtendedComparativeType.leq, e1, e2); :}
+	
+	| bexpr:e1 AND bexpr:e2
+	{: RESULT = new BinaryOperator(BinaryType.and, e1, e2); :}
+	
+	| bexpr:e1 OR bexpr:e2
+	{: RESULT = new BinaryOperator(BinaryType.or, e1, e2); :}
+	
+	| bexpr:e1 IMPLIES bexpr:e2
+	{: RESULT = new ImpliesOp(e1, e2); :}
+	
+	| LPAR bexpr:e1 RPAR
+	{: RESULT = e1; :}
+	
+	| NEG bexpr:e
+	{: RESULT = new Not(e); :};
+	
+expr ::= 
+	name:n LBRACKET expr:e RBRACKET
+	{: RESULT = new ArrayAccessExpr(n,e); :}
+
+	| name:n LBRACKET expr:e1 RBRACKET LBRACKET expr:e2 RBRACKET
+	{: RESULT = new ArrayAccessExpr(n,e1,e2); :}
+
+	| OLD LPAR expr:e RPAR
+	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.old, e); :}
+	
+	| SUM LPAR expr:e RPAR
+	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.sum, e); :}
+	
+	| FSUM LPAR func:f ARG_SEP INT:i RPAR
+	{: RESULT = new Fsum(f, i); :}
+	
+	| FSUM LPAR func:f ARG_SEP INT:i ARG_SEP bexpr:e RPAR
+	{: RESULT = new Fsum(f, i, e); :}
+	
+	| name:n LPAR args:a RPAR
+	{: RESULT = new FunctionCall(n, a); :}
+
+	| name:n LPAR RPAR
+	{: RESULT = new FunctionCall(n); :}
+
+	| expr:e1 PLUS expr:e2
+	{: RESULT = new BinaryOperator(BinaryType.plus, e1, e2); :}
+	
+	| expr:e1 MINUS expr:e2
+	{: RESULT = new BinaryOperator(BinaryType.minus, e1, e2); :}
+	
+	| expr:e1 MULTIPLY expr:e2
+	{: RESULT = new BinaryOperator(BinaryType.times, e1, e2); :}
+	
+	| expr:e1 DIVIDE expr:e2
+	{: RESULT = new BinaryOperator(BinaryType.divide, e1, e2); :}
+	
+	| MINUS expr:e1 		
+	{: RESULT = RESULT = new BigIntegerLiteral(((BigIntegerLiteral)e1).getValue().negate()); :} %prec UMINUS
+	
+	| LPAR expr:e1 RPAR
+	{: RESULT = e1; :}
+	
+	| name:n	
+	{: RESULT = n; :}
+	
+	| INT:i
+	{: RESULT = new BigIntegerLiteral(i); :}
+	
+	| TRUE
+	{: RESULT = new BoolLiteral(true); :}
+	
+	| FALSE
+	{: RESULT = new BoolLiteral(false); :};
+	
+name ::= NAME:m
+		{: RESULT = new Name(m); :};	

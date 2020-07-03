@@ -1,0 +1,5471 @@
+// Boogie program verifier version 2.4.1.10503, Copyright (c) 2003-2014, Microsoft.
+// Command Line Options: /print:ZebiCoin.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+// spec_02
+// LTLProperty: [](!finished(*, old(transferAllowed_MintableToken[this]) != transferAllowed_MintableToken[this] && msg.sender != owner_Ownable[this]))
+
+// spec_04
+// LTLProperty: [](!finished(*, sum_balances0[balances_BasicToken[this]] != totalSupply__BasicToken[this] ))
+
+// spec_05
+// #LTLProperty: [](!finished(*, transferAllowed_MintableToken[this] == false && msg.sender != owner_Ownable[this] && M_Ref_int_balances0[balances_BasicToken[this]][321] != old(M_Ref_int_balances0[balances_BasicToken[this]][321])))
+
+type Ref = int;
+
+type ContractName = int;
+
+var null: Ref;
+
+var Ownable: ContractName;
+
+var ERC20Basic: ContractName;
+
+var ERC20: ContractName;
+
+var SafeMath: ContractName;
+
+var BasicToken: ContractName;
+
+var StandardToken: ContractName;
+
+var MintableToken: ContractName;
+
+var ZebiCoin: ContractName;
+
+function {:smtdefined "x"} ConstantToRef(x: int) : Ref;
+
+function BoogieRefToInt(x: Ref) : int;
+
+function {:bvbuiltin "mod"} modBpl(x: int, y: int) : int;
+
+function keccak256(x: int) : int;
+
+function abiEncodePacked1(x: int) : int;
+
+function _SumMapping_VeriSol(x: [Ref]int) : int;
+
+function abiEncodePacked2(x: int, y: int) : int;
+
+function abiEncodePacked1R(x: Ref) : int;
+
+function abiEncodePacked2R(x: Ref, y: int) : int;
+
+function {:smtdefined "((as const (Array Int Int)) 0)"} zeroRefIntArr() : [Ref]int;
+
+function {:smtdefined "((as const (Array Int Int)) 0)"} zeroIntIntArr() : [int]int;
+
+function {:smtdefined "((as const (Array Int Bool)) false)"} zeroRefBoolArr() : [Ref]bool;
+
+function {:smtdefined "((as const (Array Int Bool)) false)"} zeroIntBoolArr() : [int]bool;
+
+function {:smtdefined "((as const (Array Int Int)) 0)"} zeroRefRefArr() : [Ref]Ref;
+
+function {:smtdefined "((as const (Array Int Int)) 0)"} zeroIntRefArr() : [int]Ref;
+
+function nonlinearMul(x: int, y: int) : int;
+
+function nonlinearDiv(x: int, y: int) : int;
+
+function nonlinearPow(x: int, y: int) : int;
+
+var Balance: [Ref]int;
+
+var DType: [Ref]ContractName;
+
+var Alloc: [Ref]bool;
+
+var balance_ADDR: [Ref]int;
+
+var M_Ref_int_balances0: [Ref][Ref]int;
+
+var sum_balances0: [Ref]int;
+
+var M_Ref_int_allowed1: [Ref][Ref]int;
+
+var M_Ref_Ref_allowed1: [Ref][Ref]Ref;
+
+var sum_allowed1: [Ref]int;
+
+var Length: [Ref]int;
+
+var revert: bool;
+
+var gas: int;
+
+var now: int;
+
+procedure {:inline 1} FreshRefGenerator__success() returns (newRef: Ref);
+  modifies Alloc;
+
+
+
+var {:access "this.owner=owner_Ownable[this]"} owner_Ownable: [Ref]Ref;
+
+procedure {:inline 1} Ownable_Ownable_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, owner_Ownable;
+
+
+
+procedure {:constructor} {:public} {:inline 1} Ownable_Ownable(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance, owner_Ownable;
+
+
+
+implementation Ownable_Ownable(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call Ownable_Ownable__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call Ownable_Ownable__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} transferOwnership_Ownable(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, newOwner_s54: Ref);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, owner_Ownable;
+
+
+
+implementation transferOwnership_Ownable(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, newOwner_s54: Ref)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call transferOwnership_Ownable__fail(this, msgsender_MSG, msgvalue_MSG, newOwner_s54);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call transferOwnership_Ownable__success(this, msgsender_MSG, msgvalue_MSG, newOwner_s54);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:inline 1} ERC20Basic_ERC20Basic_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} ERC20Basic_ERC20Basic(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance;
+
+
+
+implementation ERC20Basic_ERC20Basic(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call ERC20Basic_ERC20Basic__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} totalSupply_ERC20Basic(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int);
+
+
+
+procedure {:public} {:inline 1} balanceOf_ERC20Basic(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, who_s67: Ref)
+   returns (__ret_0_: int);
+
+
+
+procedure {:public} {:inline 1} transfer_ERC20Basic(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, to_s76: Ref, value_s76: int)
+   returns (__ret_0_: bool);
+
+
+
+procedure {:inline 1} ERC20_ERC20_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} ERC20_ERC20(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance;
+
+
+
+implementation ERC20_ERC20(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call ERC20_ERC20__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call ERC20_ERC20__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} allowance_ERC20(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    owner_s96: Ref, 
+    spender_s96: Ref)
+   returns (__ret_0_: int);
+
+
+
+procedure {:public} {:inline 1} transferFrom_ERC20(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    from_s107: Ref, 
+    to_s107: Ref, 
+    value_s107: int)
+   returns (__ret_0_: bool);
+
+
+
+procedure {:public} {:inline 1} approve_ERC20(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    spender_s116: Ref, 
+    value_s116: int)
+   returns (__ret_0_: bool);
+
+
+
+procedure {:inline 1} SafeMath_SafeMath_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} SafeMath_SafeMath(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance;
+
+
+
+implementation SafeMath_SafeMath(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call SafeMath_SafeMath__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call SafeMath_SafeMath__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:inline 1} sub_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s145: int, b_s145: int)
+   returns (__ret_0_: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} add_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s169: int, b_s169: int)
+   returns (__ret_0_: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} BasicToken_BasicToken_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc;
+
+
+
+procedure {:inline 1} BasicToken_BasicToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc;
+
+
+
+implementation BasicToken_BasicToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call BasicToken_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call BasicToken_BasicToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+var {:access "this.balances[i0]=M_Ref_int_balances0[balances_BasicToken[this]][i0]"} {:sum "sum(this.balances)=sum_balances0[balances_BasicToken[this]]"} balances_BasicToken: [Ref]Ref;
+
+var {:access "this.totalSupply_=totalSupply__BasicToken[this]"} totalSupply__BasicToken: [Ref]int;
+
+procedure {:public} {:inline 1} totalSupply_BasicToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas;
+
+
+
+implementation totalSupply_BasicToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := totalSupply_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := totalSupply_BasicToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} transfer_BasicToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s249: Ref, 
+    _value_s249: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, sum_balances0, M_Ref_int_balances0;
+
+
+
+implementation transfer_BasicToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s249: Ref, 
+    _value_s249: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := transfer_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG, _to_s249, _value_s249);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := transfer_BasicToken__success(this, msgsender_MSG, msgvalue_MSG, _to_s249, _value_s249);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} balanceOf_BasicToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _owner_s261: Ref)
+   returns (balance_s261: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas;
+
+
+
+implementation balanceOf_BasicToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _owner_s261: Ref)
+   returns (balance_s261: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call balance_s261 := balanceOf_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG, _owner_s261);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call balance_s261 := balanceOf_BasicToken__success(this, msgsender_MSG, msgvalue_MSG, _owner_s261);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:inline 1} StandardToken_StandardToken_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, Alloc;
+
+
+
+procedure {:inline 1} StandardToken_StandardToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1;
+
+
+
+implementation StandardToken_StandardToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call StandardToken_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call StandardToken_StandardToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+var {:access "this.allowed[i0][i1]=M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][i0]][i1]"} {:sum "sum(this.allowed)=sum_allowed1[allowed_StandardToken[this]]"} allowed_StandardToken: [Ref]Ref;
+
+procedure {:public} {:inline 1} transferFrom_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s358: Ref, 
+    _to_s358: Ref, 
+    _value_s358: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, sum_balances0, M_Ref_int_balances0, Alloc;
+
+
+
+implementation transferFrom_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s358: Ref, 
+    _to_s358: Ref, 
+    _value_s358: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := transferFrom_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _from_s358, _to_s358, _value_s358);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := transferFrom_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _from_s358, _to_s358, _value_s358);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} approve_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s386: Ref, 
+    _value_s386: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+implementation approve_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s386: Ref, 
+    _value_s386: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := approve_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _spender_s386, _value_s386);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := approve_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _spender_s386, _value_s386);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} allowance_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _owner_s402: Ref, 
+    _spender_s402: Ref)
+   returns (__ret_0_: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+implementation allowance_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _owner_s402: Ref, 
+    _spender_s402: Ref)
+   returns (__ret_0_: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := allowance_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _owner_s402, _spender_s402);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := allowance_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _owner_s402, _spender_s402);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} increaseApproval_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s443: Ref, 
+    _addedValue_s443: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+implementation increaseApproval_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s443: Ref, 
+    _addedValue_s443: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := increaseApproval_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _spender_s443, _addedValue_s443);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := increaseApproval_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _spender_s443, _addedValue_s443);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} decreaseApproval_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s503: Ref, 
+    _subtractedValue_s503: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+implementation decreaseApproval_StandardToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s503: Ref, 
+    _subtractedValue_s503: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := decreaseApproval_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _spender_s503, _subtractedValue_s503);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := decreaseApproval_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _spender_s503, _subtractedValue_s503);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:inline 1} MintableToken_MintableToken_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, mintingFinished_MintableToken, transferAllowed_MintableToken;
+
+
+
+procedure {:inline 1} MintableToken_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, owner_Ownable, mintingFinished_MintableToken, transferAllowed_MintableToken;
+
+
+
+implementation MintableToken_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call MintableToken_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call MintableToken_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+var {:access "this.mintingFinished=mintingFinished_MintableToken[this]"} mintingFinished_MintableToken: [Ref]bool;
+
+var {:access "this.transferAllowed=transferAllowed_MintableToken[this]"} transferAllowed_MintableToken: [Ref]bool;
+
+procedure {:public} {:inline 1} mint_MintableToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s584: Ref, 
+    _amount_s584: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, totalSupply__BasicToken, sum_balances0, M_Ref_int_balances0;
+
+
+
+implementation mint_MintableToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s584: Ref, 
+    _amount_s584: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := mint_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG, _to_s584, _amount_s584);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := mint_MintableToken__success(this, msgsender_MSG, msgvalue_MSG, _to_s584, _amount_s584);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} finishMinting_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, mintingFinished_MintableToken;
+
+
+
+implementation finishMinting_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := finishMinting_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := finishMinting_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} resumeMinting_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, mintingFinished_MintableToken;
+
+
+
+implementation resumeMinting_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := resumeMinting_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := resumeMinting_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} burn_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _from_s661: Ref)
+   returns (success_s661: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, sum_balances0, M_Ref_int_balances0, totalSupply__BasicToken;
+
+
+
+implementation burn_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _from_s661: Ref)
+   returns (success_s661: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call success_s661 := burn_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG, _from_s661);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call success_s661 := burn_MintableToken__success(this, msgsender_MSG, msgvalue_MSG, _from_s661);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} startTransfer_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, transferAllowed_MintableToken;
+
+
+
+implementation startTransfer_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call startTransfer_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call startTransfer_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} endTransfer_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, transferAllowed_MintableToken;
+
+
+
+implementation endTransfer_MintableToken(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call endTransfer_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call endTransfer_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} transfer_MintableToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s704: Ref, 
+    _value_s704: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, sum_balances0, M_Ref_int_balances0;
+
+
+
+implementation transfer_MintableToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s704: Ref, 
+    _value_s704: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := transfer_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := transfer_MintableToken__success(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:public} {:inline 1} transferFrom_MintableToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s730: Ref, 
+    _to_s730: Ref, 
+    _value_s730: int)
+   returns (__ret_0_: bool);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, sum_balances0, M_Ref_int_balances0, Alloc;
+
+
+
+implementation transferFrom_MintableToken(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s730: Ref, 
+    _to_s730: Ref, 
+    _value_s730: int)
+   returns (__ret_0_: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call __ret_0_ := transferFrom_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call __ret_0_ := transferFrom_MintableToken__success(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+procedure {:inline 1} ZebiCoin_ZebiCoin_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, name_ZebiCoin, symbol_ZebiCoin, decimals_ZebiCoin;
+
+
+
+procedure {:inline 1} ZebiCoin_ZebiCoin(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, owner_Ownable, mintingFinished_MintableToken, transferAllowed_MintableToken, name_ZebiCoin, symbol_ZebiCoin, decimals_ZebiCoin;
+
+
+
+implementation ZebiCoin_ZebiCoin(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    revert := false;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        call ZebiCoin_ZebiCoin__fail(this, msgsender_MSG, msgvalue_MSG);
+        assume revert || gas < 0;
+    }
+    else
+    {
+        call ZebiCoin_ZebiCoin__success(this, msgsender_MSG, msgvalue_MSG);
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+var {:access "this.name=name_ZebiCoin[this]"} name_ZebiCoin: [Ref]int;
+
+var {:access "this.symbol=symbol_ZebiCoin[this]"} symbol_ZebiCoin: [Ref]int;
+
+var {:access "this.decimals=decimals_ZebiCoin[this]"} decimals_ZebiCoin: [Ref]int;
+
+procedure {:inline 1} FallbackDispatch__success(from: Ref, to: Ref, amount: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} Fallback_UnknownType__success(from: Ref, to: Ref, amount: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} send__success(from: Ref, to: Ref, amount: int) returns (success: bool);
+  modifies __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, revert, Balance;
+
+
+
+procedure {:inline 1} onlyOwner_pre__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, revert;
+
+
+
+procedure {:inline 1} canMint_pre__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, revert;
+
+
+
+procedure CorralChoice_Ownable(this: Ref);
+  modifies gas, now, Alloc, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, owner_Ownable;
+
+
+
+procedure CorralEntry_Ownable();
+  modifies gas, Alloc, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, now, owner_Ownable, Balance;
+
+
+
+procedure CorralChoice_ERC20Basic(this: Ref);
+  modifies gas, now, Alloc;
+
+
+
+procedure CorralEntry_ERC20Basic();
+  modifies gas, Alloc, Balance, now;
+
+
+
+procedure CorralChoice_ERC20(this: Ref);
+  modifies gas, now, Alloc;
+
+
+
+procedure CorralEntry_ERC20();
+  modifies gas, Alloc, Balance, now;
+
+
+
+procedure CorralChoice_SafeMath(this: Ref);
+  modifies gas, now, Alloc;
+
+
+
+procedure CorralEntry_SafeMath();
+  modifies gas, Alloc, Balance, now;
+
+
+
+procedure CorralChoice_BasicToken(this: Ref);
+  modifies gas, now, Alloc, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, sum_balances0, M_Ref_int_balances0;
+
+
+
+procedure CorralEntry_BasicToken();
+  modifies gas, Alloc, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, now, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin;
+
+
+
+procedure CorralChoice_StandardToken(this: Ref);
+  modifies gas, now, Alloc, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, sum_balances0, M_Ref_int_balances0, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1;
+
+
+
+procedure CorralEntry_StandardToken();
+  modifies gas, Alloc, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, now, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, sum_allowed1;
+
+
+
+procedure CorralChoice_MintableToken(this: Ref);
+  modifies gas, now, Alloc, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, owner_Ownable, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, totalSupply__BasicToken, sum_balances0, M_Ref_int_balances0, mintingFinished_MintableToken, transferAllowed_MintableToken;
+
+
+
+procedure CorralEntry_MintableToken();
+  modifies gas, Alloc, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, owner_Ownable, mintingFinished_MintableToken, transferAllowed_MintableToken, now, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, sum_allowed1;
+
+
+
+procedure CorralChoice_ZebiCoin(this: Ref);
+  modifies gas, now, Alloc, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, owner_Ownable, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, totalSupply__BasicToken, sum_balances0, M_Ref_int_balances0, mintingFinished_MintableToken, transferAllowed_MintableToken;
+
+
+
+procedure main();
+  modifies gas, Alloc, Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, owner_Ownable, mintingFinished_MintableToken, transferAllowed_MintableToken, name_ZebiCoin, symbol_ZebiCoin, decimals_ZebiCoin, now, revert, __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, sum_allowed1;
+
+
+
+var __tmp__Balance: [Ref]int;
+
+var __tmp__DType: [Ref]ContractName;
+
+var __tmp__Alloc: [Ref]bool;
+
+var __tmp__balance_ADDR: [Ref]int;
+
+var __tmp__M_Ref_int_balances0: [Ref][Ref]int;
+
+var __tmp__sum_balances0: [Ref]int;
+
+var __tmp__M_Ref_int_allowed1: [Ref][Ref]int;
+
+var __tmp__M_Ref_Ref_allowed1: [Ref][Ref]Ref;
+
+var __tmp__sum_allowed1: [Ref]int;
+
+var __tmp__Length: [Ref]int;
+
+var __tmp__now: int;
+
+var __tmp__owner_Ownable: [Ref]Ref;
+
+var __tmp__balances_BasicToken: [Ref]Ref;
+
+var __tmp__totalSupply__BasicToken: [Ref]int;
+
+var __tmp__allowed_StandardToken: [Ref]Ref;
+
+var __tmp__mintingFinished_MintableToken: [Ref]bool;
+
+var __tmp__transferAllowed_MintableToken: [Ref]bool;
+
+var __tmp__name_ZebiCoin: [Ref]int;
+
+var __tmp__symbol_ZebiCoin: [Ref]int;
+
+var __tmp__decimals_ZebiCoin: [Ref]int;
+
+procedure {:inline 1} FreshRefGenerator__fail() returns (newRef: Ref);
+  modifies __tmp__Alloc;
+
+
+
+procedure {:inline 1} Ownable_Ownable_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__owner_Ownable;
+
+
+
+procedure {:constructor} {:inline 1} Ownable_Ownable__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, owner_Ownable;
+
+
+
+procedure {:constructor} {:inline 1} Ownable_Ownable__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__owner_Ownable;
+
+
+
+procedure {:inline 1} transferOwnership_Ownable__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, newOwner_s54: Ref);
+  modifies gas, revert, owner_Ownable;
+
+
+
+procedure {:inline 1} transferOwnership_Ownable__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, newOwner_s54: Ref);
+  modifies gas, revert, __tmp__owner_Ownable;
+
+
+
+procedure {:inline 1} ERC20Basic_ERC20Basic_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} ERC20Basic_ERC20Basic__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} ERC20Basic_ERC20Basic__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} ERC20_ERC20_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} ERC20_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} ERC20_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} SafeMath_SafeMath_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} SafeMath_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance;
+
+
+
+procedure {:inline 1} SafeMath_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} sub_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s145: int, b_s145: int)
+   returns (__ret_0_: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} add_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s169: int, b_s169: int)
+   returns (__ret_0_: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} BasicToken_BasicToken_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__balances_BasicToken, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__totalSupply__BasicToken, __tmp__Alloc;
+
+
+
+procedure {:inline 1} BasicToken_BasicToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc;
+
+
+
+procedure {:inline 1} BasicToken_BasicToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__balances_BasicToken, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__totalSupply__BasicToken, __tmp__Alloc;
+
+
+
+procedure {:inline 1} totalSupply_BasicToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} totalSupply_BasicToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} transfer_BasicToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s249: Ref, 
+    _value_s249: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, sum_balances0, M_Ref_int_balances0;
+
+
+
+procedure {:inline 1} transfer_BasicToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s249: Ref, 
+    _value_s249: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, __tmp__sum_balances0, __tmp__M_Ref_int_balances0;
+
+
+
+procedure {:inline 1} balanceOf_BasicToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _owner_s261: Ref)
+   returns (balance_s261: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} balanceOf_BasicToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _owner_s261: Ref)
+   returns (balance_s261: int);
+  modifies gas;
+
+
+
+procedure {:inline 1} StandardToken_StandardToken_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__allowed_StandardToken, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__Alloc;
+
+
+
+procedure {:inline 1} StandardToken_StandardToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1;
+
+
+
+procedure {:inline 1} StandardToken_StandardToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__balances_BasicToken, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__totalSupply__BasicToken, __tmp__Alloc, __tmp__allowed_StandardToken, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1;
+
+
+
+procedure {:inline 1} transferFrom_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s358: Ref, 
+    _to_s358: Ref, 
+    _value_s358: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, sum_balances0, M_Ref_int_balances0, Alloc;
+
+
+
+procedure {:inline 1} transferFrom_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s358: Ref, 
+    _to_s358: Ref, 
+    _value_s358: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__sum_allowed1, __tmp__sum_balances0, __tmp__M_Ref_int_balances0, __tmp__Alloc;
+
+
+
+procedure {:inline 1} approve_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s386: Ref, 
+    _value_s386: int)
+   returns (__ret_0_: bool);
+  modifies gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+procedure {:inline 1} approve_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s386: Ref, 
+    _value_s386: int)
+   returns (__ret_0_: bool);
+  modifies gas, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__sum_allowed1, __tmp__Alloc;
+
+
+
+procedure {:inline 1} allowance_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _owner_s402: Ref, 
+    _spender_s402: Ref)
+   returns (__ret_0_: int);
+  modifies gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+procedure {:inline 1} allowance_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _owner_s402: Ref, 
+    _spender_s402: Ref)
+   returns (__ret_0_: int);
+  modifies gas, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__sum_allowed1, __tmp__Alloc;
+
+
+
+procedure {:inline 1} increaseApproval_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s443: Ref, 
+    _addedValue_s443: int)
+   returns (__ret_0_: bool);
+  modifies gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+procedure {:inline 1} increaseApproval_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s443: Ref, 
+    _addedValue_s443: int)
+   returns (__ret_0_: bool);
+  modifies gas, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__sum_allowed1, __tmp__Alloc;
+
+
+
+procedure {:inline 1} decreaseApproval_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s503: Ref, 
+    _subtractedValue_s503: int)
+   returns (__ret_0_: bool);
+  modifies gas, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, Alloc;
+
+
+
+procedure {:inline 1} decreaseApproval_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s503: Ref, 
+    _subtractedValue_s503: int)
+   returns (__ret_0_: bool);
+  modifies gas, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__sum_allowed1, __tmp__Alloc;
+
+
+
+procedure {:inline 1} MintableToken_MintableToken_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken;
+
+
+
+procedure {:inline 1} MintableToken_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, owner_Ownable, mintingFinished_MintableToken, transferAllowed_MintableToken;
+
+
+
+procedure {:inline 1} MintableToken_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__balances_BasicToken, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__totalSupply__BasicToken, __tmp__Alloc, __tmp__allowed_StandardToken, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__owner_Ownable, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken;
+
+
+
+procedure {:inline 1} mint_MintableToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s584: Ref, 
+    _amount_s584: int)
+   returns (__ret_0_: bool);
+  modifies gas, totalSupply__BasicToken, sum_balances0, M_Ref_int_balances0, revert;
+
+
+
+procedure {:inline 1} mint_MintableToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s584: Ref, 
+    _amount_s584: int)
+   returns (__ret_0_: bool);
+  modifies gas, __tmp__totalSupply__BasicToken, __tmp__sum_balances0, __tmp__M_Ref_int_balances0, revert;
+
+
+
+procedure {:inline 1} finishMinting_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool);
+  modifies gas, mintingFinished_MintableToken, revert;
+
+
+
+procedure {:inline 1} finishMinting_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool);
+  modifies gas, __tmp__mintingFinished_MintableToken, revert;
+
+
+
+procedure {:inline 1} resumeMinting_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool);
+  modifies gas, mintingFinished_MintableToken, revert;
+
+
+
+procedure {:inline 1} resumeMinting_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool);
+  modifies gas, __tmp__mintingFinished_MintableToken, revert;
+
+
+
+procedure {:inline 1} burn_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _from_s661: Ref)
+   returns (success_s661: bool);
+  modifies gas, revert, sum_balances0, M_Ref_int_balances0, totalSupply__BasicToken;
+
+
+
+procedure {:inline 1} burn_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _from_s661: Ref)
+   returns (success_s661: bool);
+  modifies gas, revert, __tmp__sum_balances0, __tmp__M_Ref_int_balances0, __tmp__totalSupply__BasicToken;
+
+
+
+procedure {:inline 1} startTransfer_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, transferAllowed_MintableToken, revert;
+
+
+
+procedure {:inline 1} startTransfer_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, __tmp__transferAllowed_MintableToken, revert;
+
+
+
+procedure {:inline 1} endTransfer_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, transferAllowed_MintableToken, revert;
+
+
+
+procedure {:inline 1} endTransfer_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, __tmp__transferAllowed_MintableToken, revert;
+
+
+
+procedure {:inline 1} transfer_MintableToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s704: Ref, 
+    _value_s704: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, sum_balances0, M_Ref_int_balances0;
+
+
+
+procedure {:inline 1} transfer_MintableToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s704: Ref, 
+    _value_s704: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, __tmp__sum_balances0, __tmp__M_Ref_int_balances0;
+
+
+
+procedure {:inline 1} transferFrom_MintableToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s730: Ref, 
+    _to_s730: Ref, 
+    _value_s730: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, M_Ref_Ref_allowed1, M_Ref_int_allowed1, sum_allowed1, sum_balances0, M_Ref_int_balances0, Alloc;
+
+
+
+procedure {:inline 1} transferFrom_MintableToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s730: Ref, 
+    _to_s730: Ref, 
+    _value_s730: int)
+   returns (__ret_0_: bool);
+  modifies gas, revert, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__sum_allowed1, __tmp__sum_balances0, __tmp__M_Ref_int_balances0, __tmp__Alloc;
+
+
+
+procedure {:inline 1} ZebiCoin_ZebiCoin_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin;
+
+
+
+procedure {:inline 1} ZebiCoin_ZebiCoin__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies Balance, balances_BasicToken, M_Ref_int_balances0, sum_balances0, totalSupply__BasicToken, Alloc, allowed_StandardToken, M_Ref_Ref_allowed1, M_Ref_int_allowed1, owner_Ownable, mintingFinished_MintableToken, transferAllowed_MintableToken, name_ZebiCoin, symbol_ZebiCoin, decimals_ZebiCoin;
+
+
+
+procedure {:inline 1} ZebiCoin_ZebiCoin__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies __tmp__Balance, __tmp__balances_BasicToken, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__totalSupply__BasicToken, __tmp__Alloc, __tmp__allowed_StandardToken, __tmp__M_Ref_Ref_allowed1, __tmp__M_Ref_int_allowed1, __tmp__owner_Ownable, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin;
+
+
+
+procedure {:inline 1} FallbackDispatch__fail(from: Ref, to: Ref, amount: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} Fallback_UnknownType__fail(from: Ref, to: Ref, amount: int);
+  modifies __tmp__Balance;
+
+
+
+procedure {:inline 1} send__fail(from: Ref, to: Ref, amount: int) returns (success: bool);
+  modifies __tmp__Balance, __tmp__DType, __tmp__Alloc, __tmp__balance_ADDR, __tmp__M_Ref_int_balances0, __tmp__sum_balances0, __tmp__M_Ref_int_allowed1, __tmp__M_Ref_Ref_allowed1, __tmp__sum_allowed1, __tmp__Length, __tmp__now, __tmp__owner_Ownable, __tmp__balances_BasicToken, __tmp__totalSupply__BasicToken, __tmp__allowed_StandardToken, __tmp__mintingFinished_MintableToken, __tmp__transferAllowed_MintableToken, __tmp__name_ZebiCoin, __tmp__symbol_ZebiCoin, __tmp__decimals_ZebiCoin, revert;
+
+
+
+procedure {:inline 1} onlyOwner_pre__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, revert;
+
+
+
+procedure {:inline 1} canMint_pre__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int);
+  modifies gas, revert;
+
+
+
+implementation FreshRefGenerator__fail() returns (newRef: Ref)
+{
+    havoc newRef;
+    assume __tmp__Alloc[newRef] == false;
+    __tmp__Alloc[newRef] := true;
+    assume newRef != null;
+}
+
+
+
+implementation FreshRefGenerator__success() returns (newRef: Ref)
+{
+    havoc newRef;
+    assume Alloc[newRef] == false;
+    Alloc[newRef] := true;
+    assume newRef != null;
+}
+
+
+
+implementation Ownable_Ownable_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+    __tmp__owner_Ownable[this] := null;
+    __tmp__owner_Ownable[this] := msgsender_MSG;
+}
+
+
+
+implementation Ownable_Ownable_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+    owner_Ownable[this] := null;
+    owner_Ownable[this] := msgsender_MSG;
+}
+
+
+
+implementation Ownable_Ownable__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call Ownable_Ownable_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation Ownable_Ownable__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call Ownable_Ownable_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation transferOwnership_Ownable__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, newOwner_s54: Ref)
+{
+  var __var_1: Ref;
+
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 132;
+    __var_1 := null;
+    if (!(newOwner_s54 != null))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 60801;
+    __tmp__owner_Ownable[this] := newOwner_s54;
+}
+
+
+
+implementation transferOwnership_Ownable__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, newOwner_s54: Ref)
+{
+  var __var_1: Ref;
+
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 132;
+    __var_1 := null;
+    if (!(newOwner_s54 != null))
+    {
+        revert := true;
+        return;
+    }
+
+    assert {:EventEmitted "OwnershipTransferred_Ownable"} true;
+    gas := gas - 60801;
+    owner_Ownable[this] := newOwner_s54;
+}
+
+
+
+implementation ERC20Basic_ERC20Basic_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+}
+
+
+
+implementation ERC20Basic_ERC20Basic_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+}
+
+
+
+implementation ERC20Basic_ERC20Basic__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation ERC20Basic_ERC20Basic__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation ERC20_ERC20_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+}
+
+
+
+implementation ERC20_ERC20_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+}
+
+
+
+implementation ERC20_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation ERC20_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation SafeMath_SafeMath_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+}
+
+
+
+implementation SafeMath_SafeMath_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+}
+
+
+
+implementation SafeMath_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call SafeMath_SafeMath_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation SafeMath_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call SafeMath_SafeMath_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation sub_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s145: int, b_s145: int)
+   returns (__ret_0_: int)
+{
+    gas := gas - 12;
+    gas := gas - 104;
+    assume b_s145 >= 0;
+    assume a_s145 >= 0;
+    gas := gas - 56;
+    assume a_s145 >= 0;
+    assume b_s145 >= 0;
+    assume a_s145 - b_s145 >= 0;
+    __ret_0_ := a_s145 - b_s145;
+    return;
+}
+
+
+
+implementation sub_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s145: int, b_s145: int)
+   returns (__ret_0_: int)
+{
+    gas := gas - 12;
+    gas := gas - 104;
+    assume b_s145 >= 0;
+    assume a_s145 >= 0;
+    assert b_s145 <= a_s145;
+    gas := gas - 56;
+    assume a_s145 >= 0;
+    assume b_s145 >= 0;
+    assume a_s145 - b_s145 >= 0;
+    __ret_0_ := a_s145 - b_s145;
+    return;
+}
+
+
+
+implementation add_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s169: int, b_s169: int)
+   returns (__ret_0_: int)
+{
+  var c_s168: int;
+
+    gas := gas - 12;
+    gas := gas - 68;
+    assume c_s168 >= 0;
+    assume a_s169 >= 0;
+    assume b_s169 >= 0;
+    assume a_s169 + b_s169 >= 0;
+    c_s168 := a_s169 + b_s169;
+    gas := gas - 104;
+    assume c_s168 >= 0;
+    assume a_s169 >= 0;
+    gas := gas - 40;
+    assume c_s168 >= 0;
+    __ret_0_ := c_s168;
+    return;
+}
+
+
+
+implementation add_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s169: int, b_s169: int)
+   returns (__ret_0_: int)
+{
+  var c_s168: int;
+
+    gas := gas - 12;
+    gas := gas - 68;
+    assume c_s168 >= 0;
+    assume a_s169 >= 0;
+    assume b_s169 >= 0;
+    assume a_s169 + b_s169 >= 0;
+    c_s168 := a_s169 + b_s169;
+    gas := gas - 104;
+    assume c_s168 >= 0;
+    assume a_s169 >= 0;
+    assert c_s168 >= a_s169;
+    gas := gas - 40;
+    assume c_s168 >= 0;
+    __ret_0_ := c_s168;
+    return;
+}
+
+
+
+implementation BasicToken_BasicToken_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __var_2: Ref;
+
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+    call __var_2 := FreshRefGenerator__fail();
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__balances_BasicToken[this] := __var_2;
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]] := zeroRefIntArr();
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := 0;
+    __tmp__totalSupply__BasicToken[this] := 0;
+}
+
+
+
+implementation BasicToken_BasicToken_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __var_2: Ref;
+
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+    call __var_2 := FreshRefGenerator__success();
+    if (revert)
+    {
+        return;
+    }
+
+    balances_BasicToken[this] := __var_2;
+    M_Ref_int_balances0[balances_BasicToken[this]] := zeroRefIntArr();
+    sum_balances0[balances_BasicToken[this]] := 0;
+    totalSupply__BasicToken[this] := 0;
+}
+
+
+
+implementation BasicToken_BasicToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation BasicToken_BasicToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation totalSupply_BasicToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
+{
+    gas := gas - 12;
+    gas := gas - 832;
+    assume __tmp__totalSupply__BasicToken[this] >= 0;
+    __ret_0_ := __tmp__totalSupply__BasicToken[this];
+    return;
+}
+
+
+
+implementation totalSupply_BasicToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
+{
+    gas := gas - 12;
+    gas := gas - 832;
+    assume totalSupply__BasicToken[this] >= 0;
+    __ret_0_ := totalSupply__BasicToken[this];
+    return;
+}
+
+
+
+implementation transfer_BasicToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s249: Ref, 
+    _value_s249: int)
+   returns (__ret_0_: bool)
+{
+  var __var_3: Ref;
+  var __var_4: int;
+  var __var_5: int;
+
+    gas := gas - 12;
+    gas := gas - 176;
+    __var_3 := null;
+    if (!(_to_s249 != null))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 1308;
+    assume _value_s249 >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG] >= 0;
+    if (!(_value_s249
+       <= __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG]))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 81748;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG] >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG] >= 0;
+    assume _value_s249 >= 0;
+    call __var_4 := sub_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG], _value_s249);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       - __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG];
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG] := __var_4;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       + __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][msgsender_MSG];
+    assume __var_4 >= 0;
+    gas := gas - 81732;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s249] >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s249] >= 0;
+    assume _value_s249 >= 0;
+    call __var_5 := add_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s249], _value_s249);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       - __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s249];
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s249] := __var_5;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       + __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s249];
+    assume __var_5 >= 0;
+    gas := gas - 32;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation transfer_BasicToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s249: Ref, 
+    _value_s249: int)
+   returns (__ret_0_: bool)
+{
+  var __var_3: Ref;
+  var __var_4: int;
+  var __var_5: int;
+
+    gas := gas - 12;
+    gas := gas - 176;
+    __var_3 := null;
+    if (!(_to_s249 != null))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 1308;
+    assume _value_s249 >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG] >= 0;
+    if (!(_value_s249 <= M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG]))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 81748;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG] >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG] >= 0;
+    assume _value_s249 >= 0;
+    call __var_4 := sub_SafeMath__success(this, this, 0, M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG], _value_s249);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       - M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG];
+    M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG] := __var_4;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       + M_Ref_int_balances0[balances_BasicToken[this]][msgsender_MSG];
+    assume __var_4 >= 0;
+    gas := gas - 81732;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_to_s249] >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_to_s249] >= 0;
+    assume _value_s249 >= 0;
+    call __var_5 := add_SafeMath__success(this, this, 0, M_Ref_int_balances0[balances_BasicToken[this]][_to_s249], _value_s249);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       - M_Ref_int_balances0[balances_BasicToken[this]][_to_s249];
+    M_Ref_int_balances0[balances_BasicToken[this]][_to_s249] := __var_5;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       + M_Ref_int_balances0[balances_BasicToken[this]][_to_s249];
+    assume __var_5 >= 0;
+    assert {:EventEmitted "Transfer_BasicToken"} true;
+    gas := gas - 32;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation balanceOf_BasicToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _owner_s261: Ref)
+   returns (balance_s261: int)
+{
+    gas := gas - 12;
+    gas := gas - 1216;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_owner_s261] >= 0;
+    balance_s261 := __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_owner_s261];
+    return;
+}
+
+
+
+implementation balanceOf_BasicToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _owner_s261: Ref)
+   returns (balance_s261: int)
+{
+    gas := gas - 12;
+    gas := gas - 1216;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_owner_s261] >= 0;
+    balance_s261 := M_Ref_int_balances0[balances_BasicToken[this]][_owner_s261];
+    return;
+}
+
+
+
+implementation StandardToken_StandardToken_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __var_6: Ref;
+
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+    call __var_6 := FreshRefGenerator__fail();
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__allowed_StandardToken[this] := __var_6;
+    __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]] := zeroRefRefArr();
+    __tmp__M_Ref_int_allowed1[null] := zeroRefIntArr();
+}
+
+
+
+implementation StandardToken_StandardToken_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+  var __var_6: Ref;
+
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+    call __var_6 := FreshRefGenerator__success();
+    if (revert)
+    {
+        return;
+    }
+
+    allowed_StandardToken[this] := __var_6;
+    M_Ref_Ref_allowed1[allowed_StandardToken[this]] := zeroRefRefArr();
+    M_Ref_int_allowed1[null] := zeroRefIntArr();
+}
+
+
+
+implementation StandardToken_StandardToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call StandardToken_StandardToken_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation StandardToken_StandardToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call StandardToken_StandardToken_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation transferFrom_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s358: Ref, 
+    _to_s358: Ref, 
+    _value_s358: int)
+   returns (__ret_0_: bool)
+{
+  var __var_7: Ref;
+  var __var_8: Ref;
+  var __var_9: int;
+  var __var_10: int;
+  var __var_11: Ref;
+  var __var_12: int;
+  var __var_13: Ref;
+
+    gas := gas - 9;
+    gas := gas - 132;
+    __var_7 := null;
+    if (!(_to_s358 != null))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 984;
+    assume _value_s358 >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358] >= 0;
+    if (!(_value_s358
+       <= __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358]))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 1251;
+    assume _value_s358 >= 0;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]
+       == null)
+    {
+        call __var_8 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358] := __var_8;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG]
+       >= 0;
+    if (!(_value_s358
+       <= __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG]))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 61317;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358] >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358] >= 0;
+    assume _value_s358 >= 0;
+    call __var_9 := sub_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358], _value_s358);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       - __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358];
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358] := __var_9;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       + __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s358];
+    assume __var_9 >= 0;
+    gas := gas - 61299;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s358] >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s358] >= 0;
+    assume _value_s358 >= 0;
+    call __var_10 := add_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s358], _value_s358);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       - __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s358];
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s358] := __var_10;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       + __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s358];
+    assume __var_10 >= 0;
+    gas := gas - 61833;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]
+       == null)
+    {
+        call __var_11 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358] := __var_11;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG]
+       >= 0;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]
+       == null)
+    {
+        call __var_13 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358] := __var_13;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG]
+       >= 0;
+    assume _value_s358 >= 0;
+    call __var_12 := sub_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG], _value_s358);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]]
+       - __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG];
+    __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG] := __var_12;
+    __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]]
+       + __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_from_s358]][msgsender_MSG];
+    assume __var_12 >= 0;
+    gas := gas - 24;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation transferFrom_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s358: Ref, 
+    _to_s358: Ref, 
+    _value_s358: int)
+   returns (__ret_0_: bool)
+{
+  var __var_7: Ref;
+  var __var_8: Ref;
+  var __var_9: int;
+  var __var_10: int;
+  var __var_11: Ref;
+  var __var_12: int;
+  var __var_13: Ref;
+
+    gas := gas - 9;
+    gas := gas - 132;
+    __var_7 := null;
+    if (!(_to_s358 != null))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 984;
+    assume _value_s358 >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_from_s358] >= 0;
+    if (!(_value_s358 <= M_Ref_int_balances0[balances_BasicToken[this]][_from_s358]))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 1251;
+    assume _value_s358 >= 0;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358] == null)
+    {
+        call __var_8 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358] := __var_8;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG]
+       >= 0;
+    if (!(_value_s358
+       <= M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG]))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 61317;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_from_s358] >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_from_s358] >= 0;
+    assume _value_s358 >= 0;
+    call __var_9 := sub_SafeMath__success(this, this, 0, M_Ref_int_balances0[balances_BasicToken[this]][_from_s358], _value_s358);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       - M_Ref_int_balances0[balances_BasicToken[this]][_from_s358];
+    M_Ref_int_balances0[balances_BasicToken[this]][_from_s358] := __var_9;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       + M_Ref_int_balances0[balances_BasicToken[this]][_from_s358];
+    assume __var_9 >= 0;
+    gas := gas - 61299;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_to_s358] >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_to_s358] >= 0;
+    assume _value_s358 >= 0;
+    call __var_10 := add_SafeMath__success(this, this, 0, M_Ref_int_balances0[balances_BasicToken[this]][_to_s358], _value_s358);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       - M_Ref_int_balances0[balances_BasicToken[this]][_to_s358];
+    M_Ref_int_balances0[balances_BasicToken[this]][_to_s358] := __var_10;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       + M_Ref_int_balances0[balances_BasicToken[this]][_to_s358];
+    assume __var_10 >= 0;
+    gas := gas - 61833;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358] == null)
+    {
+        call __var_11 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358] := __var_11;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG]
+       >= 0;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358] == null)
+    {
+        call __var_13 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358] := __var_13;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG]
+       >= 0;
+    assume _value_s358 >= 0;
+    call __var_12 := sub_SafeMath__success(this, this, 0, M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG], _value_s358);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]]
+       - M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG];
+    M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG] := __var_12;
+    sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]]
+       + M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_from_s358]][msgsender_MSG];
+    assume __var_12 >= 0;
+    assert {:EventEmitted "Transfer_StandardToken"} true;
+    gas := gas - 24;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation approve_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s386: Ref, 
+    _value_s386: int)
+   returns (__ret_0_: bool)
+{
+  var __var_14: Ref;
+
+    gas := gas - 9;
+    gas := gas - 60597;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]
+       == null)
+    {
+        call __var_14 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG] := __var_14;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s386]
+       >= 0;
+    assume _value_s386 >= 0;
+    __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+       - __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s386];
+    __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s386] := _value_s386;
+    __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+       + __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s386];
+    gas := gas - 24;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation approve_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s386: Ref, 
+    _value_s386: int)
+   returns (__ret_0_: bool)
+{
+  var __var_14: Ref;
+
+    gas := gas - 9;
+    gas := gas - 60597;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] == null)
+    {
+        call __var_14 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] := __var_14;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s386]
+       >= 0;
+    assume _value_s386 >= 0;
+    sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+       - M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s386];
+    M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s386] := _value_s386;
+    sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+       + M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s386];
+    assert {:EventEmitted "Approval_StandardToken"} true;
+    gas := gas - 24;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation allowance_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _owner_s402: Ref, 
+    _spender_s402: Ref)
+   returns (__ret_0_: int)
+{
+  var __var_15: Ref;
+
+    gas := gas - 9;
+    gas := gas - 1182;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_owner_s402]
+       == null)
+    {
+        call __var_15 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_owner_s402] := __var_15;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_owner_s402]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_owner_s402]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_owner_s402]][_spender_s402]
+       >= 0;
+    __ret_0_ := __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][_owner_s402]][_spender_s402];
+    return;
+}
+
+
+
+implementation allowance_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _owner_s402: Ref, 
+    _spender_s402: Ref)
+   returns (__ret_0_: int)
+{
+  var __var_15: Ref;
+
+    gas := gas - 9;
+    gas := gas - 1182;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][_owner_s402] == null)
+    {
+        call __var_15 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][_owner_s402] := __var_15;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_owner_s402]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_owner_s402]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_owner_s402]][_spender_s402]
+       >= 0;
+    __ret_0_ := M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][_owner_s402]][_spender_s402];
+    return;
+}
+
+
+
+implementation increaseApproval_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s443: Ref, 
+    _addedValue_s443: int)
+   returns (__ret_0_: bool)
+{
+  var __var_16: Ref;
+  var __var_17: int;
+  var __var_18: Ref;
+
+    gas := gas - 9;
+    gas := gas - 61851;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]
+       == null)
+    {
+        call __var_16 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG] := __var_16;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s443]
+       >= 0;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]
+       == null)
+    {
+        call __var_18 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG] := __var_18;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s443]
+       >= 0;
+    assume _addedValue_s443 >= 0;
+    call __var_17 := add_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s443], _addedValue_s443);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+       - __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s443];
+    __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s443] := __var_17;
+    __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+       + __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s443];
+    assume __var_17 >= 0;
+    gas := gas - 24;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation increaseApproval_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s443: Ref, 
+    _addedValue_s443: int)
+   returns (__ret_0_: bool)
+{
+  var __var_16: Ref;
+  var __var_17: int;
+  var __var_18: Ref;
+
+    gas := gas - 9;
+    gas := gas - 61851;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] == null)
+    {
+        call __var_16 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] := __var_16;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s443]
+       >= 0;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] == null)
+    {
+        call __var_18 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] := __var_18;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s443]
+       >= 0;
+    assume _addedValue_s443 >= 0;
+    call __var_17 := add_SafeMath__success(this, this, 0, M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s443], _addedValue_s443);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+       - M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s443];
+    M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s443] := __var_17;
+    sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+       + M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s443];
+    assume __var_17 >= 0;
+    assert {:EventEmitted "Approval_StandardToken"} true;
+    gas := gas - 24;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation decreaseApproval_StandardToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s503: Ref, 
+    _subtractedValue_s503: int)
+   returns (__ret_0_: bool)
+{
+  var oldValue_s502: int;
+  var __var_19: Ref;
+  var __var_20: Ref;
+  var __var_21: Ref;
+  var __var_22: int;
+
+    gas := gas - 9;
+    gas := gas - 1188;
+    assume oldValue_s502 >= 0;
+    if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]
+       == null)
+    {
+        call __var_19 := FreshRefGenerator__fail();
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG] := __var_19;
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503]
+       >= 0;
+    oldValue_s502 := __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+    gas := gas - 27;
+    assume _subtractedValue_s503 >= 0;
+    assume oldValue_s502 >= 0;
+    if (_subtractedValue_s503 > oldValue_s502)
+    {
+        gas := gas - 15597;
+        if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]
+           == null)
+        {
+            call __var_20 := FreshRefGenerator__fail();
+            if (revert)
+            {
+                return;
+            }
+
+            __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG] := __var_20;
+            __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+            __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := 0;
+        }
+
+        assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503]
+           >= 0;
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+           - __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503] := 0;
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+           + __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+    }
+    else
+    {
+        gas := gas - 60696;
+        if (__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]
+           == null)
+        {
+            call __var_21 := FreshRefGenerator__fail();
+            if (revert)
+            {
+                return;
+            }
+
+            __tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG] := __var_21;
+            __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+            __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := 0;
+        }
+
+        assume __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503]
+           >= 0;
+        assume oldValue_s502 >= 0;
+        assume _subtractedValue_s503 >= 0;
+        call __var_22 := sub_SafeMath__fail(this, this, 0, oldValue_s502, _subtractedValue_s503);
+        if (revert)
+        {
+            return;
+        }
+
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+           - __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+        __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503] := __var_22;
+        __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]] := __tmp__sum_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]]
+           + __tmp__M_Ref_int_allowed1[__tmp__M_Ref_Ref_allowed1[__tmp__allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+        assume __var_22 >= 0;
+    }
+
+    gas := gas - 30;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation decreaseApproval_StandardToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _spender_s503: Ref, 
+    _subtractedValue_s503: int)
+   returns (__ret_0_: bool)
+{
+  var oldValue_s502: int;
+  var __var_19: Ref;
+  var __var_20: Ref;
+  var __var_21: Ref;
+  var __var_22: int;
+
+    gas := gas - 9;
+    gas := gas - 1188;
+    assume oldValue_s502 >= 0;
+    if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] == null)
+    {
+        call __var_19 := FreshRefGenerator__success();
+        if (revert)
+        {
+            return;
+        }
+
+        M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] := __var_19;
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := 0;
+    }
+
+    assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503]
+       >= 0;
+    oldValue_s502 := M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+    gas := gas - 27;
+    assume _subtractedValue_s503 >= 0;
+    assume oldValue_s502 >= 0;
+    if (_subtractedValue_s503 > oldValue_s502)
+    {
+        gas := gas - 15597;
+        if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] == null)
+        {
+            call __var_20 := FreshRefGenerator__success();
+            if (revert)
+            {
+                return;
+            }
+
+            M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] := __var_20;
+            M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+            sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := 0;
+        }
+
+        assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503]
+           >= 0;
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+           - M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503] := 0;
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+           + M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+    }
+    else
+    {
+        gas := gas - 60696;
+        if (M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] == null)
+        {
+            call __var_21 := FreshRefGenerator__success();
+            if (revert)
+            {
+                return;
+            }
+
+            M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG] := __var_21;
+            M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := zeroRefIntArr();
+            sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := 0;
+        }
+
+        assume M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503]
+           >= 0;
+        assume oldValue_s502 >= 0;
+        assume _subtractedValue_s503 >= 0;
+        call __var_22 := sub_SafeMath__success(this, this, 0, oldValue_s502, _subtractedValue_s503);
+        if (revert)
+        {
+            return;
+        }
+
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+           - M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+        M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503] := __var_22;
+        sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]] := sum_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]]
+           + M_Ref_int_allowed1[M_Ref_Ref_allowed1[allowed_StandardToken[this]][msgsender_MSG]][_spender_s503];
+        assume __var_22 >= 0;
+    }
+
+    assert {:EventEmitted "Approval_StandardToken"} true;
+    gas := gas - 30;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation MintableToken_MintableToken_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+    __tmp__mintingFinished_MintableToken[this] := false;
+    __tmp__transferAllowed_MintableToken[this] := false;
+}
+
+
+
+implementation MintableToken_MintableToken_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+    mintingFinished_MintableToken[this] := false;
+    transferAllowed_MintableToken[this] := false;
+}
+
+
+
+implementation MintableToken_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call StandardToken_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call Ownable_Ownable__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call MintableToken_MintableToken_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation MintableToken_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call StandardToken_StandardToken__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call Ownable_Ownable__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call MintableToken_MintableToken_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation mint_MintableToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s584: Ref, 
+    _amount_s584: int)
+   returns (__ret_0_: bool)
+{
+  var __var_23: int;
+  var __var_24: int;
+
+    gas := gas - 6;
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call canMint_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40494;
+    assume __tmp__totalSupply__BasicToken[this] >= 0;
+    assume __tmp__totalSupply__BasicToken[this] >= 0;
+    assume _amount_s584 >= 0;
+    call __var_23 := add_SafeMath__fail(this, this, 0, __tmp__totalSupply__BasicToken[this], _amount_s584);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__totalSupply__BasicToken[this] := __var_23;
+    assume __var_23 >= 0;
+    gas := gas - 40878;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s584] >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s584] >= 0;
+    assume _amount_s584 >= 0;
+    call __var_24 := add_SafeMath__fail(this, this, 0, __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s584], _amount_s584);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       - __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s584];
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s584] := __var_24;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       + __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_to_s584];
+    assume __var_24 >= 0;
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation mint_MintableToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s584: Ref, 
+    _amount_s584: int)
+   returns (__ret_0_: bool)
+{
+  var __var_23: int;
+  var __var_24: int;
+
+    gas := gas - 6;
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call canMint_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40494;
+    assume totalSupply__BasicToken[this] >= 0;
+    assume totalSupply__BasicToken[this] >= 0;
+    assume _amount_s584 >= 0;
+    call __var_23 := add_SafeMath__success(this, this, 0, totalSupply__BasicToken[this], _amount_s584);
+    if (revert)
+    {
+        return;
+    }
+
+    totalSupply__BasicToken[this] := __var_23;
+    assume __var_23 >= 0;
+    gas := gas - 40878;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_to_s584] >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_to_s584] >= 0;
+    assume _amount_s584 >= 0;
+    call __var_24 := add_SafeMath__success(this, this, 0, M_Ref_int_balances0[balances_BasicToken[this]][_to_s584], _amount_s584);
+    if (revert)
+    {
+        return;
+    }
+
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       - M_Ref_int_balances0[balances_BasicToken[this]][_to_s584];
+    M_Ref_int_balances0[balances_BasicToken[this]][_to_s584] := __var_24;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       + M_Ref_int_balances0[balances_BasicToken[this]][_to_s584];
+    assume __var_24 >= 0;
+    assert {:EventEmitted "Mint_MintableToken"} true;
+    assert {:EventEmitted "Transfer_MintableToken"} true;
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation finishMinting_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool)
+{
+    gas := gas - 6;
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call canMint_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    __tmp__mintingFinished_MintableToken[this] := true;
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation finishMinting_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool)
+{
+    gas := gas - 6;
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call canMint_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    mintingFinished_MintableToken[this] := true;
+    assert {:EventEmitted "MintFinished_MintableToken"} true;
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation resumeMinting_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool)
+{
+    gas := gas - 6;
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    __tmp__mintingFinished_MintableToken[this] := false;
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation resumeMinting_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: bool)
+{
+    gas := gas - 6;
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    mintingFinished_MintableToken[this] := false;
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation burn_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _from_s661: Ref)
+   returns (success_s661: bool)
+{
+  var tokencount_s660: int;
+  var __var_25: int;
+
+    gas := gas - 6;
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 656;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661] >= 0;
+    if (!(__tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661] != 0))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 614;
+    assume tokencount_s660 >= 0;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661] >= 0;
+    tokencount_s660 := __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661];
+    gas := gas - 10208;
+    assume __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661] >= 0;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       - __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661];
+    __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661] := 0;
+    __tmp__sum_balances0[__tmp__balances_BasicToken[this]] := __tmp__sum_balances0[__tmp__balances_BasicToken[this]]
+       + __tmp__M_Ref_int_balances0[__tmp__balances_BasicToken[this]][_from_s661];
+    gas := gas - 40494;
+    assume __tmp__totalSupply__BasicToken[this] >= 0;
+    assume __tmp__totalSupply__BasicToken[this] >= 0;
+    assume tokencount_s660 >= 0;
+    call __var_25 := sub_SafeMath__fail(this, this, 0, __tmp__totalSupply__BasicToken[this], tokencount_s660);
+    if (revert)
+    {
+        return;
+    }
+
+    __tmp__totalSupply__BasicToken[this] := __var_25;
+    assume __var_25 >= 0;
+    gas := gas - 20;
+    success_s661 := true;
+    return;
+}
+
+
+
+implementation burn_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, _from_s661: Ref)
+   returns (success_s661: bool)
+{
+  var tokencount_s660: int;
+  var __var_25: int;
+
+    gas := gas - 6;
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 656;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_from_s661] >= 0;
+    if (!(M_Ref_int_balances0[balances_BasicToken[this]][_from_s661] != 0))
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 614;
+    assume tokencount_s660 >= 0;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_from_s661] >= 0;
+    tokencount_s660 := M_Ref_int_balances0[balances_BasicToken[this]][_from_s661];
+    gas := gas - 10208;
+    assume M_Ref_int_balances0[balances_BasicToken[this]][_from_s661] >= 0;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       - M_Ref_int_balances0[balances_BasicToken[this]][_from_s661];
+    M_Ref_int_balances0[balances_BasicToken[this]][_from_s661] := 0;
+    sum_balances0[balances_BasicToken[this]] := sum_balances0[balances_BasicToken[this]]
+       + M_Ref_int_balances0[balances_BasicToken[this]][_from_s661];
+    gas := gas - 40494;
+    assume totalSupply__BasicToken[this] >= 0;
+    assume totalSupply__BasicToken[this] >= 0;
+    assume tokencount_s660 >= 0;
+    call __var_25 := sub_SafeMath__success(this, this, 0, totalSupply__BasicToken[this], tokencount_s660);
+    if (revert)
+    {
+        return;
+    }
+
+    totalSupply__BasicToken[this] := __var_25;
+    assume __var_25 >= 0;
+    assert {:EventEmitted "Burn_MintableToken"} true;
+    gas := gas - 20;
+    success_s661 := true;
+    return;
+}
+
+
+
+implementation startTransfer_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    __tmp__transferAllowed_MintableToken[this] := true;
+}
+
+
+
+implementation startTransfer_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    transferAllowed_MintableToken[this] := true;
+}
+
+
+
+implementation endTransfer_MintableToken__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call onlyOwner_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    __tmp__transferAllowed_MintableToken[this] := false;
+}
+
+
+
+implementation endTransfer_MintableToken__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call onlyOwner_pre__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    gas := gas - 40634;
+    transferAllowed_MintableToken[this] := false;
+}
+
+
+
+implementation transfer_MintableToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s704: Ref, 
+    _value_s704: int)
+   returns (__ret_0_: bool)
+{
+  var __var_26: bool;
+  var __var_27: int;
+
+    gas := gas - 6;
+    gas := gas - 618;
+    if (!__tmp__transferAllowed_MintableToken[this])
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 24;
+    assume _value_s704 >= 0;
+    if (__tmp__DType[this] == ZebiCoin)
+    {
+        call __var_26 := transfer_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else if (__tmp__DType[this] == MintableToken)
+    {
+        call __var_26 := transfer_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else
+    {
+        assume false;
+    }
+
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation transfer_MintableToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _to_s704: Ref, 
+    _value_s704: int)
+   returns (__ret_0_: bool)
+{
+  var __var_26: bool;
+  var __var_27: int;
+
+    gas := gas - 6;
+    gas := gas - 618;
+    if (!transferAllowed_MintableToken[this])
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 24;
+    assume _value_s704 >= 0;
+    if (DType[this] == ZebiCoin)
+    {
+        call __var_26 := transfer_BasicToken__success(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else if (DType[this] == MintableToken)
+    {
+        call __var_26 := transfer_BasicToken__success(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else
+    {
+        assume false;
+    }
+
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation transferFrom_MintableToken__fail(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s730: Ref, 
+    _to_s730: Ref, 
+    _value_s730: int)
+   returns (__ret_0_: bool)
+{
+  var __var_28: bool;
+  var __var_29: int;
+
+    gas := gas - 6;
+    gas := gas - 618;
+    if (!__tmp__transferAllowed_MintableToken[this])
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 30;
+    assume _value_s730 >= 0;
+    if (__tmp__DType[this] == ZebiCoin)
+    {
+        call __var_28 := transferFrom_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else if (__tmp__DType[this] == MintableToken)
+    {
+        call __var_28 := transferFrom_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else
+    {
+        assume false;
+    }
+
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation transferFrom_MintableToken__success(this: Ref, 
+    msgsender_MSG: Ref, 
+    msgvalue_MSG: int, 
+    _from_s730: Ref, 
+    _to_s730: Ref, 
+    _value_s730: int)
+   returns (__ret_0_: bool)
+{
+  var __var_28: bool;
+  var __var_29: int;
+
+    gas := gas - 6;
+    gas := gas - 618;
+    if (!transferAllowed_MintableToken[this])
+    {
+        revert := true;
+        return;
+    }
+
+    gas := gas - 30;
+    assume _value_s730 >= 0;
+    if (DType[this] == ZebiCoin)
+    {
+        call __var_28 := transferFrom_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else if (DType[this] == MintableToken)
+    {
+        call __var_28 := transferFrom_StandardToken__success(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+        if (revert)
+        {
+            return;
+        }
+    }
+    else
+    {
+        assume false;
+    }
+
+    gas := gas - 16;
+    __ret_0_ := true;
+    return;
+}
+
+
+
+implementation ZebiCoin_ZebiCoin_NoBaseCtor__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    __tmp__Balance[this] := 0;
+    __tmp__name_ZebiCoin[this] := -1241236991;
+    __tmp__symbol_ZebiCoin[this] := -1863929834;
+    __tmp__decimals_ZebiCoin[this] := 8;
+}
+
+
+
+implementation ZebiCoin_ZebiCoin_NoBaseCtor__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    assume msgsender_MSG != null;
+    Balance[this] := 0;
+    name_ZebiCoin[this] := -1241236991;
+    symbol_ZebiCoin[this] := -1863929834;
+    decimals_ZebiCoin[this] := 8;
+}
+
+
+
+implementation ZebiCoin_ZebiCoin__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call StandardToken_StandardToken__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call Ownable_Ownable__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call MintableToken_MintableToken__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ZebiCoin_ZebiCoin_NoBaseCtor__fail(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation ZebiCoin_ZebiCoin__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ERC20_ERC20__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call BasicToken_BasicToken__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call StandardToken_StandardToken__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call Ownable_Ownable__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call MintableToken_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+
+    call ZebiCoin_ZebiCoin_NoBaseCtor__success(this, msgsender_MSG, msgvalue_MSG);
+    if (revert)
+    {
+        return;
+    }
+}
+
+
+
+implementation FallbackDispatch__fail(from: Ref, to: Ref, amount: int)
+{
+    if (__tmp__DType[to] == ZebiCoin)
+    {
+        assume amount == 0;
+    }
+    else if (__tmp__DType[to] == MintableToken)
+    {
+        assume amount == 0;
+    }
+    else if (__tmp__DType[to] == StandardToken)
+    {
+        assume amount == 0;
+    }
+    else if (__tmp__DType[to] == BasicToken)
+    {
+        assume amount == 0;
+    }
+    else if (__tmp__DType[to] == ERC20)
+    {
+        assume amount == 0;
+    }
+    else if (__tmp__DType[to] == ERC20Basic)
+    {
+        assume amount == 0;
+    }
+    else if (__tmp__DType[to] == Ownable)
+    {
+        assume amount == 0;
+    }
+    else
+    {
+        call Fallback_UnknownType__fail(from, to, amount);
+        if (revert)
+        {
+            return;
+        }
+    }
+}
+
+
+
+implementation FallbackDispatch__success(from: Ref, to: Ref, amount: int)
+{
+    if (DType[to] == ZebiCoin)
+    {
+        assume amount == 0;
+    }
+    else if (DType[to] == MintableToken)
+    {
+        assume amount == 0;
+    }
+    else if (DType[to] == StandardToken)
+    {
+        assume amount == 0;
+    }
+    else if (DType[to] == BasicToken)
+    {
+        assume amount == 0;
+    }
+    else if (DType[to] == ERC20)
+    {
+        assume amount == 0;
+    }
+    else if (DType[to] == ERC20Basic)
+    {
+        assume amount == 0;
+    }
+    else if (DType[to] == Ownable)
+    {
+        assume amount == 0;
+    }
+    else
+    {
+        call Fallback_UnknownType__success(from, to, amount);
+        if (revert)
+        {
+            return;
+        }
+    }
+}
+
+
+
+implementation Fallback_UnknownType__fail(from: Ref, to: Ref, amount: int)
+{
+    assume __tmp__Balance[from] >= amount;
+    __tmp__Balance[from] := __tmp__Balance[from] - amount;
+    __tmp__Balance[to] := __tmp__Balance[to] + amount;
+}
+
+
+
+implementation Fallback_UnknownType__success(from: Ref, to: Ref, amount: int)
+{
+    assume Balance[from] >= amount;
+    Balance[from] := Balance[from] - amount;
+    Balance[to] := Balance[to] + amount;
+}
+
+
+
+implementation send__fail(from: Ref, to: Ref, amount: int) returns (success: bool)
+{
+  var __exception: bool;
+  var __snap___tmp__Balance: [Ref]int;
+  var __snap___tmp__DType: [Ref]ContractName;
+  var __snap___tmp__Alloc: [Ref]bool;
+  var __snap___tmp__balance_ADDR: [Ref]int;
+  var __snap___tmp__M_Ref_int_balances0: [Ref][Ref]int;
+  var __snap___tmp__sum_balances0: [Ref]int;
+  var __snap___tmp__M_Ref_int_allowed1: [Ref][Ref]int;
+  var __snap___tmp__M_Ref_Ref_allowed1: [Ref][Ref]Ref;
+  var __snap___tmp__sum_allowed1: [Ref]int;
+  var __snap___tmp__Length: [Ref]int;
+  var __snap___tmp__now: int;
+  var __snap___tmp__owner_Ownable: [Ref]Ref;
+  var __snap___tmp__balances_BasicToken: [Ref]Ref;
+  var __snap___tmp__totalSupply__BasicToken: [Ref]int;
+  var __snap___tmp__allowed_StandardToken: [Ref]Ref;
+  var __snap___tmp__mintingFinished_MintableToken: [Ref]bool;
+  var __snap___tmp__transferAllowed_MintableToken: [Ref]bool;
+  var __snap___tmp__name_ZebiCoin: [Ref]int;
+  var __snap___tmp__symbol_ZebiCoin: [Ref]int;
+  var __snap___tmp__decimals_ZebiCoin: [Ref]int;
+
+    havoc __exception;
+    if (__exception)
+    {
+        __snap___tmp__Balance := __tmp__Balance;
+        __snap___tmp__DType := __tmp__DType;
+        __snap___tmp__Alloc := __tmp__Alloc;
+        __snap___tmp__balance_ADDR := __tmp__balance_ADDR;
+        __snap___tmp__M_Ref_int_balances0 := __tmp__M_Ref_int_balances0;
+        __snap___tmp__sum_balances0 := __tmp__sum_balances0;
+        __snap___tmp__M_Ref_int_allowed1 := __tmp__M_Ref_int_allowed1;
+        __snap___tmp__M_Ref_Ref_allowed1 := __tmp__M_Ref_Ref_allowed1;
+        __snap___tmp__sum_allowed1 := __tmp__sum_allowed1;
+        __snap___tmp__Length := __tmp__Length;
+        __snap___tmp__now := __tmp__now;
+        __snap___tmp__owner_Ownable := __tmp__owner_Ownable;
+        __snap___tmp__balances_BasicToken := __tmp__balances_BasicToken;
+        __snap___tmp__totalSupply__BasicToken := __tmp__totalSupply__BasicToken;
+        __snap___tmp__allowed_StandardToken := __tmp__allowed_StandardToken;
+        __snap___tmp__mintingFinished_MintableToken := __tmp__mintingFinished_MintableToken;
+        __snap___tmp__transferAllowed_MintableToken := __tmp__transferAllowed_MintableToken;
+        __snap___tmp__name_ZebiCoin := __tmp__name_ZebiCoin;
+        __snap___tmp__symbol_ZebiCoin := __tmp__symbol_ZebiCoin;
+        __snap___tmp__decimals_ZebiCoin := __tmp__decimals_ZebiCoin;
+        if (__tmp__Balance[from] >= amount)
+        {
+            call FallbackDispatch__fail(from, to, amount);
+        }
+
+        success := false;
+        assume revert || gas < 0;
+        __tmp__Balance := __snap___tmp__Balance;
+        __tmp__DType := __snap___tmp__DType;
+        __tmp__Alloc := __snap___tmp__Alloc;
+        __tmp__balance_ADDR := __snap___tmp__balance_ADDR;
+        __tmp__M_Ref_int_balances0 := __snap___tmp__M_Ref_int_balances0;
+        __tmp__sum_balances0 := __snap___tmp__sum_balances0;
+        __tmp__M_Ref_int_allowed1 := __snap___tmp__M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := __snap___tmp__M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := __snap___tmp__sum_allowed1;
+        __tmp__Length := __snap___tmp__Length;
+        __tmp__now := __snap___tmp__now;
+        __tmp__owner_Ownable := __snap___tmp__owner_Ownable;
+        __tmp__balances_BasicToken := __snap___tmp__balances_BasicToken;
+        __tmp__totalSupply__BasicToken := __snap___tmp__totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := __snap___tmp__allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := __snap___tmp__mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := __snap___tmp__transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := __snap___tmp__name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := __snap___tmp__symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := __snap___tmp__decimals_ZebiCoin;
+        revert := false;
+    }
+    else
+    {
+        if (__tmp__Balance[from] >= amount)
+        {
+            call FallbackDispatch__fail(from, to, amount);
+            success := true;
+        }
+        else
+        {
+            success := false;
+        }
+
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+implementation send__success(from: Ref, to: Ref, amount: int) returns (success: bool)
+{
+  var __exception: bool;
+
+    havoc __exception;
+    if (__exception)
+    {
+        __tmp__Balance := Balance;
+        __tmp__DType := DType;
+        __tmp__Alloc := Alloc;
+        __tmp__balance_ADDR := balance_ADDR;
+        __tmp__M_Ref_int_balances0 := M_Ref_int_balances0;
+        __tmp__sum_balances0 := sum_balances0;
+        __tmp__M_Ref_int_allowed1 := M_Ref_int_allowed1;
+        __tmp__M_Ref_Ref_allowed1 := M_Ref_Ref_allowed1;
+        __tmp__sum_allowed1 := sum_allowed1;
+        __tmp__Length := Length;
+        __tmp__now := now;
+        __tmp__owner_Ownable := owner_Ownable;
+        __tmp__balances_BasicToken := balances_BasicToken;
+        __tmp__totalSupply__BasicToken := totalSupply__BasicToken;
+        __tmp__allowed_StandardToken := allowed_StandardToken;
+        __tmp__mintingFinished_MintableToken := mintingFinished_MintableToken;
+        __tmp__transferAllowed_MintableToken := transferAllowed_MintableToken;
+        __tmp__name_ZebiCoin := name_ZebiCoin;
+        __tmp__symbol_ZebiCoin := symbol_ZebiCoin;
+        __tmp__decimals_ZebiCoin := decimals_ZebiCoin;
+        if (__tmp__Balance[from] >= amount)
+        {
+            call FallbackDispatch__fail(from, to, amount);
+        }
+
+        success := false;
+        assume revert || gas < 0;
+        revert := false;
+    }
+    else
+    {
+        if (Balance[from] >= amount)
+        {
+            call FallbackDispatch__success(from, to, amount);
+            success := true;
+        }
+        else
+        {
+            success := false;
+        }
+
+        assume !revert && gas >= 0;
+    }
+}
+
+
+
+implementation onlyOwner_pre__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    gas := gas - 4140;
+    if (!(msgsender_MSG == __tmp__owner_Ownable[this]))
+    {
+        revert := true;
+        return;
+    }
+}
+
+
+
+implementation onlyOwner_pre__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    gas := gas - 4140;
+    if (!(msgsender_MSG == owner_Ownable[this]))
+    {
+        revert := true;
+        return;
+    }
+}
+
+
+
+implementation canMint_pre__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    gas := gas - 1248;
+    if (!!__tmp__mintingFinished_MintableToken[this])
+    {
+        revert := true;
+        return;
+    }
+}
+
+
+
+implementation canMint_pre__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int)
+{
+    gas := gas - 1248;
+    if (!!mintingFinished_MintableToken[this])
+    {
+        revert := true;
+        return;
+    }
+}
+
+
+
+implementation CorralChoice_Ownable(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var newOwner_s54: Ref;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc newOwner_s54;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call transferOwnership_Ownable(this, msgsender_MSG, msgvalue_MSG, newOwner_s54);
+    }
+}
+
+
+
+implementation CorralEntry_Ownable()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == Ownable
+       || DType[this] == MintableToken
+       || DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call Ownable_Ownable(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_Ownable(this);
+    }
+}
+
+
+
+implementation CorralChoice_ERC20Basic(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var __ret_0_totalSupply: int;
+  var who_s67: Ref;
+  var __ret_0_balanceOf: int;
+  var to_s76: Ref;
+  var value_s76: int;
+  var __ret_0_transfer: bool;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc __ret_0_totalSupply;
+    havoc who_s67;
+    havoc __ret_0_balanceOf;
+    havoc to_s76;
+    havoc value_s76;
+    havoc __ret_0_transfer;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 3)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_totalSupply := totalSupply_ERC20Basic(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 2)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_balanceOf := balanceOf_ERC20Basic(this, msgsender_MSG, msgvalue_MSG, who_s67);
+    }
+    else if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transfer := transfer_ERC20Basic(this, msgsender_MSG, msgvalue_MSG, to_s76, value_s76);
+    }
+}
+
+
+
+implementation CorralEntry_ERC20Basic()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == ERC20Basic
+       || DType[this] == ERC20
+       || DType[this] == BasicToken
+       || DType[this] == StandardToken
+       || DType[this] == MintableToken
+       || DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call ERC20Basic_ERC20Basic__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_ERC20Basic(this);
+    }
+}
+
+
+
+implementation CorralChoice_ERC20(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var __ret_0_totalSupply: int;
+  var who_s67: Ref;
+  var __ret_0_balanceOf: int;
+  var to_s76: Ref;
+  var value_s76: int;
+  var __ret_0_transfer: bool;
+  var owner_s96: Ref;
+  var spender_s96: Ref;
+  var __ret_0_allowance: int;
+  var from_s107: Ref;
+  var to_s107: Ref;
+  var value_s107: int;
+  var __ret_0_transferFrom: bool;
+  var spender_s116: Ref;
+  var value_s116: int;
+  var __ret_0_approve: bool;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc __ret_0_totalSupply;
+    havoc who_s67;
+    havoc __ret_0_balanceOf;
+    havoc to_s76;
+    havoc value_s76;
+    havoc __ret_0_transfer;
+    havoc owner_s96;
+    havoc spender_s96;
+    havoc __ret_0_allowance;
+    havoc from_s107;
+    havoc to_s107;
+    havoc value_s107;
+    havoc __ret_0_transferFrom;
+    havoc spender_s116;
+    havoc value_s116;
+    havoc __ret_0_approve;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 6)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_totalSupply := totalSupply_ERC20Basic(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 5)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_balanceOf := balanceOf_ERC20Basic(this, msgsender_MSG, msgvalue_MSG, who_s67);
+    }
+    else if (choice == 4)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transfer := transfer_ERC20Basic(this, msgsender_MSG, msgvalue_MSG, to_s76, value_s76);
+    }
+    else if (choice == 3)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_allowance := allowance_ERC20(this, msgsender_MSG, msgvalue_MSG, owner_s96, spender_s96);
+    }
+    else if (choice == 2)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transferFrom := transferFrom_ERC20(this, msgsender_MSG, msgvalue_MSG, from_s107, to_s107, value_s107);
+    }
+    else if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_approve := approve_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s116, value_s116);
+    }
+}
+
+
+
+implementation CorralEntry_ERC20()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == ERC20
+       || DType[this] == StandardToken
+       || DType[this] == MintableToken
+       || DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call ERC20_ERC20__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_ERC20(this);
+    }
+}
+
+
+
+implementation CorralChoice_SafeMath(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+}
+
+
+
+implementation CorralEntry_SafeMath()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == SafeMath;
+    gas := gas - 53000;
+    call SafeMath_SafeMath__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_SafeMath(this);
+    }
+}
+
+
+
+implementation CorralChoice_BasicToken(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var __ret_0_totalSupply: int;
+  var _owner_s261: Ref;
+  var balance_s261: int;
+  var _to_s249: Ref;
+  var _value_s249: int;
+  var __ret_0_transfer: bool;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc __ret_0_totalSupply;
+    havoc _owner_s261;
+    havoc balance_s261;
+    havoc _to_s249;
+    havoc _value_s249;
+    havoc __ret_0_transfer;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 3)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_totalSupply := totalSupply_BasicToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 2)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call balance_s261 := balanceOf_BasicToken(this, msgsender_MSG, msgvalue_MSG, _owner_s261);
+    }
+    else if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transfer := transfer_BasicToken(this, msgsender_MSG, msgvalue_MSG, _to_s249, _value_s249);
+    }
+}
+
+
+
+implementation CorralEntry_BasicToken()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == BasicToken
+       || DType[this] == StandardToken
+       || DType[this] == MintableToken
+       || DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call BasicToken_BasicToken__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_BasicToken(this);
+    }
+}
+
+
+
+implementation CorralChoice_StandardToken(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var __ret_0_totalSupply: int;
+  var _owner_s261: Ref;
+  var balance_s261: int;
+  var _to_s249: Ref;
+  var _value_s249: int;
+  var __ret_0_transfer: bool;
+  var _owner_s402: Ref;
+  var _spender_s402: Ref;
+  var __ret_0_allowance: int;
+  var _from_s358: Ref;
+  var _to_s358: Ref;
+  var _value_s358: int;
+  var __ret_0_transferFrom: bool;
+  var _spender_s386: Ref;
+  var _value_s386: int;
+  var __ret_0_approve: bool;
+  var _spender_s443: Ref;
+  var _addedValue_s443: int;
+  var __ret_0_increaseApproval: bool;
+  var _spender_s503: Ref;
+  var _subtractedValue_s503: int;
+  var __ret_0_decreaseApproval: bool;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc __ret_0_totalSupply;
+    havoc _owner_s261;
+    havoc balance_s261;
+    havoc _to_s249;
+    havoc _value_s249;
+    havoc __ret_0_transfer;
+    havoc _owner_s402;
+    havoc _spender_s402;
+    havoc __ret_0_allowance;
+    havoc _from_s358;
+    havoc _to_s358;
+    havoc _value_s358;
+    havoc __ret_0_transferFrom;
+    havoc _spender_s386;
+    havoc _value_s386;
+    havoc __ret_0_approve;
+    havoc _spender_s443;
+    havoc _addedValue_s443;
+    havoc __ret_0_increaseApproval;
+    havoc _spender_s503;
+    havoc _subtractedValue_s503;
+    havoc __ret_0_decreaseApproval;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 8)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_totalSupply := totalSupply_BasicToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 7)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call balance_s261 := balanceOf_BasicToken(this, msgsender_MSG, msgvalue_MSG, _owner_s261);
+    }
+    else if (choice == 6)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transfer := transfer_BasicToken(this, msgsender_MSG, msgvalue_MSG, _to_s249, _value_s249);
+    }
+    else if (choice == 5)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_allowance := allowance_StandardToken(this, msgsender_MSG, msgvalue_MSG, _owner_s402, _spender_s402);
+    }
+    else if (choice == 4)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transferFrom := transferFrom_StandardToken(this, msgsender_MSG, msgvalue_MSG, _from_s358, _to_s358, _value_s358);
+    }
+    else if (choice == 3)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_approve := approve_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s386, _value_s386);
+    }
+    else if (choice == 2)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_increaseApproval := increaseApproval_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s443, _addedValue_s443);
+    }
+    else if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_decreaseApproval := decreaseApproval_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s503, _subtractedValue_s503);
+    }
+}
+
+
+
+implementation CorralEntry_StandardToken()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == StandardToken
+       || DType[this] == MintableToken
+       || DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call StandardToken_StandardToken__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_StandardToken(this);
+    }
+}
+
+
+
+implementation CorralChoice_MintableToken(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var newOwner_s54: Ref;
+  var __ret_0_totalSupply: int;
+  var _owner_s261: Ref;
+  var balance_s261: int;
+  var _to_s704: Ref;
+  var _value_s704: int;
+  var __ret_0_transfer: bool;
+  var _owner_s402: Ref;
+  var _spender_s402: Ref;
+  var __ret_0_allowance: int;
+  var _from_s730: Ref;
+  var _to_s730: Ref;
+  var _value_s730: int;
+  var __ret_0_transferFrom: bool;
+  var _spender_s386: Ref;
+  var _value_s386: int;
+  var __ret_0_approve: bool;
+  var _spender_s443: Ref;
+  var _addedValue_s443: int;
+  var __ret_0_increaseApproval: bool;
+  var _spender_s503: Ref;
+  var _subtractedValue_s503: int;
+  var __ret_0_decreaseApproval: bool;
+  var _to_s584: Ref;
+  var _amount_s584: int;
+  var __ret_0_mint: bool;
+  var __ret_0_finishMinting: bool;
+  var __ret_0_resumeMinting: bool;
+  var _from_s661: Ref;
+  var success_s661: bool;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc newOwner_s54;
+    havoc __ret_0_totalSupply;
+    havoc _owner_s261;
+    havoc balance_s261;
+    havoc _to_s704;
+    havoc _value_s704;
+    havoc __ret_0_transfer;
+    havoc _owner_s402;
+    havoc _spender_s402;
+    havoc __ret_0_allowance;
+    havoc _from_s730;
+    havoc _to_s730;
+    havoc _value_s730;
+    havoc __ret_0_transferFrom;
+    havoc _spender_s386;
+    havoc _value_s386;
+    havoc __ret_0_approve;
+    havoc _spender_s443;
+    havoc _addedValue_s443;
+    havoc __ret_0_increaseApproval;
+    havoc _spender_s503;
+    havoc _subtractedValue_s503;
+    havoc __ret_0_decreaseApproval;
+    havoc _to_s584;
+    havoc _amount_s584;
+    havoc __ret_0_mint;
+    havoc __ret_0_finishMinting;
+    havoc __ret_0_resumeMinting;
+    havoc _from_s661;
+    havoc success_s661;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 15)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call transferOwnership_Ownable(this, msgsender_MSG, msgvalue_MSG, newOwner_s54);
+    }
+    else if (choice == 14)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_totalSupply := totalSupply_BasicToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 13)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call balance_s261 := balanceOf_BasicToken(this, msgsender_MSG, msgvalue_MSG, _owner_s261);
+    }
+    else if (choice == 12)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transfer := transfer_MintableToken(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+    }
+    else if (choice == 11)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_allowance := allowance_StandardToken(this, msgsender_MSG, msgvalue_MSG, _owner_s402, _spender_s402);
+    }
+    else if (choice == 10)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transferFrom := transferFrom_MintableToken(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+    }
+    else if (choice == 9)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_approve := approve_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s386, _value_s386);
+    }
+    else if (choice == 8)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_increaseApproval := increaseApproval_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s443, _addedValue_s443);
+    }
+    else if (choice == 7)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_decreaseApproval := decreaseApproval_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s503, _subtractedValue_s503);
+    }
+    else if (choice == 6)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_mint := mint_MintableToken(this, msgsender_MSG, msgvalue_MSG, _to_s584, _amount_s584);
+    }
+    else if (choice == 5)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_finishMinting := finishMinting_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 4)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_resumeMinting := resumeMinting_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 3)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call success_s661 := burn_MintableToken(this, msgsender_MSG, msgvalue_MSG, _from_s661);
+    }
+    else if (choice == 2)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call startTransfer_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call endTransfer_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+}
+
+
+
+implementation CorralEntry_MintableToken()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == MintableToken || DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call MintableToken_MintableToken__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_MintableToken(this);
+    }
+}
+
+
+
+implementation CorralChoice_ZebiCoin(this: Ref)
+{
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+  var choice: int;
+  var newOwner_s54: Ref;
+  var __ret_0_totalSupply: int;
+  var _owner_s261: Ref;
+  var balance_s261: int;
+  var _to_s704: Ref;
+  var _value_s704: int;
+  var __ret_0_transfer: bool;
+  var _owner_s402: Ref;
+  var _spender_s402: Ref;
+  var __ret_0_allowance: int;
+  var _from_s730: Ref;
+  var _to_s730: Ref;
+  var _value_s730: int;
+  var __ret_0_transferFrom: bool;
+  var _spender_s386: Ref;
+  var _value_s386: int;
+  var __ret_0_approve: bool;
+  var _spender_s443: Ref;
+  var _addedValue_s443: int;
+  var __ret_0_increaseApproval: bool;
+  var _spender_s503: Ref;
+  var _subtractedValue_s503: int;
+  var __ret_0_decreaseApproval: bool;
+  var _to_s584: Ref;
+  var _amount_s584: int;
+  var __ret_0_mint: bool;
+  var __ret_0_finishMinting: bool;
+  var __ret_0_resumeMinting: bool;
+  var _from_s661: Ref;
+  var success_s661: bool;
+  var tmpNow: int;
+
+    havoc msgsender_MSG;
+    havoc msgvalue_MSG;
+    havoc choice;
+    havoc newOwner_s54;
+    havoc __ret_0_totalSupply;
+    havoc _owner_s261;
+    havoc balance_s261;
+    havoc _to_s704;
+    havoc _value_s704;
+    havoc __ret_0_transfer;
+    havoc _owner_s402;
+    havoc _spender_s402;
+    havoc __ret_0_allowance;
+    havoc _from_s730;
+    havoc _to_s730;
+    havoc _value_s730;
+    havoc __ret_0_transferFrom;
+    havoc _spender_s386;
+    havoc _value_s386;
+    havoc __ret_0_approve;
+    havoc _spender_s443;
+    havoc _addedValue_s443;
+    havoc __ret_0_increaseApproval;
+    havoc _spender_s503;
+    havoc _subtractedValue_s503;
+    havoc __ret_0_decreaseApproval;
+    havoc _to_s584;
+    havoc _amount_s584;
+    havoc __ret_0_mint;
+    havoc __ret_0_finishMinting;
+    havoc __ret_0_resumeMinting;
+    havoc _from_s661;
+    havoc success_s661;
+    havoc tmpNow;
+    havoc gas;
+    assume gas > 4000000 && gas <= 8000000;
+    tmpNow := now;
+    havoc now;
+    assume now > tmpNow;
+    assume msgsender_MSG != null;
+    assume DType[msgsender_MSG] != Ownable;
+    assume DType[msgsender_MSG] != ERC20Basic;
+    assume DType[msgsender_MSG] != ERC20;
+    assume DType[msgsender_MSG] != SafeMath;
+    assume DType[msgsender_MSG] != BasicToken;
+    assume DType[msgsender_MSG] != StandardToken;
+    assume DType[msgsender_MSG] != MintableToken;
+    assume DType[msgsender_MSG] != ZebiCoin;
+    Alloc[msgsender_MSG] := true;
+    if (choice == 15)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call transferOwnership_Ownable(this, msgsender_MSG, msgvalue_MSG, newOwner_s54);
+    }
+    else if (choice == 14)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_totalSupply := totalSupply_BasicToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 13)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call balance_s261 := balanceOf_BasicToken(this, msgsender_MSG, msgvalue_MSG, _owner_s261);
+    }
+    else if (choice == 12)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transfer := transfer_MintableToken(this, msgsender_MSG, msgvalue_MSG, _to_s704, _value_s704);
+    }
+    else if (choice == 11)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_allowance := allowance_StandardToken(this, msgsender_MSG, msgvalue_MSG, _owner_s402, _spender_s402);
+    }
+    else if (choice == 10)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_transferFrom := transferFrom_MintableToken(this, msgsender_MSG, msgvalue_MSG, _from_s730, _to_s730, _value_s730);
+    }
+    else if (choice == 9)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_approve := approve_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s386, _value_s386);
+    }
+    else if (choice == 8)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_increaseApproval := increaseApproval_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s443, _addedValue_s443);
+    }
+    else if (choice == 7)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_decreaseApproval := decreaseApproval_StandardToken(this, msgsender_MSG, msgvalue_MSG, _spender_s503, _subtractedValue_s503);
+    }
+    else if (choice == 6)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_mint := mint_MintableToken(this, msgsender_MSG, msgvalue_MSG, _to_s584, _amount_s584);
+    }
+    else if (choice == 5)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_finishMinting := finishMinting_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 4)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call __ret_0_resumeMinting := resumeMinting_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 3)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call success_s661 := burn_MintableToken(this, msgsender_MSG, msgvalue_MSG, _from_s661);
+    }
+    else if (choice == 2)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call startTransfer_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+    else if (choice == 1)
+    {
+        gas := gas - 21000;
+        assume msgvalue_MSG == 0;
+        call endTransfer_MintableToken(this, msgsender_MSG, msgvalue_MSG);
+    }
+}
+
+
+
+implementation main()
+{
+  var this: Ref;
+  var msgsender_MSG: Ref;
+  var msgvalue_MSG: int;
+
+    assume null == 0;
+    call this := FreshRefGenerator__success();
+    assume now >= 0;
+    assume DType[this] == ZebiCoin;
+    gas := gas - 53000;
+    call ZebiCoin_ZebiCoin__success(this, msgsender_MSG, msgvalue_MSG);
+    assume !revert && gas >= 0;
+    while (true)
+    {
+        call CorralChoice_ZebiCoin(this);
+    }
+}
+
+

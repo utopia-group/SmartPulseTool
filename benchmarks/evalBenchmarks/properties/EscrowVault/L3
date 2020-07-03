@@ -1,0 +1,3 @@
+// #LTLVariables: ben:Ref,val:int
+// #LTLFairness: <>(finished(EscrowVault.close, (ben == this.beneficiary)))
+// #LTLProperty: (<>(finished(*, (fsum(send(from, to, amt), 2, (to == ben)) == fsum(EscrowVault.deposit, 2))) && X([](!finished(send(from, to, amt), (to == ben))))))
