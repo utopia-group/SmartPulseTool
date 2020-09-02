@@ -1,15 +1,37 @@
 // Boogie program verifier version 2.4.1.10503, Copyright (c) 2003-2014, Microsoft.
 // Command Line Options: /print:ERC20.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
 
-// LTLProperty: [](started(ERC20.totalSupply) ==> <>(finished(ERC20.totalSupply, __ret_0_ == this._totalSupply && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowances == old(this._allowances))))
 // LTLProperty: [](started(ERC20.totalSupply) ==> <>(finished(ERC20.totalSupply, __ret_0_ == this._totalSupply && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && _allowances_ERC20[this] == old(_allowances_ERC20[this]))))
 
-// LTLProperty: [](started(ERC20.balanceOf) ==> <>(finished(ERC20.balanceOf(owner), __ret_0_ == this._balances[owner] && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && M_Ref_int__allowances1 == old(M_Ref_int__allowances1) && M_Ref_Ref__allowances1 == old(M_Ref_Ref__allowances1))))
+// LTLProperty: [](started(ERC20.balanceOf) ==> <>(finished(ERC20.balanceOf(owner), __ret_0_ == this._balances[owner] && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && _allowances_ERC20[this] == old(_allowances_ERC20[this]))))
 
-// LTLProperty: [](started(ERC20.allowance) ==> <>(finished(ERC20.allowance(owner, spender), __ret_0_ == this._allowances[owner][spender] && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && M_Ref_int__allowances1 == old(M_Ref_int__allowances1) && M_Ref_Ref__allowances1 == old(M_Ref_Ref__allowances1))))
+// LTLProperty: [](started(ERC20.allowance) ==> <>(finished(ERC20.allowance(owner, spender), __ret_0_ == this._allowances[owner][spender] && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && _allowances_ERC20[this] == old(_allowances_ERC20[this]))))
 
-// #LTLVariables: p1:Ref,p2:Ref
-// #LTLProperty: [](started(ERC20.approve(spender, value), spender != null && (p1 != msg.sender || p2 != spender)) ==> <>(finished(ERC20.approve(spender, value), __ret_0_ == true && this._allowances[msg.sender][spender] == value && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && this._allowances[p1][p2] == old(this._allowances[p1][p2]))))
+// To be consisten with KEVM remove the spender != null
+// LTLVariables: p1:Ref,p2:Ref
+// LTLProperty: [](started(ERC20.approve(spender, value), spender != null && (p1 != msg.sender || p2 != spender)) ==> <>(finished(ERC20.approve(spender, value), __ret_0_ == true && this._allowances[msg.sender][spender] == value && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && this._allowances[p1][p2] == old(this._allowances[p1][p2]))))
+
+// To be consistent with KEVM remove the to != null
+// LTLVariables: p1:Ref
+// LTLProperty: [](started(ERC20.transfer(to, value), to != null && p1 != msg.sender && p1 != to && msg.sender != to && value <= this._balances[msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(ERC20.transfer(to, value), this._balances[msg.sender] == old(this._balances[msg.sender]) - value && this._balances[to] == old(this._balances[to]) + value && this._totalSupply == old(this._totalSupply) && _allowances_ERC20[this] == old(_allowances_ERC20[this]) && this._balances[p1] == old(this._balances[p1]))))
+
+// LTLProperty: [](started(ERC20.transfer(to, value), to != null && msg.sender == to && value <= this._balances[msg.sender]) ==> <>(finished(ERC20.transfer(to, value), this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && _allowances_ERC20[this] == old(_allowances_ERC20[this]))))
+
+// LTLProperty: [](started(ERC20.transfer(to, value), msg.sender != to && (value > this._balances[msg.sender] || this._balances[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(ERC20.transfer)))
+
+// LTLProperty: [](started(ERC20.transfer(to, value), msg.sender == to && value > this._balances[msg.sender]) ==> <>(reverted(ERC20.transfer)))
+
+// LTLVariables: p1:Ref,p2:Ref,p3:Ref
+// LTLProperty: [](started(ERC20.transferFrom(from, to, value), from != null && to != null && p1 != from && (p2 != from || p3 != msg.sender) && from != to && value <= this._balances[from] && value <= this._allowances[from][msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(ERC20.transferFrom(from, to, value), this._balances[from] == old(this._balances[from]) - value && this._balances[to] == old(this._balances[to]) + value && this._allowances[from][msg.sender] == old(this._allowances[from][msg.sender]) - value && this._totalSupply == old(this._totalSupply) && this._balances[p1] == old(this._balances[p1]) && this._allowances[p2][p3] == old(this._allowances[p2][p3]))))
+
+// LTLVariables: p1:Ref,p2:Ref
+// LTLProperty: [](started(ERC20.transferFrom(from, to, value), from != null && (p1 != from || p2 != msg.sender) && from == to && value <= this._balances[from] && value <= this._allowances[from][msg.sender]) ==> <>(finished(ERC20.transferFrom(from, to, value), this._allowances[from][msg.sender] == old(this._allowances[from][msg.sender]) - value && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && this._allowances[p1][p2] == old(this._allowances[p1][p2]))))
+
+// LTLProperty: [](started(ERC20.transferFrom(from, to, value), from != to && (value > this._balances[from] || value > this._allowances[from][msg.sender] || this._balances[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(ERC20.transferFrom)))
+
+// #LTLProperty: [](started(ERC20.transferFrom(from, to, value), from == to && (value > this._balances[from] || value > this._allowances[from][msg.sender])) ==> <>(reverted(ERC20.transferFrom)))
+
+
 
 // LTLVariables: p1:Ref,p2:Ref
 // LTLProperty: [](started(ERC20.approve(spender, value), spender != null) ==> <>(finished(ERC20.approve(spender, value), __ret_0_ == true && this._allowances[msg.sender][spender] == value && this._totalSupply == old(this._totalSupply) && M_Ref_int__balances0[_balances_ERC20[this]] == old(M_Ref_int__balances0[_balances_ERC20[this]]) && this._allowances[p1][p2] == old(this._allowances[p1][p2]))))
