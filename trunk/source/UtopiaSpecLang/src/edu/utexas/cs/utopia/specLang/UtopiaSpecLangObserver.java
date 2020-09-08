@@ -36,12 +36,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.IOUtils;
 
@@ -460,6 +462,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		
 		newProg = this.initializeFSums(fsums, newProg);
 		
+		Set<Event> foundEvents = new HashSet<>();
 		for (Declaration d : newProg.getDeclarations()) {
 			if (d instanceof Procedure) {
 				Procedure p = (Procedure) d;
@@ -516,6 +519,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 								|| (pname.equals("send__fail") && fname.equals("send__success") && e.getOp().equals("call"))) {
 //								|| (this.inFairness && pname.equals("send__fail") && fname.equals("send__success"))) {
 							instrumentVariableSet(p, b, e);	
+							foundEvents.add(e);
 						}
 
 						// Initialize global variables in ULTIMATE.start()
@@ -534,6 +538,12 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 				}
 			}
 		}	
+		
+		if(!foundEvents.containsAll(events)) {
+			Set<Event> eventSet = new HashSet<>(events);
+			eventSet.removeAll(foundEvents);
+			throw new RuntimeException("Could not find find the following functions: " + eventSet.stream().map(e -> e.getFunc().getName()).collect(Collectors.toSet()));
+		}
 
 
 		if (!setUltimateStart && !runOnce) {
@@ -1058,10 +1068,68 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		return access_map;
 	}
 	
+	private String extractBoogieVariable(String baseVar, int ind) {
+		for(; baseVar.charAt(ind) == ']' && ind < baseVar.length(); ind++);
+		String boogieVar = baseVar.substring(0, ind);
+		
+		int numBrackets = 0;
+		int i = -1;
+		for(i = boogieVar.length() - 1; i >= 0; i--) {
+			if(boogieVar.charAt(i) == ']') {
+				numBrackets++;
+			}
+			else if(boogieVar.charAt(i) == '[') {
+				numBrackets--;
+			}
+			
+			if(numBrackets < 0) {
+				i = i + 1;
+				break;
+			}
+		}
+		
+		return i == -1 ? boogieVar : boogieVar.substring(i);
+	}
+	
 	private String replace_solidity_vars(String spec, TreeMap<String, String> map) {
-		for (Map.Entry<String,String> entry : map.entrySet())  {
+		String mapRegex = ".+?(\\[[^\\]]+\\])";
+		Pattern mapPattern = Pattern.compile(mapRegex);
+		
+		Map<String, String> replacementsMap = new HashMap<>(map);
+		for(Map.Entry<String,String> entry : map.entrySet()) {
+			String solVar = entry.getKey();
+			String boogieVar = entry.getValue();
+			Matcher mapMatch = mapPattern.matcher(solVar);
+			
+			while(mapMatch.find()) {
+				String solStr = mapMatch.group(0);
+				String indStr = mapMatch.group(1);
+				
+				int indPos = boogieVar.indexOf(indStr);
+				if(indPos == -1) {
+					throw new RuntimeException("Could not find index " + indStr + " in boogie variable " + boogieVar);
+				}
+				
+				if(solStr.indexOf('[', solStr.indexOf('[') + 1) == -1) {
+					String newVar = extractBoogieVariable(boogieVar, indPos);
+					replacementsMap.put(solStr.substring(0, solStr.length() - indStr.length()), newVar);
+				}
+				
+				if(solStr.contentEquals(solVar)) {
+					continue;
+				}
+				
+				String newVar = extractBoogieVariable(boogieVar, indPos + indStr.length());
+				replacementsMap.put(solStr, newVar);
+			}
+		}
+		
+		
+		//String mapRegex = "[^\\[]+?(\\[([^\\]]+)\\])*";
+		for (Map.Entry<String,String> entry : replacementsMap.entrySet())  {
 			String sol_var = entry.getKey();
 			String boogie_var = entry.getValue();
+			
 			if (sol_var.contains("[i1]")) { // 2-d array
 				String regex = sol_var.replace("[i1]", "\\[([^\\]]*)\\]");
 				regex = regex.replace("[i0]", "\\[([^\\]]*)\\]");				
