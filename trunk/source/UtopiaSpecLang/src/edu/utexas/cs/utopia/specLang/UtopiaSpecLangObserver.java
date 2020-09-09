@@ -1130,25 +1130,25 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 			String sol_var = entry.getKey();
 			String boogie_var = entry.getValue();
 			
-			if (sol_var.contains("[i1]")) { // 2-d array
-				String regex = sol_var.replace("[i1]", "\\[([^\\]]*)\\]");
-				regex = regex.replace("[i0]", "\\[([^\\]]*)\\]");				
+			if (sol_var.contains("[i2]")) { // 2-d array
+				String regex = sol_var.replace("[i2]", "\\[([^\\]]*)\\]");
+				regex = regex.replace("[i1]", "\\[([^\\]]*)\\]");				
 				Pattern p = Pattern.compile(regex);
 				Matcher m = p.matcher(spec);
 				while (m.find()) {
 					String full_str = m.group(0);
-					String i0_rep = m.group(1);
-					String i1_rep = m.group(2);
-					spec = spec.replace(full_str, boogie_var.replace("[i0]", "["+i0_rep+"]").replace("[i1]", "["+i1_rep+"]"));
+					String i1_rep = m.group(1);
+					String i2_rep = m.group(2);
+					spec = spec.replace(full_str, boogie_var.replace("[i1]", "["+i1_rep+"]").replace("[i2]", "["+i2_rep+"]"));
 				}
-			} else if (sol_var.contains("[i0]")) { // 1-d array
-				String regex = sol_var.replace("[i0]", "\\[([^\\]]*)\\]");				
+			} else if (sol_var.contains("[i1]")) { // 1-d array
+				String regex = sol_var.replace("[i1]", "\\[([^\\]]*)\\]");				
 				Pattern p = Pattern.compile(regex);
 				Matcher m = p.matcher(spec);
 				while (m.find()) {
 					String full_str = m.group(0);
-					String i0_rep = m.group(1);
-					spec = spec.replace(full_str, boogie_var.replace("[i0]", "["+i0_rep+"]"));
+					String i1_rep = m.group(1);
+					spec = spec.replace(full_str, boogie_var.replace("[i1]", "["+i1_rep+"]"));
 				}
 			} else { // non-array global variable
 				spec = spec.replace(sol_var, boogie_var);
