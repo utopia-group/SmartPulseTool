@@ -183,9 +183,13 @@ bexpr ::=
 expr ::= 
 	name:n LBRACKET expr:e RBRACKET
 	{: RESULT = new ArrayAccessExpr(n,e); :}
-
+	
+	//do this properly
 	| name:n LBRACKET expr:e1 RBRACKET LBRACKET expr:e2 RBRACKET
 	{: RESULT = new ArrayAccessExpr(n,e1,e2); :}
+	
+	| name:n LBRACKET expr:e1 RBRACKET LBRACKET expr:e2 RBRACKET LBRACKET expr:e3 RBRACKET
+	{: RESULT = new ArrayAccessExpr(n,e1,e2,e3); :}
 
 	| OLD LPAR expr:e RPAR
 	{: RESULT = new UnaryTemporalOperator(UnaryTemporalType.old, e); :}
