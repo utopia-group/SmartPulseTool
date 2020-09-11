@@ -1,29 +1,30 @@
-// *verified*
+// *verified 15*
 // LTLProperty: [](started(ERC20.totalSupply) ==> <>(finished(ERC20.totalSupply, __ret_0_ == this._totalSupply && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed == old(this._allowed))))
 
-// *verified*
+// *verified 12*
 // LTLProperty: [](started(ERC20.balanceOf) ==> <>(finished(ERC20.balanceOf(owner), __ret_0_ == this._balances[owner] && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed == old(this._allowed))))
 
-// *verified*
+// *verified 15*
 // LTLProperty: [](started(ERC20.allowance) ==> <>(finished(ERC20.allowance(owner, spender), __ret_0_ == this._allowed[owner][spender] && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed == old(this._allowed))))
 
-// *doesn't account for pausing, adding [&& this._paused == false] is verified*
+// *doesn't account for pausing, adding [&& this._paused == false] is verified 25*
 // To be consistent with KEVM remove the spender != null
 // LTLVariables: p1:Ref,p2:Ref
 // LTLProperty: [](started(ERC20Pausable.approve(spender, value), spender != null && (p1 != msg.sender || p2 != spender)) ==> <>(finished(ERC20Pausable.approve(spender, value), __ret_0_ == true && this._allowed[msg.sender][spender] == value && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed[p1][p2] == old(this._allowed[p1][p2]))))
 
-// *doesn't account for pausing, adding [&& this._paused == false] is verified 65*
+// *doesn't account for pausing, adding [&& this._paused == false] is *
 // To be consistent with KEVM remove the to != null
 // #LTLVariables: p1:Ref
 // #LTLProperty: [](started(ERC20Pausable.transfer(to, value), to != null && p1 != msg.sender && p1 != to && msg.sender != to && value <= this._balances[msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._paused == false) ==> <>(finished(ERC20Pausable.transfer(to, value), this._balances[msg.sender] == old(this._balances[msg.sender]) - value && this._balances[to] == old(this._balances[to]) + value && this._totalSupply == old(this._totalSupply) && this._allowed == old(this._allowed) && this._balances[p1] == old(this._balances[p1]))))
 
-// *doesn't account for pausing, adding [&& this._paused == false] is verified 59*
+// this now runs for a long time
+// *doesn't account for pausing, adding [&& this._paused == false] is *
 // LTLProperty: [](started(ERC20Pausable.transfer(to, value), to != null && msg.sender == to && value <= this._balances[msg.sender] && this._paused == false) ==> <>(finished(ERC20Pausable.transfer(to, value), this._totalSupply == old(this._totalSupply)  && this._balances == old(this._balances) && this._allowed == old(this._allowed))))
 
-// *verified 21*
+// **
 // LTLProperty: [](started(ERC20Pausable.transfer(to, value), msg.sender != to && (value > this._balances[msg.sender] || this._balances[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(ERC20Pausable.transfer)))
 
-// 
+// **
 // LTLProperty: [](started(ERC20Pausable.transfer(to, value), msg.sender == to && value > this._balances[msg.sender]) ==> <>(reverted(ERC20Pausable.transfer)))
 
 // Should try to find another way of specifying this because SmartPulse runs out of memory
@@ -36,7 +37,6 @@
 // LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from != to && (value > this._balances[from] || value > this._allowed[from][msg.sender] || this._balances[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(ERC20Pausable.transferFrom)))
 
 // LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from == to && (value > this._balances[from] || value > this._allowed[from][msg.sender])) ==> <>(reverted(ERC20Pausable.transferFrom)))
-
 
 type Ref = int;
 type ContractName = int;
@@ -3977,25 +3977,15 @@ return;
 implementation mul_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s101: int, b_s101: int) returns (__ret_0_: int)
 {
 var c_s100: int;
-assume ((a_s101) >= (0));
 if ((a_s101) == (0)) {
 __ret_0_ := 0;
 return;
 }
-assume ((c_s100) >= (0));
-assume ((a_s101) >= (0));
-assume ((b_s101) >= (0));
-assume ((nonlinearMul(a_s101, b_s101)) >= (0));
-c_s100 := nonlinearMul(a_s101, b_s101);
-assume ((c_s100) >= (0));
-assume ((a_s101) >= (0));
-assume ((nonlinearDiv(c_s100, a_s101)) >= (0));
-assume ((b_s101) >= (0));
-if (!((nonlinearDiv(c_s100, a_s101)) == (b_s101))) {
+c_s100 := (nonlinearMul(a_s101, b_s101)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
+if (!(((nonlinearDiv(c_s100, a_s101)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936)) == (b_s101))) {
 revert := true;
 return;
 }
-assume ((c_s100) >= (0));
 __ret_0_ := c_s100;
 return;
 }
@@ -4003,25 +3993,15 @@ return;
 implementation mul_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s101: int, b_s101: int) returns (__ret_0_: int)
 {
 var c_s100: int;
-assume ((a_s101) >= (0));
 if ((a_s101) == (0)) {
 __ret_0_ := 0;
 return;
 }
-assume ((c_s100) >= (0));
-assume ((a_s101) >= (0));
-assume ((b_s101) >= (0));
-assume ((nonlinearMul(a_s101, b_s101)) >= (0));
-c_s100 := nonlinearMul(a_s101, b_s101);
-assume ((c_s100) >= (0));
-assume ((a_s101) >= (0));
-assume ((nonlinearDiv(c_s100, a_s101)) >= (0));
-assume ((b_s101) >= (0));
-if (!((nonlinearDiv(c_s100, a_s101)) == (b_s101))) {
+c_s100 := (nonlinearMul(a_s101, b_s101)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
+if (!(((nonlinearDiv(c_s100, a_s101)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936)) == (b_s101))) {
 revert := true;
 return;
 }
-assume ((c_s100) >= (0));
 __ret_0_ := c_s100;
 return;
 }
@@ -4029,17 +4009,11 @@ return;
 implementation div_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s125: int, b_s125: int) returns (__ret_0_: int)
 {
 var c_s124: int;
-assume ((b_s125) >= (0));
 if (!((b_s125) > (0))) {
 revert := true;
 return;
 }
-assume ((c_s124) >= (0));
-assume ((a_s125) >= (0));
-assume ((b_s125) >= (0));
-assume ((nonlinearDiv(a_s125, b_s125)) >= (0));
-c_s124 := nonlinearDiv(a_s125, b_s125);
-assume ((c_s124) >= (0));
+c_s124 := (nonlinearDiv(a_s125, b_s125)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 __ret_0_ := c_s124;
 return;
 }
@@ -4047,17 +4021,11 @@ return;
 implementation div_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s125: int, b_s125: int) returns (__ret_0_: int)
 {
 var c_s124: int;
-assume ((b_s125) >= (0));
 if (!((b_s125) > (0))) {
 revert := true;
 return;
 }
-assume ((c_s124) >= (0));
-assume ((a_s125) >= (0));
-assume ((b_s125) >= (0));
-assume ((nonlinearDiv(a_s125, b_s125)) >= (0));
-c_s124 := nonlinearDiv(a_s125, b_s125);
-assume ((c_s124) >= (0));
+c_s124 := (nonlinearDiv(a_s125, b_s125)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 __ret_0_ := c_s124;
 return;
 }
@@ -4065,18 +4033,11 @@ return;
 implementation sub_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s149: int, b_s149: int) returns (__ret_0_: int)
 {
 var c_s148: int;
-assume ((b_s149) >= (0));
-assume ((a_s149) >= (0));
 if (!((b_s149) <= (a_s149))) {
 revert := true;
 return;
 }
-assume ((c_s148) >= (0));
-assume ((a_s149) >= (0));
-assume ((b_s149) >= (0));
-assume (((a_s149) - (b_s149)) >= (0));
-c_s148 := (a_s149) - (b_s149);
-assume ((c_s148) >= (0));
+c_s148 := ((a_s149) - (b_s149)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 __ret_0_ := c_s148;
 return;
 }
@@ -4084,18 +4045,11 @@ return;
 implementation sub_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s149: int, b_s149: int) returns (__ret_0_: int)
 {
 var c_s148: int;
-assume ((b_s149) >= (0));
-assume ((a_s149) >= (0));
 if (!((b_s149) <= (a_s149))) {
 revert := true;
 return;
 }
-assume ((c_s148) >= (0));
-assume ((a_s149) >= (0));
-assume ((b_s149) >= (0));
-assume (((a_s149) - (b_s149)) >= (0));
-c_s148 := (a_s149) - (b_s149);
-assume ((c_s148) >= (0));
+c_s148 := ((a_s149) - (b_s149)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 __ret_0_ := c_s148;
 return;
 }
@@ -4103,18 +4057,11 @@ return;
 implementation add_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s173: int, b_s173: int) returns (__ret_0_: int)
 {
 var c_s172: int;
-assume ((c_s172) >= (0));
-assume ((a_s173) >= (0));
-assume ((b_s173) >= (0));
-assume (((a_s173) + (b_s173)) >= (0));
-c_s172 := (a_s173) + (b_s173);
-assume ((c_s172) >= (0));
-assume ((a_s173) >= (0));
+c_s172 := ((a_s173) + (b_s173)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 if (!((c_s172) >= (a_s173))) {
 revert := true;
 return;
 }
-assume ((c_s172) >= (0));
 __ret_0_ := c_s172;
 return;
 }
@@ -4122,47 +4069,32 @@ return;
 implementation add_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s173: int, b_s173: int) returns (__ret_0_: int)
 {
 var c_s172: int;
-assume ((c_s172) >= (0));
-assume ((a_s173) >= (0));
-assume ((b_s173) >= (0));
-assume (((a_s173) + (b_s173)) >= (0));
-c_s172 := (a_s173) + (b_s173);
-assume ((c_s172) >= (0));
-assume ((a_s173) >= (0));
+c_s172 := ((a_s173) + (b_s173)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 if (!((c_s172) >= (a_s173))) {
 revert := true;
 return;
 }
-assume ((c_s172) >= (0));
 __ret_0_ := c_s172;
 return;
 }
 
 implementation mod_SafeMath__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s193: int, b_s193: int) returns (__ret_0_: int)
 {
-assume ((b_s193) >= (0));
 if (!((b_s193) != (0))) {
 revert := true;
 return;
 }
-assume ((a_s193) >= (0));
-assume ((b_s193) >= (0));
-assume ((nonlinearMod(a_s193, b_s193)) >= (0));
-__ret_0_ := nonlinearMod(a_s193, b_s193);
+__ret_0_ := (nonlinearMod(a_s193, b_s193)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 return;
 }
 
 implementation mod_SafeMath__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, a_s193: int, b_s193: int) returns (__ret_0_: int)
 {
-assume ((b_s193) >= (0));
 if (!((b_s193) != (0))) {
 revert := true;
 return;
 }
-assume ((a_s193) >= (0));
-assume ((b_s193) >= (0));
-assume ((nonlinearMod(a_s193, b_s193)) >= (0));
-__ret_0_ := nonlinearMod(a_s193, b_s193);
+__ret_0_ := (nonlinearMod(a_s193, b_s193)) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 return;
 }
 
@@ -4218,49 +4150,42 @@ return;
 
 implementation totalSupply_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
 {
-assume ((__tmp___totalSupply_ERC20[this]) >= (0));
 __ret_0_ := __tmp___totalSupply_ERC20[this];
 return;
 }
 
 implementation totalSupply_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
 {
-assume ((_totalSupply_ERC20[this]) >= (0));
 __ret_0_ := _totalSupply_ERC20[this];
 return;
 }
 
 implementation balanceOf_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, owner_s231: Ref) returns (__ret_0_: int)
 {
-assume ((__tmp___balances_ERC20[this][owner_s231]) >= (0));
 __ret_0_ := __tmp___balances_ERC20[this][owner_s231];
 return;
 }
 
 implementation balanceOf_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, owner_s231: Ref) returns (__ret_0_: int)
 {
-assume ((_balances_ERC20[this][owner_s231]) >= (0));
 __ret_0_ := _balances_ERC20[this][owner_s231];
 return;
 }
 
 implementation allowance_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, owner_s247: Ref, spender_s247: Ref) returns (__ret_0_: int)
 {
-assume ((__tmp___allowed_ERC20[this][owner_s247][spender_s247]) >= (0));
 __ret_0_ := __tmp___allowed_ERC20[this][owner_s247][spender_s247];
 return;
 }
 
 implementation allowance_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, owner_s247: Ref, spender_s247: Ref) returns (__ret_0_: int)
 {
-assume ((_allowed_ERC20[this][owner_s247][spender_s247]) >= (0));
 __ret_0_ := _allowed_ERC20[this][owner_s247][spender_s247];
 return;
 }
 
 implementation transfer_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, to_s266: Ref, value_s266: int) returns (__ret_0_: bool)
 {
-assume ((value_s266) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call _transfer_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, msgsender_MSG, to_s266, value_s266);
 if (revert) {
@@ -4295,7 +4220,6 @@ return;
 
 implementation transfer_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, to_s266: Ref, value_s266: int) returns (__ret_0_: bool)
 {
-assume ((value_s266) >= (0));
 if ((DType[this]) == (OMToken)) {
 call _transfer_ERC20__success(this, msgsender_MSG, msgvalue_MSG, msgsender_MSG, to_s266, value_s266);
 if (revert) {
@@ -4336,8 +4260,6 @@ if (!((spender_s302) != (null))) {
 revert := true;
 return;
 }
-assume ((__tmp___allowed_ERC20[this][msgsender_MSG][spender_s302]) >= (0));
-assume ((value_s302) >= (0));
 __tmp__sum__allowed1[msgsender_MSG] := (__tmp__sum__allowed1[msgsender_MSG]) - (__tmp___allowed_ERC20[this][msgsender_MSG][spender_s302]);
 __tmp___allowed_ERC20[this][msgsender_MSG][spender_s302] := value_s302;
 __tmp__sum__allowed1[msgsender_MSG] := (__tmp__sum__allowed1[msgsender_MSG]) + (__tmp___allowed_ERC20[this][msgsender_MSG][spender_s302]);
@@ -4353,8 +4275,6 @@ if (!((spender_s302) != (null))) {
 revert := true;
 return;
 }
-assume ((_allowed_ERC20[this][msgsender_MSG][spender_s302]) >= (0));
-assume ((value_s302) >= (0));
 sum__allowed1[msgsender_MSG] := (sum__allowed1[msgsender_MSG]) - (_allowed_ERC20[this][msgsender_MSG][spender_s302]);
 _allowed_ERC20[this][msgsender_MSG][spender_s302] := value_s302;
 sum__allowed1[msgsender_MSG] := (sum__allowed1[msgsender_MSG]) + (_allowed_ERC20[this][msgsender_MSG][spender_s302]);
@@ -4366,9 +4286,6 @@ return;
 implementation transferFrom_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, from_s351: Ref, to_s351: Ref, value_s351: int) returns (__ret_0_: bool)
 {
 var __var_2: int;
-assume ((__tmp___allowed_ERC20[this][from_s351][msgsender_MSG]) >= (0));
-assume ((__tmp___allowed_ERC20[this][from_s351][msgsender_MSG]) >= (0));
-assume ((value_s351) >= (0));
 call __var_2 := sub_SafeMath__fail(this, this, 0, __tmp___allowed_ERC20[this][from_s351][msgsender_MSG], value_s351);
 if (revert) {
 return;
@@ -4376,8 +4293,6 @@ return;
 __tmp__sum__allowed1[from_s351] := (__tmp__sum__allowed1[from_s351]) - (__tmp___allowed_ERC20[this][from_s351][msgsender_MSG]);
 __tmp___allowed_ERC20[this][from_s351][msgsender_MSG] := __var_2;
 __tmp__sum__allowed1[from_s351] := (__tmp__sum__allowed1[from_s351]) + (__tmp___allowed_ERC20[this][from_s351][msgsender_MSG]);
-assume ((__var_2) >= (0));
-assume ((value_s351) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call _transfer_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -4413,9 +4328,6 @@ return;
 implementation transferFrom_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, from_s351: Ref, to_s351: Ref, value_s351: int) returns (__ret_0_: bool)
 {
 var __var_2: int;
-assume ((_allowed_ERC20[this][from_s351][msgsender_MSG]) >= (0));
-assume ((_allowed_ERC20[this][from_s351][msgsender_MSG]) >= (0));
-assume ((value_s351) >= (0));
 call __var_2 := sub_SafeMath__success(this, this, 0, _allowed_ERC20[this][from_s351][msgsender_MSG], value_s351);
 if (revert) {
 return;
@@ -4423,8 +4335,6 @@ return;
 sum__allowed1[from_s351] := (sum__allowed1[from_s351]) - (_allowed_ERC20[this][from_s351][msgsender_MSG]);
 _allowed_ERC20[this][from_s351][msgsender_MSG] := __var_2;
 sum__allowed1[from_s351] := (sum__allowed1[from_s351]) + (_allowed_ERC20[this][from_s351][msgsender_MSG]);
-assume ((__var_2) >= (0));
-assume ((value_s351) >= (0));
 if ((DType[this]) == (OMToken)) {
 call _transfer_ERC20__success(this, msgsender_MSG, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -4467,9 +4377,6 @@ if (!((spender_s400) != (null))) {
 revert := true;
 return;
 }
-assume ((__tmp___allowed_ERC20[this][msgsender_MSG][spender_s400]) >= (0));
-assume ((__tmp___allowed_ERC20[this][msgsender_MSG][spender_s400]) >= (0));
-assume ((addedValue_s400) >= (0));
 call __var_4 := add_SafeMath__fail(this, this, 0, __tmp___allowed_ERC20[this][msgsender_MSG][spender_s400], addedValue_s400);
 if (revert) {
 return;
@@ -4477,7 +4384,6 @@ return;
 __tmp__sum__allowed1[msgsender_MSG] := (__tmp__sum__allowed1[msgsender_MSG]) - (__tmp___allowed_ERC20[this][msgsender_MSG][spender_s400]);
 __tmp___allowed_ERC20[this][msgsender_MSG][spender_s400] := __var_4;
 __tmp__sum__allowed1[msgsender_MSG] := (__tmp__sum__allowed1[msgsender_MSG]) + (__tmp___allowed_ERC20[this][msgsender_MSG][spender_s400]);
-assume ((__var_4) >= (0));
 __ret_0_ := true;
 return;
 }
@@ -4491,9 +4397,6 @@ if (!((spender_s400) != (null))) {
 revert := true;
 return;
 }
-assume ((_allowed_ERC20[this][msgsender_MSG][spender_s400]) >= (0));
-assume ((_allowed_ERC20[this][msgsender_MSG][spender_s400]) >= (0));
-assume ((addedValue_s400) >= (0));
 call __var_4 := add_SafeMath__success(this, this, 0, _allowed_ERC20[this][msgsender_MSG][spender_s400], addedValue_s400);
 if (revert) {
 return;
@@ -4501,7 +4404,6 @@ return;
 sum__allowed1[msgsender_MSG] := (sum__allowed1[msgsender_MSG]) - (_allowed_ERC20[this][msgsender_MSG][spender_s400]);
 _allowed_ERC20[this][msgsender_MSG][spender_s400] := __var_4;
 sum__allowed1[msgsender_MSG] := (sum__allowed1[msgsender_MSG]) + (_allowed_ERC20[this][msgsender_MSG][spender_s400]);
-assume ((__var_4) >= (0));
 assert {:EventEmitted "Approval_ERC20"} (true);
 __ret_0_ := true;
 return;
@@ -4516,9 +4418,6 @@ if (!((spender_s449) != (null))) {
 revert := true;
 return;
 }
-assume ((__tmp___allowed_ERC20[this][msgsender_MSG][spender_s449]) >= (0));
-assume ((__tmp___allowed_ERC20[this][msgsender_MSG][spender_s449]) >= (0));
-assume ((subtractedValue_s449) >= (0));
 call __var_6 := sub_SafeMath__fail(this, this, 0, __tmp___allowed_ERC20[this][msgsender_MSG][spender_s449], subtractedValue_s449);
 if (revert) {
 return;
@@ -4526,7 +4425,6 @@ return;
 __tmp__sum__allowed1[msgsender_MSG] := (__tmp__sum__allowed1[msgsender_MSG]) - (__tmp___allowed_ERC20[this][msgsender_MSG][spender_s449]);
 __tmp___allowed_ERC20[this][msgsender_MSG][spender_s449] := __var_6;
 __tmp__sum__allowed1[msgsender_MSG] := (__tmp__sum__allowed1[msgsender_MSG]) + (__tmp___allowed_ERC20[this][msgsender_MSG][spender_s449]);
-assume ((__var_6) >= (0));
 __ret_0_ := true;
 return;
 }
@@ -4540,9 +4438,6 @@ if (!((spender_s449) != (null))) {
 revert := true;
 return;
 }
-assume ((_allowed_ERC20[this][msgsender_MSG][spender_s449]) >= (0));
-assume ((_allowed_ERC20[this][msgsender_MSG][spender_s449]) >= (0));
-assume ((subtractedValue_s449) >= (0));
 call __var_6 := sub_SafeMath__success(this, this, 0, _allowed_ERC20[this][msgsender_MSG][spender_s449], subtractedValue_s449);
 if (revert) {
 return;
@@ -4550,7 +4445,6 @@ return;
 sum__allowed1[msgsender_MSG] := (sum__allowed1[msgsender_MSG]) - (_allowed_ERC20[this][msgsender_MSG][spender_s449]);
 _allowed_ERC20[this][msgsender_MSG][spender_s449] := __var_6;
 sum__allowed1[msgsender_MSG] := (sum__allowed1[msgsender_MSG]) + (_allowed_ERC20[this][msgsender_MSG][spender_s449]);
-assume ((__var_6) >= (0));
 assert {:EventEmitted "Approval_ERC20"} (true);
 __ret_0_ := true;
 return;
@@ -4566,9 +4460,6 @@ if (!((to_s495) != (null))) {
 revert := true;
 return;
 }
-assume ((__tmp___balances_ERC20[this][from_s495]) >= (0));
-assume ((__tmp___balances_ERC20[this][from_s495]) >= (0));
-assume ((value_s495) >= (0));
 call __var_8 := sub_SafeMath__fail(this, this, 0, __tmp___balances_ERC20[this][from_s495], value_s495);
 if (revert) {
 return;
@@ -4576,10 +4467,6 @@ return;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) - (__tmp___balances_ERC20[this][from_s495]);
 __tmp___balances_ERC20[this][from_s495] := __var_8;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) + (__tmp___balances_ERC20[this][from_s495]);
-assume ((__var_8) >= (0));
-assume ((__tmp___balances_ERC20[this][to_s495]) >= (0));
-assume ((__tmp___balances_ERC20[this][to_s495]) >= (0));
-assume ((value_s495) >= (0));
 call __var_9 := add_SafeMath__fail(this, this, 0, __tmp___balances_ERC20[this][to_s495], value_s495);
 if (revert) {
 return;
@@ -4587,7 +4474,6 @@ return;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) - (__tmp___balances_ERC20[this][to_s495]);
 __tmp___balances_ERC20[this][to_s495] := __var_9;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) + (__tmp___balances_ERC20[this][to_s495]);
-assume ((__var_9) >= (0));
 }
 
 implementation _transfer_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, from_s495: Ref, to_s495: Ref, value_s495: int)
@@ -4600,9 +4486,6 @@ if (!((to_s495) != (null))) {
 revert := true;
 return;
 }
-assume ((_balances_ERC20[this][from_s495]) >= (0));
-assume ((_balances_ERC20[this][from_s495]) >= (0));
-assume ((value_s495) >= (0));
 call __var_8 := sub_SafeMath__success(this, this, 0, _balances_ERC20[this][from_s495], value_s495);
 if (revert) {
 return;
@@ -4610,10 +4493,6 @@ return;
 sum__balances0[this] := (sum__balances0[this]) - (_balances_ERC20[this][from_s495]);
 _balances_ERC20[this][from_s495] := __var_8;
 sum__balances0[this] := (sum__balances0[this]) + (_balances_ERC20[this][from_s495]);
-assume ((__var_8) >= (0));
-assume ((_balances_ERC20[this][to_s495]) >= (0));
-assume ((_balances_ERC20[this][to_s495]) >= (0));
-assume ((value_s495) >= (0));
 call __var_9 := add_SafeMath__success(this, this, 0, _balances_ERC20[this][to_s495], value_s495);
 if (revert) {
 return;
@@ -4621,7 +4500,6 @@ return;
 sum__balances0[this] := (sum__balances0[this]) - (_balances_ERC20[this][to_s495]);
 _balances_ERC20[this][to_s495] := __var_9;
 sum__balances0[this] := (sum__balances0[this]) + (_balances_ERC20[this][to_s495]);
-assume ((__var_9) >= (0));
 assert {:EventEmitted "Transfer_ERC20"} (true);
 }
 
@@ -4635,18 +4513,11 @@ if (!((account_s537) != (null))) {
 revert := true;
 return;
 }
-assume ((__tmp___totalSupply_ERC20[this]) >= (0));
-assume ((__tmp___totalSupply_ERC20[this]) >= (0));
-assume ((value_s537) >= (0));
 call __var_11 := add_SafeMath__fail(this, this, 0, __tmp___totalSupply_ERC20[this], value_s537);
 if (revert) {
 return;
 }
 __tmp___totalSupply_ERC20[this] := __var_11;
-assume ((__var_11) >= (0));
-assume ((__tmp___balances_ERC20[this][account_s537]) >= (0));
-assume ((__tmp___balances_ERC20[this][account_s537]) >= (0));
-assume ((value_s537) >= (0));
 call __var_12 := add_SafeMath__fail(this, this, 0, __tmp___balances_ERC20[this][account_s537], value_s537);
 if (revert) {
 return;
@@ -4654,7 +4525,6 @@ return;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) - (__tmp___balances_ERC20[this][account_s537]);
 __tmp___balances_ERC20[this][account_s537] := __var_12;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) + (__tmp___balances_ERC20[this][account_s537]);
-assume ((__var_12) >= (0));
 }
 
 implementation _mint_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, account_s537: Ref, value_s537: int)
@@ -4667,18 +4537,11 @@ if (!((account_s537) != (null))) {
 revert := true;
 return;
 }
-assume ((_totalSupply_ERC20[this]) >= (0));
-assume ((_totalSupply_ERC20[this]) >= (0));
-assume ((value_s537) >= (0));
 call __var_11 := add_SafeMath__success(this, this, 0, _totalSupply_ERC20[this], value_s537);
 if (revert) {
 return;
 }
 _totalSupply_ERC20[this] := __var_11;
-assume ((__var_11) >= (0));
-assume ((_balances_ERC20[this][account_s537]) >= (0));
-assume ((_balances_ERC20[this][account_s537]) >= (0));
-assume ((value_s537) >= (0));
 call __var_12 := add_SafeMath__success(this, this, 0, _balances_ERC20[this][account_s537], value_s537);
 if (revert) {
 return;
@@ -4686,7 +4549,6 @@ return;
 sum__balances0[this] := (sum__balances0[this]) - (_balances_ERC20[this][account_s537]);
 _balances_ERC20[this][account_s537] := __var_12;
 sum__balances0[this] := (sum__balances0[this]) + (_balances_ERC20[this][account_s537]);
-assume ((__var_12) >= (0));
 assert {:EventEmitted "Transfer_ERC20"} (true);
 }
 
@@ -4700,18 +4562,11 @@ if (!((account_s579) != (null))) {
 revert := true;
 return;
 }
-assume ((__tmp___totalSupply_ERC20[this]) >= (0));
-assume ((__tmp___totalSupply_ERC20[this]) >= (0));
-assume ((value_s579) >= (0));
 call __var_14 := sub_SafeMath__fail(this, this, 0, __tmp___totalSupply_ERC20[this], value_s579);
 if (revert) {
 return;
 }
 __tmp___totalSupply_ERC20[this] := __var_14;
-assume ((__var_14) >= (0));
-assume ((__tmp___balances_ERC20[this][account_s579]) >= (0));
-assume ((__tmp___balances_ERC20[this][account_s579]) >= (0));
-assume ((value_s579) >= (0));
 call __var_15 := sub_SafeMath__fail(this, this, 0, __tmp___balances_ERC20[this][account_s579], value_s579);
 if (revert) {
 return;
@@ -4719,7 +4574,6 @@ return;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) - (__tmp___balances_ERC20[this][account_s579]);
 __tmp___balances_ERC20[this][account_s579] := __var_15;
 __tmp__sum__balances0[this] := (__tmp__sum__balances0[this]) + (__tmp___balances_ERC20[this][account_s579]);
-assume ((__var_15) >= (0));
 }
 
 implementation _burn_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, account_s579: Ref, value_s579: int)
@@ -4732,18 +4586,11 @@ if (!((account_s579) != (null))) {
 revert := true;
 return;
 }
-assume ((_totalSupply_ERC20[this]) >= (0));
-assume ((_totalSupply_ERC20[this]) >= (0));
-assume ((value_s579) >= (0));
 call __var_14 := sub_SafeMath__success(this, this, 0, _totalSupply_ERC20[this], value_s579);
 if (revert) {
 return;
 }
 _totalSupply_ERC20[this] := __var_14;
-assume ((__var_14) >= (0));
-assume ((_balances_ERC20[this][account_s579]) >= (0));
-assume ((_balances_ERC20[this][account_s579]) >= (0));
-assume ((value_s579) >= (0));
 call __var_15 := sub_SafeMath__success(this, this, 0, _balances_ERC20[this][account_s579], value_s579);
 if (revert) {
 return;
@@ -4751,16 +4598,12 @@ return;
 sum__balances0[this] := (sum__balances0[this]) - (_balances_ERC20[this][account_s579]);
 _balances_ERC20[this][account_s579] := __var_15;
 sum__balances0[this] := (sum__balances0[this]) + (_balances_ERC20[this][account_s579]);
-assume ((__var_15) >= (0));
 assert {:EventEmitted "Transfer_ERC20"} (true);
 }
 
 implementation _burnFrom_ERC20__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, account_s621: Ref, value_s621: int)
 {
 var __var_16: int;
-assume ((__tmp___allowed_ERC20[this][account_s621][msgsender_MSG]) >= (0));
-assume ((__tmp___allowed_ERC20[this][account_s621][msgsender_MSG]) >= (0));
-assume ((value_s621) >= (0));
 call __var_16 := sub_SafeMath__fail(this, this, 0, __tmp___allowed_ERC20[this][account_s621][msgsender_MSG], value_s621);
 if (revert) {
 return;
@@ -4768,8 +4611,6 @@ return;
 __tmp__sum__allowed1[account_s621] := (__tmp__sum__allowed1[account_s621]) - (__tmp___allowed_ERC20[this][account_s621][msgsender_MSG]);
 __tmp___allowed_ERC20[this][account_s621][msgsender_MSG] := __var_16;
 __tmp__sum__allowed1[account_s621] := (__tmp__sum__allowed1[account_s621]) + (__tmp___allowed_ERC20[this][account_s621][msgsender_MSG]);
-assume ((__var_16) >= (0));
-assume ((value_s621) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call _burn_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, account_s621, value_s621);
 if (revert) {
@@ -4803,9 +4644,6 @@ assume (false);
 implementation _burnFrom_ERC20__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, account_s621: Ref, value_s621: int)
 {
 var __var_16: int;
-assume ((_allowed_ERC20[this][account_s621][msgsender_MSG]) >= (0));
-assume ((_allowed_ERC20[this][account_s621][msgsender_MSG]) >= (0));
-assume ((value_s621) >= (0));
 call __var_16 := sub_SafeMath__success(this, this, 0, _allowed_ERC20[this][account_s621][msgsender_MSG], value_s621);
 if (revert) {
 return;
@@ -4813,8 +4651,6 @@ return;
 sum__allowed1[account_s621] := (sum__allowed1[account_s621]) - (_allowed_ERC20[this][account_s621][msgsender_MSG]);
 _allowed_ERC20[this][account_s621][msgsender_MSG] := __var_16;
 sum__allowed1[account_s621] := (sum__allowed1[account_s621]) + (_allowed_ERC20[this][account_s621][msgsender_MSG]);
-assume ((__var_16) >= (0));
-assume ((value_s621) >= (0));
 if ((DType[this]) == (OMToken)) {
 call _burn_ERC20__success(this, msgsender_MSG, msgvalue_MSG, account_s621, value_s621);
 if (revert) {
@@ -5430,7 +5266,6 @@ call whenNotPaused_pre__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s916) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call __var_25 := transfer_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, to_s916, value_s916);
 if (revert) {
@@ -5456,7 +5291,6 @@ call whenNotPaused_pre__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s916) >= (0));
 if ((DType[this]) == (OMToken)) {
 call __var_25 := transfer_ERC20__success(this, msgsender_MSG, msgvalue_MSG, to_s916, value_s916);
 if (revert) {
@@ -5482,7 +5316,6 @@ call whenNotPaused_pre__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s937) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call __var_27 := transferFrom_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, from_s937, to_s937, value_s937);
 if (revert) {
@@ -5508,7 +5341,6 @@ call whenNotPaused_pre__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s937) >= (0));
 if ((DType[this]) == (OMToken)) {
 call __var_27 := transferFrom_ERC20__success(this, msgsender_MSG, msgvalue_MSG, from_s937, to_s937, value_s937);
 if (revert) {
@@ -5534,7 +5366,6 @@ call whenNotPaused_pre__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s955) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call __var_29 := approve_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, spender_s955, value_s955);
 if (revert) {
@@ -5560,7 +5391,6 @@ call whenNotPaused_pre__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s955) >= (0));
 if ((DType[this]) == (OMToken)) {
 call __var_29 := approve_ERC20__success(this, msgsender_MSG, msgvalue_MSG, spender_s955, value_s955);
 if (revert) {
@@ -5586,7 +5416,6 @@ call whenNotPaused_pre__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((addedValue_s973) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call __var_31 := increaseAllowance_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, spender_s973, addedValue_s973);
 if (revert) {
@@ -5612,7 +5441,6 @@ call whenNotPaused_pre__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((addedValue_s973) >= (0));
 if ((DType[this]) == (OMToken)) {
 call __var_31 := increaseAllowance_ERC20__success(this, msgsender_MSG, msgvalue_MSG, spender_s973, addedValue_s973);
 if (revert) {
@@ -5638,7 +5466,6 @@ call whenNotPaused_pre__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((subtractedValue_s991) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call __var_33 := decreaseAllowance_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, spender_s991, subtractedValue_s991);
 if (revert) {
@@ -5664,7 +5491,6 @@ call whenNotPaused_pre__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((subtractedValue_s991) >= (0));
 if ((DType[this]) == (OMToken)) {
 call __var_33 := decreaseAllowance_ERC20__success(this, msgsender_MSG, msgvalue_MSG, spender_s991, subtractedValue_s991);
 if (revert) {
@@ -5687,14 +5513,12 @@ implementation ERC20Detailed_ERC20Detailed_NoBaseCtor__fail(this: Ref, msgsender
 // start of initialization
 assume ((msgsender_MSG) != (null));
 __tmp__Balance[this] := 0;
-__tmp___name_ERC20Detailed[this] := -282576775;
-__tmp___symbol_ERC20Detailed[this] := -282576775;
+__tmp___name_ERC20Detailed[this] := 1364210121;
+__tmp___symbol_ERC20Detailed[this] := 1364210121;
 __tmp___decimals_ERC20Detailed[this] := 0;
 // end of initialization
 __tmp___name_ERC20Detailed[this] := name_s1022;
 __tmp___symbol_ERC20Detailed[this] := symbol_s1022;
-assume ((__tmp___decimals_ERC20Detailed[this]) >= (0));
-assume ((decimals_s1022) >= (0));
 __tmp___decimals_ERC20Detailed[this] := decimals_s1022;
 }
 
@@ -5703,14 +5527,12 @@ implementation ERC20Detailed_ERC20Detailed_NoBaseCtor__success(this: Ref, msgsen
 // start of initialization
 assume ((msgsender_MSG) != (null));
 Balance[this] := 0;
-_name_ERC20Detailed[this] := -282576775;
-_symbol_ERC20Detailed[this] := -282576775;
+_name_ERC20Detailed[this] := 1364210121;
+_symbol_ERC20Detailed[this] := 1364210121;
 _decimals_ERC20Detailed[this] := 0;
 // end of initialization
 _name_ERC20Detailed[this] := name_s1022;
 _symbol_ERC20Detailed[this] := symbol_s1022;
-assume ((_decimals_ERC20Detailed[this]) >= (0));
-assume ((decimals_s1022) >= (0));
 _decimals_ERC20Detailed[this] := decimals_s1022;
 }
 
@@ -5764,14 +5586,12 @@ return;
 
 implementation decimals_ERC20Detailed__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
 {
-assume ((__tmp___decimals_ERC20Detailed[this]) >= (0));
 __ret_0_ := __tmp___decimals_ERC20Detailed[this];
 return;
 }
 
 implementation decimals_ERC20Detailed__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int) returns (__ret_0_: int)
 {
-assume ((_decimals_ERC20Detailed[this]) >= (0));
 __ret_0_ := _decimals_ERC20Detailed[this];
 return;
 }
@@ -6074,7 +5894,6 @@ call onlyMinter_pre__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s1170) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call _mint_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, to_s1170, value_s1170);
 if (revert) {
@@ -6098,7 +5917,6 @@ call onlyMinter_pre__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((value_s1170) >= (0));
 if ((DType[this]) == (OMToken)) {
 call _mint_ERC20__success(this, msgsender_MSG, msgvalue_MSG, to_s1170, value_s1170);
 if (revert) {
@@ -6166,7 +5984,6 @@ return;
 
 implementation burn_ERC20Burnable__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, value_s1185: int)
 {
-assume ((value_s1185) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call _burn_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, msgsender_MSG, value_s1185);
 if (revert) {
@@ -6184,7 +6001,6 @@ assume (false);
 
 implementation burn_ERC20Burnable__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, value_s1185: int)
 {
-assume ((value_s1185) >= (0));
 if ((DType[this]) == (OMToken)) {
 call _burn_ERC20__success(this, msgsender_MSG, msgvalue_MSG, msgsender_MSG, value_s1185);
 if (revert) {
@@ -6202,7 +6018,6 @@ assume (false);
 
 implementation burnFrom_ERC20Burnable__fail(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, from_s1198: Ref, value_s1198: int)
 {
-assume ((value_s1198) >= (0));
 if ((__tmp__DType[this]) == (OMToken)) {
 call _burnFrom_ERC20__fail(this, msgsender_MSG, msgvalue_MSG, from_s1198, value_s1198);
 if (revert) {
@@ -6220,7 +6035,6 @@ assume (false);
 
 implementation burnFrom_ERC20Burnable__success(this: Ref, msgsender_MSG: Ref, msgvalue_MSG: int, from_s1198: Ref, value_s1198: int)
 {
-assume ((value_s1198) >= (0));
 if ((DType[this]) == (OMToken)) {
 call _burnFrom_ERC20__success(this, msgsender_MSG, msgvalue_MSG, from_s1198, value_s1198);
 if (revert) {
@@ -6274,7 +6088,6 @@ call ERC20Pausable_ERC20Pausable__fail(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((decimals_s1230) >= (0));
 call ERC20Detailed_ERC20Detailed__fail(this, msgsender_MSG, msgvalue_MSG, name_s1230, symbol_s1230, decimals_s1230);
 if (revert) {
 return;
@@ -6319,7 +6132,6 @@ call ERC20Pausable_ERC20Pausable__success(this, msgsender_MSG, msgvalue_MSG);
 if (revert) {
 return;
 }
-assume ((decimals_s1230) >= (0));
 call ERC20Detailed_ERC20Detailed__success(this, msgsender_MSG, msgvalue_MSG, name_s1230, symbol_s1230, decimals_s1230);
 if (revert) {
 return;
@@ -6491,6 +6303,7 @@ if ((__tmp__DType[from]) == (OMToken)) {
 if ((choice) == (23)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s916) >= (0)) && ((value_s916) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20Pausable__fail(from, to, msgvalue_MSG, to_s916, value_s916);
 if (revert) {
@@ -6500,6 +6313,7 @@ return;
 } else if ((choice) == (22)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s955) >= (0)) && ((value_s955) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20Pausable__fail(from, to, msgvalue_MSG, spender_s955, value_s955);
 if (revert) {
@@ -6509,6 +6323,7 @@ return;
 } else if ((choice) == (21)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s937) >= (0)) && ((value_s937) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20Pausable__fail(from, to, msgvalue_MSG, from_s937, to_s937, value_s937);
 if (revert) {
@@ -6545,6 +6360,7 @@ return;
 } else if ((choice) == (17)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s973) >= (0)) && ((addedValue_s973) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s973 := increaseAllowance_ERC20Pausable__fail(from, to, msgvalue_MSG, spender_s973, addedValue_s973);
 if (revert) {
@@ -6554,6 +6370,7 @@ return;
 } else if ((choice) == (16)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s991) >= (0)) && ((subtractedValue_s991) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s991 := decreaseAllowance_ERC20Pausable__fail(from, to, msgvalue_MSG, spender_s991, subtractedValue_s991);
 if (revert) {
@@ -6671,6 +6488,7 @@ return;
 } else if ((choice) == (3)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1170) >= (0)) && ((value_s1170) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_mint := mint_ERC20Mintable__fail(from, to, msgvalue_MSG, to_s1170, value_s1170);
 if (revert) {
@@ -6680,6 +6498,7 @@ return;
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1185) >= (0)) && ((value_s1185) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burn_ERC20Burnable__fail(from, to, msgvalue_MSG, value_s1185);
 if (revert) {
@@ -6689,6 +6508,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1198) >= (0)) && ((value_s1198) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burnFrom_ERC20Burnable__fail(from, to, msgvalue_MSG, from_s1198, value_s1198);
 if (revert) {
@@ -6700,6 +6520,7 @@ return;
 if ((choice) == (10)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20__fail(from, to, msgvalue_MSG, to_s266, value_s266);
 if (revert) {
@@ -6709,6 +6530,7 @@ return;
 } else if ((choice) == (9)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20__fail(from, to, msgvalue_MSG, spender_s302, value_s302);
 if (revert) {
@@ -6718,6 +6540,7 @@ return;
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20__fail(from, to, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -6754,6 +6577,7 @@ return;
 } else if ((choice) == (4)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20__fail(from, to, msgvalue_MSG, spender_s400, addedValue_s400);
 if (revert) {
@@ -6763,6 +6587,7 @@ return;
 } else if ((choice) == (3)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20__fail(from, to, msgvalue_MSG, spender_s449, subtractedValue_s449);
 if (revert) {
@@ -6772,6 +6597,7 @@ return;
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1185) >= (0)) && ((value_s1185) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burn_ERC20Burnable__fail(from, to, msgvalue_MSG, value_s1185);
 if (revert) {
@@ -6781,6 +6607,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1198) >= (0)) && ((value_s1198) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burnFrom_ERC20Burnable__fail(from, to, msgvalue_MSG, from_s1198, value_s1198);
 if (revert) {
@@ -6792,6 +6619,7 @@ return;
 if ((choice) == (12)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20__fail(from, to, msgvalue_MSG, to_s266, value_s266);
 if (revert) {
@@ -6801,6 +6629,7 @@ return;
 } else if ((choice) == (11)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20__fail(from, to, msgvalue_MSG, spender_s302, value_s302);
 if (revert) {
@@ -6810,6 +6639,7 @@ return;
 } else if ((choice) == (10)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20__fail(from, to, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -6846,6 +6676,7 @@ return;
 } else if ((choice) == (6)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20__fail(from, to, msgvalue_MSG, spender_s400, addedValue_s400);
 if (revert) {
@@ -6855,6 +6686,7 @@ return;
 } else if ((choice) == (5)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20__fail(from, to, msgvalue_MSG, spender_s449, subtractedValue_s449);
 if (revert) {
@@ -6891,6 +6723,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1170) >= (0)) && ((value_s1170) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_mint := mint_ERC20Mintable__fail(from, to, msgvalue_MSG, to_s1170, value_s1170);
 if (revert) {
@@ -6931,18 +6764,21 @@ return;
 if ((choice) == (9)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s10) >= (0)) && ((value_s10) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_IERC20(from, to, msgvalue_MSG, to_s10, value_s10);
 }
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s19) >= (0)) && ((value_s19) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_IERC20(from, to, msgvalue_MSG, spender_s19, value_s19);
 }
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s30) >= (0)) && ((value_s30) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_IERC20(from, to, msgvalue_MSG, from_s30, to_s30, value_s30);
 }
@@ -6996,6 +6832,7 @@ return;
 if ((choice) == (14)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s916) >= (0)) && ((value_s916) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20Pausable__fail(from, to, msgvalue_MSG, to_s916, value_s916);
 if (revert) {
@@ -7005,6 +6842,7 @@ return;
 } else if ((choice) == (13)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s955) >= (0)) && ((value_s955) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20Pausable__fail(from, to, msgvalue_MSG, spender_s955, value_s955);
 if (revert) {
@@ -7014,6 +6852,7 @@ return;
 } else if ((choice) == (12)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s937) >= (0)) && ((value_s937) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20Pausable__fail(from, to, msgvalue_MSG, from_s937, to_s937, value_s937);
 if (revert) {
@@ -7050,6 +6889,7 @@ return;
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s973) >= (0)) && ((addedValue_s973) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s973 := increaseAllowance_ERC20Pausable__fail(from, to, msgvalue_MSG, spender_s973, addedValue_s973);
 if (revert) {
@@ -7059,6 +6899,7 @@ return;
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s991) >= (0)) && ((subtractedValue_s991) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s991 := decreaseAllowance_ERC20Pausable__fail(from, to, msgvalue_MSG, spender_s991, subtractedValue_s991);
 if (revert) {
@@ -7209,6 +7050,7 @@ return;
 if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20__fail(from, to, msgvalue_MSG, to_s266, value_s266);
 if (revert) {
@@ -7218,6 +7060,7 @@ return;
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20__fail(from, to, msgvalue_MSG, spender_s302, value_s302);
 if (revert) {
@@ -7227,6 +7070,7 @@ return;
 } else if ((choice) == (6)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20__fail(from, to, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -7263,6 +7107,7 @@ return;
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20__fail(from, to, msgvalue_MSG, spender_s400, addedValue_s400);
 if (revert) {
@@ -7272,6 +7117,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20__fail(from, to, msgvalue_MSG, spender_s449, subtractedValue_s449);
 if (revert) {
@@ -7371,6 +7217,7 @@ if ((DType[from]) == (OMToken)) {
 if ((choice) == (23)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s916) >= (0)) && ((value_s916) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20Pausable__success(from, to, msgvalue_MSG, to_s916, value_s916);
 if (revert) {
@@ -7380,6 +7227,7 @@ return;
 } else if ((choice) == (22)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s955) >= (0)) && ((value_s955) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20Pausable__success(from, to, msgvalue_MSG, spender_s955, value_s955);
 if (revert) {
@@ -7389,6 +7237,7 @@ return;
 } else if ((choice) == (21)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s937) >= (0)) && ((value_s937) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20Pausable__success(from, to, msgvalue_MSG, from_s937, to_s937, value_s937);
 if (revert) {
@@ -7425,6 +7274,7 @@ return;
 } else if ((choice) == (17)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s973) >= (0)) && ((addedValue_s973) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s973 := increaseAllowance_ERC20Pausable__success(from, to, msgvalue_MSG, spender_s973, addedValue_s973);
 if (revert) {
@@ -7434,6 +7284,7 @@ return;
 } else if ((choice) == (16)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s991) >= (0)) && ((subtractedValue_s991) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s991 := decreaseAllowance_ERC20Pausable__success(from, to, msgvalue_MSG, spender_s991, subtractedValue_s991);
 if (revert) {
@@ -7551,6 +7402,7 @@ return;
 } else if ((choice) == (3)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1170) >= (0)) && ((value_s1170) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_mint := mint_ERC20Mintable__success(from, to, msgvalue_MSG, to_s1170, value_s1170);
 if (revert) {
@@ -7560,6 +7412,7 @@ return;
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1185) >= (0)) && ((value_s1185) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burn_ERC20Burnable__success(from, to, msgvalue_MSG, value_s1185);
 if (revert) {
@@ -7569,6 +7422,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1198) >= (0)) && ((value_s1198) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burnFrom_ERC20Burnable__success(from, to, msgvalue_MSG, from_s1198, value_s1198);
 if (revert) {
@@ -7580,6 +7434,7 @@ return;
 if ((choice) == (10)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20__success(from, to, msgvalue_MSG, to_s266, value_s266);
 if (revert) {
@@ -7589,6 +7444,7 @@ return;
 } else if ((choice) == (9)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20__success(from, to, msgvalue_MSG, spender_s302, value_s302);
 if (revert) {
@@ -7598,6 +7454,7 @@ return;
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20__success(from, to, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -7634,6 +7491,7 @@ return;
 } else if ((choice) == (4)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20__success(from, to, msgvalue_MSG, spender_s400, addedValue_s400);
 if (revert) {
@@ -7643,6 +7501,7 @@ return;
 } else if ((choice) == (3)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20__success(from, to, msgvalue_MSG, spender_s449, subtractedValue_s449);
 if (revert) {
@@ -7652,6 +7511,7 @@ return;
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1185) >= (0)) && ((value_s1185) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burn_ERC20Burnable__success(from, to, msgvalue_MSG, value_s1185);
 if (revert) {
@@ -7661,6 +7521,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1198) >= (0)) && ((value_s1198) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burnFrom_ERC20Burnable__success(from, to, msgvalue_MSG, from_s1198, value_s1198);
 if (revert) {
@@ -7672,6 +7533,7 @@ return;
 if ((choice) == (12)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20__success(from, to, msgvalue_MSG, to_s266, value_s266);
 if (revert) {
@@ -7681,6 +7543,7 @@ return;
 } else if ((choice) == (11)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20__success(from, to, msgvalue_MSG, spender_s302, value_s302);
 if (revert) {
@@ -7690,6 +7553,7 @@ return;
 } else if ((choice) == (10)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20__success(from, to, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -7726,6 +7590,7 @@ return;
 } else if ((choice) == (6)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20__success(from, to, msgvalue_MSG, spender_s400, addedValue_s400);
 if (revert) {
@@ -7735,6 +7600,7 @@ return;
 } else if ((choice) == (5)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20__success(from, to, msgvalue_MSG, spender_s449, subtractedValue_s449);
 if (revert) {
@@ -7771,6 +7637,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1170) >= (0)) && ((value_s1170) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_mint := mint_ERC20Mintable__success(from, to, msgvalue_MSG, to_s1170, value_s1170);
 if (revert) {
@@ -7811,18 +7678,21 @@ return;
 if ((choice) == (9)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s10) >= (0)) && ((value_s10) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_IERC20(from, to, msgvalue_MSG, to_s10, value_s10);
 }
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s19) >= (0)) && ((value_s19) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_IERC20(from, to, msgvalue_MSG, spender_s19, value_s19);
 }
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s30) >= (0)) && ((value_s30) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_IERC20(from, to, msgvalue_MSG, from_s30, to_s30, value_s30);
 }
@@ -7876,6 +7746,7 @@ return;
 if ((choice) == (14)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s916) >= (0)) && ((value_s916) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20Pausable__success(from, to, msgvalue_MSG, to_s916, value_s916);
 if (revert) {
@@ -7885,6 +7756,7 @@ return;
 } else if ((choice) == (13)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s955) >= (0)) && ((value_s955) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20Pausable__success(from, to, msgvalue_MSG, spender_s955, value_s955);
 if (revert) {
@@ -7894,6 +7766,7 @@ return;
 } else if ((choice) == (12)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s937) >= (0)) && ((value_s937) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20Pausable__success(from, to, msgvalue_MSG, from_s937, to_s937, value_s937);
 if (revert) {
@@ -7930,6 +7803,7 @@ return;
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s973) >= (0)) && ((addedValue_s973) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s973 := increaseAllowance_ERC20Pausable__success(from, to, msgvalue_MSG, spender_s973, addedValue_s973);
 if (revert) {
@@ -7939,6 +7813,7 @@ return;
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s991) >= (0)) && ((subtractedValue_s991) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s991 := decreaseAllowance_ERC20Pausable__success(from, to, msgvalue_MSG, spender_s991, subtractedValue_s991);
 if (revert) {
@@ -8089,6 +7964,7 @@ return;
 if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20__success(from, to, msgvalue_MSG, to_s266, value_s266);
 if (revert) {
@@ -8098,6 +7974,7 @@ return;
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20__success(from, to, msgvalue_MSG, spender_s302, value_s302);
 if (revert) {
@@ -8107,6 +7984,7 @@ return;
 } else if ((choice) == (6)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20__success(from, to, msgvalue_MSG, from_s351, to_s351, value_s351);
 if (revert) {
@@ -8143,6 +8021,7 @@ return;
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20__success(from, to, msgvalue_MSG, spender_s400, addedValue_s400);
 if (revert) {
@@ -8152,6 +8031,7 @@ return;
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20__success(from, to, msgvalue_MSG, spender_s449, subtractedValue_s449);
 if (revert) {
@@ -8618,18 +8498,21 @@ Alloc[msgsender_MSG] := true;
 if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20(this, msgsender_MSG, msgvalue_MSG, to_s266, value_s266);
 }
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s302, value_s302);
 }
 } else if ((choice) == (6)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20(this, msgsender_MSG, msgvalue_MSG, from_s351, to_s351, value_s351);
 }
@@ -8654,12 +8537,14 @@ call __ret_0_allowance := allowance_ERC20(this, msgsender_MSG, msgvalue_MSG, own
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s400, addedValue_s400);
 }
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s449, subtractedValue_s449);
 }
@@ -8985,18 +8870,21 @@ Alloc[msgsender_MSG] := true;
 if ((choice) == (14)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s916) >= (0)) && ((value_s916) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, to_s916, value_s916);
 }
 } else if ((choice) == (13)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s955) >= (0)) && ((value_s955) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, spender_s955, value_s955);
 }
 } else if ((choice) == (12)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s937) >= (0)) && ((value_s937) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, from_s937, to_s937, value_s937);
 }
@@ -9021,12 +8909,14 @@ call __ret_0_allowance := allowance_ERC20(this, msgsender_MSG, msgvalue_MSG, own
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s973) >= (0)) && ((addedValue_s973) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s973 := increaseAllowance_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, spender_s973, addedValue_s973);
 }
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s991) >= (0)) && ((subtractedValue_s991) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s991 := decreaseAllowance_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, spender_s991, subtractedValue_s991);
 }
@@ -9163,18 +9053,21 @@ Alloc[msgsender_MSG] := true;
 if ((choice) == (9)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s10) >= (0)) && ((value_s10) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_IERC20(this, msgsender_MSG, msgvalue_MSG, to_s10, value_s10);
 }
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s19) >= (0)) && ((value_s19) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_IERC20(this, msgsender_MSG, msgvalue_MSG, spender_s19, value_s19);
 }
 } else if ((choice) == (7)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s30) >= (0)) && ((value_s30) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_IERC20(this, msgsender_MSG, msgvalue_MSG, from_s30, to_s30, value_s30);
 }
@@ -9400,18 +9293,21 @@ Alloc[msgsender_MSG] := true;
 if ((choice) == (12)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20(this, msgsender_MSG, msgvalue_MSG, to_s266, value_s266);
 }
 } else if ((choice) == (11)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s302, value_s302);
 }
 } else if ((choice) == (10)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20(this, msgsender_MSG, msgvalue_MSG, from_s351, to_s351, value_s351);
 }
@@ -9436,12 +9332,14 @@ call __ret_0_allowance := allowance_ERC20(this, msgsender_MSG, msgvalue_MSG, own
 } else if ((choice) == (6)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s400, addedValue_s400);
 }
 } else if ((choice) == (5)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s449, subtractedValue_s449);
 }
@@ -9466,6 +9364,7 @@ call renounceMinter_MinterRole(this, msgsender_MSG, msgvalue_MSG);
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1170) >= (0)) && ((value_s1170) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_mint := mint_ERC20Mintable(this, msgsender_MSG, msgvalue_MSG, to_s1170, value_s1170);
 }
@@ -9572,18 +9471,21 @@ Alloc[msgsender_MSG] := true;
 if ((choice) == (10)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s266) >= (0)) && ((value_s266) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20(this, msgsender_MSG, msgvalue_MSG, to_s266, value_s266);
 }
 } else if ((choice) == (9)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s302) >= (0)) && ((value_s302) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s302, value_s302);
 }
 } else if ((choice) == (8)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s351) >= (0)) && ((value_s351) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20(this, msgsender_MSG, msgvalue_MSG, from_s351, to_s351, value_s351);
 }
@@ -9608,24 +9510,28 @@ call __ret_0_allowance := allowance_ERC20(this, msgsender_MSG, msgvalue_MSG, own
 } else if ((choice) == (4)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s400) >= (0)) && ((addedValue_s400) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_increaseAllowance := increaseAllowance_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s400, addedValue_s400);
 }
 } else if ((choice) == (3)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s449) >= (0)) && ((subtractedValue_s449) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_decreaseAllowance := decreaseAllowance_ERC20(this, msgsender_MSG, msgvalue_MSG, spender_s449, subtractedValue_s449);
 }
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1185) >= (0)) && ((value_s1185) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burn_ERC20Burnable(this, msgsender_MSG, msgvalue_MSG, value_s1185);
 }
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1198) >= (0)) && ((value_s1198) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burnFrom_ERC20Burnable(this, msgsender_MSG, msgvalue_MSG, from_s1198, value_s1198);
 }
@@ -9770,18 +9676,21 @@ Alloc[msgsender_MSG] := true;
 if ((choice) == (23)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s916) >= (0)) && ((value_s916) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transfer := transfer_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, to_s916, value_s916);
 }
 } else if ((choice) == (22)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s955) >= (0)) && ((value_s955) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_approve := approve_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, spender_s955, value_s955);
 }
 } else if ((choice) == (21)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s937) >= (0)) && ((value_s937) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_transferFrom := transferFrom_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, from_s937, to_s937, value_s937);
 }
@@ -9806,12 +9715,14 @@ call __ret_0_allowance := allowance_ERC20(this, msgsender_MSG, msgvalue_MSG, own
 } else if ((choice) == (17)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((addedValue_s973) >= (0)) && ((addedValue_s973) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s973 := increaseAllowance_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, spender_s973, addedValue_s973);
 }
 } else if ((choice) == (16)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((subtractedValue_s991) >= (0)) && ((subtractedValue_s991) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call success_s991 := decreaseAllowance_ERC20Pausable(this, msgsender_MSG, msgvalue_MSG, spender_s991, subtractedValue_s991);
 }
@@ -9890,18 +9801,21 @@ call renounceMinter_MinterRole(this, msgsender_MSG, msgvalue_MSG);
 } else if ((choice) == (3)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1170) >= (0)) && ((value_s1170) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call __ret_0_mint := mint_ERC20Mintable(this, msgsender_MSG, msgvalue_MSG, to_s1170, value_s1170);
 }
 } else if ((choice) == (2)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1185) >= (0)) && ((value_s1185) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burn_ERC20Burnable(this, msgsender_MSG, msgvalue_MSG, value_s1185);
 }
 } else if ((choice) == (1)) {
 gas := (gas) - (21000);
 if ((gas) >= (0)) {
+assume (((value_s1198) >= (0)) && ((value_s1198) < (115792089237316195423570985008687907853269984665640564039457584007913129639936)));
 assume ((msgvalue_MSG) == (0));
 call burnFrom_ERC20Burnable(this, msgsender_MSG, msgvalue_MSG, from_s1198, value_s1198);
 }
