@@ -12,30 +12,33 @@
 // LTLVariables: p1:Ref,p2:Ref
 // LTLProperty: [](started(ERC20Pausable.approve(spender, value), spender != null && (p1 != msg.sender || p2 != spender)) ==> <>(finished(ERC20Pausable.approve(spender, value), __ret_0_ == true && this._allowed[msg.sender][spender] == value && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed[p1][p2] == old(this._allowed[p1][p2]))))
 
-// *doesn't account for pausing, adding [&& this._paused == false] is *
+// *doesn't account for pausing, adding [&& this._paused == false] is verified 61*
 // To be consistent with KEVM remove the to != null
-// #LTLVariables: p1:Ref
-// #LTLProperty: [](started(ERC20Pausable.transfer(to, value), to != null && p1 != msg.sender && p1 != to && msg.sender != to && value <= this._balances[msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._paused == false) ==> <>(finished(ERC20Pausable.transfer(to, value), this._balances[msg.sender] == old(this._balances[msg.sender]) - value && this._balances[to] == old(this._balances[to]) + value && this._totalSupply == old(this._totalSupply) && this._allowed == old(this._allowed) && this._balances[p1] == old(this._balances[p1]))))
+// LTLVariables: p1:Ref
+// LTLProperty: [](started(ERC20Pausable.transfer(to, value), to != null && p1 != msg.sender && p1 != to && msg.sender != to && value <= this._balances[msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._balances[msg.sender] >= 0 && this._balances[msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._balances[to] >= 0 && this._balances[to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._paused == false) ==> <>(finished(ERC20Pausable.transfer(to, value), this._balances[msg.sender] == old(this._balances[msg.sender]) - value && this._balances[to] == old(this._balances[to]) + value && this._totalSupply == old(this._totalSupply) && this._allowed == old(this._allowed) && this._balances[p1] == old(this._balances[p1]))))
 
-// this now runs for a long time
-// *doesn't account for pausing, adding [&& this._paused == false] is *
-// LTLProperty: [](started(ERC20Pausable.transfer(to, value), to != null && msg.sender == to && value <= this._balances[msg.sender] && this._paused == false) ==> <>(finished(ERC20Pausable.transfer(to, value), this._totalSupply == old(this._totalSupply)  && this._balances == old(this._balances) && this._allowed == old(this._allowed))))
+// *doesn't account for pausing, adding [&& this._paused == false] is nonterminating*
+// #LTLProperty: [](started(ERC20Pausable.transfer(to, value), to != null && msg.sender == to && value <= this._balances[msg.sender] && this._balances[msg.sender] >= 0 && this._balances[msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._paused == false) ==> <>(finished(ERC20Pausable.transfer(to, value), this._totalSupply == old(this._totalSupply)  && this._balances == old(this._balances) && this._allowed == old(this._allowed))))
 
-// **
+// *verified 17*
 // LTLProperty: [](started(ERC20Pausable.transfer(to, value), msg.sender != to && (value > this._balances[msg.sender] || this._balances[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(ERC20Pausable.transfer)))
 
-// **
+// *verified 16*
 // LTLProperty: [](started(ERC20Pausable.transfer(to, value), msg.sender == to && value > this._balances[msg.sender]) ==> <>(reverted(ERC20Pausable.transfer)))
 
+// *verified 16 -- a little sus*
 // Should try to find another way of specifying this because SmartPulse runs out of memory
 // LTLVariables: p1:Ref,p2:Ref,p3:Ref
-// LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from != null && to != null && p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= this._balances[from] && value <= this._allowed[from][msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(ERC20Pausable.transferFrom(from, to, value), this._balances[from] == old(this._balances[from]) - value && this._balances[to] == old(this._balances[to]) + value && this._allowed[from][msg.sender] == old(this._allowed[from][msg.sender]) - value && this._totalSupply == old(this._totalSupply) && this._balances[p1] == old(this._balances[p1]) && this._allowed[p2][p3] == old(this._allowed[p2][p3]))))
+// LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from != null && to != null && p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= this._balances[from] && value <= this._allowed[from][msg.sender] && this._balances[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._balances[from] >= 0 && this._balances[from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._balances[to] >= 0 && this._balances[to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._paused == false) ==> <>(finished(ERC20Pausable.transferFrom(from, to, value), this._balances[from] == old(this._balances[from]) - value && this._balances[to] == old(this._balances[to]) + value && this._allowed[from][msg.sender] == old(this._allowed[from][msg.sender]) - value && this._totalSupply == old(this._totalSupply) && this._balances[p1] == old(this._balances[p1]) && this._allowed[p2][p3] == old(this._allowed[p2][p3]))))
 
+// *nonterminating*
 // LTLVariables: p1:Ref,p2:Ref
-// LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from != null && (p1 != from || p2 != msg.sender) && from == to && value <= this._balances[from] && value <= this._allowed[from][msg.sender]) ==> <>(finished(ERC20Pausable.transferFrom(from, to, value), this._allowed[from][msg.sender] == old(this._allowed[from][msg.sender]) - value && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed[p1][p2] == old(this._allowed[p1][p2]))))
+// LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from != null && (p1 != from || p2 != msg.sender) && from == to && value <= this._balances[from] && value <= this._allowed[from][msg.sender] && this._balances[from] >= 0 && this._balances[from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && this._paused == false) ==> <>(finished(ERC20Pausable.transferFrom(from, to, value), this._allowed[from][msg.sender] == old(this._allowed[from][msg.sender]) - value && this._totalSupply == old(this._totalSupply) && this._balances == old(this._balances) && this._allowed[p1][p2] == old(this._allowed[p1][p2]))))
 
+// *verified 30*
 // LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from != to && (value > this._balances[from] || value > this._allowed[from][msg.sender] || this._balances[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(ERC20Pausable.transferFrom)))
 
+// *verified 28*
 // LTLProperty: [](started(ERC20Pausable.transferFrom(from, to, value), from == to && (value > this._balances[from] || value > this._allowed[from][msg.sender])) ==> <>(reverted(ERC20Pausable.transferFrom)))
 
 type Ref = int;
