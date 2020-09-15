@@ -8,13 +8,13 @@
 	<target name="generate_parser">
 		<echo>SpecLang.flex</echo>
 		<java jar="${flexJar}" fork="true" failonerror="true">
-			<arg value="SpecLang.flex" />
+			<arg value="specLang.flex" />
 		</java>
 		
 		<echo>SpecLang.cup</echo>
 		<java classname="com.github.jhoenicke.javacup.Main" classpath="${cupDir}" fork="true" failonerror="true">
 			<arg line="-parser Parser"/>
-			<arg value="SpecLang.cup" />
+			<arg value="specLang.cup" />
 		</java>
 	</target>
 </project>
