@@ -5,6 +5,21 @@ source "$1"
 
 VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness
 
+property_names=(
+	"totalsupply"
+	"balanceof"
+	"allowance"
+	"approve"
+	"transfer-normal"
+	"transfer-self"
+	"transfer-fail"
+	"transfer-self-fail"
+	"transferfrom-normal"
+	"transferfrom-self"
+	"transferfrom-fail"
+	"transferfrom-self-fail"
+)
+
 properties=(
 	"// #LTLProperty: [](started(${TOT_SUP_CONTRACT}.totalSupply) ==> <>(finished(${TOT_SUP_CONTRACT}.totalSupply, return == this.${TOTAL} && this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES} == old(this.${ALLOWANCES}))))"
 
@@ -41,8 +56,8 @@ for i in ${!properties[@]}
 do
 	echo -e "${properties[$i]}" > ${CONTRACT_NAME}.bpl
 	cat  __SolToBoogieTest_out.bpl >> ${CONTRACT_NAME}.bpl
-	./SmartPulse/SmartPulse.sh ${CONTRACT_NAME}.bpl >& ${CONTRACT_NAME}-${i}-log.txt
-	if grep -q "correct" ${CONTRACT_NAME}-${i}-log.txt
+	./SmartPulse/SmartPulse.sh ${CONTRACT_NAME}.bpl >& ${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt
+	if grep -q "correct" ${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt
 	then
 		echo "Property verified";
 		((++correct));
