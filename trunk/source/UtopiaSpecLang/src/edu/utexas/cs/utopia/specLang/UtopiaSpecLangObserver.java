@@ -197,8 +197,8 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		ArrayList<String> real_args = f.getRealArgs(p);
 		ArrayList<AstNode> f_args = f.getFuncArgs();
 
-		Statement[] func_call_var_assns = this.getFunctionCallVarAssns(constraint, fname, real_args, f_args);
-		Expression expr = this.getExpression(constraint_str, f.getFuncName(), real_args, func_vars);
+		Statement[] func_call_var_assns = this.getFunctionCallVarAssns(p, constraint, fname, real_args, f_args);
+		Expression expr = this.getExpression(p, constraint_str, f.getFuncName(), real_args, func_vars);
 
 		// Add function call variable assignments prior to check of constraint
 		Collections.addAll(stmts, func_call_var_assns);
@@ -263,7 +263,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 			Statement revertFalse = this.buildAssignment("revert", "false");
 			Statement dumpFlag = this.buildAssignment("revert", new IdentifierExpression(iloc, "revert_hold"));
 			if (constraint != null || this.isWildcardAddition(pname, e.getOp())) {
-				Statement[] ifstmt = this.buildIfStatementWithGoto(constraint, e.getName(), pname, real_args, e_args, b, e.getOp());
+				Statement[] ifstmt = this.buildIfStatementWithGoto(constraint, e.getName(), pname, real_args, e_args, p, b, e.getOp());
 				Statement[] revertFlag = {saveFlag, revertFalse, dumpFlag};
 				ifstmt = this.addStatementArrays(revertFlag, ifstmt, 2);				
 				stmts = this.addToStmts2(stmts, ifstmt, place, pname, ename);
@@ -608,11 +608,11 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		return arg_map;
 	}
 	
-	private Expression getExpression(String expr, String pname, ArrayList<String> real_args, ArrayList<String> func_vars) {
+	private Expression getExpression(Procedure p, String expr, String pname, ArrayList<String> real_args, ArrayList<String> func_vars) {
 		Procedure proc = this.parseStringToProcedure("#thevar := "+expr+";");
 		final AssignmentStatement stmt = (AssignmentStatement) proc.getBody().getBlock()[0];
 		final Expression bExpr = stmt.getRhs()[0];
-		final Expression newBExpr = bExpr.accept(new DeclarationInformationAdder(pname, real_args, func_vars, currentEvent));
+		final Expression newBExpr = bExpr.accept(new DeclarationInformationAdder(p, pname, real_args, func_vars, currentEvent));
 		mLogger.info("Parsed " + expr + " to " + newBExpr.toString());
 		return newBExpr;		
 	}
@@ -676,7 +676,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		return vardecs;
 	}
 	
-	private Statement[] getFunctionCallVarAssns(AstNode constraint, String pname, ArrayList<String> real_args, ArrayList<AstNode> e_args) {		
+	private Statement[] getFunctionCallVarAssns(Procedure p, AstNode constraint, String pname, ArrayList<String> real_args, ArrayList<AstNode> e_args) {		
 		HashMap<String, String> arg_map = this.getArgMap(pname, e_args);
 		String assns = this.getFunctionCallVarAssnStrs(constraint, arg_map);
 		ArrayList<String> func_vars = this.getFunctionCallVarStrs(constraint);
@@ -686,7 +686,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		String logInfo = "Parsed " + assns + " to ";
 		for (int i = 0; i < stmts.length; i++) {	
 			Statement s = stmts[i];
-			Statement new_s = s.accept(new DeclarationInformationAdder(pname, real_args, func_vars, this.currentEvent));
+			Statement new_s = s.accept(new DeclarationInformationAdder(p, pname, real_args, func_vars, this.currentEvent));
 			adjusted_stmts[i] = new_s;
 			logInfo += new_s.toString();
 		}
@@ -774,7 +774,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		return pname.startsWith("CorralChoice") && (eop.equals("success") || eop.equals("fail"));
 	}
 	
-	private Statement[] buildIfStatementWithGoto (AstNode constraint, String flag, String pname, ArrayList<String> real_args, ArrayList<AstNode> e_args, Body b, String eop) throws Exception{
+	private Statement[] buildIfStatementWithGoto (AstNode constraint, String flag, String pname, ArrayList<String> real_args, ArrayList<AstNode> e_args, Procedure p, Body b, String eop) throws Exception{
 		// Fetch constraint string. If constraint is null, it must be a wildcard case, so set constraint to empty string
 		String constraint_str = "";
 		ArrayList<String> func_vars = new ArrayList<String>();
@@ -782,7 +782,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		if (constraint != null) {
 			constraint_str = constraint.toString();
 			func_vars = this.getFunctionCallVarStrs(constraint);
-			func_call_var_assns = this.getFunctionCallVarAssns(constraint, pname, real_args, e_args);
+			func_call_var_assns = this.getFunctionCallVarAssns(p, constraint, pname, real_args, e_args);
 			VariableDeclaration[] func_call_var_decs = this.getFunctionCallVarDecs(constraint);
 			if (func_call_var_decs.length > 0) {
 				VariableDeclaration[] old_var_decs = b.getLocalVars();
@@ -804,7 +804,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 			}
 			constraint_str += additional_check; 
 		}
-		Expression expr = this.getExpression(constraint_str, pname, real_args, func_vars);
+		Expression expr = this.getExpression(p, constraint_str, pname, real_args, func_vars);
 		// Handle case for contract invariant
 //		if (pname.indexOf("CorralChoice") != -1) {
 //			expr = new UnaryExpression(iloc, UnaryExpression.Operator.LOGICNEG, expr);
@@ -1284,14 +1284,15 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 	}
 	
 	private static final class DeclarationInformationAdder extends GeneratedBoogieAstTransformer {
+		private Procedure procedure;
+		private String pname;
+		private ArrayList<String> real_args;
+		private ArrayList<String> local_args;
+		private int currentEvent;
 		
-		String pname;
-		ArrayList<String> real_args;
-		ArrayList<String> local_args;
-		int currentEvent;
-		
-		public DeclarationInformationAdder(String pname, ArrayList<String> real_args, ArrayList<String> local_func_call_args, int currentEvent) {
+		public DeclarationInformationAdder(Procedure p, String pname, ArrayList<String> real_args, ArrayList<String> local_func_call_args, int currentEvent) {
 			super();
+			this.procedure = p;
 			this.pname = pname;
 			this.real_args = real_args;
 			this.local_args = local_func_call_args;
@@ -1327,6 +1328,16 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 			} else if (id.equals("success")) {
 				declinfo = new DeclarationInformation(DeclarationInformation.StorageClass.IMPLEMENTATION_OUTPARAM, pname);
 			} 
+			
+			for(VarList vl : procedure.getOutParams()) {
+				for(String identifier : vl.getIdentifiers()) {
+					if(identifier.equals(id)) {
+						declinfo = new DeclarationInformation(DeclarationInformation.StorageClass.IMPLEMENTATION_OUTPARAM, pname);
+						break;
+					}
+				}
+			}
+			
 			return declinfo;
 		}
 		

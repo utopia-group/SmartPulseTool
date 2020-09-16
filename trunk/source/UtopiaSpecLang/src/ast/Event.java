@@ -1,8 +1,10 @@
 package ast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import de.uni_freiburg.informatik.ultimate.boogie.ast.Procedure;
 import de.uni_freiburg.informatik.ultimate.boogie.ast.VarList;
@@ -146,7 +148,7 @@ public class Event extends AstNode {
 		return op;
 	}
 	
-	private void adjustNames(AstNode node, HashMap<String, String> arg_map) {
+	private void adjustNames(AstNode node, Map<String, String> arg_map) {
 		if (node instanceof Name) {
 			Name n = (Name) node;
 			if (arg_map.containsKey(n.getIdent())) {
@@ -188,6 +190,23 @@ public class Event extends AstNode {
 			}
 			this.adjustNames(this.constraint, arg_map);
 		}
+		
+		if(this.constraint != null && p.getOutParams().length > 0) {
+			if(p.getOutParams().length > 1) {
+				throw new RuntimeException("Expected there to be a single list of returns");
+			}
+			
+			VarList retList = p.getOutParams()[0];
+			String[] idents = retList.getIdentifiers();
+			
+			if(idents.length == 1) {
+				this.adjustNames(this.constraint, Collections.singletonMap("return", idents[0]));
+			}
+			else if(idents.length > 1) {
+				throw new RuntimeException("Expected there to be a single return value");
+			}
+		}
+		
 		return this.constraint;
 	}
 	
