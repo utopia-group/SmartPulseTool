@@ -3,7 +3,7 @@
 # The config file should be the argument to this script
 source "$1"
 
-VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness
+VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters
 
 property_names=(
 	"totalsupply"
@@ -60,35 +60,46 @@ mkdir -p logs
 
 for i in ${!properties[@]}
 do
+	# set up the .bpl file with the correct property
 	echo -e "${properties[$i]}" > ${CONTRACT_NAME}.bpl
 	cat  __SolToBoogieTest_out.bpl >> ${CONTRACT_NAME}.bpl
-	timeout 10m ./SmartPulse/SmartPulse.sh ${CONTRACT_NAME}.bpl >& logs/${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt
+
+	# time the running, allow the user to Ctrl-C out
+	TIME_OUT_LIMIT=600 # in seconds, 10m
+	START_TIME=$SECONDS
+	trap 'kill -INT -$PID' INT
+	timeout $TIME_OUT_LIMIT ./SmartPulse/SmartPulse.sh ${CONTRACT_NAME}.bpl >& logs/${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt &
+	PID=$! # pid of job most recently put in background
+	wait $PID
 	RETVAL=$?
-	if [[ RETVAL == 124 ]]
+	ELAPSED_TIME=$(($SECONDS - $START_TIME))
+	TIME_MSG=$(echo "$(($ELAPSED_TIME/60))m $(($ELAPSED_TIME%60))s")
+
+	if [[ $RETVAL == 124 ]]
 	then
-		echo "Property ${property_names[$i]} timed out";
+		echo "Property ${property_names[$i]} timed out -- ${TIME_OUT_LIMIT}s";
 		((++timedout));
 	else
 		logtail=$(tail -n 20 logs/${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt)
 		if [[ "$logtail" == *" correct"* ]]
 		then
-			echo "Property ${property_names[$i]} verified";
+			echo "Property ${property_names[$i]} verified -- ${TIME_MSG}";
 			((++correct));
 		elif [[ "$logtail" == *"End of lasso representation"* ]]
 		then
-			echo "Property ${property_names[$i]} has counterexample";
+			echo "Property ${property_names[$i]} has counterexample -- ${TIME_MSG}";
 			((++counterexample));
 		else
-			echo "Property ${property_names[$i]} had an exception";
+			echo "Property ${property_names[$i]} had an exception -- ${TIME_MSG}";
 			((++exception));
 		fi
 	fi
 done
 
-echo "Verified ${correct} out of ${#properties[@]} properties"
-echo "${counterexample} counterexamples"
-echo "${exception} exceptions"
-echo "${timedout} timed out"
+echo "Verified ${correct} out of ${#properties[@]} properties";
+echo "${counterexample} counterexamples";
+echo "${exception} exceptions";
+echo "${timedout} timed out";
 
 # clean-up
 # But leave CONTRACT_NAME.bpl in case user would like to read the Boogie code
