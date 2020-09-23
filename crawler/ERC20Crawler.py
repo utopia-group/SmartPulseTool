@@ -9,6 +9,7 @@ import hashlib
 import functools
 import time
 from os import path
+from functools import reduce
 
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
@@ -17,19 +18,10 @@ apiUrl = 'https://api.etherscan.io/api'
 apikey = 'G384U2ZJEIERH95X8AWGUREHXM9Q9J23N4'
 apis = ['name', 'symbol', 'decimals', 'totalSupply', 'balanceOf', 'transfer', 'transferFrom', 'approve', 'allowance', 'Transfer', 'Approval']
 
-#PARAMS = {'module' : 'contract', 'action' : 'getsourcecode', 'address' : '0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413', 'apikey' : apikey}
-
-#r = requests.get(url=URL, params=PARAMS)
-
-#data = r.json()
-
-#print(data)
-
+results = {}
 
 def findContracts(continueFrom):
     contractsFile = open("export-verified-contractaddress-opensource-license.csv", "r")
-    outputFile = open("ERC20.csv", "a+")
-    outputFile.write("Name,Address,Compiler Version,Current Balance,Total Deposited Eth,Total Withdrawn Eth,# Transactions" + os.linesep)
 
     foundStart = not continueFrom
     s = requests.Session()
@@ -79,6 +71,18 @@ def findContracts(continueFrom):
         response = req.json()
 
         contractCode = response['result'][0]['SourceCode']
+        try:
+            jsonCode = json.loads(contractCode)
+
+            contractCode = ""
+            for k, v in jsonCode.items():
+                code = v['content']
+                fileCode = "// {name}{sep}{code}".format(name = k, sep = os.linesep, code = code)
+                contractCode = contractCode + fileCode + os.linesep
+        except json.JSONDecodeError:
+            #ignore
+            pass
+
         compilerVersion = response['result'][0]['CompilerVersion']
         m = re.match('v(\d+)\.(\d+)\.(\d+)', compilerVersion)
 
@@ -96,8 +100,6 @@ def findContracts(continueFrom):
             continue
     
         codeHash = hashlib.sha256(contractCode.encode('utf-8')).hexdigest()
-        if(codeHash in contractHashes):
-            continue
         contractHashes.add(codeHash)
 
         solFile = "contracts/{name}_{addr}.sol".format(name = contractName, addr = contractAddr)
@@ -151,10 +153,23 @@ def findContracts(continueFrom):
         totalTxnValue = totalTxnValue / 1000000000000000000.0
         totalWithdraws = totalWithdraws / 1000000000000000000.0
         
-        outputFile.write("{name},{addr},{version},{bal},{txnBal},{withdraws},{numTxns}".format(name = contractName, addr = contractAddr, version = compilerVersion, bal = contractBal, txnBal = totalTxnValue, withdraws = totalWithdraws, numTxns = len(txns)))
-        outputFile.write(os.linesep)
+        numTxns = len(txns)
+        entry = {'name': contractName, 'addr': contractAddr, 'version': compilerVersion, 'bal': contractBal, 'txnBal': totalTxnValue, 'withdraws': totalWithdraws, 'numTxns': numTxns}
+        
+        if codeHash not in results or results[codeHash]['numTxns'] < numTxns:
+            results[codeHash] = entry
+        
+        #outputFile.write("{name},{addr},{version},{bal},{txnBal},{withdraws},{numTxns}".format(name = contractName, addr = contractAddr, version = compilerVersion, bal = contractBal, txnBal = totalTxnValue, withdraws = totalWithdraws, numTxns = len(txns)))
+        #outputFile.write(os.linesep)
 
     contractsFile.close()
+
+    outputFile = open("ERC20.csv", "a+")
+    outputFile.write("Name,Address,Compiler Version,Current Balance,Total Deposited Eth,Total Withdrawn Eth,# Transactions" + os.linesep)
+    for codeHash in results:
+        entry = results[codeHash]
+        outputFile.write("{name},{addr},{version},{bal},{txnBal},{withdraws},{numTxns}".format(name = entry['name'], addr = entry['addr'], version = entry['version'], bal = entry['bal'], txnBal = entry['txnBal'], withdraws = entry['withdraws'], numTxns = entry['numTxns']))
+        outputFile.write(os.linesep)
     outputFile.close()
     
 
