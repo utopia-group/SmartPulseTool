@@ -1,9 +1,21 @@
 #!/bin/bash
 
-# The config file should be the argument to this script
-source "$1"
+# this script takes 2 arguments
+FILE_NAME=$1
+CONTRACT_NAME=$2
 
-VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters
+# make sure FILE_NAME is a .sol file
+if [[ ${FILE_NAME: -4} != ".sol" ]]; then
+	echo "Syntax is ./test-all-props.sh FILE_NAME CONTRACT_NAME"
+	echo "FILE_NAME was not a .sol file"
+	exit 1
+fi
+
+if [ ! -f "${FILE_NAME%.sol}.config" ]; then
+	VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters /generateERC20Spec
+fi
+
+source "${FILE_NAME%.sol}.config"
 
 property_names=(
 	"totalsupply"
