@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # this script takes 2 arguments
 FILE_NAME=$1
 CONTRACT_NAME=$2
@@ -11,6 +13,7 @@ if [[ ${FILE_NAME: -4} != ".sol" ]]; then
 	exit 1
 fi
 
+# create the .config file if it doesn't already exist
 if [ ! -f "${FILE_NAME%.sol}.config" ]; then
 	VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters /generateERC20Spec
 else
@@ -18,6 +21,8 @@ else
 fi
 
 source "${FILE_NAME%.sol}.config"
+
+FILE_NAME="$(basename -- $FILE_NAME)"
 
 property_names=(
 	"totalsupply"
@@ -80,14 +85,14 @@ mkdir -p logs
 for i in ${!properties[@]}
 do
 	# set up the .bpl file with the correct property
-	echo -e "${properties[$i]}" > ${CONTRACT_NAME}.bpl
-	cat  __SolToBoogieTest_out.bpl >> ${CONTRACT_NAME}.bpl
+	echo -e "${properties[$i]}" > ${FILE_NAME%.sol}.bpl
+	cat  __SolToBoogieTest_out.bpl >> ${FILE_NAME%.sol}.bpl
 
 	# time the running, allow the user to Ctrl-C out
 	TIME_OUT_LIMIT=600 # in seconds, 10m
 	START_TIME=$SECONDS
 	trap 'kill -INT -$PID' INT
-	timeout $TIME_OUT_LIMIT ./SmartPulse/SmartPulse.sh ${CONTRACT_NAME}.bpl >& ./logs/${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt &
+	timeout $TIME_OUT_LIMIT ${DIR}/SmartPulse/SmartPulse.sh ${FILE_NAME%.sol}.bpl >& ./logs/${FILE_NAME%.sol}-${i}-${property_names[$i]}-log.txt &
 	PID=$! # pid of job most recently put in background
 	wait $PID
 	RETVAL=$?
@@ -99,7 +104,7 @@ do
 		echo "Property ${property_names[$i]} timed out -- ${TIME_OUT_LIMIT}s";
 		((++timedout));
 	else
-		logtail=$(tail -n 20 logs/${CONTRACT_NAME}-${i}-${property_names[$i]}-log.txt)
+		logtail=$(tail -n 20 ./logs/${FILE_NAME%.sol}-${i}-${property_names[$i]}-log.txt)
 		if [[ "$logtail" == *" correct"* ]]
 		then
 			echo "Property ${property_names[$i]} verified -- ${TIME_MSG}";
@@ -121,5 +126,5 @@ echo "${exception} exceptions";
 echo "${timedout} timed out";
 
 # clean-up
-# But leave CONTRACT_NAME.bpl in case user would like to read the Boogie code
+# But leave FILE_NAME.bpl in case user would like to read the Boogie code
 rm -f __SolToBoogieTest_out.bpl
