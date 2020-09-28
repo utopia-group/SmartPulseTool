@@ -795,9 +795,9 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		if (this.isWildcardAddition(pname, eop)) {
 			String additional_check = "";
 			if (eop.equals("success")) {
-				additional_check = "!revert";
+				additional_check = "!revert_hold";
 			} else if (eop.equals("fail")) {
-				additional_check = "revert";
+				additional_check = "revert_hold";
 			}
 			if (!constraint_str.equals("")) {
 				constraint_str = "(" + constraint_str + ") && ";
@@ -1119,7 +1119,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 					continue;
 				}
 				
-				String newVar = extractBoogieVariable(boogieVar, indPos + indStr.length());
+				String newVar = extractBoogieVariable(boogieVar, indPos + indStr.length() - 2);
 				replacementsMap.put(solStr, newVar);
 			}
 		}
@@ -1151,7 +1151,8 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 					spec = spec.replace(full_str, boogie_var.replace("[i1]", "["+i1_rep+"]"));
 				}
 			} else { // non-array global variable
-				spec = spec.replace(sol_var, boogie_var);
+				spec = spec.replaceAll(sol_var + "([^a-zA-Z_0-9])", boogie_var + "$1");
+				//spec = spec.replace(sol_var, boogie_var);
 			}
 		}
 		
