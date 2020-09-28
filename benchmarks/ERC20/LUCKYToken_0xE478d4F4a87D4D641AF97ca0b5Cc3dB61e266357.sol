@@ -1,4 +1,4 @@
-pragma solidity 0.5.15;
+pragma solidity ^0.5.0;
 
 /**
  * @title SafeMath 
@@ -395,7 +395,7 @@ contract LUCKYToken is BurnableToken, PausableToken {
     string public constant symbol = "LUCKY";  
     uint8 public constant decimals = 18;
     uint256 internal constant INIT_TOTALSUPPLY = 10000000000;
-    address internal constant _tokenOwner = 0x6d881594c2638e21eF8BE440d341AECE3C81875F;
+    address internal constant _tokenOwner = address(0x6d881594c2638e21eF8BE440d341AECE3C81875F);
     
     /**
      * @dev Constructor, initialize the basic information of contract.

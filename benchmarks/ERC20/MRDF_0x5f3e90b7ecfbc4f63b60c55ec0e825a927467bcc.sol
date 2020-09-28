@@ -1,4 +1,4 @@
-pragma solidity ^0.4.26;
+pragma solidity ^0.5.0;
 
 contract SafeMath {
     function safeMul(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -70,7 +70,7 @@ contract MRDF is SafeMath,Owned {
 
     constructor () public{
         _balances[msg.sender] = totalSupply;
-        emit Transfer(0x0, msg.sender, totalSupply);
+        emit Transfer(address(0x0), msg.sender, totalSupply);
     }
 
     function balanceOf(address addr) public view returns (uint256) {

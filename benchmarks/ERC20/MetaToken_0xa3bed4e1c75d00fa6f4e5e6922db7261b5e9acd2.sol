@@ -1,4 +1,4 @@
-pragma solidity 0.5.16;
+pragma solidity ^0.5.0;
 
 
 contract ModuleKeys {
@@ -184,11 +184,6 @@ contract Context {
     function _msgSender() internal view returns (address payable) {
         return msg.sender;
     }
-
-    function _msgData() internal view returns (bytes memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
 }
 
 /**
@@ -305,9 +300,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -361,9 +353,6 @@ library SafeMath {
      * Requirements:
      * - The divisor cannot be zero.
      */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
 
     /**
      * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
@@ -398,9 +387,6 @@ library SafeMath {
      * Requirements:
      * - The divisor cannot be zero.
      */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
 
     /**
      * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
@@ -585,7 +571,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
 
@@ -818,7 +804,7 @@ contract MetaToken is
         )
     {
         // 100m initial supply
-        _mint(_initialRecipient, 100000000 * (10 ** 18));
+        _mint(_initialRecipient, uint256(100000000 * (10 ** 18)));
     }
 
     // Forked from @openzeppelin

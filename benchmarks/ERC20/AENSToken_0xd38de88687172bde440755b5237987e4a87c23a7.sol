@@ -1,4 +1,4 @@
-pragma solidity ^0.5.17;
+pragma solidity ^0.5.0;
 // @notice SECURITY TOKEN CONTRACT
 // @dev ERC-1404 with ERC-20 with ERC-223 protection Token Standard Compliant
 // @author Geoffrey Tipton at AEN

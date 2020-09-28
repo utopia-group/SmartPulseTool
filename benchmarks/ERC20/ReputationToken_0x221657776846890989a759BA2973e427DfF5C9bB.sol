@@ -1,32 +1,1126 @@
-{{
-  "language": "Solidity",
-  "settings": {
-    "remappings": [
-      "ROOT=/home/achapman/augur/packages/augur-core/src/contracts//"
-    ],
-    "optimizer": {
-      "enabled": true,
-      "runs": 200,
-      "details": {
-        "yul": true,
-        "deduplicate": true,
-        "cse": true,
-        "constantOptimizer": true
-      }
-    },
-    "outputSelection": {
-      "*": {
-        "*": [
-          "evm.bytecode",
-          "evm.deployedBytecode",
-          "abi"
-        ]
-      }
+pragma solidity ^0.5.0;
+
+contract IAugur {
+    function createChildUniverse(bytes32 _parentPayoutDistributionHash, uint256[] memory _parentPayoutNumerators) public returns (IUniverse);
+    function isKnownUniverse(IUniverse _universe) public view returns (bool);
+    function trustedCashTransfer(address _from, address _to, uint256 _amount) public returns (bool);
+    function isTrustedSender(address _address) public returns (bool);
+    function onCategoricalMarketCreated(uint256 _endTime, string memory _extraInfo, IMarket _market, address _marketCreator, address _designatedReporter, uint256 _feePerCashInAttoCash, bytes32[] memory _outcomes) public returns (bool);
+    function onYesNoMarketCreated(uint256 _endTime, string memory _extraInfo, IMarket _market, address _marketCreator, address _designatedReporter, uint256 _feePerCashInAttoCash) public returns (bool);
+    function onScalarMarketCreated(uint256 _endTime, string memory _extraInfo, IMarket _market, address _marketCreator, address _designatedReporter, uint256 _feePerCashInAttoCash, int256[] memory _prices, uint256 _numTicks)  public returns (bool);
+    function logInitialReportSubmitted(IUniverse _universe, address _reporter, address _market, address _initialReporter, uint256 _amountStaked, bool _isDesignatedReporter, uint256[] memory _payoutNumerators, string memory _description, uint256 _nextWindowStartTime, uint256 _nextWindowEndTime) public returns (bool);
+    function disputeCrowdsourcerCreated(IUniverse _universe, address _market, address _disputeCrowdsourcer, uint256[] memory _payoutNumerators, uint256 _size, uint256 _disputeRound) public returns (bool);
+    function logDisputeCrowdsourcerContribution(IUniverse _universe, address _reporter, address _market, address _disputeCrowdsourcer, uint256 _amountStaked, string memory description, uint256[] memory _payoutNumerators, uint256 _currentStake, uint256 _stakeRemaining, uint256 _disputeRound) public returns (bool);
+    function logDisputeCrowdsourcerCompleted(IUniverse _universe, address _market, address _disputeCrowdsourcer, uint256[] memory _payoutNumerators, uint256 _nextWindowStartTime, uint256 _nextWindowEndTime, bool _pacingOn, uint256 _totalRepStakedInPayout, uint256 _totalRepStakedInMarket, uint256 _disputeRound) public returns (bool);
+    function logInitialReporterRedeemed(IUniverse _universe, address _reporter, address _market, uint256 _amountRedeemed, uint256 _repReceived, uint256[] memory _payoutNumerators) public returns (bool);
+    function logDisputeCrowdsourcerRedeemed(IUniverse _universe, address _reporter, address _market, uint256 _amountRedeemed, uint256 _repReceived, uint256[] memory _payoutNumerators) public returns (bool);
+    function logMarketFinalized(IUniverse _universe, uint256[] memory _winningPayoutNumerators) public returns (bool);
+    function logMarketMigrated(IMarket _market, IUniverse _originalUniverse) public returns (bool);
+    function logReportingParticipantDisavowed(IUniverse _universe, IMarket _market) public returns (bool);
+    function logMarketParticipantsDisavowed(IUniverse _universe) public returns (bool);
+    function logCompleteSetsPurchased(IUniverse _universe, IMarket _market, address _account, uint256 _numCompleteSets) public returns (bool);
+    function logCompleteSetsSold(IUniverse _universe, IMarket _market, address _account, uint256 _numCompleteSets, uint256 _fees) public returns (bool);
+    function logMarketOIChanged(IUniverse _universe, IMarket _market) public returns (bool);
+    function logTradingProceedsClaimed(IUniverse _universe, address _sender, address _market, uint256 _outcome, uint256 _numShares, uint256 _numPayoutTokens, uint256 _fees) public returns (bool);
+    function logUniverseForked(IMarket _forkingMarket) public returns (bool);
+    function logReputationTokensTransferred(IUniverse _universe, address _from, address _to, uint256 _value, uint256 _fromBalance, uint256 _toBalance) public returns (bool);
+    function logReputationTokensBurned(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);
+    function logReputationTokensMinted(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);
+    function logShareTokensBalanceChanged(address _account, IMarket _market, uint256 _outcome, uint256 _balance) public returns (bool);
+    function logDisputeCrowdsourcerTokensTransferred(IUniverse _universe, address _from, address _to, uint256 _value, uint256 _fromBalance, uint256 _toBalance) public returns (bool);
+    function logDisputeCrowdsourcerTokensBurned(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);
+    function logDisputeCrowdsourcerTokensMinted(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);
+    function logDisputeWindowCreated(IDisputeWindow _disputeWindow, uint256 _id, bool _initial) public returns (bool);
+    function logParticipationTokensRedeemed(IUniverse universe, address _sender, uint256 _attoParticipationTokens, uint256 _feePayoutShare) public returns (bool);
+    function logTimestampSet(uint256 _newTimestamp) public returns (bool);
+    function logInitialReporterTransferred(IUniverse _universe, IMarket _market, address _from, address _to) public returns (bool);
+    function logMarketTransferred(IUniverse _universe, address _from, address _to) public returns (bool);
+    function logParticipationTokensTransferred(IUniverse _universe, address _from, address _to, uint256 _value, uint256 _fromBalance, uint256 _toBalance) public returns (bool);
+    function logParticipationTokensBurned(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);
+    function logParticipationTokensMinted(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);
+    function logMarketRepBondTransferred(address _universe, address _from, address _to) public returns (bool);
+    function logWarpSyncDataUpdated(address _universe, uint256 _warpSyncHash, uint256 _marketEndTime) public returns (bool);
+    function isKnownFeeSender(address _feeSender) public view returns (bool);
+    function lookup(bytes32 _key) public view returns (address);
+    function getTimestamp() public view returns (uint256);
+    function getMaximumMarketEndDate() public returns (uint256);
+    function isKnownMarket(IMarket _market) public view returns (bool);
+    function derivePayoutDistributionHash(uint256[] memory _payoutNumerators, uint256 _numTicks, uint256 numOutcomes) public view returns (bytes32);
+    function logValidityBondChanged(uint256 _validityBond) public returns (bool);
+    function logDesignatedReportStakeChanged(uint256 _designatedReportStake) public returns (bool);
+    function logNoShowBondChanged(uint256 _noShowBond) public returns (bool);
+    function logReportingFeeChanged(uint256 _reportingFee) public returns (bool);
+    function getUniverseForkIndex(IUniverse _universe) public view returns (uint256);
+}
+
+contract IOwnable {
+    function getOwner() public view returns (address);
+    function transferOwnership(address _newOwner) public returns (bool);
+}
+
+contract ITyped {
+    function getTypeName() public view returns (bytes32);
+}
+
+library SafeMathUint256 {
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b);
+
+        return c;
     }
-  },
-  "sources": {
-    "reporting/ReputationToken.sol": {
-      "content": "pragma solidity 0.5.15;\n\ncontract IAugur {\n    function createChildUniverse(bytes32 _parentPayoutDistributionHash, uint256[] memory _parentPayoutNumerators) public returns (IUniverse);\n    function isKnownUniverse(IUniverse _universe) public view returns (bool);\n    function trustedCashTransfer(address _from, address _to, uint256 _amount) public returns (bool);\n    function isTrustedSender(address _address) public returns (bool);\n    function onCategoricalMarketCreated(uint256 _endTime, string memory _extraInfo, IMarket _market, address _marketCreator, address _designatedReporter, uint256 _feePerCashInAttoCash, bytes32[] memory _outcomes) public returns (bool);\n    function onYesNoMarketCreated(uint256 _endTime, string memory _extraInfo, IMarket _market, address _marketCreator, address _designatedReporter, uint256 _feePerCashInAttoCash) public returns (bool);\n    function onScalarMarketCreated(uint256 _endTime, string memory _extraInfo, IMarket _market, address _marketCreator, address _designatedReporter, uint256 _feePerCashInAttoCash, int256[] memory _prices, uint256 _numTicks)  public returns (bool);\n    function logInitialReportSubmitted(IUniverse _universe, address _reporter, address _market, address _initialReporter, uint256 _amountStaked, bool _isDesignatedReporter, uint256[] memory _payoutNumerators, string memory _description, uint256 _nextWindowStartTime, uint256 _nextWindowEndTime) public returns (bool);\n    function disputeCrowdsourcerCreated(IUniverse _universe, address _market, address _disputeCrowdsourcer, uint256[] memory _payoutNumerators, uint256 _size, uint256 _disputeRound) public returns (bool);\n    function logDisputeCrowdsourcerContribution(IUniverse _universe, address _reporter, address _market, address _disputeCrowdsourcer, uint256 _amountStaked, string memory description, uint256[] memory _payoutNumerators, uint256 _currentStake, uint256 _stakeRemaining, uint256 _disputeRound) public returns (bool);\n    function logDisputeCrowdsourcerCompleted(IUniverse _universe, address _market, address _disputeCrowdsourcer, uint256[] memory _payoutNumerators, uint256 _nextWindowStartTime, uint256 _nextWindowEndTime, bool _pacingOn, uint256 _totalRepStakedInPayout, uint256 _totalRepStakedInMarket, uint256 _disputeRound) public returns (bool);\n    function logInitialReporterRedeemed(IUniverse _universe, address _reporter, address _market, uint256 _amountRedeemed, uint256 _repReceived, uint256[] memory _payoutNumerators) public returns (bool);\n    function logDisputeCrowdsourcerRedeemed(IUniverse _universe, address _reporter, address _market, uint256 _amountRedeemed, uint256 _repReceived, uint256[] memory _payoutNumerators) public returns (bool);\n    function logMarketFinalized(IUniverse _universe, uint256[] memory _winningPayoutNumerators) public returns (bool);\n    function logMarketMigrated(IMarket _market, IUniverse _originalUniverse) public returns (bool);\n    function logReportingParticipantDisavowed(IUniverse _universe, IMarket _market) public returns (bool);\n    function logMarketParticipantsDisavowed(IUniverse _universe) public returns (bool);\n    function logCompleteSetsPurchased(IUniverse _universe, IMarket _market, address _account, uint256 _numCompleteSets) public returns (bool);\n    function logCompleteSetsSold(IUniverse _universe, IMarket _market, address _account, uint256 _numCompleteSets, uint256 _fees) public returns (bool);\n    function logMarketOIChanged(IUniverse _universe, IMarket _market) public returns (bool);\n    function logTradingProceedsClaimed(IUniverse _universe, address _sender, address _market, uint256 _outcome, uint256 _numShares, uint256 _numPayoutTokens, uint256 _fees) public returns (bool);\n    function logUniverseForked(IMarket _forkingMarket) public returns (bool);\n    function logReputationTokensTransferred(IUniverse _universe, address _from, address _to, uint256 _value, uint256 _fromBalance, uint256 _toBalance) public returns (bool);\n    function logReputationTokensBurned(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);\n    function logReputationTokensMinted(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);\n    function logShareTokensBalanceChanged(address _account, IMarket _market, uint256 _outcome, uint256 _balance) public returns (bool);\n    function logDisputeCrowdsourcerTokensTransferred(IUniverse _universe, address _from, address _to, uint256 _value, uint256 _fromBalance, uint256 _toBalance) public returns (bool);\n    function logDisputeCrowdsourcerTokensBurned(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);\n    function logDisputeCrowdsourcerTokensMinted(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);\n    function logDisputeWindowCreated(IDisputeWindow _disputeWindow, uint256 _id, bool _initial) public returns (bool);\n    function logParticipationTokensRedeemed(IUniverse universe, address _sender, uint256 _attoParticipationTokens, uint256 _feePayoutShare) public returns (bool);\n    function logTimestampSet(uint256 _newTimestamp) public returns (bool);\n    function logInitialReporterTransferred(IUniverse _universe, IMarket _market, address _from, address _to) public returns (bool);\n    function logMarketTransferred(IUniverse _universe, address _from, address _to) public returns (bool);\n    function logParticipationTokensTransferred(IUniverse _universe, address _from, address _to, uint256 _value, uint256 _fromBalance, uint256 _toBalance) public returns (bool);\n    function logParticipationTokensBurned(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);\n    function logParticipationTokensMinted(IUniverse _universe, address _target, uint256 _amount, uint256 _totalSupply, uint256 _balance) public returns (bool);\n    function logMarketRepBondTransferred(address _universe, address _from, address _to) public returns (bool);\n    function logWarpSyncDataUpdated(address _universe, uint256 _warpSyncHash, uint256 _marketEndTime) public returns (bool);\n    function isKnownFeeSender(address _feeSender) public view returns (bool);\n    function lookup(bytes32 _key) public view returns (address);\n    function getTimestamp() public view returns (uint256);\n    function getMaximumMarketEndDate() public returns (uint256);\n    function isKnownMarket(IMarket _market) public view returns (bool);\n    function derivePayoutDistributionHash(uint256[] memory _payoutNumerators, uint256 _numTicks, uint256 numOutcomes) public view returns (bytes32);\n    function logValidityBondChanged(uint256 _validityBond) public returns (bool);\n    function logDesignatedReportStakeChanged(uint256 _designatedReportStake) public returns (bool);\n    function logNoShowBondChanged(uint256 _noShowBond) public returns (bool);\n    function logReportingFeeChanged(uint256 _reportingFee) public returns (bool);\n    function getUniverseForkIndex(IUniverse _universe) public view returns (uint256);\n}\n\ncontract IOwnable {\n    function getOwner() public view returns (address);\n    function transferOwnership(address _newOwner) public returns (bool);\n}\n\ncontract ITyped {\n    function getTypeName() public view returns (bytes32);\n}\n\nlibrary SafeMathUint256 {\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\n        // benefit is lost if 'b' is also tested.\n        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522\n        if (a == 0) {\n            return 0;\n        }\n\n        uint256 c = a * b;\n        require(c / a == b);\n\n        return c;\n    }\n\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\n        // assert(b > 0); // Solidity automatically throws when dividing by 0\n        uint256 c = a / b;\n        // assert(a == b * c + a % b); // There is no case in which this doesn't hold\n        return c;\n    }\n\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\n        require(b <= a);\n        return a - b;\n    }\n\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\n        uint256 c = a + b;\n        require(c >= a);\n        return c;\n    }\n\n    function min(uint256 a, uint256 b) internal pure returns (uint256) {\n        if (a <= b) {\n            return a;\n        } else {\n            return b;\n        }\n    }\n\n    function max(uint256 a, uint256 b) internal pure returns (uint256) {\n        if (a >= b) {\n            return a;\n        } else {\n            return b;\n        }\n    }\n\n    function sqrt(uint256 y) internal pure returns (uint256 z) {\n        if (y > 3) {\n            uint256 x = (y + 1) / 2;\n            z = y;\n            while (x < z) {\n                z = x;\n                x = (y / x + x) / 2;\n            }\n        } else if (y != 0) {\n            z = 1;\n        }\n    }\n\n    function getUint256Min() internal pure returns (uint256) {\n        return 0;\n    }\n\n    function getUint256Max() internal pure returns (uint256) {\n        // 2 ** 256 - 1\n        return 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;\n    }\n\n    function isMultipleOf(uint256 a, uint256 b) internal pure returns (bool) {\n        return a % b == 0;\n    }\n\n    // Float [fixed point] Operations\n    function fxpMul(uint256 a, uint256 b, uint256 base) internal pure returns (uint256) {\n        return div(mul(a, b), base);\n    }\n\n    function fxpDiv(uint256 a, uint256 b, uint256 base) internal pure returns (uint256) {\n        return div(mul(a, base), b);\n    }\n}\n\ninterface IERC1155 {\n\n    /// @dev Either TransferSingle or TransferBatch MUST emit when tokens are transferred,\n    ///      including zero value transfers as well as minting or burning.\n    /// Operator will always be msg.sender.\n    /// Either event from address `0x0` signifies a minting operation.\n    /// An event to address `0x0` signifies a burning or melting operation.\n    /// The total value transferred from address 0x0 minus the total value transferred to 0x0 may\n    /// be used by clients and exchanges to be added to the \"circulating supply\" for a given token ID.\n    /// To define a token ID with no initial balance, the contract SHOULD emit the TransferSingle event\n    /// from `0x0` to `0x0`, with the token creator as `_operator`.\n    event TransferSingle(\n        address indexed operator,\n        address indexed from,\n        address indexed to,\n        uint256 id,\n        uint256 value\n    );\n\n    /// @dev Either TransferSingle or TransferBatch MUST emit when tokens are transferred,\n    ///      including zero value transfers as well as minting or burning.\n    ///Operator will always be msg.sender.\n    /// Either event from address `0x0` signifies a minting operation.\n    /// An event to address `0x0` signifies a burning or melting operation.\n    /// The total value transferred from address 0x0 minus the total value transferred to 0x0 may\n    /// be used by clients and exchanges to be added to the \"circulating supply\" for a given token ID.\n    /// To define multiple token IDs with no initial balance, this SHOULD emit the TransferBatch event\n    /// from `0x0` to `0x0`, with the token creator as `_operator`.\n    event TransferBatch(\n        address indexed operator,\n        address indexed from,\n        address indexed to,\n        uint256[] ids,\n        uint256[] values\n    );\n\n    /// @dev MUST emit when an approval is updated.\n    event ApprovalForAll(\n        address indexed owner,\n        address indexed operator,\n        bool approved\n    );\n\n    /// @dev MUST emit when the URI is updated for a token ID.\n    /// URIs are defined in RFC 3986.\n    /// The URI MUST point a JSON file that conforms to the \"ERC-1155 Metadata JSON Schema\".\n    event URI(\n        string value,\n        uint256 indexed id\n    );\n\n    /// @notice Transfers value amount of an _id from the _from address to the _to address specified.\n    /// @dev MUST emit TransferSingle event on success.\n    /// Caller must be approved to manage the _from account's tokens (see isApprovedForAll).\n    /// MUST throw if `_to` is the zero address.\n    /// MUST throw if balance of sender for token `_id` is lower than the `_value` sent.\n    /// MUST throw on any other error.\n    /// When transfer is complete, this function MUST check if `_to` is a smart contract (code size > 0).\n    /// If so, it MUST call `onERC1155Received` on `_to` and revert if the return value\n    /// is not `bytes4(keccak256(\"onERC1155Received(address,address,uint256,uint256,bytes)\"))`.\n    /// @param from    Source address\n    /// @param to      Target address\n    /// @param id      ID of the token type\n    /// @param value   Transfer amount\n    /// @param data    Additional data with no specified format, sent in call to `_to`\n    function safeTransferFrom(\n        address from,\n        address to,\n        uint256 id,\n        uint256 value,\n        bytes calldata data\n    )\n        external;\n\n    /// @notice Send multiple types of Tokens from a 3rd party in one transfer (with safety call).\n    /// @dev MUST emit TransferBatch event on success.\n    /// Caller must be approved to manage the _from account's tokens (see isApprovedForAll).\n    /// MUST throw if `_to` is the zero address.\n    /// MUST throw if length of `_ids` is not the same as length of `_values`.\n    ///  MUST throw if any of the balance of sender for token `_ids` is lower than the respective `_values` sent.\n    /// MUST throw on any other error.\n    /// When transfer is complete, this function MUST check if `_to` is a smart contract (code size > 0).\n    /// If so, it MUST call `onERC1155BatchReceived` on `_to` and revert if the return value\n    /// is not `bytes4(keccak256(\"onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)\"))`.\n    /// @param from    Source addresses\n    /// @param to      Target addresses\n    /// @param ids     IDs of each token type\n    /// @param values  Transfer amounts per token type\n    /// @param data    Additional data with no specified format, sent in call to `_to`\n    function safeBatchTransferFrom(\n        address from,\n        address to,\n        uint256[] calldata ids,\n        uint256[] calldata values,\n        bytes calldata data\n    )\n        external;\n\n    /// @notice Enable or disable approval for a third party (\"operator\") to manage all of the caller's tokens.\n    /// @dev MUST emit the ApprovalForAll event on success.\n    /// @param operator  Address to add to the set of authorized operators\n    /// @param approved  True if the operator is approved, false to revoke approval\n    function setApprovalForAll(address operator, bool approved) external;\n\n    /// @notice Queries the approval status of an operator for a given owner.\n    /// @param owner     The owner of the Tokens\n    /// @param operator  Address of authorized operator\n    /// @return           True if the operator is approved, false if not\n    function isApprovedForAll(address owner, address operator) external view returns (bool);\n\n    /// @notice Get the balance of an account's Tokens.\n    /// @param owner  The address of the token holder\n    /// @param id     ID of the Token\n    /// @return        The _owner's balance of the Token type requested\n    function balanceOf(address owner, uint256 id) external view returns (uint256);\n\n    /// @notice Get the total supply of a Token.\n    /// @param id     ID of the Token\n    /// @return        The total supply of the Token type requested\n    function totalSupply(uint256 id) external view returns (uint256);\n\n    /// @notice Get the balance of multiple account/token pairs\n    /// @param owners The addresses of the token holders\n    /// @param ids    ID of the Tokens\n    /// @return        The _owner's balance of the Token types requested\n    function balanceOfBatch(\n        address[] calldata owners,\n        uint256[] calldata ids\n    )\n        external\n        view\n        returns (uint256[] memory balances_);\n}\n\ncontract IERC20 {\n    function totalSupply() external view returns (uint256);\n    function balanceOf(address owner) public view returns (uint256);\n    function transfer(address to, uint256 amount) public returns (bool);\n    function transferFrom(address from, address to, uint256 amount) public returns (bool);\n    function approve(address spender, uint256 amount) public returns (bool);\n    function allowance(address owner, address spender) public view returns (uint256);\n\n    // solhint-disable-next-line no-simple-event-func-name\n    event Transfer(address indexed from, address indexed to, uint256 value);\n    event Approval(address indexed owner, address indexed spender, uint256 value);\n}\n\ncontract ICash is IERC20 {\n}\n\ncontract ERC20 is IERC20 {\n    using SafeMathUint256 for uint256;\n\n    uint8 constant public decimals = 18;\n\n    uint256 public totalSupply;\n\n    mapping (address => uint256) public balances;\n\n    mapping (address => mapping (address => uint256)) public allowances;\n\n    /**\n     * @dev See {IERC20-balanceOf}.\n     */\n    function balanceOf(address _account) public view returns (uint256) {\n        return balances[_account];\n    }\n\n    /**\n     * @dev See {IERC20-transfer}.\n     *\n     * Requirements:\n     *\n     * - `recipient` cannot be the zero address.\n     * - the caller must have a balance of at least `amount`.\n     */\n    function transfer(address _recipient, uint256 _amount) public returns (bool) {\n        _transfer(msg.sender, _recipient, _amount);\n        return true;\n    }\n\n    /**\n     * @dev See {IERC20-allowance}.\n     */\n    function allowance(address _owner, address _spender) public view returns (uint256) {\n        return allowances[_owner][_spender];\n    }\n\n    /**\n     * @dev See {IERC20-approve}.\n     *\n     * Requirements:\n     *\n     * - `spender` cannot be the zero address.\n     */\n    function approve(address _spender, uint256 _amount) public returns (bool) {\n        _approve(msg.sender, _spender, _amount);\n        return true;\n    }\n\n    /**\n     * @dev See {IERC20-transferFrom}.\n     *\n     * Emits an {Approval} event indicating the updated allowance. This is not\n     * required by the EIP. See the note at the beginning of {ERC20};\n     *\n     * Requirements:\n     * - `sender` and `recipient` cannot be the zero address.\n     * - `sender` must have a balance of at least `amount`.\n     * - the caller must have allowance for `sender`'s tokens of at least\n     * `amount`.\n     */\n    function transferFrom(address _sender, address _recipient, uint256 _amount) public returns (bool) {\n        _transfer(_sender, _recipient, _amount);\n        _approve(_sender, msg.sender, allowances[_sender][msg.sender].sub(_amount));\n        return true;\n    }\n\n    /**\n     * @dev Atomically increases the allowance granted to `spender` by the caller.\n     *\n     * This is an alternative to {approve} that can be used as a mitigation for\n     * problems described in {IERC20-approve}.\n     *\n     * Emits an {Approval} event indicating the updated allowance.\n     *\n     * Requirements:\n     *\n     * - `spender` cannot be the zero address.\n     */\n    function increaseAllowance(address _spender, uint256 _addedValue) public returns (bool) {\n        _approve(msg.sender, _spender, allowances[msg.sender][_spender].add(_addedValue));\n        return true;\n    }\n\n    /**\n     * @dev Atomically decreases the allowance granted to `spender` by the caller.\n     *\n     * This is an alternative to {approve} that can be used as a mitigation for\n     * problems described in {IERC20-approve}.\n     *\n     * Emits an {Approval} event indicating the updated allowance.\n     *\n     * Requirements:\n     *\n     * - `spender` cannot be the zero address.\n     * - `spender` must have allowance for the caller of at least\n     * `subtractedValue`.\n     */\n    function decreaseAllowance(address _spender, uint256 _subtractedValue) public returns (bool) {\n        _approve(msg.sender, _spender, allowances[msg.sender][_spender].sub(_subtractedValue));\n        return true;\n    }\n\n    /**\n     * @dev Moves tokens `amount` from `sender` to `recipient`.\n     *\n     * This is internal function is equivalent to {transfer}, and can be used to\n     * e.g. implement automatic token fees, slashing mechanisms, etc.\n     *\n     * Emits a {Transfer} event.\n     *\n     * Requirements:\n     *\n     * - `sender` cannot be the zero address.\n     * - `recipient` cannot be the zero address.\n     * - `sender` must have a balance of at least `amount`.\n     */\n    function _transfer(address _sender, address _recipient, uint256 _amount) internal {\n        require(_sender != address(0), \"ERC20: transfer from the zero address\");\n        require(_recipient != address(0), \"ERC20: transfer to the zero address\");\n\n        balances[_sender] = balances[_sender].sub(_amount);\n        balances[_recipient] = balances[_recipient].add(_amount);\n        emit Transfer(_sender, _recipient, _amount);\n        onTokenTransfer(_sender, _recipient, _amount);\n    }\n\n    /** @dev Creates `amount` tokens and assigns them to `account`, increasing\n     * the total supply.\n     *\n     * Emits a {Transfer} event with `from` set to the zero address.\n     *\n     * Requirements\n     *\n     * - `to` cannot be the zero address.\n     */\n    function _mint(address _account, uint256 _amount) internal {\n        require(_account != address(0), \"ERC20: mint to the zero address\");\n\n        totalSupply = totalSupply.add(_amount);\n        balances[_account] = balances[_account].add(_amount);\n        emit Transfer(address(0), _account, _amount);\n    }\n\n    /**\n     * @dev Destroys `amount` tokens from `account`, reducing the\n     * total supply.\n     *\n     * Emits a {Transfer} event with `to` set to the zero address.\n     *\n     * Requirements\n     *\n     * - `account` cannot be the zero address.\n     * - `account` must have at least `amount` tokens.\n     */\n    function _burn(address _account, uint256 _amount) internal {\n        require(_account != address(0), \"ERC20: burn from the zero address\");\n\n        balances[_account] = balances[_account].sub(_amount);\n        totalSupply = totalSupply.sub(_amount);\n        emit Transfer(_account, address(0), _amount);\n    }\n\n    /**\n     * @dev Sets `amount` as the allowance of `spender` over the `owner`s tokens.\n     *\n     * This is internal function is equivalent to `approve`, and can be used to\n     * e.g. set automatic allowances for certain subsystems, etc.\n     *\n     * Emits an {Approval} event.\n     *\n     * Requirements:\n     *\n     * - `owner` cannot be the zero address.\n     * - `spender` cannot be the zero address.\n     */\n    function _approve(address _owner, address _spender, uint256 _amount) internal {\n        require(_owner != address(0), \"ERC20: approve from the zero address\");\n        require(_spender != address(0), \"ERC20: approve to the zero address\");\n\n        allowances[_owner][_spender] = _amount;\n        emit Approval(_owner, _spender, _amount);\n    }\n\n    /**\n     * @dev Destroys `amount` tokens from `account`.`amount` is then deducted\n     * from the caller's allowance.\n     *\n     * See {_burn} and {_approve}.\n     */\n    function _burnFrom(address _account, uint256 _amount) internal {\n        _burn(_account, _amount);\n        _approve(_account, msg.sender, allowances[_account][msg.sender].sub(_amount));\n    }\n\n    // Subclasses of this token generally want to send additional logs through the centralized Augur log emitter contract\n    function onTokenTransfer(address _from, address _to, uint256 _value) internal;\n}\n\ncontract VariableSupplyToken is ERC20 {\n    using SafeMathUint256 for uint256;\n\n    function mint(address _target, uint256 _amount) internal returns (bool) {\n        _mint(_target, _amount);\n        onMint(_target, _amount);\n        return true;\n    }\n\n    function burn(address _target, uint256 _amount) internal returns (bool) {\n        _burn(_target, _amount);\n        onBurn(_target, _amount);\n        return true;\n    }\n\n    // Subclasses of this token may want to send additional logs through the centralized Augur log emitter contract\n    function onMint(address, uint256) internal {\n    }\n\n    // Subclasses of this token may want to send additional logs through the centralized Augur log emitter contract\n    function onBurn(address, uint256) internal {\n    }\n}\n\ncontract IAffiliateValidator {\n    function validateReference(address _account, address _referrer) external view returns (bool);\n}\n\ncontract IDisputeWindow is ITyped, IERC20 {\n    function invalidMarketsTotal() external view returns (uint256);\n    function validityBondTotal() external view returns (uint256);\n\n    function incorrectDesignatedReportTotal() external view returns (uint256);\n    function initialReportBondTotal() external view returns (uint256);\n\n    function designatedReportNoShowsTotal() external view returns (uint256);\n    function designatedReporterNoShowBondTotal() external view returns (uint256);\n\n    function initialize(IAugur _augur, IUniverse _universe, uint256 _disputeWindowId, bool _participationTokensEnabled, uint256 _duration, uint256 _startTime) public;\n    function trustedBuy(address _buyer, uint256 _attotokens) public returns (bool);\n    function getUniverse() public view returns (IUniverse);\n    function getReputationToken() public view returns (IReputationToken);\n    function getStartTime() public view returns (uint256);\n    function getEndTime() public view returns (uint256);\n    function getWindowId() public view returns (uint256);\n    function isActive() public view returns (bool);\n    function isOver() public view returns (bool);\n    function onMarketFinalized() public;\n    function redeem(address _account) public returns (bool);\n}\n\ncontract IMarket is IOwnable {\n    enum MarketType {\n        YES_NO,\n        CATEGORICAL,\n        SCALAR\n    }\n\n    function initialize(IAugur _augur, IUniverse _universe, uint256 _endTime, uint256 _feePerCashInAttoCash, IAffiliateValidator _affiliateValidator, uint256 _affiliateFeeDivisor, address _designatedReporterAddress, address _creator, uint256 _numOutcomes, uint256 _numTicks) public;\n    function derivePayoutDistributionHash(uint256[] memory _payoutNumerators) public view returns (bytes32);\n    function doInitialReport(uint256[] memory _payoutNumerators, string memory _description, uint256 _additionalStake) public returns (bool);\n    function getUniverse() public view returns (IUniverse);\n    function getDisputeWindow() public view returns (IDisputeWindow);\n    function getNumberOfOutcomes() public view returns (uint256);\n    function getNumTicks() public view returns (uint256);\n    function getMarketCreatorSettlementFeeDivisor() public view returns (uint256);\n    function getForkingMarket() public view returns (IMarket _market);\n    function getEndTime() public view returns (uint256);\n    function getWinningPayoutDistributionHash() public view returns (bytes32);\n    function getWinningPayoutNumerator(uint256 _outcome) public view returns (uint256);\n    function getWinningReportingParticipant() public view returns (IReportingParticipant);\n    function getReputationToken() public view returns (IV2ReputationToken);\n    function getFinalizationTime() public view returns (uint256);\n    function getInitialReporter() public view returns (IInitialReporter);\n    function getDesignatedReportingEndTime() public view returns (uint256);\n    function getValidityBondAttoCash() public view returns (uint256);\n    function affiliateFeeDivisor() external view returns (uint256);\n    function getNumParticipants() public view returns (uint256);\n    function getDisputePacingOn() public view returns (bool);\n    function deriveMarketCreatorFeeAmount(uint256 _amount) public view returns (uint256);\n    function recordMarketCreatorFees(uint256 _marketCreatorFees, address _sourceAccount, bytes32 _fingerprint) public returns (bool);\n    function isContainerForReportingParticipant(IReportingParticipant _reportingParticipant) public view returns (bool);\n    function isFinalizedAsInvalid() public view returns (bool);\n    function finalize() public returns (bool);\n    function isFinalized() public view returns (bool);\n    function getOpenInterest() public view returns (uint256);\n}\n\ncontract IReportingParticipant {\n    function getStake() public view returns (uint256);\n    function getPayoutDistributionHash() public view returns (bytes32);\n    function liquidateLosing() public;\n    function redeem(address _redeemer) public returns (bool);\n    function isDisavowed() public view returns (bool);\n    function getPayoutNumerator(uint256 _outcome) public view returns (uint256);\n    function getPayoutNumerators() public view returns (uint256[] memory);\n    function getMarket() public view returns (IMarket);\n    function getSize() public view returns (uint256);\n}\n\ncontract IDisputeCrowdsourcer is IReportingParticipant, IERC20 {\n    function initialize(IAugur _augur, IMarket market, uint256 _size, bytes32 _payoutDistributionHash, uint256[] memory _payoutNumerators, uint256 _crowdsourcerGeneration) public;\n    function contribute(address _participant, uint256 _amount, bool _overload) public returns (uint256);\n    function setSize(uint256 _size) public;\n    function getRemainingToFill() public view returns (uint256);\n    function correctSize() public returns (bool);\n    function getCrowdsourcerGeneration() public view returns (uint256);\n}\n\ncontract IInitialReporter is IReportingParticipant, IOwnable {\n    function initialize(IAugur _augur, IMarket _market, address _designatedReporter) public;\n    function report(address _reporter, bytes32 _payoutDistributionHash, uint256[] memory _payoutNumerators, uint256 _initialReportStake) public;\n    function designatedReporterShowed() public view returns (bool);\n    function initialReporterWasCorrect() public view returns (bool);\n    function getDesignatedReporter() public view returns (address);\n    function getReportTimestamp() public view returns (uint256);\n    function migrateToNewUniverse(address _designatedReporter) public;\n    function returnRepFromDisavow() public;\n}\n\ncontract IReputationToken is IERC20 {\n    function migrateOutByPayout(uint256[] memory _payoutNumerators, uint256 _attotokens) public returns (bool);\n    function migrateIn(address _reporter, uint256 _attotokens) public returns (bool);\n    function trustedReportingParticipantTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);\n    function trustedMarketTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);\n    function trustedUniverseTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);\n    function trustedDisputeWindowTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);\n    function getUniverse() public view returns (IUniverse);\n    function getTotalMigrated() public view returns (uint256);\n    function getTotalTheoreticalSupply() public view returns (uint256);\n    function mintForReportingParticipant(uint256 _amountMigrated) public returns (bool);\n}\n\ncontract IShareToken is ITyped, IERC1155 {\n    function initialize(IAugur _augur) external;\n    function initializeMarket(IMarket _market, uint256 _numOutcomes, uint256 _numTicks) public;\n    function unsafeTransferFrom(address _from, address _to, uint256 _id, uint256 _value) public;\n    function unsafeBatchTransferFrom(address _from, address _to, uint256[] memory _ids, uint256[] memory _values) public;\n    function claimTradingProceeds(IMarket _market, address _shareHolder, bytes32 _fingerprint) external returns (uint256[] memory _outcomeFees);\n    function getMarket(uint256 _tokenId) external view returns (IMarket);\n    function getOutcome(uint256 _tokenId) external view returns (uint256);\n    function getTokenId(IMarket _market, uint256 _outcome) public pure returns (uint256 _tokenId);\n    function getTokenIds(IMarket _market, uint256[] memory _outcomes) public pure returns (uint256[] memory _tokenIds);\n    function buyCompleteSets(IMarket _market, address _account, uint256 _amount) external returns (bool);\n    function buyCompleteSetsForTrade(IMarket _market, uint256 _amount, uint256 _longOutcome, address _longRecipient, address _shortRecipient) external returns (bool);\n    function sellCompleteSets(IMarket _market, address _holder, address _recipient, uint256 _amount, bytes32 _fingerprint) external returns (uint256 _creatorFee, uint256 _reportingFee);\n    function sellCompleteSetsForTrade(IMarket _market, uint256 _outcome, uint256 _amount, address _shortParticipant, address _longParticipant, address _shortRecipient, address _longRecipient, uint256 _price, address _sourceAccount, bytes32 _fingerprint) external returns (uint256 _creatorFee, uint256 _reportingFee);\n    function totalSupplyForMarketOutcome(IMarket _market, uint256 _outcome) public view returns (uint256);\n    function balanceOfMarketOutcome(IMarket _market, uint256 _outcome, address _account) public view returns (uint256);\n    function lowestBalanceOfMarketOutcomes(IMarket _market, uint256[] memory _outcomes, address _account) public view returns (uint256);\n}\n\ncontract IUniverse {\n    function creationTime() external view returns (uint256);\n    function marketBalance(address) external view returns (uint256);\n\n    function fork() public returns (bool);\n    function updateForkValues() public returns (bool);\n    function getParentUniverse() public view returns (IUniverse);\n    function createChildUniverse(uint256[] memory _parentPayoutNumerators) public returns (IUniverse);\n    function getChildUniverse(bytes32 _parentPayoutDistributionHash) public view returns (IUniverse);\n    function getReputationToken() public view returns (IV2ReputationToken);\n    function getForkingMarket() public view returns (IMarket);\n    function getForkEndTime() public view returns (uint256);\n    function getForkReputationGoal() public view returns (uint256);\n    function getParentPayoutDistributionHash() public view returns (bytes32);\n    function getDisputeRoundDurationInSeconds(bool _initial) public view returns (uint256);\n    function getOrCreateDisputeWindowByTimestamp(uint256 _timestamp, bool _initial) public returns (IDisputeWindow);\n    function getOrCreateCurrentDisputeWindow(bool _initial) public returns (IDisputeWindow);\n    function getOrCreateNextDisputeWindow(bool _initial) public returns (IDisputeWindow);\n    function getOrCreatePreviousDisputeWindow(bool _initial) public returns (IDisputeWindow);\n    function getOpenInterestInAttoCash() public view returns (uint256);\n    function getTargetRepMarketCapInAttoCash() public view returns (uint256);\n    function getOrCacheValidityBond() public returns (uint256);\n    function getOrCacheDesignatedReportStake() public returns (uint256);\n    function getOrCacheDesignatedReportNoShowBond() public returns (uint256);\n    function getOrCacheMarketRepBond() public returns (uint256);\n    function getOrCacheReportingFeeDivisor() public returns (uint256);\n    function getDisputeThresholdForFork() public view returns (uint256);\n    function getDisputeThresholdForDisputePacing() public view returns (uint256);\n    function getInitialReportMinValue() public view returns (uint256);\n    function getPayoutNumerators() public view returns (uint256[] memory);\n    function getReportingFeeDivisor() public view returns (uint256);\n    function getPayoutNumerator(uint256 _outcome) public view returns (uint256);\n    function getWinningChildPayoutNumerator(uint256 _outcome) public view returns (uint256);\n    function isOpenInterestCash(address) public view returns (bool);\n    function isForkingMarket() public view returns (bool);\n    function getCurrentDisputeWindow(bool _initial) public view returns (IDisputeWindow);\n    function getDisputeWindowStartTimeAndDuration(uint256 _timestamp, bool _initial) public view returns (uint256, uint256);\n    function isParentOf(IUniverse _shadyChild) public view returns (bool);\n    function updateTentativeWinningChildUniverse(bytes32 _parentPayoutDistributionHash) public returns (bool);\n    function isContainerForDisputeWindow(IDisputeWindow _shadyTarget) public view returns (bool);\n    function isContainerForMarket(IMarket _shadyTarget) public view returns (bool);\n    function isContainerForReportingParticipant(IReportingParticipant _reportingParticipant) public view returns (bool);\n    function migrateMarketOut(IUniverse _destinationUniverse) public returns (bool);\n    function migrateMarketIn(IMarket _market, uint256 _cashBalance, uint256 _marketOI) public returns (bool);\n    function decrementOpenInterest(uint256 _amount) public returns (bool);\n    function decrementOpenInterestFromMarket(IMarket _market) public returns (bool);\n    function incrementOpenInterest(uint256 _amount) public returns (bool);\n    function getWinningChildUniverse() public view returns (IUniverse);\n    function isForking() public view returns (bool);\n    function deposit(address _sender, uint256 _amount, address _market) public returns (bool);\n    function withdraw(address _recipient, uint256 _amount, address _market) public returns (bool);\n    function createScalarMarket(uint256 _endTime, uint256 _feePerCashInAttoCash, IAffiliateValidator _affiliateValidator, uint256 _affiliateFeeDivisor, address _designatedReporterAddress, int256[] memory _prices, uint256 _numTicks, string memory _extraInfo) public returns (IMarket _newMarket);\n}\n\ncontract IV2ReputationToken is IReputationToken {\n    function parentUniverse() external returns (IUniverse);\n    function burnForMarket(uint256 _amountToBurn) public returns (bool);\n    function mintForWarpSync(uint256 _amountToMint, address _target) public returns (bool);\n}\n\nlibrary Reporting {\n    uint256 private constant DESIGNATED_REPORTING_DURATION_SECONDS = 1 days;\n    uint256 private constant DISPUTE_ROUND_DURATION_SECONDS = 7 days;\n    uint256 private constant INITIAL_DISPUTE_ROUND_DURATION_SECONDS = 1 days;\n    uint256 private constant DISPUTE_WINDOW_BUFFER_SECONDS = 1 hours;\n    uint256 private constant FORK_DURATION_SECONDS = 60 days;\n\n    uint256 private constant BASE_MARKET_DURATION_MAXIMUM = 30 days; // A market of 30 day length can always be created\n    uint256 private constant UPGRADE_CADENCE = 365 days;\n    uint256 private constant INITIAL_UPGRADE_TIMESTAMP = 1627776000; // Aug 1st 2021\n\n    uint256 private constant INITIAL_REP_SUPPLY = 11 * 10 ** 6 * 10 ** 18; // 11 Million REP\n\n    uint256 private constant AFFILIATE_SOURCE_CUT_DIVISOR = 5; // The trader gets 20% of the affiliate fee when an affiliate fee is taken\n\n    uint256 private constant DEFAULT_VALIDITY_BOND = 10 ether; // 10 Cash (Dai)\n    uint256 private constant VALIDITY_BOND_FLOOR = 10 ether; // 10 Cash (Dai)\n    uint256 private constant DEFAULT_REPORTING_FEE_DIVISOR = 10000; // .01% fees\n    uint256 private constant MAXIMUM_REPORTING_FEE_DIVISOR = 10000; // Minimum .01% fees\n    uint256 private constant MINIMUM_REPORTING_FEE_DIVISOR = 3; // Maximum 33.3~% fees. Note than anything less than a value of 2 here will likely result in bugs such as divide by 0 cases.\n\n    uint256 private constant TARGET_INVALID_MARKETS_DIVISOR = 100; // 1% of markets are expected to be invalid\n    uint256 private constant TARGET_INCORRECT_DESIGNATED_REPORT_MARKETS_DIVISOR = 100; // 1% of markets are expected to have an incorrect designate report\n    uint256 private constant TARGET_DESIGNATED_REPORT_NO_SHOWS_DIVISOR = 20; // 5% of markets are expected to have a no show\n    uint256 private constant TARGET_REP_MARKET_CAP_MULTIPLIER = 5; // We multiply and divide by constants since we may want to multiply by a fractional amount\n\n    uint256 private constant FORK_THRESHOLD_DIVISOR = 40; // 2.5% of the total REP supply being filled in a single dispute bond will trigger a fork\n    uint256 private constant MAXIMUM_DISPUTE_ROUNDS = 20; // We ensure that after 20 rounds of disputes a fork will occur\n    uint256 private constant MINIMUM_SLOW_ROUNDS = 8; // We ensure that at least 8 dispute rounds take DISPUTE_ROUND_DURATION_SECONDS+ seconds to complete until the next round begins\n\n    function getDesignatedReportingDurationSeconds() internal pure returns (uint256) { return DESIGNATED_REPORTING_DURATION_SECONDS; }\n    function getInitialDisputeRoundDurationSeconds() internal pure returns (uint256) { return INITIAL_DISPUTE_ROUND_DURATION_SECONDS; }\n    function getDisputeWindowBufferSeconds() internal pure returns (uint256) { return DISPUTE_WINDOW_BUFFER_SECONDS; }\n    function getDisputeRoundDurationSeconds() internal pure returns (uint256) { return DISPUTE_ROUND_DURATION_SECONDS; }\n    function getForkDurationSeconds() internal pure returns (uint256) { return FORK_DURATION_SECONDS; }\n    function getBaseMarketDurationMaximum() internal pure returns (uint256) { return BASE_MARKET_DURATION_MAXIMUM; }\n    function getUpgradeCadence() internal pure returns (uint256) { return UPGRADE_CADENCE; }\n    function getInitialUpgradeTimestamp() internal pure returns (uint256) { return INITIAL_UPGRADE_TIMESTAMP; }\n    function getDefaultValidityBond() internal pure returns (uint256) { return DEFAULT_VALIDITY_BOND; }\n    function getValidityBondFloor() internal pure returns (uint256) { return VALIDITY_BOND_FLOOR; }\n    function getTargetInvalidMarketsDivisor() internal pure returns (uint256) { return TARGET_INVALID_MARKETS_DIVISOR; }\n    function getTargetIncorrectDesignatedReportMarketsDivisor() internal pure returns (uint256) { return TARGET_INCORRECT_DESIGNATED_REPORT_MARKETS_DIVISOR; }\n    function getTargetDesignatedReportNoShowsDivisor() internal pure returns (uint256) { return TARGET_DESIGNATED_REPORT_NO_SHOWS_DIVISOR; }\n    function getTargetRepMarketCapMultiplier() internal pure returns (uint256) { return TARGET_REP_MARKET_CAP_MULTIPLIER; }\n    function getMaximumReportingFeeDivisor() internal pure returns (uint256) { return MAXIMUM_REPORTING_FEE_DIVISOR; }\n    function getMinimumReportingFeeDivisor() internal pure returns (uint256) { return MINIMUM_REPORTING_FEE_DIVISOR; }\n    function getDefaultReportingFeeDivisor() internal pure returns (uint256) { return DEFAULT_REPORTING_FEE_DIVISOR; }\n    function getInitialREPSupply() internal pure returns (uint256) { return INITIAL_REP_SUPPLY; }\n    function getAffiliateSourceCutDivisor() internal pure returns (uint256) { return AFFILIATE_SOURCE_CUT_DIVISOR; }\n    function getForkThresholdDivisor() internal pure returns (uint256) { return FORK_THRESHOLD_DIVISOR; }\n    function getMaximumDisputeRounds() internal pure returns (uint256) { return MAXIMUM_DISPUTE_ROUNDS; }\n    function getMinimumSlowRounds() internal pure returns (uint256) { return MINIMUM_SLOW_ROUNDS; }\n}\n\ncontract IAugurTrading {\n    function lookup(bytes32 _key) public view returns (address);\n    function logProfitLossChanged(IMarket _market, address _account, uint256 _outcome, int256 _netPosition, uint256 _avgPrice, int256 _realizedProfit, int256 _frozenFunds, int256 _realizedCost) public returns (bool);\n    function logOrderCreated(IUniverse _universe, bytes32 _orderId, bytes32 _tradeGroupId) public returns (bool);\n    function logOrderCanceled(IUniverse _universe, IMarket _market, address _creator, uint256 _tokenRefund, uint256 _sharesRefund, bytes32 _orderId) public returns (bool);\n    function logOrderFilled(IUniverse _universe, address _creator, address _filler, uint256 _price, uint256 _fees, uint256 _amountFilled, bytes32 _orderId, bytes32 _tradeGroupId) public returns (bool);\n    function logMarketVolumeChanged(IUniverse _universe, address _market, uint256 _volume, uint256[] memory _outcomeVolumes, uint256 _totalTrades) public returns (bool);\n    function logZeroXOrderFilled(IUniverse _universe, IMarket _market, bytes32 _orderHash, bytes32 _tradeGroupId, uint8 _orderType, address[] memory _addressData, uint256[] memory _uint256Data) public returns (bool);\n    function logZeroXOrderCanceled(address _universe, address _market, address _account, uint256 _outcome, uint256 _price, uint256 _amount, uint8 _type, bytes32 _orderHash) public;\n}\n\ncontract IOrders {\n    function saveOrder(uint256[] calldata _uints, bytes32[] calldata _bytes32s, Order.Types _type, IMarket _market, address _sender) external returns (bytes32 _orderId);\n    function removeOrder(bytes32 _orderId) external returns (bool);\n    function getMarket(bytes32 _orderId) public view returns (IMarket);\n    function getOrderType(bytes32 _orderId) public view returns (Order.Types);\n    function getOutcome(bytes32 _orderId) public view returns (uint256);\n    function getAmount(bytes32 _orderId) public view returns (uint256);\n    function getPrice(bytes32 _orderId) public view returns (uint256);\n    function getOrderCreator(bytes32 _orderId) public view returns (address);\n    function getOrderSharesEscrowed(bytes32 _orderId) public view returns (uint256);\n    function getOrderMoneyEscrowed(bytes32 _orderId) public view returns (uint256);\n    function getOrderDataForCancel(bytes32 _orderId) public view returns (uint256, uint256, Order.Types, IMarket, uint256, address);\n    function getOrderDataForLogs(bytes32 _orderId) public view returns (Order.Types, address[] memory _addressData, uint256[] memory _uint256Data);\n    function getBetterOrderId(bytes32 _orderId) public view returns (bytes32);\n    function getWorseOrderId(bytes32 _orderId) public view returns (bytes32);\n    function getBestOrderId(Order.Types _type, IMarket _market, uint256 _outcome) public view returns (bytes32);\n    function getWorstOrderId(Order.Types _type, IMarket _market, uint256 _outcome) public view returns (bytes32);\n    function getLastOutcomePrice(IMarket _market, uint256 _outcome) public view returns (uint256);\n    function getOrderId(Order.Types _type, IMarket _market, uint256 _amount, uint256 _price, address _sender, uint256 _blockNumber, uint256 _outcome, uint256 _moneyEscrowed, uint256 _sharesEscrowed) public pure returns (bytes32);\n    function getTotalEscrowed(IMarket _market) public view returns (uint256);\n    function isBetterPrice(Order.Types _type, uint256 _price, bytes32 _orderId) public view returns (bool);\n    function isWorsePrice(Order.Types _type, uint256 _price, bytes32 _orderId) public view returns (bool);\n    function assertIsNotBetterPrice(Order.Types _type, uint256 _price, bytes32 _betterOrderId) public view returns (bool);\n    function assertIsNotWorsePrice(Order.Types _type, uint256 _price, bytes32 _worseOrderId) public returns (bool);\n    function recordFillOrder(bytes32 _orderId, uint256 _sharesFilled, uint256 _tokensFilled, uint256 _fill) external returns (bool);\n    function setPrice(IMarket _market, uint256 _outcome, uint256 _price) external returns (bool);\n}\n\nlibrary Order {\n    using SafeMathUint256 for uint256;\n\n    enum Types {\n        Bid, Ask\n    }\n\n    enum TradeDirections {\n        Long, Short\n    }\n\n    struct Data {\n        // Contracts\n        IMarket market;\n        IAugur augur;\n        IAugurTrading augurTrading;\n        IShareToken shareToken;\n        ICash cash;\n\n        // Order\n        bytes32 id;\n        address creator;\n        uint256 outcome;\n        Order.Types orderType;\n        uint256 amount;\n        uint256 price;\n        uint256 sharesEscrowed;\n        uint256 moneyEscrowed;\n        bytes32 betterOrderId;\n        bytes32 worseOrderId;\n    }\n\n    function create(IAugur _augur, IAugurTrading _augurTrading, address _creator, uint256 _outcome, Order.Types _type, uint256 _attoshares, uint256 _price, IMarket _market, bytes32 _betterOrderId, bytes32 _worseOrderId) internal view returns (Data memory) {\n        require(_outcome < _market.getNumberOfOutcomes(), \"Order.create: Outcome is not within market range\");\n        require(_price != 0, \"Order.create: Price may not be 0\");\n        require(_price < _market.getNumTicks(), \"Order.create: Price is outside of market range\");\n        require(_attoshares > 0, \"Order.create: Cannot use amount of 0\");\n        require(_creator != address(0), \"Order.create: Creator is 0x0\");\n\n        IShareToken _shareToken = IShareToken(_augur.lookup(\"ShareToken\"));\n\n        return Data({\n            market: _market,\n            augur: _augur,\n            augurTrading: _augurTrading,\n            shareToken: _shareToken,\n            cash: ICash(_augur.lookup(\"Cash\")),\n            id: 0,\n            creator: _creator,\n            outcome: _outcome,\n            orderType: _type,\n            amount: _attoshares,\n            price: _price,\n            sharesEscrowed: 0,\n            moneyEscrowed: 0,\n            betterOrderId: _betterOrderId,\n            worseOrderId: _worseOrderId\n        });\n    }\n\n    //\n    // \"public\" functions\n    //\n\n    function getOrderId(Order.Data memory _orderData, IOrders _orders) internal view returns (bytes32) {\n        if (_orderData.id == bytes32(0)) {\n            bytes32 _orderId = calculateOrderId(_orderData.orderType, _orderData.market, _orderData.amount, _orderData.price, _orderData.creator, block.number, _orderData.outcome, _orderData.moneyEscrowed, _orderData.sharesEscrowed);\n            require(_orders.getAmount(_orderId) == 0, \"Order.getOrderId: New order had amount. This should not be possible\");\n            _orderData.id = _orderId;\n        }\n        return _orderData.id;\n    }\n\n    function calculateOrderId(Order.Types _type, IMarket _market, uint256 _amount, uint256 _price, address _sender, uint256 _blockNumber, uint256 _outcome, uint256 _moneyEscrowed, uint256 _sharesEscrowed) internal pure returns (bytes32) {\n        return sha256(abi.encodePacked(_type, _market, _amount, _price, _sender, _blockNumber, _outcome, _moneyEscrowed, _sharesEscrowed));\n    }\n\n    function getOrderTradingTypeFromMakerDirection(Order.TradeDirections _creatorDirection) internal pure returns (Order.Types) {\n        return (_creatorDirection == Order.TradeDirections.Long) ? Order.Types.Bid : Order.Types.Ask;\n    }\n\n    function getOrderTradingTypeFromFillerDirection(Order.TradeDirections _fillerDirection) internal pure returns (Order.Types) {\n        return (_fillerDirection == Order.TradeDirections.Long) ? Order.Types.Ask : Order.Types.Bid;\n    }\n\n    function saveOrder(Order.Data memory _orderData, bytes32 _tradeGroupId, IOrders _orders) internal returns (bytes32) {\n        getOrderId(_orderData, _orders);\n        uint256[] memory _uints = new uint256[](5);\n        _uints[0] = _orderData.amount;\n        _uints[1] = _orderData.price;\n        _uints[2] = _orderData.outcome;\n        _uints[3] = _orderData.moneyEscrowed;\n        _uints[4] = _orderData.sharesEscrowed;\n        bytes32[] memory _bytes32s = new bytes32[](4);\n        _bytes32s[0] = _orderData.betterOrderId;\n        _bytes32s[1] = _orderData.worseOrderId;\n        _bytes32s[2] = _tradeGroupId;\n        _bytes32s[3] = _orderData.id;\n        return _orders.saveOrder(_uints, _bytes32s, _orderData.orderType, _orderData.market, _orderData.creator);\n    }\n}\n\ninterface IUniswapV2Pair {\n    event Approval(address indexed owner, address indexed spender, uint value);\n    event Transfer(address indexed from, address indexed to, uint value);\n\n    function name() external pure returns (string memory);\n    function symbol() external pure returns (string memory);\n    function decimals() external pure returns (uint8);\n    function totalSupply() external view returns (uint);\n    function balanceOf(address owner) external view returns (uint);\n    function allowance(address owner, address spender) external view returns (uint);\n\n    function approve(address spender, uint value) external returns (bool);\n    function transfer(address to, uint value) external returns (bool);\n    function transferFrom(address from, address to, uint value) external returns (bool);\n\n    function DOMAIN_SEPARATOR() external view returns (bytes32);\n    function PERMIT_TYPEHASH() external pure returns (bytes32);\n    function nonces(address owner) external view returns (uint);\n\n    function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;\n\n    event Mint(address indexed sender, uint amount0, uint amount1);\n    event Burn(address indexed sender, uint amount0, uint amount1, address indexed to);\n    event Swap(\n        address indexed sender,\n        uint amount0In,\n        uint amount1In,\n        uint amount0Out,\n        uint amount1Out,\n        address indexed to\n    );\n    event Sync(uint112 reserve0, uint112 reserve1);\n\n    function MINIMUM_LIQUIDITY() external pure returns (uint);\n    function factory() external view returns (address);\n    function token0() external view returns (address);\n    function token1() external view returns (address);\n    function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);\n    function price0CumulativeLast() external view returns (uint);\n    function price1CumulativeLast() external view returns (uint);\n    function kLast() external view returns (uint);\n\n    function mint(address to) external returns (uint liquidity);\n    function burn(address to) external returns (uint amount0, uint amount1);\n    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;\n    function skim(address to) external;\n    function sync() external;\n\n    function initialize(address, address) external;\n}\n\ncontract IRepSymbol {\n    function getRepSymbol(address _augur, address _universe) external view returns (string memory);\n}\n\ncontract ReputationToken is VariableSupplyToken, IV2ReputationToken {\n    using SafeMathUint256 for uint256;\n\n    string constant public name = \"Reputation\";\n    IUniverse internal universe;\n    IUniverse public parentUniverse;\n    uint256 internal totalMigrated;\n    IERC20 public legacyRepToken;\n    IAugur public augur;\n    address public warpSync;\n\n    constructor(IAugur _augur, IUniverse _universe, IUniverse _parentUniverse) public {\n        augur = _augur;\n        universe = _universe;\n        parentUniverse = _parentUniverse;\n        warpSync = _augur.lookup(\"WarpSync\");\n        legacyRepToken = IERC20(_augur.lookup(\"LegacyReputationToken\"));\n        require(warpSync != address(0));\n        require(legacyRepToken != IERC20(0));\n    }\n\n    function symbol() public view returns (string memory) {\n        return IRepSymbol(augur.lookup(\"RepSymbol\")).getRepSymbol(address(augur), address(universe));\n    }\n\n    /**\n     * @notice Migrate to a Child Universe by indicating the Market payout associated with it\n     * @param _payoutNumerators The array of payouts for the market associated with the desired universe\n     * @param _attotokens The amount of tokens to migrate\n     * @return Bool True\n     */\n    function migrateOutByPayout(uint256[] memory _payoutNumerators, uint256 _attotokens) public returns (bool) {\n        require(_attotokens > 0);\n        IUniverse _destinationUniverse = universe.createChildUniverse(_payoutNumerators);\n        IReputationToken _destination = _destinationUniverse.getReputationToken();\n        burn(msg.sender, _attotokens);\n        _destination.migrateIn(msg.sender, _attotokens);\n        return true;\n    }\n\n    function migrateIn(address _reporter, uint256 _attotokens) public returns (bool) {\n        IUniverse _parentUniverse = parentUniverse;\n        require(ReputationToken(msg.sender) == _parentUniverse.getReputationToken());\n        require(augur.getTimestamp() < _parentUniverse.getForkEndTime());\n        mint(_reporter, _attotokens);\n        totalMigrated += _attotokens;\n        // Update the fork tentative winner and finalize if we can\n        if (!_parentUniverse.getForkingMarket().isFinalized()) {\n            _parentUniverse.updateTentativeWinningChildUniverse(universe.getParentPayoutDistributionHash());\n        }\n        return true;\n    }\n\n    function mintForReportingParticipant(uint256 _amountMigrated) public returns (bool) {\n        IReportingParticipant _reportingParticipant = IReportingParticipant(msg.sender);\n        require(parentUniverse.isContainerForReportingParticipant(_reportingParticipant));\n        // simulate a 40% ROI which would have occured during a normal dispute had this participant's outcome won the dispute\n        uint256 _bonus = _amountMigrated.mul(2) / 5;\n        mint(address(_reportingParticipant), _bonus);\n        return true;\n    }\n\n    function mintForWarpSync(uint256 _amountToMint, address _target) public returns (bool) {\n        require(warpSync == msg.sender);\n        mint(_target, _amountToMint);\n        universe.updateForkValues();\n        return true;\n    }\n\n    function burnForMarket(uint256 _amountToBurn) public returns (bool) {\n        require(universe.isContainerForMarket(IMarket(msg.sender)));\n        burn(msg.sender, _amountToBurn);\n        return true;\n    }\n\n    function trustedUniverseTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {\n        require(IUniverse(msg.sender) == universe);\n        _transfer(_source, _destination, _attotokens);\n        return true;\n    }\n\n    function trustedMarketTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {\n        require(universe.isContainerForMarket(IMarket(msg.sender)));\n        _transfer(_source, _destination, _attotokens);\n        return true;\n    }\n\n    function trustedReportingParticipantTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {\n        require(universe.isContainerForReportingParticipant(IReportingParticipant(msg.sender)));\n        _transfer(_source, _destination, _attotokens);\n        return true;\n    }\n\n    function trustedDisputeWindowTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {\n        require(universe.isContainerForDisputeWindow(IDisputeWindow(msg.sender)));\n        _transfer(_source, _destination, _attotokens);\n        return true;\n    }\n\n    function assertReputationTokenIsLegitChild(IReputationToken _shadyReputationToken) private view {\n        IUniverse _universe = _shadyReputationToken.getUniverse();\n        require(universe.isParentOf(_universe));\n        require(_universe.getReputationToken() == _shadyReputationToken);\n    }\n\n    /**\n     * @return The universe associated with this Reputation Token\n     */\n    function getUniverse() public view returns (IUniverse) {\n        return universe;\n    }\n\n    /**\n     * @return The total amount of parent REP migrated into this version of REP\n     */\n    function getTotalMigrated() public view returns (uint256) {\n        return totalMigrated;\n    }\n\n    /**\n     * @return The V1 Rep token\n     */\n    function getLegacyRepToken() public view returns (IERC20) {\n        return legacyRepToken;\n    }\n\n    /**\n     * @return The maximum possible total supply for this version of REP.\n     */\n    function getTotalTheoreticalSupply() public view returns (uint256) {\n        uint256 _totalSupply = totalSupply;\n        if (parentUniverse == IUniverse(0)) {\n            return _totalSupply.add(legacyRepToken.totalSupply()).sub(legacyRepToken.balanceOf(address(1))).sub(legacyRepToken.balanceOf(address(0)));\n        } else if (augur.getTimestamp() >= parentUniverse.getForkEndTime()) {\n            return _totalSupply;\n        } else {\n            return _totalSupply + parentUniverse.getReputationToken().getTotalTheoreticalSupply();\n        }\n    }\n\n    function onTokenTransfer(address _from, address _to, uint256 _value) internal {\n        augur.logReputationTokensTransferred(universe, _from, _to, _value, balances[_from], balances[_to]);\n    }\n\n    function onMint(address _target, uint256 _amount) internal {\n        augur.logReputationTokensMinted(universe, _target, _amount, totalSupply, balances[_target]);\n    }\n\n    function onBurn(address _target, uint256 _amount) internal {\n        augur.logReputationTokensBurned(universe, _target, _amount, totalSupply, balances[_target]);\n    }\n\n    /**\n     * @notice Migrate V1 REP to V2\n     * @dev This can only be done for the Genesis Universe in V2. If a fork occurs and the window ends V1 REP is stuck in V1 forever\n     * @return Bool True\n     */\n    function migrateFromLegacyReputationToken() public returns (bool) {\n        require(parentUniverse == IUniverse(0));\n        uint256 _legacyBalance = legacyRepToken.balanceOf(msg.sender);\n        require(legacyRepToken.transferFrom(msg.sender, address(1), _legacyBalance));\n        mint(msg.sender, _legacyBalance);\n        return true;\n    }\n}\n\n"
+
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        // assert(b > 0); // Solidity automatically throws when dividing by 0
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+        return c;
     }
-  }
-}}
+
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b <= a);
+        return a - b;
+    }
+
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a);
+        return c;
+    }
+
+    function min(uint256 a, uint256 b) internal pure returns (uint256) {
+        if (a <= b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+
+    function max(uint256 a, uint256 b) internal pure returns (uint256) {
+        if (a >= b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+
+    function sqrt(uint256 y) internal pure returns (uint256 z) {
+        if (y > 3) {
+            uint256 x = (y + 1) / 2;
+            z = y;
+            while (x < z) {
+                z = x;
+                x = (y / x + x) / 2;
+            }
+        } else if (y != 0) {
+            z = 1;
+        }
+    }
+
+    function getUint256Min() internal pure returns (uint256) {
+        return 0;
+    }
+
+    function getUint256Max() internal pure returns (uint256) {
+        // 2 ** 256 - 1
+        return 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+    }
+
+    function isMultipleOf(uint256 a, uint256 b) internal pure returns (bool) {
+        return a % b == 0;
+    }
+
+    // Float [fixed point] Operations
+    function fxpMul(uint256 a, uint256 b, uint256 base) internal pure returns (uint256) {
+        return div(mul(a, b), base);
+    }
+
+    function fxpDiv(uint256 a, uint256 b, uint256 base) internal pure returns (uint256) {
+        return div(mul(a, base), b);
+    }
+}
+
+interface IERC1155 {
+
+    /// @dev Either TransferSingle or TransferBatch MUST emit when tokens are transferred,
+    ///      including zero value transfers as well as minting or burning.
+    /// Operator will always be msg.sender.
+    /// Either event from address `0x0` signifies a minting operation.
+    /// An event to address `0x0` signifies a burning or melting operation.
+    /// The total value transferred from address 0x0 minus the total value transferred to 0x0 may
+    /// be used by clients and exchanges to be added to the "circulating supply" for a given token ID.
+    /// To define a token ID with no initial balance, the contract SHOULD emit the TransferSingle event
+    /// from `0x0` to `0x0`, with the token creator as `_operator`.
+    event TransferSingle(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256 id,
+        uint256 value
+    );
+
+    /// @dev Either TransferSingle or TransferBatch MUST emit when tokens are transferred,
+    ///      including zero value transfers as well as minting or burning.
+    ///Operator will always be msg.sender.
+    /// Either event from address `0x0` signifies a minting operation.
+    /// An event to address `0x0` signifies a burning or melting operation.
+    /// The total value transferred from address 0x0 minus the total value transferred to 0x0 may
+    /// be used by clients and exchanges to be added to the "circulating supply" for a given token ID.
+    /// To define multiple token IDs with no initial balance, this SHOULD emit the TransferBatch event
+    /// from `0x0` to `0x0`, with the token creator as `_operator`.
+    event TransferBatch(
+        address indexed operator,
+        address indexed from,
+        address indexed to,
+        uint256[] ids,
+        uint256[] values
+    );
+
+    /// @dev MUST emit when an approval is updated.
+    event ApprovalForAll(
+        address indexed owner,
+        address indexed operator,
+        bool approved
+    );
+
+    /// @dev MUST emit when the URI is updated for a token ID.
+    /// URIs are defined in RFC 3986.
+    /// The URI MUST point a JSON file that conforms to the "ERC-1155 Metadata JSON Schema".
+    event URI(
+        string value,
+        uint256 indexed id
+    );
+
+    /// @notice Transfers value amount of an _id from the _from address to the _to address specified.
+    /// @dev MUST emit TransferSingle event on success.
+    /// Caller must be approved to manage the _from account's tokens (see isApprovedForAll).
+    /// MUST throw if `_to` is the zero address.
+    /// MUST throw if balance of sender for token `_id` is lower than the `_value` sent.
+    /// MUST throw on any other error.
+    /// When transfer is complete, this function MUST check if `_to` is a smart contract (code size > 0).
+    /// If so, it MUST call `onERC1155Received` on `_to` and revert if the return value
+    /// is not `bytes4(keccak256("onERC1155Received(address,address,uint256,uint256,bytes)"))`.
+    /// @param from    Source address
+    /// @param to      Target address
+    /// @param id      ID of the token type
+    /// @param value   Transfer amount
+    /// @param data    Additional data with no specified format, sent in call to `_to`
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 id,
+        uint256 value,
+        bytes calldata data
+    )
+        external;
+
+    /// @notice Send multiple types of Tokens from a 3rd party in one transfer (with safety call).
+    /// @dev MUST emit TransferBatch event on success.
+    /// Caller must be approved to manage the _from account's tokens (see isApprovedForAll).
+    /// MUST throw if `_to` is the zero address.
+    /// MUST throw if length of `_ids` is not the same as length of `_values`.
+    ///  MUST throw if any of the balance of sender for token `_ids` is lower than the respective `_values` sent.
+    /// MUST throw on any other error.
+    /// When transfer is complete, this function MUST check if `_to` is a smart contract (code size > 0).
+    /// If so, it MUST call `onERC1155BatchReceived` on `_to` and revert if the return value
+    /// is not `bytes4(keccak256("onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)"))`.
+    /// @param from    Source addresses
+    /// @param to      Target addresses
+    /// @param ids     IDs of each token type
+    /// @param values  Transfer amounts per token type
+    /// @param data    Additional data with no specified format, sent in call to `_to`
+    function safeBatchTransferFrom(
+        address from,
+        address to,
+        uint256[] calldata ids,
+        uint256[] calldata values,
+        bytes calldata data
+    )
+        external;
+
+    /// @notice Enable or disable approval for a third party ("operator") to manage all of the caller's tokens.
+    /// @dev MUST emit the ApprovalForAll event on success.
+    /// @param operator  Address to add to the set of authorized operators
+    /// @param approved  True if the operator is approved, false to revoke approval
+    function setApprovalForAll(address operator, bool approved) external;
+
+    /// @notice Queries the approval status of an operator for a given owner.
+    /// @param owner     The owner of the Tokens
+    /// @param operator  Address of authorized operator
+    /// @return           True if the operator is approved, false if not
+    function isApprovedForAll(address owner, address operator) external view returns (bool);
+
+    /// @notice Get the balance of an account's Tokens.
+    /// @param owner  The address of the token holder
+    /// @param id     ID of the Token
+    /// @return        The _owner's balance of the Token type requested
+    function balanceOf(address owner, uint256 id) external view returns (uint256);
+
+    /// @notice Get the total supply of a Token.
+    /// @param id     ID of the Token
+    /// @return        The total supply of the Token type requested
+    function totalSupply(uint256 id) external view returns (uint256);
+
+    /// @notice Get the balance of multiple account/token pairs
+    /// @param owners The addresses of the token holders
+    /// @param ids    ID of the Tokens
+    /// @return        The _owner's balance of the Token types requested
+    function balanceOfBatch(
+        address[] calldata owners,
+        uint256[] calldata ids
+    )
+        external
+        view
+        returns (uint256[] memory balances_);
+}
+
+contract IERC20 {
+    function totalSupply() external view returns (uint256);
+    function balanceOf(address owner) public view returns (uint256);
+    function transfer(address to, uint256 amount) public returns (bool);
+    function transferFrom(address from, address to, uint256 amount) public returns (bool);
+    function approve(address spender, uint256 amount) public returns (bool);
+    function allowance(address owner, address spender) public view returns (uint256);
+
+    // solhint-disable-next-line no-simple-event-func-name
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+contract ICash is IERC20 {
+}
+
+contract ERC20 is IERC20 {
+    using SafeMathUint256 for uint256;
+
+    uint8 constant public decimals = 18;
+
+    uint256 public totalSupply;
+
+    mapping (address => uint256) public balances;
+
+    mapping (address => mapping (address => uint256)) public allowances;
+
+    /**
+     * @dev See {IERC20-balanceOf}.
+     */
+    function balanceOf(address _account) public view returns (uint256) {
+        return balances[_account];
+    }
+
+    /**
+     * @dev See {IERC20-transfer}.
+     *
+     * Requirements:
+     *
+     * - `recipient` cannot be the zero address.
+     * - the caller must have a balance of at least `amount`.
+     */
+    function transfer(address _recipient, uint256 _amount) public returns (bool) {
+        _transfer(msg.sender, _recipient, _amount);
+        return true;
+    }
+
+    /**
+     * @dev See {IERC20-allowance}.
+     */
+    function allowance(address _owner, address _spender) public view returns (uint256) {
+        return allowances[_owner][_spender];
+    }
+
+    /**
+     * @dev See {IERC20-approve}.
+     *
+     * Requirements:
+     *
+     * - `spender` cannot be the zero address.
+     */
+    function approve(address _spender, uint256 _amount) public returns (bool) {
+        _approve(msg.sender, _spender, _amount);
+        return true;
+    }
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     * Emits an {Approval} event indicating the updated allowance. This is not
+     * required by the EIP. See the note at the beginning of {ERC20};
+     *
+     * Requirements:
+     * - `sender` and `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     * - the caller must have allowance for `sender`'s tokens of at least
+     * `amount`.
+     */
+    function transferFrom(address _sender, address _recipient, uint256 _amount) public returns (bool) {
+        _transfer(_sender, _recipient, _amount);
+        _approve(_sender, msg.sender, allowances[_sender][msg.sender].sub(_amount));
+        return true;
+    }
+
+    /**
+     * @dev Atomically increases the allowance granted to `spender` by the caller.
+     *
+     * This is an alternative to {approve} that can be used as a mitigation for
+     * problems described in {IERC20-approve}.
+     *
+     * Emits an {Approval} event indicating the updated allowance.
+     *
+     * Requirements:
+     *
+     * - `spender` cannot be the zero address.
+     */
+    function increaseAllowance(address _spender, uint256 _addedValue) public returns (bool) {
+        _approve(msg.sender, _spender, allowances[msg.sender][_spender].add(_addedValue));
+        return true;
+    }
+
+    /**
+     * @dev Atomically decreases the allowance granted to `spender` by the caller.
+     *
+     * This is an alternative to {approve} that can be used as a mitigation for
+     * problems described in {IERC20-approve}.
+     *
+     * Emits an {Approval} event indicating the updated allowance.
+     *
+     * Requirements:
+     *
+     * - `spender` cannot be the zero address.
+     * - `spender` must have allowance for the caller of at least
+     * `subtractedValue`.
+     */
+    function decreaseAllowance(address _spender, uint256 _subtractedValue) public returns (bool) {
+        _approve(msg.sender, _spender, allowances[msg.sender][_spender].sub(_subtractedValue));
+        return true;
+    }
+
+    /**
+     * @dev Moves tokens `amount` from `sender` to `recipient`.
+     *
+     * This is internal function is equivalent to {transfer}, and can be used to
+     * e.g. implement automatic token fees, slashing mechanisms, etc.
+     *
+     * Emits a {Transfer} event.
+     *
+     * Requirements:
+     *
+     * - `sender` cannot be the zero address.
+     * - `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     */
+    function _transfer(address _sender, address _recipient, uint256 _amount) internal {
+        require(_sender != address(0), "ERC20: transfer from the zero address");
+        require(_recipient != address(0), "ERC20: transfer to the zero address");
+
+        balances[_sender] = balances[_sender].sub(_amount);
+        balances[_recipient] = balances[_recipient].add(_amount);
+        emit Transfer(_sender, _recipient, _amount);
+        onTokenTransfer(_sender, _recipient, _amount);
+    }
+
+    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+     * the total supply.
+     *
+     * Emits a {Transfer} event with `from` set to the zero address.
+     *
+     * Requirements
+     *
+     * - `to` cannot be the zero address.
+     */
+    function _mint(address _account, uint256 _amount) internal {
+        require(_account != address(0), "ERC20: mint to the zero address");
+
+        totalSupply = totalSupply.add(_amount);
+        balances[_account] = balances[_account].add(_amount);
+        emit Transfer(address(0), _account, _amount);
+    }
+
+    /**
+     * @dev Destroys `amount` tokens from `account`, reducing the
+     * total supply.
+     *
+     * Emits a {Transfer} event with `to` set to the zero address.
+     *
+     * Requirements
+     *
+     * - `account` cannot be the zero address.
+     * - `account` must have at least `amount` tokens.
+     */
+    function _burn(address _account, uint256 _amount) internal {
+        require(_account != address(0), "ERC20: burn from the zero address");
+
+        balances[_account] = balances[_account].sub(_amount);
+        totalSupply = totalSupply.sub(_amount);
+        emit Transfer(_account, address(0), _amount);
+    }
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the `owner`s tokens.
+     *
+     * This is internal function is equivalent to `approve`, and can be used to
+     * e.g. set automatic allowances for certain subsystems, etc.
+     *
+     * Emits an {Approval} event.
+     *
+     * Requirements:
+     *
+     * - `owner` cannot be the zero address.
+     * - `spender` cannot be the zero address.
+     */
+    function _approve(address _owner, address _spender, uint256 _amount) internal {
+        require(_owner != address(0), "ERC20: approve from the zero address");
+        require(_spender != address(0), "ERC20: approve to the zero address");
+
+        allowances[_owner][_spender] = _amount;
+        emit Approval(_owner, _spender, _amount);
+    }
+
+    /**
+     * @dev Destroys `amount` tokens from `account`.`amount` is then deducted
+     * from the caller's allowance.
+     *
+     * See {_burn} and {_approve}.
+     */
+    function _burnFrom(address _account, uint256 _amount) internal {
+        _burn(_account, _amount);
+        _approve(_account, msg.sender, allowances[_account][msg.sender].sub(_amount));
+    }
+
+    // Subclasses of this token generally want to send additional logs through the centralized Augur log emitter contract
+    function onTokenTransfer(address _from, address _to, uint256 _value) internal;
+}
+
+contract VariableSupplyToken is ERC20 {
+    using SafeMathUint256 for uint256;
+
+    function mint(address _target, uint256 _amount) internal returns (bool) {
+        _mint(_target, _amount);
+        onMint(_target, _amount);
+        return true;
+    }
+
+    function burn(address _target, uint256 _amount) internal returns (bool) {
+        _burn(_target, _amount);
+        onBurn(_target, _amount);
+        return true;
+    }
+
+    // Subclasses of this token may want to send additional logs through the centralized Augur log emitter contract
+    function onMint(address, uint256) internal {
+    }
+
+    // Subclasses of this token may want to send additional logs through the centralized Augur log emitter contract
+    function onBurn(address, uint256) internal {
+    }
+}
+
+contract IAffiliateValidator {
+    function validateReference(address _account, address _referrer) external view returns (bool);
+}
+
+contract IDisputeWindow is ITyped, IERC20 {
+    function invalidMarketsTotal() external view returns (uint256);
+    function validityBondTotal() external view returns (uint256);
+
+    function incorrectDesignatedReportTotal() external view returns (uint256);
+    function initialReportBondTotal() external view returns (uint256);
+
+    function designatedReportNoShowsTotal() external view returns (uint256);
+    function designatedReporterNoShowBondTotal() external view returns (uint256);
+
+    function initialize(IAugur _augur, IUniverse _universe, uint256 _disputeWindowId, bool _participationTokensEnabled, uint256 _duration, uint256 _startTime) public;
+    function trustedBuy(address _buyer, uint256 _attotokens) public returns (bool);
+    function getUniverse() public view returns (IUniverse);
+    function getReputationToken() public view returns (IReputationToken);
+    function getStartTime() public view returns (uint256);
+    function getEndTime() public view returns (uint256);
+    function getWindowId() public view returns (uint256);
+    function isActive() public view returns (bool);
+    function isOver() public view returns (bool);
+    function onMarketFinalized() public;
+    function redeem(address _account) public returns (bool);
+}
+
+contract IMarket is IOwnable {
+    enum MarketType {
+        YES_NO,
+        CATEGORICAL,
+        SCALAR
+    }
+
+    function initialize(IAugur _augur, IUniverse _universe, uint256 _endTime, uint256 _feePerCashInAttoCash, IAffiliateValidator _affiliateValidator, uint256 _affiliateFeeDivisor, address _designatedReporterAddress, address _creator, uint256 _numOutcomes, uint256 _numTicks) public;
+    function derivePayoutDistributionHash(uint256[] memory _payoutNumerators) public view returns (bytes32);
+    function doInitialReport(uint256[] memory _payoutNumerators, string memory _description, uint256 _additionalStake) public returns (bool);
+    function getUniverse() public view returns (IUniverse);
+    function getDisputeWindow() public view returns (IDisputeWindow);
+    function getNumberOfOutcomes() public view returns (uint256);
+    function getNumTicks() public view returns (uint256);
+    function getMarketCreatorSettlementFeeDivisor() public view returns (uint256);
+    function getForkingMarket() public view returns (IMarket _market);
+    function getEndTime() public view returns (uint256);
+    function getWinningPayoutDistributionHash() public view returns (bytes32);
+    function getWinningPayoutNumerator(uint256 _outcome) public view returns (uint256);
+    function getWinningReportingParticipant() public view returns (IReportingParticipant);
+    function getReputationToken() public view returns (IV2ReputationToken);
+    function getFinalizationTime() public view returns (uint256);
+    function getInitialReporter() public view returns (IInitialReporter);
+    function getDesignatedReportingEndTime() public view returns (uint256);
+    function getValidityBondAttoCash() public view returns (uint256);
+    function affiliateFeeDivisor() external view returns (uint256);
+    function getNumParticipants() public view returns (uint256);
+    function getDisputePacingOn() public view returns (bool);
+    function deriveMarketCreatorFeeAmount(uint256 _amount) public view returns (uint256);
+    function recordMarketCreatorFees(uint256 _marketCreatorFees, address _sourceAccount, bytes32 _fingerprint) public returns (bool);
+    function isContainerForReportingParticipant(IReportingParticipant _reportingParticipant) public view returns (bool);
+    function isFinalizedAsInvalid() public view returns (bool);
+    function finalize() public returns (bool);
+    function isFinalized() public view returns (bool);
+    function getOpenInterest() public view returns (uint256);
+}
+
+contract IReportingParticipant {
+    function getStake() public view returns (uint256);
+    function getPayoutDistributionHash() public view returns (bytes32);
+    function liquidateLosing() public;
+    function redeem(address _redeemer) public returns (bool);
+    function isDisavowed() public view returns (bool);
+    function getPayoutNumerator(uint256 _outcome) public view returns (uint256);
+    function getPayoutNumerators() public view returns (uint256[] memory);
+    function getMarket() public view returns (IMarket);
+    function getSize() public view returns (uint256);
+}
+
+contract IDisputeCrowdsourcer is IReportingParticipant, IERC20 {
+    function initialize(IAugur _augur, IMarket market, uint256 _size, bytes32 _payoutDistributionHash, uint256[] memory _payoutNumerators, uint256 _crowdsourcerGeneration) public;
+    function contribute(address _participant, uint256 _amount, bool _overload) public returns (uint256);
+    function setSize(uint256 _size) public;
+    function getRemainingToFill() public view returns (uint256);
+    function correctSize() public returns (bool);
+    function getCrowdsourcerGeneration() public view returns (uint256);
+}
+
+contract IInitialReporter is IReportingParticipant, IOwnable {
+    function initialize(IAugur _augur, IMarket _market, address _designatedReporter) public;
+    function report(address _reporter, bytes32 _payoutDistributionHash, uint256[] memory _payoutNumerators, uint256 _initialReportStake) public;
+    function designatedReporterShowed() public view returns (bool);
+    function initialReporterWasCorrect() public view returns (bool);
+    function getDesignatedReporter() public view returns (address);
+    function getReportTimestamp() public view returns (uint256);
+    function migrateToNewUniverse(address _designatedReporter) public;
+    function returnRepFromDisavow() public;
+}
+
+contract IReputationToken is IERC20 {
+    function migrateOutByPayout(uint256[] memory _payoutNumerators, uint256 _attotokens) public returns (bool);
+    function migrateIn(address _reporter, uint256 _attotokens) public returns (bool);
+    function trustedReportingParticipantTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);
+    function trustedMarketTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);
+    function trustedUniverseTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);
+    function trustedDisputeWindowTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool);
+    function getUniverse() public view returns (IUniverse);
+    function getTotalMigrated() public view returns (uint256);
+    function getTotalTheoreticalSupply() public view returns (uint256);
+    function mintForReportingParticipant(uint256 _amountMigrated) public returns (bool);
+}
+
+contract IShareToken is ITyped, IERC1155 {
+    function initialize(IAugur _augur) external;
+    function initializeMarket(IMarket _market, uint256 _numOutcomes, uint256 _numTicks) public;
+    function unsafeTransferFrom(address _from, address _to, uint256 _id, uint256 _value) public;
+    function unsafeBatchTransferFrom(address _from, address _to, uint256[] memory _ids, uint256[] memory _values) public;
+    function claimTradingProceeds(IMarket _market, address _shareHolder, bytes32 _fingerprint) external returns (uint256[] memory _outcomeFees);
+    function getMarket(uint256 _tokenId) external view returns (IMarket);
+    function getOutcome(uint256 _tokenId) external view returns (uint256);
+    function getTokenId(IMarket _market, uint256 _outcome) public pure returns (uint256 _tokenId);
+    function getTokenIds(IMarket _market, uint256[] memory _outcomes) public pure returns (uint256[] memory _tokenIds);
+    function buyCompleteSets(IMarket _market, address _account, uint256 _amount) external returns (bool);
+    function buyCompleteSetsForTrade(IMarket _market, uint256 _amount, uint256 _longOutcome, address _longRecipient, address _shortRecipient) external returns (bool);
+    function sellCompleteSets(IMarket _market, address _holder, address _recipient, uint256 _amount, bytes32 _fingerprint) external returns (uint256 _creatorFee, uint256 _reportingFee);
+    function sellCompleteSetsForTrade(IMarket _market, uint256 _outcome, uint256 _amount, address _shortParticipant, address _longParticipant, address _shortRecipient, address _longRecipient, uint256 _price, address _sourceAccount, bytes32 _fingerprint) external returns (uint256 _creatorFee, uint256 _reportingFee);
+    function totalSupplyForMarketOutcome(IMarket _market, uint256 _outcome) public view returns (uint256);
+    function balanceOfMarketOutcome(IMarket _market, uint256 _outcome, address _account) public view returns (uint256);
+    function lowestBalanceOfMarketOutcomes(IMarket _market, uint256[] memory _outcomes, address _account) public view returns (uint256);
+}
+
+contract IUniverse {
+    function creationTime() external view returns (uint256);
+    function marketBalance(address) external view returns (uint256);
+
+    function fork() public returns (bool);
+    function updateForkValues() public returns (bool);
+    function getParentUniverse() public view returns (IUniverse);
+    function createChildUniverse(uint256[] memory _parentPayoutNumerators) public returns (IUniverse);
+    function getChildUniverse(bytes32 _parentPayoutDistributionHash) public view returns (IUniverse);
+    function getReputationToken() public view returns (IV2ReputationToken);
+    function getForkingMarket() public view returns (IMarket);
+    function getForkEndTime() public view returns (uint256);
+    function getForkReputationGoal() public view returns (uint256);
+    function getParentPayoutDistributionHash() public view returns (bytes32);
+    function getDisputeRoundDurationInSeconds(bool _initial) public view returns (uint256);
+    function getOrCreateDisputeWindowByTimestamp(uint256 _timestamp, bool _initial) public returns (IDisputeWindow);
+    function getOrCreateCurrentDisputeWindow(bool _initial) public returns (IDisputeWindow);
+    function getOrCreateNextDisputeWindow(bool _initial) public returns (IDisputeWindow);
+    function getOrCreatePreviousDisputeWindow(bool _initial) public returns (IDisputeWindow);
+    function getOpenInterestInAttoCash() public view returns (uint256);
+    function getTargetRepMarketCapInAttoCash() public view returns (uint256);
+    function getOrCacheValidityBond() public returns (uint256);
+    function getOrCacheDesignatedReportStake() public returns (uint256);
+    function getOrCacheDesignatedReportNoShowBond() public returns (uint256);
+    function getOrCacheMarketRepBond() public returns (uint256);
+    function getOrCacheReportingFeeDivisor() public returns (uint256);
+    function getDisputeThresholdForFork() public view returns (uint256);
+    function getDisputeThresholdForDisputePacing() public view returns (uint256);
+    function getInitialReportMinValue() public view returns (uint256);
+    function getPayoutNumerators() public view returns (uint256[] memory);
+    function getReportingFeeDivisor() public view returns (uint256);
+    function getPayoutNumerator(uint256 _outcome) public view returns (uint256);
+    function getWinningChildPayoutNumerator(uint256 _outcome) public view returns (uint256);
+    function isOpenInterestCash(address) public view returns (bool);
+    function isForkingMarket() public view returns (bool);
+    function getCurrentDisputeWindow(bool _initial) public view returns (IDisputeWindow);
+    function getDisputeWindowStartTimeAndDuration(uint256 _timestamp, bool _initial) public view returns (uint256, uint256);
+    function isParentOf(IUniverse _shadyChild) public view returns (bool);
+    function updateTentativeWinningChildUniverse(bytes32 _parentPayoutDistributionHash) public returns (bool);
+    function isContainerForDisputeWindow(IDisputeWindow _shadyTarget) public view returns (bool);
+    function isContainerForMarket(IMarket _shadyTarget) public view returns (bool);
+    function isContainerForReportingParticipant(IReportingParticipant _reportingParticipant) public view returns (bool);
+    function migrateMarketOut(IUniverse _destinationUniverse) public returns (bool);
+    function migrateMarketIn(IMarket _market, uint256 _cashBalance, uint256 _marketOI) public returns (bool);
+    function decrementOpenInterest(uint256 _amount) public returns (bool);
+    function decrementOpenInterestFromMarket(IMarket _market) public returns (bool);
+    function incrementOpenInterest(uint256 _amount) public returns (bool);
+    function getWinningChildUniverse() public view returns (IUniverse);
+    function isForking() public view returns (bool);
+    function deposit(address _sender, uint256 _amount, address _market) public returns (bool);
+    function withdraw(address _recipient, uint256 _amount, address _market) public returns (bool);
+    function createScalarMarket(uint256 _endTime, uint256 _feePerCashInAttoCash, IAffiliateValidator _affiliateValidator, uint256 _affiliateFeeDivisor, address _designatedReporterAddress, int256[] memory _prices, uint256 _numTicks, string memory _extraInfo) public returns (IMarket _newMarket);
+}
+
+contract IV2ReputationToken is IReputationToken {
+    function parentUniverse() external returns (IUniverse);
+    function burnForMarket(uint256 _amountToBurn) public returns (bool);
+    function mintForWarpSync(uint256 _amountToMint, address _target) public returns (bool);
+}
+
+library Reporting {
+    uint256 private constant DESIGNATED_REPORTING_DURATION_SECONDS = 1 days;
+    uint256 private constant DISPUTE_ROUND_DURATION_SECONDS = 7 days;
+    uint256 private constant INITIAL_DISPUTE_ROUND_DURATION_SECONDS = 1 days;
+    uint256 private constant DISPUTE_WINDOW_BUFFER_SECONDS = 1 hours;
+    uint256 private constant FORK_DURATION_SECONDS = 60 days;
+
+    uint256 private constant BASE_MARKET_DURATION_MAXIMUM = 30 days; // A market of 30 day length can always be created
+    uint256 private constant UPGRADE_CADENCE = 365 days;
+    uint256 private constant INITIAL_UPGRADE_TIMESTAMP = 1627776000; // Aug 1st 2021
+
+    uint256 private constant INITIAL_REP_SUPPLY = 11 * 10 ** 6 * 10 ** 18; // 11 Million REP
+
+    uint256 private constant AFFILIATE_SOURCE_CUT_DIVISOR = 5; // The trader gets 20% of the affiliate fee when an affiliate fee is taken
+
+    uint256 private constant DEFAULT_VALIDITY_BOND = 10 ether; // 10 Cash (Dai)
+    uint256 private constant VALIDITY_BOND_FLOOR = 10 ether; // 10 Cash (Dai)
+    uint256 private constant DEFAULT_REPORTING_FEE_DIVISOR = 10000; // .01% fees
+    uint256 private constant MAXIMUM_REPORTING_FEE_DIVISOR = 10000; // Minimum .01% fees
+    uint256 private constant MINIMUM_REPORTING_FEE_DIVISOR = 3; // Maximum 33.3~% fees. Note than anything less than a value of 2 here will likely result in bugs such as divide by 0 cases.
+
+    uint256 private constant TARGET_INVALID_MARKETS_DIVISOR = 100; // 1% of markets are expected to be invalid
+    uint256 private constant TARGET_INCORRECT_DESIGNATED_REPORT_MARKETS_DIVISOR = 100; // 1% of markets are expected to have an incorrect designate report
+    uint256 private constant TARGET_DESIGNATED_REPORT_NO_SHOWS_DIVISOR = 20; // 5% of markets are expected to have a no show
+    uint256 private constant TARGET_REP_MARKET_CAP_MULTIPLIER = 5; // We multiply and divide by constants since we may want to multiply by a fractional amount
+
+    uint256 private constant FORK_THRESHOLD_DIVISOR = 40; // 2.5% of the total REP supply being filled in a single dispute bond will trigger a fork
+    uint256 private constant MAXIMUM_DISPUTE_ROUNDS = 20; // We ensure that after 20 rounds of disputes a fork will occur
+    uint256 private constant MINIMUM_SLOW_ROUNDS = 8; // We ensure that at least 8 dispute rounds take DISPUTE_ROUND_DURATION_SECONDS+ seconds to complete until the next round begins
+
+    function getDesignatedReportingDurationSeconds() internal pure returns (uint256) { return DESIGNATED_REPORTING_DURATION_SECONDS; }
+    function getInitialDisputeRoundDurationSeconds() internal pure returns (uint256) { return INITIAL_DISPUTE_ROUND_DURATION_SECONDS; }
+    function getDisputeWindowBufferSeconds() internal pure returns (uint256) { return DISPUTE_WINDOW_BUFFER_SECONDS; }
+    function getDisputeRoundDurationSeconds() internal pure returns (uint256) { return DISPUTE_ROUND_DURATION_SECONDS; }
+    function getForkDurationSeconds() internal pure returns (uint256) { return FORK_DURATION_SECONDS; }
+    function getBaseMarketDurationMaximum() internal pure returns (uint256) { return BASE_MARKET_DURATION_MAXIMUM; }
+    function getUpgradeCadence() internal pure returns (uint256) { return UPGRADE_CADENCE; }
+    function getInitialUpgradeTimestamp() internal pure returns (uint256) { return INITIAL_UPGRADE_TIMESTAMP; }
+    function getDefaultValidityBond() internal pure returns (uint256) { return DEFAULT_VALIDITY_BOND; }
+    function getValidityBondFloor() internal pure returns (uint256) { return VALIDITY_BOND_FLOOR; }
+    function getTargetInvalidMarketsDivisor() internal pure returns (uint256) { return TARGET_INVALID_MARKETS_DIVISOR; }
+    function getTargetIncorrectDesignatedReportMarketsDivisor() internal pure returns (uint256) { return TARGET_INCORRECT_DESIGNATED_REPORT_MARKETS_DIVISOR; }
+    function getTargetDesignatedReportNoShowsDivisor() internal pure returns (uint256) { return TARGET_DESIGNATED_REPORT_NO_SHOWS_DIVISOR; }
+    function getTargetRepMarketCapMultiplier() internal pure returns (uint256) { return TARGET_REP_MARKET_CAP_MULTIPLIER; }
+    function getMaximumReportingFeeDivisor() internal pure returns (uint256) { return MAXIMUM_REPORTING_FEE_DIVISOR; }
+    function getMinimumReportingFeeDivisor() internal pure returns (uint256) { return MINIMUM_REPORTING_FEE_DIVISOR; }
+    function getDefaultReportingFeeDivisor() internal pure returns (uint256) { return DEFAULT_REPORTING_FEE_DIVISOR; }
+    function getInitialREPSupply() internal pure returns (uint256) { return INITIAL_REP_SUPPLY; }
+    function getAffiliateSourceCutDivisor() internal pure returns (uint256) { return AFFILIATE_SOURCE_CUT_DIVISOR; }
+    function getForkThresholdDivisor() internal pure returns (uint256) { return FORK_THRESHOLD_DIVISOR; }
+    function getMaximumDisputeRounds() internal pure returns (uint256) { return MAXIMUM_DISPUTE_ROUNDS; }
+    function getMinimumSlowRounds() internal pure returns (uint256) { return MINIMUM_SLOW_ROUNDS; }
+}
+
+contract IAugurTrading {
+    function lookup(bytes32 _key) public view returns (address);
+    function logProfitLossChanged(IMarket _market, address _account, uint256 _outcome, int256 _netPosition, uint256 _avgPrice, int256 _realizedProfit, int256 _frozenFunds, int256 _realizedCost) public returns (bool);
+    function logOrderCreated(IUniverse _universe, bytes32 _orderId, bytes32 _tradeGroupId) public returns (bool);
+    function logOrderCanceled(IUniverse _universe, IMarket _market, address _creator, uint256 _tokenRefund, uint256 _sharesRefund, bytes32 _orderId) public returns (bool);
+    function logOrderFilled(IUniverse _universe, address _creator, address _filler, uint256 _price, uint256 _fees, uint256 _amountFilled, bytes32 _orderId, bytes32 _tradeGroupId) public returns (bool);
+    function logMarketVolumeChanged(IUniverse _universe, address _market, uint256 _volume, uint256[] memory _outcomeVolumes, uint256 _totalTrades) public returns (bool);
+    function logZeroXOrderFilled(IUniverse _universe, IMarket _market, bytes32 _orderHash, bytes32 _tradeGroupId, uint8 _orderType, address[] memory _addressData, uint256[] memory _uint256Data) public returns (bool);
+    function logZeroXOrderCanceled(address _universe, address _market, address _account, uint256 _outcome, uint256 _price, uint256 _amount, uint8 _type, bytes32 _orderHash) public;
+}
+
+contract IOrders {
+    function saveOrder(uint256[] calldata _uints, bytes32[] calldata _bytes32s, Order.Types _type, IMarket _market, address _sender) external returns (bytes32 _orderId);
+    function removeOrder(bytes32 _orderId) external returns (bool);
+    function getMarket(bytes32 _orderId) public view returns (IMarket);
+    function getOrderType(bytes32 _orderId) public view returns (Order.Types);
+    function getOutcome(bytes32 _orderId) public view returns (uint256);
+    function getAmount(bytes32 _orderId) public view returns (uint256);
+    function getPrice(bytes32 _orderId) public view returns (uint256);
+    function getOrderCreator(bytes32 _orderId) public view returns (address);
+    function getOrderSharesEscrowed(bytes32 _orderId) public view returns (uint256);
+    function getOrderMoneyEscrowed(bytes32 _orderId) public view returns (uint256);
+    function getOrderDataForCancel(bytes32 _orderId) public view returns (uint256, uint256, Order.Types, IMarket, uint256, address);
+    function getOrderDataForLogs(bytes32 _orderId) public view returns (Order.Types, address[] memory _addressData, uint256[] memory _uint256Data);
+    function getBetterOrderId(bytes32 _orderId) public view returns (bytes32);
+    function getWorseOrderId(bytes32 _orderId) public view returns (bytes32);
+    function getBestOrderId(Order.Types _type, IMarket _market, uint256 _outcome) public view returns (bytes32);
+    function getWorstOrderId(Order.Types _type, IMarket _market, uint256 _outcome) public view returns (bytes32);
+    function getLastOutcomePrice(IMarket _market, uint256 _outcome) public view returns (uint256);
+    function getOrderId(Order.Types _type, IMarket _market, uint256 _amount, uint256 _price, address _sender, uint256 _blockNumber, uint256 _outcome, uint256 _moneyEscrowed, uint256 _sharesEscrowed) public pure returns (bytes32);
+    function getTotalEscrowed(IMarket _market) public view returns (uint256);
+    function isBetterPrice(Order.Types _type, uint256 _price, bytes32 _orderId) public view returns (bool);
+    function isWorsePrice(Order.Types _type, uint256 _price, bytes32 _orderId) public view returns (bool);
+    function assertIsNotBetterPrice(Order.Types _type, uint256 _price, bytes32 _betterOrderId) public view returns (bool);
+    function assertIsNotWorsePrice(Order.Types _type, uint256 _price, bytes32 _worseOrderId) public returns (bool);
+    function recordFillOrder(bytes32 _orderId, uint256 _sharesFilled, uint256 _tokensFilled, uint256 _fill) external returns (bool);
+    function setPrice(IMarket _market, uint256 _outcome, uint256 _price) external returns (bool);
+}
+
+library Order {
+    using SafeMathUint256 for uint256;
+
+    enum Types {
+        Bid, Ask
+    }
+
+    enum TradeDirections {
+        Long, Short
+    }
+
+    struct Data {
+        // Contracts
+        IMarket market;
+        IAugur augur;
+        IAugurTrading augurTrading;
+        IShareToken shareToken;
+        ICash cash;
+
+        // Order
+        bytes32 id;
+        address creator;
+        uint256 outcome;
+        Order.Types orderType;
+        uint256 amount;
+        uint256 price;
+        uint256 sharesEscrowed;
+        uint256 moneyEscrowed;
+        bytes32 betterOrderId;
+        bytes32 worseOrderId;
+    }
+
+    function create(IAugur _augur, IAugurTrading _augurTrading, address _creator, uint256 _outcome, Order.Types _type, uint256 _attoshares, uint256 _price, IMarket _market, bytes32 _betterOrderId, bytes32 _worseOrderId) internal view returns (Data memory) {
+        require(_outcome < _market.getNumberOfOutcomes(), "Order.create: Outcome is not within market range");
+        require(_price != 0, "Order.create: Price may not be 0");
+        require(_price < _market.getNumTicks(), "Order.create: Price is outside of market range");
+        require(_attoshares > 0, "Order.create: Cannot use amount of 0");
+        require(_creator != address(0), "Order.create: Creator is 0x0");
+
+        IShareToken _shareToken = IShareToken(_augur.lookup("ShareToken"));
+
+        return Data({
+            market: _market,
+            augur: _augur,
+            augurTrading: _augurTrading,
+            shareToken: _shareToken,
+            cash: ICash(_augur.lookup("Cash")),
+            id: 0,
+            creator: _creator,
+            outcome: _outcome,
+            orderType: _type,
+            amount: _attoshares,
+            price: _price,
+            sharesEscrowed: 0,
+            moneyEscrowed: 0,
+            betterOrderId: _betterOrderId,
+            worseOrderId: _worseOrderId
+        });
+    }
+
+    //
+    // "public" functions
+    //
+
+    function getOrderId(Order.Data memory _orderData, IOrders _orders) internal view returns (bytes32) {
+        if (_orderData.id == bytes32(0)) {
+            bytes32 _orderId = calculateOrderId(_orderData.orderType, _orderData.market, _orderData.amount, _orderData.price, _orderData.creator, block.number, _orderData.outcome, _orderData.moneyEscrowed, _orderData.sharesEscrowed);
+            require(_orders.getAmount(_orderId) == 0, "Order.getOrderId: New order had amount. This should not be possible");
+            _orderData.id = _orderId;
+        }
+        return _orderData.id;
+    }
+
+    function calculateOrderId(Order.Types _type, IMarket _market, uint256 _amount, uint256 _price, address _sender, uint256 _blockNumber, uint256 _outcome, uint256 _moneyEscrowed, uint256 _sharesEscrowed) internal pure returns (bytes32) {
+        return sha256(abi.encodePacked(_type, _market, _amount, _price, _sender, _blockNumber, _outcome, _moneyEscrowed, _sharesEscrowed));
+    }
+
+    function getOrderTradingTypeFromMakerDirection(Order.TradeDirections _creatorDirection) internal pure returns (Order.Types) {
+        return (_creatorDirection == Order.TradeDirections.Long) ? Order.Types.Bid : Order.Types.Ask;
+    }
+
+    function getOrderTradingTypeFromFillerDirection(Order.TradeDirections _fillerDirection) internal pure returns (Order.Types) {
+        return (_fillerDirection == Order.TradeDirections.Long) ? Order.Types.Ask : Order.Types.Bid;
+    }
+
+    function saveOrder(Order.Data memory _orderData, bytes32 _tradeGroupId, IOrders _orders) internal returns (bytes32) {
+        getOrderId(_orderData, _orders);
+        uint256[] memory _uints = new uint256[](5);
+        _uints[0] = _orderData.amount;
+        _uints[1] = _orderData.price;
+        _uints[2] = _orderData.outcome;
+        _uints[3] = _orderData.moneyEscrowed;
+        _uints[4] = _orderData.sharesEscrowed;
+        bytes32[] memory _bytes32s = new bytes32[](4);
+        _bytes32s[0] = _orderData.betterOrderId;
+        _bytes32s[1] = _orderData.worseOrderId;
+        _bytes32s[2] = _tradeGroupId;
+        _bytes32s[3] = _orderData.id;
+        return _orders.saveOrder(_uints, _bytes32s, _orderData.orderType, _orderData.market, _orderData.creator);
+    }
+}
+
+interface IUniswapV2Pair {
+    event Approval(address indexed owner, address indexed spender, uint value);
+    event Transfer(address indexed from, address indexed to, uint value);
+
+    function name() external pure returns (string memory);
+    function symbol() external pure returns (string memory);
+    function decimals() external pure returns (uint8);
+    function totalSupply() external view returns (uint);
+    function balanceOf(address owner) external view returns (uint);
+    function allowance(address owner, address spender) external view returns (uint);
+
+    function approve(address spender, uint value) external returns (bool);
+    function transfer(address to, uint value) external returns (bool);
+    function transferFrom(address from, address to, uint value) external returns (bool);
+
+    function DOMAIN_SEPARATOR() external view returns (bytes32);
+    function PERMIT_TYPEHASH() external pure returns (bytes32);
+    function nonces(address owner) external view returns (uint);
+
+    function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;
+
+    event Mint(address indexed sender, uint amount0, uint amount1);
+    event Burn(address indexed sender, uint amount0, uint amount1, address indexed to);
+    event Swap(
+        address indexed sender,
+        uint amount0In,
+        uint amount1In,
+        uint amount0Out,
+        uint amount1Out,
+        address indexed to
+    );
+    event Sync(uint112 reserve0, uint112 reserve1);
+
+    function MINIMUM_LIQUIDITY() external pure returns (uint);
+    function factory() external view returns (address);
+    function token0() external view returns (address);
+    function token1() external view returns (address);
+    function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
+    function price0CumulativeLast() external view returns (uint);
+    function price1CumulativeLast() external view returns (uint);
+    function kLast() external view returns (uint);
+
+    function mint(address to) external returns (uint liquidity);
+    function burn(address to) external returns (uint amount0, uint amount1);
+    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
+    function skim(address to) external;
+    function sync() external;
+
+    function initialize(address, address) external;
+}
+
+contract IRepSymbol {
+    function getRepSymbol(address _augur, address _universe) external view returns (string memory);
+}
+
+contract ReputationToken is VariableSupplyToken, IV2ReputationToken {
+    using SafeMathUint256 for uint256;
+
+    string constant public name = "Reputation";
+    IUniverse internal universe;
+    IUniverse public parentUniverse;
+    uint256 internal totalMigrated;
+    IERC20 public legacyRepToken;
+    IAugur public augur;
+    address public warpSync;
+
+    constructor(IAugur _augur, IUniverse _universe, IUniverse _parentUniverse) public {
+        augur = _augur;
+        universe = _universe;
+        parentUniverse = _parentUniverse;
+        warpSync = _augur.lookup("WarpSync");
+        legacyRepToken = IERC20(_augur.lookup("LegacyReputationToken"));
+        require(warpSync != address(0));
+        require(legacyRepToken != IERC20(0));
+    }
+
+    function symbol() public view returns (string memory) {
+        return IRepSymbol(augur.lookup("RepSymbol")).getRepSymbol(address(augur), address(universe));
+    }
+
+    /**
+     * @notice Migrate to a Child Universe by indicating the Market payout associated with it
+     * @param _payoutNumerators The array of payouts for the market associated with the desired universe
+     * @param _attotokens The amount of tokens to migrate
+     * @return Bool True
+     */
+    function migrateOutByPayout(uint256[] memory _payoutNumerators, uint256 _attotokens) public returns (bool) {
+        require(_attotokens > 0);
+        IUniverse _destinationUniverse = universe.createChildUniverse(_payoutNumerators);
+        IReputationToken _destination = _destinationUniverse.getReputationToken();
+        burn(msg.sender, _attotokens);
+        _destination.migrateIn(msg.sender, _attotokens);
+        return true;
+    }
+
+    function migrateIn(address _reporter, uint256 _attotokens) public returns (bool) {
+        IUniverse _parentUniverse = parentUniverse;
+        require(ReputationToken(msg.sender) == _parentUniverse.getReputationToken());
+        require(augur.getTimestamp() < _parentUniverse.getForkEndTime());
+        mint(_reporter, _attotokens);
+        totalMigrated += _attotokens;
+        // Update the fork tentative winner and finalize if we can
+        if (!_parentUniverse.getForkingMarket().isFinalized()) {
+            _parentUniverse.updateTentativeWinningChildUniverse(universe.getParentPayoutDistributionHash());
+        }
+        return true;
+    }
+
+    function mintForReportingParticipant(uint256 _amountMigrated) public returns (bool) {
+        IReportingParticipant _reportingParticipant = IReportingParticipant(msg.sender);
+        require(parentUniverse.isContainerForReportingParticipant(_reportingParticipant));
+        // simulate a 40% ROI which would have occured during a normal dispute had this participant's outcome won the dispute
+        uint256 _bonus = _amountMigrated.mul(2) / 5;
+        mint(address(_reportingParticipant), _bonus);
+        return true;
+    }
+
+    function mintForWarpSync(uint256 _amountToMint, address _target) public returns (bool) {
+        require(warpSync == msg.sender);
+        mint(_target, _amountToMint);
+        universe.updateForkValues();
+        return true;
+    }
+
+    function burnForMarket(uint256 _amountToBurn) public returns (bool) {
+        require(universe.isContainerForMarket(IMarket(msg.sender)));
+        burn(msg.sender, _amountToBurn);
+        return true;
+    }
+
+    function trustedUniverseTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {
+        require(IUniverse(msg.sender) == universe);
+        _transfer(_source, _destination, _attotokens);
+        return true;
+    }
+
+    function trustedMarketTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {
+        require(universe.isContainerForMarket(IMarket(msg.sender)));
+        _transfer(_source, _destination, _attotokens);
+        return true;
+    }
+
+    function trustedReportingParticipantTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {
+        require(universe.isContainerForReportingParticipant(IReportingParticipant(msg.sender)));
+        _transfer(_source, _destination, _attotokens);
+        return true;
+    }
+
+    function trustedDisputeWindowTransfer(address _source, address _destination, uint256 _attotokens) public returns (bool) {
+        require(universe.isContainerForDisputeWindow(IDisputeWindow(msg.sender)));
+        _transfer(_source, _destination, _attotokens);
+        return true;
+    }
+
+    function assertReputationTokenIsLegitChild(IReputationToken _shadyReputationToken) private view {
+        IUniverse _universe = _shadyReputationToken.getUniverse();
+        require(universe.isParentOf(_universe));
+        require(_universe.getReputationToken() == _shadyReputationToken);
+    }
+
+    /**
+     * @return The universe associated with this Reputation Token
+     */
+    function getUniverse() public view returns (IUniverse) {
+        return universe;
+    }
+
+    /**
+     * @return The total amount of parent REP migrated into this version of REP
+     */
+    function getTotalMigrated() public view returns (uint256) {
+        return totalMigrated;
+    }
+
+    /**
+     * @return The V1 Rep token
+     */
+    function getLegacyRepToken() public view returns (IERC20) {
+        return legacyRepToken;
+    }
+
+    /**
+     * @return The maximum possible total supply for this version of REP.
+     */
+    function getTotalTheoreticalSupply() public view returns (uint256) {
+        uint256 _totalSupply = totalSupply;
+        if (parentUniverse == IUniverse(0)) {
+            return _totalSupply.add(legacyRepToken.totalSupply()).sub(legacyRepToken.balanceOf(address(1))).sub(legacyRepToken.balanceOf(address(0)));
+        } else if (augur.getTimestamp() >= parentUniverse.getForkEndTime()) {
+            return _totalSupply;
+        } else {
+            return _totalSupply + parentUniverse.getReputationToken().getTotalTheoreticalSupply();
+        }
+    }
+
+    function onTokenTransfer(address _from, address _to, uint256 _value) internal {
+        augur.logReputationTokensTransferred(universe, _from, _to, _value, balances[_from], balances[_to]);
+    }
+
+    function onMint(address _target, uint256 _amount) internal {
+        augur.logReputationTokensMinted(universe, _target, _amount, totalSupply, balances[_target]);
+    }
+
+    function onBurn(address _target, uint256 _amount) internal {
+        augur.logReputationTokensBurned(universe, _target, _amount, totalSupply, balances[_target]);
+    }
+
+    /**
+     * @notice Migrate V1 REP to V2
+     * @dev This can only be done for the Genesis Universe in V2. If a fork occurs and the window ends V1 REP is stuck in V1 forever
+     * @return Bool True
+     */
+    function migrateFromLegacyReputationToken() public returns (bool) {
+        require(parentUniverse == IUniverse(0));
+        uint256 _legacyBalance = legacyRepToken.balanceOf(msg.sender);
+        require(legacyRepToken.transferFrom(msg.sender, address(1), _legacyBalance));
+        mint(msg.sender, _legacyBalance);
+        return true;
+    }
+}

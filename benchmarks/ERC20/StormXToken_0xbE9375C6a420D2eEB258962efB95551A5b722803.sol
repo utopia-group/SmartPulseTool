@@ -1211,7 +1211,7 @@ contract Ownable is Context {
 
 // File: interface/IStormXToken.sol
 
-pragma solidity 0.5.16;
+pragma solidity ^0.5.0;
 
 
 contract IStormXToken is ERC20 {
@@ -1220,7 +1220,7 @@ contract IStormXToken is ERC20 {
 
 // File: contracts/StormXGSNRecipient.sol
 
-pragma solidity 0.5.16;
+pragma solidity ^0.5.0;
 
 
 
@@ -1298,7 +1298,9 @@ contract StormXGSNRecipient is GSNRecipient, Ownable {
     external
     view
     returns (uint256, bytes memory) {
-      (bool accept, bool chargeBefore) = _acceptRelayedCall(from, encodedFunction);
+      bool accept;
+      bool chargeBefore;
+      (accept, chargeBefore) = _acceptRelayedCall(from, encodedFunction);
       if (accept) {
         return  _approveRelayedCall(abi.encode(from, chargeBefore));
       } else {
@@ -1342,7 +1344,9 @@ contract StormXGSNRecipient is GSNRecipient, Ownable {
   ) internal view returns (bool accept, bool chargeBefore);
 
   function _preRelayedCall(bytes memory context) internal returns (bytes32) {
-    (address user, bool chargeBefore) = abi.decode(context, (address, bool));
+    address user;
+    bool chargeBefore;
+    (user, chargeBefore) = abi.decode(context, (address, bool));
     // charge the user with specified amount of fee
     // if the user is not calling ``convert()``
     if (chargeBefore) {
@@ -1360,7 +1364,9 @@ contract StormXGSNRecipient is GSNRecipient, Ownable {
     uint256 actualCharge,
     bytes32 preRetVal
   ) internal {
-    (address user, bool chargeBefore) = abi.decode(context, (address, bool));
+    address user;
+    bool chargeBefore;
+    (user, chargeBefore) = abi.decode(context, (address, bool));
     if (!chargeBefore) {
       require(
         token.transferFrom(user, stormXReserve, chargeFee),
@@ -1470,7 +1476,6 @@ contract StormXGSNRecipient is GSNRecipient, Ownable {
 
 // File: contracts/StormXToken.sol
 
-pragma solidity 0.5.16;
 
 
 

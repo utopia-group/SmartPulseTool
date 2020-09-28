@@ -1,5 +1,5 @@
 // Address.sol
-pragma solidity <= 0.5.4;
+pragma solidity ^0.5.0;
 
 library Address {
 
@@ -15,7 +15,6 @@ library Address {
 
 }
 // IERC20.sol
-pragma solidity <= 0.5.4;
 
 interface IERC20 {
 
@@ -30,7 +29,6 @@ interface IERC20 {
 }
 
 // Ownable.sol
-pragma solidity <= 0.5.4;
 
 contract Ownable {
 
@@ -64,7 +62,6 @@ contract Ownable {
 
 }
 // SafeMath.sol
-pragma solidity ^0.5.0;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -105,9 +102,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -161,9 +155,6 @@ library SafeMath {
      * Requirements:
      * - The divisor cannot be zero.
      */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
 
     /**
      * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
@@ -198,9 +189,6 @@ library SafeMath {
      * Requirements:
      * - The divisor cannot be zero.
      */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
 
     /**
      * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
@@ -222,12 +210,7 @@ library SafeMath {
 }
 
 // TristersLightCoin.sol
-pragma solidity <= 0.5.4;
 
-import 'SafeMath.sol';
-import 'Ownable.sol';
-import 'Address.sol';
-import 'IERC20.sol';
 
 contract TristersLightCoin is Ownable, IERC20 {
 
@@ -263,7 +246,7 @@ contract TristersLightCoin is Ownable, IERC20 {
         founder = _founder;
         founderLockupStartTime = block.timestamp;
         _balances[address(this)] = totalSupply;
-        _transfer(address(this), _operator, FounderAllocation.sub(FounderLockupAmount));
+        _transfer(address(this), _operator, FounderAllocation.sub(FounderLockupAmount, "error"));
     }
 
     function release() public {
@@ -271,11 +254,11 @@ contract TristersLightCoin is Ownable, IERC20 {
         uint256 cliffTime = founderLockupStartTime.add(FounderLockupCliff);
         if (currentTime < cliffTime) return;
         if (founderReleasedAmount >= FounderLockupAmount) return;
-        uint256 month = currentTime.sub(cliffTime).div(FounderReleaseInterval);
+        uint256 month = currentTime.sub(cliffTime, "error").div(FounderReleaseInterval, "error");
         uint256 releaseAmount = month.mul(FounderReleaseAmount);
         if (releaseAmount > FounderLockupAmount) releaseAmount = FounderLockupAmount;
         if (releaseAmount <= founderReleasedAmount) return;
-        uint256 amount = releaseAmount.sub(founderReleasedAmount);
+        uint256 amount = releaseAmount.sub(founderReleasedAmount, "error");
         founderReleasedAmount = releaseAmount;
         _transfer(address(this), founder, amount);
     }
@@ -333,7 +316,7 @@ contract TristersLightCoin is Ownable, IERC20 {
     function setMinter(address minter) public onlyOwner {
         require(minter != address(0), "TristersLightCoin: minter is the zero address");
         require(minter.isContract(), "TristersLightCoin: minter is not contract");
-        _transfer(address(this), minter, totalSupply.sub(FounderAllocation));
+        _transfer(address(this), minter, totalSupply.sub(FounderAllocation, "error"));
         emit SetMinter(minter);
     }
 

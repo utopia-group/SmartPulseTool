@@ -19,7 +19,7 @@ o8o        `8  o888o  o88888o o8o        o888o
 */
 // Made by https://peppersec.com
 
-pragma solidity 0.5.17;
+pragma solidity ^0.5.0;
 
 /*
  * @dev Provides information about the current execution context, including the
@@ -757,7 +757,6 @@ library SafeERC20 {
 
 // File: contracts/INXM.sol
 
-pragma solidity 0.5.17;
 
 
 contract INXM is IERC20 {
@@ -973,7 +972,6 @@ contract ERC20Permit is ERC20, ERC20Detailed {
 
 // File: contracts/wNXM.sol
 
-pragma solidity 0.5.17;
 
 contract wNXM is ERC20, ERC20Detailed, ERC20Permit {
     using SafeERC20 for ERC20;

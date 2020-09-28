@@ -108,7 +108,6 @@ library SafeBitMath {
 
 // File: contracts/utils/EvmUtil.sol
 
-pragma solidity ^0.5.13;
 
 library EvmUtil {
 
@@ -122,7 +121,6 @@ library EvmUtil {
 
 // File: contracts/governance/dmg/DMGToken.sol
 
-pragma solidity ^0.5.13;
 pragma experimental ABIEncoderV2;
 
 

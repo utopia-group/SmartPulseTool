@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity ^0.5.0;
 
 /**
 * @title SafeMath
@@ -116,7 +116,7 @@ contract Pausable is Owned {
 }
 
 interface tokenRecipient {
-    function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) external;
+    function receiveApproval(address _from, uint256 _value, address _token, bytes calldata _extraData) external;
 }
 
 /******************************************/
@@ -147,8 +147,8 @@ contract OMAToken is Pausable {
 
     constructor(
     uint256 initialSupply,
-    string tokenName,
-    string tokenSymbol
+    string memory tokenName,
+    string memory tokenSymbol
     ) public {
         // Update total supply with the decimal amount
         totalSupply = initialSupply * 10 ** uint256(decimals);
@@ -162,7 +162,7 @@ contract OMAToken is Pausable {
 
     /* Internal transfer, only can be called by this contract */
     function _transfer(address _from, address _to, uint _value) whenNotPaused internal {
-        require (_to != 0x0);
+        require (_to != address(0x0));
         require(!frozenAccount[_from]);
         require(!frozenAccount[_to]);
         uint256 amount = balanceOf[_from].sub(_value);
@@ -230,12 +230,12 @@ contract OMAToken is Pausable {
     * @param _value the max amount they can spend
     * @param _extraData some extra information to send to the approved contract
     */
-    function approveAndCall(address _spender, uint256 _value, bytes _extraData) onlyOwner
+    function approveAndCall(address _spender, uint256 _value, bytes memory _extraData) onlyOwner
     public
     returns (bool success) {
         tokenRecipient spender = tokenRecipient(_spender);
         if (approve(_spender, _value)) {
-            spender.receiveApproval(msg.sender, _value, this, _extraData);
+            spender.receiveApproval(msg.sender, _value, address(this), _extraData);
             return true;
         }
     }

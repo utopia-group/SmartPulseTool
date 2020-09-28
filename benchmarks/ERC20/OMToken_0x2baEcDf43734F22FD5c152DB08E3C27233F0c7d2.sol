@@ -602,7 +602,6 @@ contract ERC20Burnable is ERC20 {
 
 // File: contracts/OMToken.sol
 
-pragma solidity 0.5.3;
 
 
 

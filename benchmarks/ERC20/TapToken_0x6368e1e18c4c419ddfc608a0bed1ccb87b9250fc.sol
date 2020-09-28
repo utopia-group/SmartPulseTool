@@ -1,4 +1,4 @@
-pragma solidity 0.5.0;
+pragma solidity ^0.5.0;
 
 /**
  * @title SafeMath
@@ -170,8 +170,10 @@ library SafeERC20 {
         // solhint-disable-next-line max-line-length
         require(address(token).isContract(), "SafeERC20: call to non-contract");
 
+        bool success;
+        bytes memory returndata;
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
+        (success, returndata) = address(token).call(data);
         require(success, "SafeERC20: low-level call failed");
 
         if (returndata.length > 0) { // Return data is optional
@@ -488,7 +490,6 @@ contract TokenVesting is Ownable {
     // solhint-disable not-rely-on-time
 
     using SafeMath for uint256;
-    using SafeERC20 for IERC20;
 
     event TokensReleased(address token, uint256 amount);
     event TokenVestingRevoked(address token);
@@ -591,7 +592,7 @@ contract TokenVesting is Ownable {
 
         _released[address(token)] = _released[address(token)].add(unreleased);
 
-        token.safeTransfer(_beneficiary, unreleased);
+        SafeERC20.safeTransfer(token, _beneficiary, unreleased);
 
         emit TokensReleased(address(token), unreleased);
     }
@@ -612,7 +613,7 @@ contract TokenVesting is Ownable {
 
         _revoked[address(token)] = true;
 
-        token.safeTransfer(owner(), refund);
+        SafeERC20.safeTransfer(token, owner(), refund);
 
         emit TokenVestingRevoked(address(token));
     }

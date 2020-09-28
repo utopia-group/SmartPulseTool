@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2020-07-26
 */
 
-pragma solidity ^0.5.16;
+pragma solidity ^0.5.0;
 
 interface IERC20 {
     function totalSupply() external view returns (uint);
@@ -115,7 +115,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
     function _approve(address owner, address spender, uint amount) internal {
@@ -155,9 +155,6 @@ library SafeMath {
 
         return c;
     }
-    function sub(uint a, uint b) internal pure returns (uint) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
     function sub(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
         require(b <= a, errorMessage);
         uint c = a - b;
@@ -174,9 +171,6 @@ library SafeMath {
 
         return c;
     }
-    function div(uint a, uint b) internal pure returns (uint) {
-        return div(a, b, "SafeMath: division by zero");
-    }
     function div(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
         // Solidity only automatically asserts when dividing by 0
         require(b > 0, errorMessage);
@@ -186,51 +180,7 @@ library SafeMath {
     }
 }
 
-library Address {
-    function isContract(address account) internal view returns (bool) {
-        bytes32 codehash;
-        bytes32 accountHash = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
-        // solhint-disable-next-line no-inline-assembly
-        assembly { codehash := extcodehash(account) }
-        return (codehash != 0x0 && codehash != accountHash);
-    }
-}
-
-library SafeERC20 {
-    using SafeMath for uint;
-    using Address for address;
-
-    function safeTransfer(IERC20 token, address to, uint value) internal {
-        callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));
-    }
-
-    function safeTransferFrom(IERC20 token, address from, address to, uint value) internal {
-        callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));
-    }
-
-    function safeApprove(IERC20 token, address spender, uint value) internal {
-        require((value == 0) || (token.allowance(address(this), spender) == 0),
-            "SafeERC20: approve from non-zero to non-zero allowance"
-        );
-        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));
-    }
-    function callOptionalReturn(IERC20 token, bytes memory data) private {
-        require(address(token).isContract(), "SafeERC20: call to non-contract");
-
-        // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
-        require(success, "SafeERC20: low-level call failed");
-
-        if (returndata.length > 0) { // Return data is optional
-            // solhint-disable-next-line max-line-length
-            require(abi.decode(returndata, (bool)), "SafeERC20: ERC20 operation did not succeed");
-        }
-    }
-}
-
 contract ZZZ is ERC20, ERC20Detailed {
-  using SafeERC20 for IERC20;
-  using Address for address;
   using SafeMath for uint;
   
   
