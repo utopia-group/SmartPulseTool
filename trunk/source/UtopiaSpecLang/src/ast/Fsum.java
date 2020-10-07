@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import de.uni_freiburg.informatik.ultimate.boogie.ast.Procedure;
 import de.uni_freiburg.informatik.ultimate.boogie.ast.VarList;
@@ -13,10 +14,9 @@ import de.uni_freiburg.informatik.ultimate.ltl2aut.ast.Name;
 public class Fsum extends AstNode {
 
 	String var_name = "";
-	String func_name;
+	Function func;
 	BigInteger argnum;
 	AstNode constraint;
-	ArrayList<AstNode> func_args;
 	int index;
 	
 	// Keeps track of existing versions of this variable for naming purposes
@@ -24,11 +24,14 @@ public class Fsum extends AstNode {
 	
 	public Fsum(AstNode func, BigInteger argnum) throws Exception
 	{
-		if (func instanceof Function) {
-			Function f = (Function) func;
+		if (!(func instanceof Function)) {
+			/*Function f = (Function) func;
 			this.func_name = f.getName();
-			func_args = f.getArgs().getArgs();
+			func_pattern = f.getNamePattern();
+			func_args = f.getArgs().getArgs();*/
+			throw new RuntimeException("Fsum must be on a function");
 		}
+		this.func = (Function) func;
 //		// special case for send
 //		if (func.toString().equals("send")) {
 //			this.func_name = "send__success";
@@ -49,10 +52,11 @@ public class Fsum extends AstNode {
 
 	public ArrayList<String> getRealArgs(Procedure p) {
 		ArrayList<String> real_args = new ArrayList<String>();
-		if (this.func_args.size() > 0) {
+		ArrayList<AstNode> func_args = func.getArgs().getArgs();
+		if (func_args.size() > 0) {
 			VarList[] pargs = p.getInParams();
 			int pargs_i = pargs.length-1;
-			for (int i = this.func_args.size()-1; i >= 0; i--) {
+			for (int i = func_args.size()-1; i >= 0; i--) {
 				real_args.add(pargs[pargs_i].getIdentifiers()[0]);
 				pargs_i--;
 			}
@@ -60,9 +64,13 @@ public class Fsum extends AstNode {
 		return real_args;
 	}
 	
-	public ArrayList<AstNode> getFuncArgs() {
-		return this.func_args;
+	public Function getFunc() {
+		return func;
 	}
+	
+	/*public ArrayList<AstNode> getFuncArgs() {
+		return this.func_args;
+	}*/
 	
 	public Fsum(AstNode func, BigInteger argnum, AstNode constraint) throws Exception
 	{
@@ -76,7 +84,7 @@ public class Fsum extends AstNode {
 		// Only call this once per fsum
 		assert(this.var_name == "");
 		
-		String name = "fsum_" + this.func_name + "_" + this.argnum.toString() + "_";
+		String name = "fsum_" + func.getName() + "_" + this.argnum.toString() + "_";
 		
 		// Make sure every fsum has a unique name by appending identifier onto the end
 		if (!indices.containsKey(name)) {
@@ -105,12 +113,13 @@ public class Fsum extends AstNode {
 	}
 	
 	public AstNode getConstraint(Procedure p) {
-		if (this.func_args.size() > 0 && this.constraint != null) {
+		ArrayList<AstNode> func_args = func.getArgs().getArgs();
+		if (func_args.size() > 0 && this.constraint != null) {
 			VarList[] pargs = p.getInParams();
 			HashMap<String, String> arg_map = new HashMap<String, String>();
 			int pargs_i = pargs.length-1;
-			for (int i = this.func_args.size()-1; i >= 0; i--) {
-				arg_map.put(this.func_args.get(i).toString(), pargs[pargs_i].getIdentifiers()[0]);
+			for (int i = func_args.size()-1; i >= 0; i--) {
+				arg_map.put(func_args.get(i).toString(), pargs[pargs_i].getIdentifiers()[0]);
 				pargs_i--;
 			}
 			this.adjustNames(this.constraint, arg_map);
@@ -118,9 +127,9 @@ public class Fsum extends AstNode {
 		return this.constraint;
 	}
 	
-	public String getFuncName() {
+	/*public String getFuncName() {
 		return this.func_name;
-	}
+	}*/
 	
 	public String getVarName() {
 		return this.var_name;

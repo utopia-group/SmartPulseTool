@@ -188,17 +188,16 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 	private ArrayList<Statement> buildConstraintGoto(AstNode constraint, ArrayList<Statement> body, Fsum f, Procedure p) {
 		// Fetch constraint string. If constraint is null, it must be a wildcard case, so set constraint to empty string
 		ArrayList<Statement> stmts = new ArrayList<Statement>();
-		String fname = f.getFuncName();
 		String vname = f.getVarName();
 		String constraint_str = constraint.toString();
 		ArrayList<String> func_vars = this.getFunctionCallVarStrs(constraint);
 		
 		// TODO: Actually initialize these (or get rid of them)
 		ArrayList<String> real_args = f.getRealArgs(p);
-		ArrayList<AstNode> f_args = f.getFuncArgs();
+		ArrayList<AstNode> f_args = f.getFunc().getArgs().getArgs();
 
-		Statement[] func_call_var_assns = this.getFunctionCallVarAssns(p, constraint, fname, real_args, f_args);
-		Expression expr = this.getExpression(p, constraint_str, f.getFuncName(), real_args, func_vars);
+		Statement[] func_call_var_assns = this.getFunctionCallVarAssns(p, constraint, real_args, f_args);
+		Expression expr = this.getExpression(p, constraint_str, real_args, func_vars);
 
 		// Add function call variable assignments prior to check of constraint
 		Collections.addAll(stmts, func_call_var_assns);
@@ -242,7 +241,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 			additions = this.buildConstraintGoto(constraint, additions, f, p);	
 		} 
 		Statement[] assns = additions.toArray(new Statement[additions.size()]);
-		if (f.getFuncName().equals("send__success")) {
+		if (f.getFunc().getName().equals("send__success")) {
 			stmts = this.addToStmts2(stmts, assns, "success", pname, "send");				
 		} else {
 			stmts = this.addToStmts2(stmts, assns, "success", pname, "");	
@@ -472,8 +471,10 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 				if (p.getSpecification() != null) {
 					for (Event e : events) {
 						Function func = e.getFunc();
-						String fname = func.getName();
-						if (pname.equals(fname)) {
+						//String fname = func.getName();
+						Pattern fnPattern = func.getNamePattern();
+						Matcher fnMatch = fnPattern.matcher(pname);
+						if (fnMatch.matches()) {
 							this.addModifies(e.getName(), p);
 						}
 					}
@@ -491,12 +492,17 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 					
 					// Instrument fsum variables
 					for (Fsum f : fsums) {
-						String fname = f.getFuncName();
+						/*String fname = f.getFuncName();
 						// instrument functions with variable increment
 						if (pname.toLowerCase().equals(fname.toLowerCase())) {
 							this.instrumentVariableIncrement(p, b, f);	
-						}
+						}*/
 						
+						Pattern fnPattern = f.getFunc().getNamePattern();
+						Matcher fnMatch = fnPattern.matcher(pname);
+						if(fnMatch.matches()) {
+							this.instrumentVariableIncrement(p, b, f);
+						}
 						// Initialize global variables in ULTIMATE.start()
 						else if (p.getIdentifier().equals("ULTIMATE.start")) {
 							initGlobalVar(b, f);
@@ -508,14 +514,17 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 					this.currentEvent = 0;
 					for (Event e : events) {
 						Function func = e.getFunc();
-						String fname = func.getName();
+						//String fname = func.getName();
 						
 						if (fname.equals("send__success") && pname.equals("send__fail")) {
 							System.out.println(e.getOp());
 						}
+						Pattern fnPattern = func.getNamePattern();
+						Matcher fnMatch = fnPattern.matcher(pname);
 						
 						// instrument functions with variable set
-						if (pname.toLowerCase().equals(fname.toLowerCase()) 
+						//if (pname.toLowerCase().equals(fname.toLowerCase()) 
+						if(fnMatch.matches()
 								|| (pname.equals("send__fail") && fname.equals("send__success") && e.getOp().equals("call"))) {
 //								|| (this.inFairness && pname.equals("send__fail") && fname.equals("send__success"))) {
 							instrumentVariableSet(p, b, e);	
@@ -596,8 +605,19 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		}
 	}
 	
-	private HashMap<String, String> getArgMap(String pname, ArrayList<AstNode> e_args) {
+	/*private HashMap<String, String> getArgMap(String pname, ArrayList<AstNode> e_args) {
 		Procedure p = this.fetchProcedure(pname, false);
+		VarList[] pargs = p.getInParams();
+		HashMap<String, String> arg_map = new HashMap<String, String>();
+		int pargs_i = pargs.length-1;
+		for (int i = e_args.size()-1; i >= 0; i--) {
+			arg_map.put(e_args.get(i).toString(), pargs[pargs_i].getIdentifiers()[0]);
+			pargs_i--;
+		}
+		return arg_map;
+	}*/
+	
+	private HashMap<String, String> getArgMap(Procedure p, ArrayList<AstNode> e_args) {
 		VarList[] pargs = p.getInParams();
 		HashMap<String, String> arg_map = new HashMap<String, String>();
 		int pargs_i = pargs.length-1;
@@ -608,11 +628,11 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		return arg_map;
 	}
 	
-	private Expression getExpression(Procedure p, String expr, String pname, ArrayList<String> real_args, ArrayList<String> func_vars) {
+	private Expression getExpression(Procedure p, String expr, ArrayList<String> real_args, ArrayList<String> func_vars) {
 		Procedure proc = this.parseStringToProcedure("#thevar := "+expr+";");
 		final AssignmentStatement stmt = (AssignmentStatement) proc.getBody().getBlock()[0];
 		final Expression bExpr = stmt.getRhs()[0];
-		final Expression newBExpr = bExpr.accept(new DeclarationInformationAdder(p, pname, real_args, func_vars, currentEvent));
+		final Expression newBExpr = bExpr.accept(new DeclarationInformationAdder(p, real_args, func_vars, currentEvent));
 		mLogger.info("Parsed " + expr + " to " + newBExpr.toString());
 		return newBExpr;		
 	}
@@ -676,8 +696,8 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		return vardecs;
 	}
 	
-	private Statement[] getFunctionCallVarAssns(Procedure p, AstNode constraint, String pname, ArrayList<String> real_args, ArrayList<AstNode> e_args) {		
-		HashMap<String, String> arg_map = this.getArgMap(pname, e_args);
+	private Statement[] getFunctionCallVarAssns(Procedure p, AstNode constraint, ArrayList<String> real_args, ArrayList<AstNode> e_args) {		
+		HashMap<String, String> arg_map = this.getArgMap(p, e_args);
 		String assns = this.getFunctionCallVarAssnStrs(constraint, arg_map);
 		ArrayList<String> func_vars = this.getFunctionCallVarStrs(constraint);
 		Procedure proc = this.parseStringToProcedure(assns);
@@ -686,7 +706,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		String logInfo = "Parsed " + assns + " to ";
 		for (int i = 0; i < stmts.length; i++) {	
 			Statement s = stmts[i];
-			Statement new_s = s.accept(new DeclarationInformationAdder(p, pname, real_args, func_vars, this.currentEvent));
+			Statement new_s = s.accept(new DeclarationInformationAdder(p, real_args, func_vars, this.currentEvent));
 			adjusted_stmts[i] = new_s;
 			logInfo += new_s.toString();
 		}
@@ -782,7 +802,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		if (constraint != null) {
 			constraint_str = constraint.toString();
 			func_vars = this.getFunctionCallVarStrs(constraint);
-			func_call_var_assns = this.getFunctionCallVarAssns(p, constraint, pname, real_args, e_args);
+			func_call_var_assns = this.getFunctionCallVarAssns(p, constraint, real_args, e_args);
 			VariableDeclaration[] func_call_var_decs = this.getFunctionCallVarDecs(constraint);
 			if (func_call_var_decs.length > 0) {
 				VariableDeclaration[] old_var_decs = b.getLocalVars();
@@ -804,7 +824,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 			}
 			constraint_str += additional_check; 
 		}
-		Expression expr = this.getExpression(p, constraint_str, pname, real_args, func_vars);
+		Expression expr = this.getExpression(p, constraint_str, real_args, func_vars);
 		// Handle case for contract invariant
 //		if (pname.indexOf("CorralChoice") != -1) {
 //			expr = new UnaryExpression(iloc, UnaryExpression.Operator.LOGICNEG, expr);
@@ -1069,7 +1089,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 	}
 	
 	private String extractBoogieVariable(String baseVar, int ind) {
-		for(; baseVar.charAt(ind) == ']' && ind < baseVar.length(); ind++);
+		for(; ind < baseVar.length() && baseVar.charAt(ind) == ']'; ind++);
 		String boogieVar = baseVar.substring(0, ind);
 		
 		int numBrackets = 0;
@@ -1119,7 +1139,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 					continue;
 				}
 				
-				String newVar = extractBoogieVariable(boogieVar, indPos + indStr.length() - 2);
+				String newVar = extractBoogieVariable(boogieVar, indPos + indStr.length());
 				replacementsMap.put(solStr, newVar);
 			}
 		}
@@ -1291,10 +1311,10 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		private ArrayList<String> local_args;
 		private int currentEvent;
 		
-		public DeclarationInformationAdder(Procedure p, String pname, ArrayList<String> real_args, ArrayList<String> local_func_call_args, int currentEvent) {
+		public DeclarationInformationAdder(Procedure p, ArrayList<String> real_args, ArrayList<String> local_func_call_args, int currentEvent) {
 			super();
 			this.procedure = p;
-			this.pname = pname;
+			this.pname = p.getIdentifier();
 			this.real_args = real_args;
 			this.local_args = local_func_call_args;
 			this.currentEvent = currentEvent;

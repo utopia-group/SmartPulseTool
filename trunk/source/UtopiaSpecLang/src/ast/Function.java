@@ -1,6 +1,7 @@
 package ast;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import de.uni_freiburg.informatik.ultimate.ltl2aut.ast.AstNode;
 
@@ -59,5 +60,33 @@ public class Function extends AstNode {
 			System.out.println("WARNING: Name not given with contract name - " + orig_name);
 		}
 		return split_name[1] + "_" + split_name[0];
+	}
+	
+	public Pattern getNamePattern() {
+		String orig_name = this.name.toString();
+		if (orig_name.equals("send")) {
+			if (etype != null && etype.equals(EventType.fail)) {
+				return Pattern.compile("^send__fail$");
+			}
+			return Pattern.compile("^send__success$");
+		} else if (orig_name.equals("sendf")) {
+			return Pattern.compile("^send__fail$");
+		}
+			
+		String[] split_name = orig_name.split("\\.");
+		String patternStr = "^" + split_name[1];
+		int numArgs = args.getArgs().size();
+		
+		if(numArgs == 0) {
+			patternStr += "[a-zA-Z0-9_~]*";
+		}
+		else {
+			for(int i = 0; i < numArgs; i++) {
+				patternStr += "~[a-zA-Z0-9_]+";
+			}
+		}
+		
+		patternStr += "_" + split_name[0] + "$";
+		return Pattern.compile(patternStr);
 	}
 }
