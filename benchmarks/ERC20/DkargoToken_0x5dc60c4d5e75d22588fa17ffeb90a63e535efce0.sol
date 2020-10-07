@@ -117,9 +117,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -320,7 +317,7 @@ contract AddressChain {
             _slist.map[tempNext].prev = tempPrev;
             _slist.map[node].next = address(0);
         }
-        _slist.count = _slist.count.sub(1);
+        _slist.count = _slist.count.sub(1, "");
         emit AddressChainUnlinked(node);
     }
 }
@@ -353,7 +350,7 @@ contract ERC165 is IERC165 {
     /// @notice 컨트랙트 생성자이다.
     /// @dev bytes4(keccak256('supportsInterface(bytes4)')) == 0x01ffc9a7
     constructor() internal {
-        _registerInterface(0x01ffc9a7); // supportsInterface()의 INTERFACE ID 등록
+        _registerInterface(bytes4(0x01ffc9a7)); // supportsInterface()의 INTERFACE ID 등록
     }
 
     /// @author jhhong
@@ -518,7 +515,7 @@ contract ERC20 is IERC20 {
     function _burn(address account, uint256 value) internal {
         require(account != address(0), "ERC20: burn from the zero address");
         _balances[account] = _balances[account].sub(value, "ERC20: burn amount exceeds balance");
-        _supply = _supply.sub(value);
+        _supply = _supply.sub(value, "");
         emit Transfer(account, address(0), value);
     }
 }
@@ -595,7 +592,7 @@ contract DkargoToken is Ownership, ERC20Safe, AddressChain, ERC165, DkargoPrefix
     /// @param supply 초기 발행량
     constructor(string memory name, string memory symbol, uint256 supply) ERC20(supply) public {
         _setDkargoPrefix("token"); // 프리픽스 설정 (token)
-        _registerInterface(0x946edbed); // INTERFACE ID 등록 (getDkargoPrefix)
+        _registerInterface(bytes4(0x946edbed)); // INTERFACE ID 등록 (getDkargoPrefix)
         _name = name;
         _symbol = symbol;
         _linkChain(msg.sender);

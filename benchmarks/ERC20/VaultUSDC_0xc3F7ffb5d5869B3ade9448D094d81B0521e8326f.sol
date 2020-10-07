@@ -64,9 +64,11 @@ library Address {
      */
     function sendValue(address payable recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
+        bool success;
+        bytes memory returndata;
 
         // solhint-disable-next-line avoid-call-value
-        (bool success, ) = recipient.call.value(amount)("");
+        (success, returndata) = recipient.call.value(amount)("");
         require(success, "Address: unable to send value, recipient may have reverted");
     }
 }
@@ -146,9 +148,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -406,9 +405,11 @@ library SafeERC20 {
         //  3. The return value is decoded, which in turn checks the size of the returned data.
         // solhint-disable-next-line max-line-length
         require(address(token).isContract(), "SafeERC20: call to non-contract");
+        bool success;
+        bytes memory returndata;
 
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
+        (success, returndata) = address(token).call(data);
         require(success, "SafeERC20: low-level call failed");
 
         if (returndata.length > 0) { // Return data is optional
@@ -442,10 +443,6 @@ contract Context {
         return msg.sender;
     }
 
-    function _msgData() internal view returns (bytes memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
 }
 
 // File: @openzeppelin/contracts/token/ERC20/ERC20.sol
@@ -643,7 +640,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
 
@@ -738,7 +735,6 @@ contract ERC20Detailed is IERC20 {
 
 // File: contracts/hardworkInterface/IStrategy.sol
 
-pragma solidity 0.5.16;
 
 
 interface IStrategy {
@@ -764,7 +760,6 @@ interface IStrategy {
 
 // File: contracts/hardworkInterface/IController.sol
 
-pragma solidity 0.5.16;
 
 interface IController {
     // [Grey list]
@@ -793,7 +788,6 @@ interface IController {
 
 // File: contracts/Storage.sol
 
-pragma solidity 0.5.16;
 
 contract Storage {
 
@@ -830,7 +824,6 @@ contract Storage {
 
 // File: contracts/Governable.sol
 
-pragma solidity 0.5.16;
 
 
 contract Governable {
@@ -842,12 +835,12 @@ contract Governable {
     store = Storage(_store);
   }
 
-  modifier onlyGovernance() {
+  modifier onlyStoreGovernance() {
     require(store.isGovernance(msg.sender), "Not governance");
     _;
   }
 
-  function setStorage(address _store) public onlyGovernance {
+  function setStorage(address _store) public onlyStoreGovernance {
     require(_store != address(0), "new storage shouldn't be empty");
     store = Storage(_store);
   }
@@ -859,7 +852,6 @@ contract Governable {
 
 // File: contracts/hardworkInterface/IVault.sol
 
-pragma solidity 0.5.16;
 
 
 interface IVault {
@@ -892,7 +884,6 @@ interface IVault {
 
 // File: contracts/Controllable.sol
 
-pragma solidity 0.5.16;
 
 
 contract Controllable is Governable {
@@ -918,7 +909,6 @@ contract Controllable is Governable {
 
 // File: contracts/Vault.sol
 
-pragma solidity 0.5.16;
 
 
 
@@ -933,7 +923,6 @@ pragma solidity 0.5.16;
 
 
 contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
-  using SafeERC20 for IERC20;
   using Address for address;
   using SafeMath for uint256;
 
@@ -1051,16 +1040,16 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
 
     if (address(_strategy) != address(strategy)) {
       if (address(strategy) != address(0)) { // if the original strategy (no underscore) is defined
-        underlying.safeApprove(address(strategy), 0);
+        SafeERC20.safeApprove(underlying, address(strategy), 0);
         strategy.withdrawAllToVault();
       }
       strategy = IStrategy(_strategy);
-      underlying.safeApprove(address(strategy), 0);
-      underlying.safeApprove(address(strategy), uint256(~0));
+      SafeERC20.safeApprove(underlying, address(strategy), 0);
+      SafeERC20.safeApprove(underlying, address(strategy), uint256(~0));
     }
   }
 
-  function setVaultFractionToInvest(uint256 numerator, uint256 denominator) external onlyGovernance {
+  function setVaultFractionToInvest(uint256 numerator, uint256 denominator) external onlyStoreGovernance {
     require(denominator > 0, "denominator must be greater than 0");
     require(numerator < denominator, "denominator must be greater than numerator");
     vaultFractionToInvestNumerator = numerator;
@@ -1080,7 +1069,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
     if (alreadyInvested >= wantInvestInTotal) {
       return 0;
     } else {
-      uint256 remainingToInvest = wantInvestInTotal.sub(alreadyInvested);
+      uint256 remainingToInvest = wantInvestInTotal.sub(alreadyInvested, "");
       return remainingToInvest <= underlyingBalanceInVault()
         // TODO: we think that the "else" branch of the ternary operation is not
         // going to get hit
@@ -1091,7 +1080,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
   function invest() internal whenStrategyDefined {
     uint256 availableAmount = availableToInvestOut();
     if (availableAmount > 0) {
-      underlying.safeTransfer(address(strategy), availableAmount);
+      SafeERC20.safeTransfer(underlying, address(strategy), availableAmount);
       emit Invest(availableAmount);
     }
   }
@@ -1132,7 +1121,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
       if (numberOfShares == totalSupply) {
         strategy.withdrawAllToVault();
       } else {
-        uint256 missing = underlyingAmountToWithdraw.sub(underlyingBalanceInVault());
+        uint256 missing = underlyingAmountToWithdraw.sub(underlyingBalanceInVault(), "");
         strategy.withdrawToVault(missing);
       }
       // recalculate to improve accuracy
@@ -1141,7 +1130,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
           .div(totalSupply), underlyingBalanceInVault());
     }
 
-    underlying.safeTransfer(msg.sender, underlyingAmountToWithdraw);
+    SafeERC20.safeTransfer(underlying, msg.sender, underlyingAmountToWithdraw);
 
     // update the withdrawal amount for the holder
     withdrawals[msg.sender] = withdrawals[msg.sender].add(underlyingAmountToWithdraw);
@@ -1165,7 +1154,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
         : amount.mul(totalSupply()).div(underlyingBalanceWithInvestment());
     _mint(beneficiary, toMint);
 
-    underlying.safeTransferFrom(sender, address(this), amount);
+    SafeERC20.safeTransferFrom(underlying, sender, address(this), amount);
 
     // update the contribution amount for the beneficiary
     contributions[beneficiary] = contributions[beneficiary].add(amount);
@@ -1175,7 +1164,6 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
 
 // File: contracts/vaults/VaultUSDC.sol
 
-pragma solidity 0.5.16;
 
 
 contract VaultUSDC is Vault {

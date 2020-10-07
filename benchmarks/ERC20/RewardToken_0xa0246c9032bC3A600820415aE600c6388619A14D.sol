@@ -101,10 +101,6 @@ contract Context {
         return msg.sender;
     }
 
-    function _msgData() internal view returns (bytes memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
 }
 
 // File: @openzeppelin/contracts/math/SafeMath.sol
@@ -150,9 +146,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -461,7 +454,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
 
@@ -786,7 +779,6 @@ contract Ownable is Context {
 
 // File: contracts/Storage.sol
 
-pragma solidity 0.5.16;
 
 contract Storage {
 
@@ -823,7 +815,6 @@ contract Storage {
 
 // File: contracts/Governable.sol
 
-pragma solidity 0.5.16;
 
 
 contract Governable {
@@ -835,12 +826,12 @@ contract Governable {
     store = Storage(_store);
   }
 
-  modifier onlyGovernance() {
+  modifier onlyStoreGovernance() {
     require(store.isGovernance(msg.sender), "Not governance");
     _;
   }
 
-  function setStorage(address _store) public onlyGovernance {
+  function setStorage(address _store) public onlyStoreGovernance {
     require(_store != address(0), "new storage shouldn't be empty");
     store = Storage(_store);
   }
@@ -852,7 +843,6 @@ contract Governable {
 
 // File: contracts/RewardToken.sol
 
-pragma solidity 0.5.16;
 
 
 
@@ -877,7 +867,7 @@ contract RewardToken is ERC20, ERC20Detailed, ERC20Capped, Governable {
   /**
   * Overrides adding new minters so that only governance can authorized them.
   */
-  function addMinter(address _minter) public onlyGovernance {
+  function addMinter(address _minter) public onlyStoreGovernance {
     super.addMinter(_minter);
   }
 }

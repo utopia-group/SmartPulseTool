@@ -15,10 +15,13 @@ fi
 
 # create the .config file if it doesn't already exist
 if [ ! -f "${FILE_NAME%.sol}.config" ]; then
-	VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters /generateERC20Spec
+	VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /LazyAllocNoMod /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters /generateERC20Spec /modelAssemblyAsHavoc /SliceFunctions:totalSupply,balanceOf,allowance,approve,transfer,transferFrom
 else
-	VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters
+	VeriSol ${FILE_NAME} ${CONTRACT_NAME} /modelReverts /omitSourceLineInfo /LazyAllocNoMod /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useMultiDim /stubModel:callback /useNumericOperators /omitUnsignedSemantics /useModularArithmetic /prePostHarness /generateGetters /modelAssemblyAsHavoc /SliceFunctions:totalSupply,balanceOf,allowance,approve,transfer,transferFrom
 fi
+
+baseBpl=${FILE_NAME%.sol}.bpl
+mv __SolToBoogieTest_out.bpl ${baseBpl}
 
 source "${FILE_NAME%.sol}.config"
 
@@ -41,37 +44,37 @@ property_names=(
 
 ALL_ELSE_EQ=""
 for var in "${EXTRA_VARS[@]}"; do
-	ALL_ELSE_EQ+=" && this.${var} == old(this.${var})"
+	ALL_ELSE_EQ+=" && ${var} == old(${var})"
 done
 
 properties=(
-"// #LTLProperty: [](started(${TOT_SUP_CONTRACT}.totalSupply) ==> <>(finished(${TOT_SUP_CONTRACT}.totalSupply, return == this.${TOTAL} && this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES} == old(this.${ALLOWANCES})${ALL_ELSE_EQ})))"
+"// #LTLProperty: [](started(${TOT_SUP_CONTRACT}.totalSupply) ==> <>(finished(${TOT_SUP_CONTRACT}.totalSupply, return == ${TOTAL} && ${TOTAL} == old(${TOTAL}) && ${BALANCES} == old(${BALANCES}) && ${ALLOWANCES} == old(${ALLOWANCES})${ALL_ELSE_EQ})))"
 
-"// #LTLProperty: [](started(${BAL_OF_CONTRACT}.balanceOf(owner)) ==> <>(finished(${BAL_OF_CONTRACT}.balanceOf(owner), return == this.${BALANCES}[owner] && this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES} == old(this.${ALLOWANCES})${ALL_ELSE_EQ})))"
+"// #LTLProperty: [](started(${BAL_OF_CONTRACT}.balanceOf(owner)) ==> <>(finished(${BAL_OF_CONTRACT}.balanceOf(owner), return == ${BALANCES}[owner] && ${TOTAL} == old(${TOTAL}) && ${BALANCES} == old(${BALANCES}) && ${ALLOWANCES} == old(${ALLOWANCES})${ALL_ELSE_EQ})))"
 	
-"// #LTLProperty: [](started(${ALLOWANCE_CONTRACT}.allowance) ==> <>(finished(${ALLOWANCE_CONTRACT}.allowance(owner, spender), return == this.${ALLOWANCES}[owner][spender] &&  this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES} == old(this.${ALLOWANCES})${ALL_ELSE_EQ})))"
+"// #LTLProperty: [](started(${ALLOWANCE_CONTRACT}.allowance) ==> <>(finished(${ALLOWANCE_CONTRACT}.allowance(owner, spender), return == ${ALLOWANCES}[owner][spender] &&  ${TOTAL} == old(${TOTAL}) && ${BALANCES} == old(${BALANCES}) && ${ALLOWANCES} == old(${ALLOWANCES})${ALL_ELSE_EQ})))"
 
 "// #LTLVariables: p1:Ref,p2:Ref
-// #LTLProperty: [](started(${APPROVE_CONTRACT}.approve(spender, value), p1 != msg.sender || p2 != spender) ==> <>(finished(${APPROVE_CONTRACT}.approve(spender, value), return == true && this.${ALLOWANCES}[msg.sender][spender] == value &&  this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES}[p1][p2] == old(this.${ALLOWANCES}[p1][p2])${ALL_ELSE_EQ})))"
+// #LTLProperty: [](started(${APPROVE_CONTRACT}.approve(spender, value), p1 != msg.sender || p2 != spender) ==> <>(finished(${APPROVE_CONTRACT}.approve(spender, value), return == true && ${ALLOWANCES}[msg.sender][spender] == value &&  ${TOTAL} == old(${TOTAL}) && ${BALANCES} == old(${BALANCES}) && ${ALLOWANCES}[p1][p2] == old(${ALLOWANCES}[p1][p2])${ALL_ELSE_EQ})))"
 
 "// #LTLVariables: p1:Ref
-// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), to != null && p1 != msg.sender && p1 != to && msg.sender != to && value <= this.${BALANCES}[msg.sender] && this.${BALANCES}[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(${TRANSFER_CONTRACT}.transfer(to, value), this.${BALANCES}[msg.sender] == old(this.${BALANCES}[msg.sender]) - value && this.${BALANCES}[to] == old(this.${BALANCES}[to]) + value && this.${TOTAL} == old(this.${TOTAL}) && this.${ALLOWANCES} == old(this.${ALLOWANCES}) && this.${BALANCES}[p1] == old(this.${BALANCES}[p1])${ALL_ELSE_EQ})))"
+// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), to != null && p1 != msg.sender && p1 != to && msg.sender != to && value <= ${BALANCES}[msg.sender] && ${BALANCES}[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(${TRANSFER_CONTRACT}.transfer(to, value), ${BALANCES}[msg.sender] == old(${BALANCES}[msg.sender]) - value && ${BALANCES}[to] == old(${BALANCES}[to]) + value && ${TOTAL} == old(${TOTAL}) && ${ALLOWANCES} == old(${ALLOWANCES}) && ${BALANCES}[p1] == old(${BALANCES}[p1])${ALL_ELSE_EQ})))"
 
-"// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), to != null && msg.sender == to && value <= this.${BALANCES}[msg.sender]) ==> <>(finished(${TRANSFER_CONTRACT}.transfer(to, value), this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES} == old(this.${ALLOWANCES})${ALL_ELSE_EQ})))"
+"// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), to != null && msg.sender == to && value <= ${BALANCES}[msg.sender]) ==> <>(finished(${TRANSFER_CONTRACT}.transfer(to, value), ${TOTAL} == old(${TOTAL}) && ${BALANCES} == old(${BALANCES}) && ${ALLOWANCES} == old(${ALLOWANCES})${ALL_ELSE_EQ})))"
 
-"// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), msg.sender != to && (value > this.${BALANCES}[msg.sender] || this.${BALANCES}[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(${TRANSFER_CONTRACT}.transfer)))"
+"// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), msg.sender != to && (value > ${BALANCES}[msg.sender] || ${BALANCES}[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(${TRANSFER_CONTRACT}.transfer)))"
 
-"// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), msg.sender == to && value > this.${BALANCES}[msg.sender]) ==> <>(reverted(${TRANSFER_CONTRACT}.transfer)))"
+"// #LTLProperty: [](started(${TRANSFER_CONTRACT}.transfer(to, value), msg.sender == to && value > ${BALANCES}[msg.sender]) ==> <>(reverted(${TRANSFER_CONTRACT}.transfer)))"
 
 "// #LTLVariables: p1:Ref,p2:Ref,p3:Ref
-// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from != null && to != null && p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= this.${BALANCES}[from] && value <= this.${ALLOWANCES}[from][msg.sender] && this.${BALANCES}[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), this.${BALANCES}[from] == old(this.${BALANCES}[from]) - value && this.${BALANCES}[to] == old(this.${BALANCES}[to]) + value && this.${ALLOWANCES}[from][msg.sender] == old(this.${ALLOWANCES}[from][msg.sender]) - value && this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES}[p1] == old(this.${BALANCES}[p1]) && this.${ALLOWANCES}[p2][p3] == old(this.${ALLOWANCES}[p2][p3])${ALL_ELSE_EQ})))"
+// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from != null && to != null && p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= ${BALANCES}[from] && value <= ${ALLOWANCES}[from][msg.sender] && ${BALANCES}[to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), ${BALANCES}[from] == old(${BALANCES}[from]) - value && ${BALANCES}[to] == old(${BALANCES}[to]) + value && ${ALLOWANCES}[from][msg.sender] == old(${ALLOWANCES}[from][msg.sender]) - value && ${TOTAL} == old(${TOTAL}) && ${BALANCES}[p1] == old(${BALANCES}[p1]) && ${ALLOWANCES}[p2][p3] == old(${ALLOWANCES}[p2][p3])${ALL_ELSE_EQ})))"
 
 "// #LTLVariables: p1:Ref,p2:Ref
-// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from != null && (p1 != from || p2 != msg.sender) && from == to && value <= this.${BALANCES}[from] && value <= this.${ALLOWANCES}[from][msg.sender]) ==> <>(finished(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), this.${ALLOWANCES}[from][msg.sender] == old(this.${ALLOWANCES}[from][msg.sender]) - value && this.${TOTAL} == old(this.${TOTAL}) && this.${BALANCES} == old(this.${BALANCES}) && this.${ALLOWANCES}[p1][p2] == old(this.${ALLOWANCES}[p1][p2])${ALL_ELSE_EQ})))"
+// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from != null && (p1 != from || p2 != msg.sender) && from == to && value <= ${BALANCES}[from] && value <= ${ALLOWANCES}[from][msg.sender]) ==> <>(finished(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), ${ALLOWANCES}[from][msg.sender] == old(${ALLOWANCES}[from][msg.sender]) - value && ${TOTAL} == old(${TOTAL}) && ${BALANCES} == old(${BALANCES}) && ${ALLOWANCES}[p1][p2] == old(${ALLOWANCES}[p1][p2])${ALL_ELSE_EQ})))"
 
-"// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from != to && (value > this.${BALANCES}[from] || value > this.${ALLOWANCES}[from][msg.sender] || this.${BALANCES}[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(${TRANSFER_FROM_CONTRACT}.transferFrom)))"
+"// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from != to && (value > ${BALANCES}[from] || value > ${ALLOWANCES}[from][msg.sender] || ${BALANCES}[to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000)) ==> <>(reverted(${TRANSFER_FROM_CONTRACT}.transferFrom)))"
 
-"// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from == to && (value > this.${BALANCES}[from] || value > this.${ALLOWANCES}[from][msg.sender])) ==> <>(reverted(${TRANSFER_FROM_CONTRACT}.transferFrom)))"
+"// #LTLProperty: [](started(${TRANSFER_FROM_CONTRACT}.transferFrom(from, to, value), from == to && (value > ${BALANCES}[from] || value > ${ALLOWANCES}[from][msg.sender])) ==> <>(reverted(${TRANSFER_FROM_CONTRACT}.transferFrom)))"
 )
 
 correct=0
@@ -82,17 +85,20 @@ timedout=0
 # create /logs if it doesn't exist
 mkdir -p logs
 
+
 for i in ${!properties[@]}
 do
 	# set up the .bpl file with the correct property
-	echo -e "${properties[$i]}" > ${FILE_NAME%.sol}.bpl
-	cat  __SolToBoogieTest_out.bpl >> ${FILE_NAME%.sol}.bpl
+    propBpl=${FILE_NAME%.sol}_${property_names[$i]}.bpl
+    logName=./logs/${FILE_NAME%.sol}-${property_names[$i]}-log.txt
+	echo -e "${properties[$i]}" > ${propBpl}
+	cat  ${baseBpl} >> ${propBpl}
 
 	# time the running, allow the user to Ctrl-C out
-	TIME_OUT_LIMIT=600 # in seconds, 10m
+	TIME_OUT_LIMIT=300 # in seconds, 10m
 	START_TIME=$SECONDS
 	trap 'kill -INT -$PID' INT
-	timeout $TIME_OUT_LIMIT ${DIR}/SmartPulse/SmartPulse.sh ${FILE_NAME%.sol}.bpl >& ./logs/${FILE_NAME%.sol}-${i}-${property_names[$i]}-log.txt &
+	timeout $TIME_OUT_LIMIT ${DIR}/SmartPulse/SmartPulse.sh ${propBpl} >& ${logName} &
 	PID=$! # pid of job most recently put in background
 	wait $PID
 	RETVAL=$?
@@ -104,7 +110,7 @@ do
 		echo "Property ${property_names[$i]} timed out -- ${TIME_OUT_LIMIT}s";
 		((++timedout));
 	else
-		logtail=$(tail -n 20 ./logs/${FILE_NAME%.sol}-${i}-${property_names[$i]}-log.txt)
+		logtail=$(tail -n 20 ${logName})
 		if [[ "$logtail" == *" correct"* ]]
 		then
 			echo "Property ${property_names[$i]} verified -- ${TIME_MSG}";
@@ -118,6 +124,7 @@ do
 			((++exception));
 		fi
 	fi
+    rm -f ${propBpl}
 done
 
 echo "Verified ${correct} out of ${#properties[@]} properties";
@@ -127,4 +134,4 @@ echo "${timedout} timed out";
 
 # clean-up
 # But leave FILE_NAME.bpl in case user would like to read the Boogie code
-rm -f __SolToBoogieTest_out.bpl
+rm -f ${baseBpl}

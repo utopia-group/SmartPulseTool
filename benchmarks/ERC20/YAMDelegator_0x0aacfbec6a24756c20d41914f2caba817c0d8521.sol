@@ -1,4 +1,4 @@
-pragma solidity 0.5.15;
+pragma solidity ^0.5.0;
 
 
 // YAM v3 Token Proxy
@@ -44,9 +44,6 @@ library SafeMath {
      *
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -101,9 +98,6 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
 
     /**
      * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
@@ -137,9 +131,6 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
 
     /**
      * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
@@ -790,7 +781,9 @@ contract YAMDelegator is YAMTokenInterface, YAMDelegatorInterface {
      * @return The returned bytes from the delegatecall
      */
     function delegateTo(address callee, bytes memory data) internal returns (bytes memory) {
-        (bool success, bytes memory returnData) = callee.delegatecall(data);
+        bool success;
+        bytes memory returnData;
+        (success, returnData) = callee.delegatecall(data);
         assembly {
             if eq(success, 0) {
                 revert(add(returnData, 0x20), returndatasize)
@@ -817,7 +810,9 @@ contract YAMDelegator is YAMTokenInterface, YAMDelegatorInterface {
      * @return The returned bytes from the delegatecall
      */
     function delegateToViewImplementation(bytes memory data) public view returns (bytes memory) {
-        (bool success, bytes memory returnData) = address(this).staticcall(abi.encodeWithSignature("delegateToImplementation(bytes)", data));
+        bool success;
+        bytes memory returnData;
+        (success, returnData) = address(this).staticcall(abi.encodeWithSignature("delegateToImplementation(bytes)", data));
         assembly {
             if eq(success, 0) {
                 revert(add(returnData, 0x20), returndatasize)
@@ -827,7 +822,9 @@ contract YAMDelegator is YAMTokenInterface, YAMDelegatorInterface {
     }
 
     function delegateToViewAndReturn() private view returns (bytes memory) {
-        (bool success, ) = address(this).staticcall(abi.encodeWithSignature("delegateToImplementation(bytes)", msg.data));
+        bool success;
+        bytes memory returnData;
+        (success, returnData) = address(this).staticcall(abi.encodeWithSignature("delegateToImplementation(bytes)", msg.data));
 
         assembly {
             let free_mem_ptr := mload(0x40)
@@ -840,7 +837,9 @@ contract YAMDelegator is YAMTokenInterface, YAMDelegatorInterface {
     }
 
     function delegateAndReturn() private returns (bytes memory) {
-        (bool success, ) = implementation.delegatecall(msg.data);
+        bool success;
+        bytes memory returnData;
+        (success, returnData) = implementation.delegatecall(msg.data);
 
         assembly {
             let free_mem_ptr := mload(0x40)

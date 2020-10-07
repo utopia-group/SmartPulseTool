@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 // File: node_modules\zeppelin-solidity\contracts\math\SafeMath.sol
 
@@ -487,7 +487,7 @@ contract HKExCoin is PausableToken
       return super.transferFrom(_from,_to, _value); 
   }
 
-  function canSubAllocation(address sender, uint256 sub_value) constant private returns (bool)
+  function canSubAllocation(address sender, uint256 sub_value) view private returns (bool)
   {
       if (sub_value==0)
       {
@@ -546,7 +546,7 @@ contract HKExCoin is PausableToken
       }
   }
 
-  function setAllocation(address _address, uint256 total_value, uint[] times, uint256[] balanceRequires) public onlyOwner returns (bool)
+  function setAllocation(address _address, uint256 total_value, uint[] memory times, uint256[] memory balanceRequires) public onlyOwner returns (bool)
   {
       require(times.length == balanceRequires.length);
       require(balances[msg.sender]>=total_value);   

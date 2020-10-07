@@ -152,10 +152,6 @@ contract Context {
         return msg.sender;
     }
 
-    function _msgData() internal view returns (bytes memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
 }
 
 /**
@@ -197,9 +193,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -501,7 +494,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
 
@@ -1360,7 +1353,7 @@ contract VoteTimes is UsingConfig, UsingValidator, Killable {
 		uint256 voteTimesByProperty = getStorage().getVoteTimesByProperty(
 			_property
 		);
-		return voteTimes.sub(voteTimesByProperty);
+		return voteTimes.sub(voteTimesByProperty, "");
 	}
 
 	function getStorage() private view returns (VoteTimesStorage) {
@@ -1553,10 +1546,10 @@ contract IMarket {
 			address
 		);
 
-	function getAuthenticationFee(address _property)
+	/*function getAuthenticationFee(address _property)
 		private
 		view
-		returns (uint256);
+		returns (uint256);*/
 
 	function authenticatedCallback(address _property, bytes32 _idHash)
 		external
@@ -2452,7 +2445,7 @@ contract Withdraw is Pausable, UsingConfig, UsingValidator, Killable {
 			_user
 		);
 		uint256 price = getStorage().getCumulativePrice(_property);
-		uint256 priceGap = price.sub(_last);
+		uint256 priceGap = price.sub(_last, "");
 		uint256 balance = ERC20(_property).balanceOf(_user);
 		uint256 total = getStorage().getRewardsAmount(_property);
 		if (totalLimit == total) {
@@ -2723,7 +2716,7 @@ contract Allocator is
 			metrics.property()
 		);
 		uint256 blocks = block.number.sub(
-			getStorage().getLastAllocationBlockEachMetrics(_metrics)
+			getStorage().getLastAllocationBlockEachMetrics(_metrics), ""
 		);
 		uint256 mint = policy.rewards(lockupValue, totalAssets);
 		uint256 value = (policy.assetValue(_value, lockupValue).mul(basis)).div(
@@ -2731,7 +2724,7 @@ contract Allocator is
 		);
 		uint256 marketValue = getStorage()
 			.getLastAssetValueEachMarketPerBlock(metrics.market())
-			.sub(getStorage().getLastAssetValueEachMetrics(_metrics))
+			.sub(getStorage().getLastAssetValueEachMetrics(_metrics), "")
 			.add(value);
 		uint256 assets = market.issuedMetrics();
 		getStorage().setLastAllocationBlockEachMetrics(_metrics, block.number);
@@ -2767,7 +2760,7 @@ contract Allocator is
 			_reward,
 			_lockup
 		);
-		uint256 interest = _reward.sub(holders);
+		uint256 interest = _reward.sub(holders, "");
 		Withdraw(config().withdraw()).increment(_property, holders);
 		Lockup(config().lockup()).increment(_property, interest);
 	}
@@ -3157,7 +3150,7 @@ contract Lockup is Pausable, UsingConfig, UsingValidator, Killable {
 	{
 		uint256 _last = getStorage().getLastInterestPrice(_property, _user);
 		uint256 price = getStorage().getInterestPrice(_property);
-		uint256 priceGap = price.sub(_last);
+		uint256 priceGap = price.sub(_last, "");
 		uint256 lockupedValue = getStorage().getValue(_property, _user);
 		uint256 value = priceGap.mul(lockupedValue);
 		return value.div(Decimals.basis());
@@ -3248,7 +3241,7 @@ contract Lockup is Pausable, UsingConfig, UsingValidator, Killable {
 
 	function subPropertyValue(address _property, uint256 _value) private {
 		uint256 value = getStorage().getPropertyValue(_property);
-		value = value.sub(_value);
+		value = value.sub(_value, "");
 		getStorage().setPropertyValue(_property, value);
 	}
 

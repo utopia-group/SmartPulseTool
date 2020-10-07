@@ -1,6 +1,6 @@
 // File: contracts/SafeMath.sol
 
-pragma solidity 0.5.16;
+pragma solidity ^0.5.0;
 
 /**
  * @title SafeMath
@@ -68,7 +68,6 @@ library SafeMath {
 
 // File: contracts/IERC20.sol
 
-pragma solidity 0.5.16;
 
 /**
  * @title ERC20 interface
@@ -94,7 +93,6 @@ interface IERC20 {
 
 // File: contracts/Token.sol
 
-pragma solidity 0.5.16;
 
 
 

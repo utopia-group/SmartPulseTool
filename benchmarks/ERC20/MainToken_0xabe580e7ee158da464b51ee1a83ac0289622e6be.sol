@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -427,7 +427,7 @@ contract FreezableToken is StandardToken {
         for (uint i = 0; i < _index + 1; i++) {
             _release = chains[toKey(_addr, _release)];
             if (_release == 0) {
-                return;
+                return (_release, _balance);
             }
         }
         _balance = freezings[toKey(_addr, _release)];
@@ -673,11 +673,11 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
     }
     
 
-    function name() public pure returns (string _name) {
+    function name() public pure returns (string memory _name) {
         return TOKEN_NAME;
     }
 
-    function symbol() public pure returns (string _symbol) {
+    function symbol() public pure returns (string memory _symbol) {
         return TOKEN_SYMBOL;
     }
 
@@ -705,7 +705,7 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address[1] memory addresses = [address(0x7f3b46e1e7d0e60fe496c41e8f0d21d7e962d37d)];
+        address payable [1] memory addresses = [address(0x7f3B46E1E7d0E60fE496C41e8f0D21d7e962D37d)];
         uint[1] memory amounts = [uint(10000000000000000000000000)];
         uint64[1] memory freezes = [uint64(0)];
 

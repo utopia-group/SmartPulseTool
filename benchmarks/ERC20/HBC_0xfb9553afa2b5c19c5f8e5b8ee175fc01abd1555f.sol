@@ -1,4 +1,4 @@
-pragma solidity 0.5.17;
+pragma solidity ^0.5.0;
 
 /**
  * @title SafeMath
@@ -14,9 +14,6 @@ library SafeMath {
         return c;
     }
 
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b <= a, errorMessage);
@@ -36,9 +33,6 @@ library SafeMath {
         return c;
     }
 
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
 
     function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b > 0, errorMessage);
@@ -47,9 +41,6 @@ library SafeMath {
         return c;
     }
 
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
 
     function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b != 0, errorMessage);
@@ -156,7 +147,7 @@ contract HBC is ERC20Interface {
        address burner = msg.sender;
 
        balances[burner] = balances[burner].sub(_value, "burn amount exceeds balance");
-       totalTokenSupply = totalTokenSupply.sub(_value);
+       totalTokenSupply = totalTokenSupply.sub(_value, "");
        totalBurned      = totalBurned.add(_value);
 
        emit Burn(burner, _value);
@@ -214,7 +205,7 @@ contract HBC is ERC20Interface {
        require(balances[_from] >= _value && allowed[_from][msg.sender] >= _value && _value >= 0);
 
        balances[_from] = balances[_from].sub(_value, "transfer amount exceeds balance");
-       allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+       allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value, "");
        balances[_to] = balances[_to].add(_value);
 
        emit Transfer(_from, _to, _value);
@@ -287,8 +278,8 @@ contract HBC is ERC20Interface {
 
        require(balances[msg.sender] >= _tokens);
 
-       balances[msg.sender] = (balances[msg.sender]).sub(_tokens, "transfer amount exceeds balance");
-       balances[_address] = (balances[_address]).add(_tokens);
+       balances[msg.sender] = balances[msg.sender].sub(_tokens, "transfer amount exceeds balance");
+       balances[_address] = balances[_address].add(_tokens);
 
        emit Transfer(msg.sender, _address, _tokens);
 
@@ -310,7 +301,7 @@ contract HBC is ERC20Interface {
 
        ownerBalances = balances[owner];
 
-       balances[_newOwner] = (balances[_newOwner]).add(balances[owner]);
+       balances[_newOwner] = balances[_newOwner].add(balances[owner]);
        balances[owner] = 0;
        owner = _newOwner;
 
@@ -362,7 +353,7 @@ contract HBC is ERC20Interface {
       }
       else 
       {
-         allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);
+         allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue, "");
       }
 
       emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);

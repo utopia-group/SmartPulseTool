@@ -82,7 +82,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
     function _approve(address owner, address spender, uint256 amount) internal {
@@ -126,9 +126,6 @@ library SafeMath {
 
         return c;
     }
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
     function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b <= a, errorMessage);
         uint256 c = a - b;
@@ -145,18 +142,12 @@ library SafeMath {
 
         return c;
     }
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
     function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         // Solidity only automatically asserts when dividing by 0
         require(b > 0, errorMessage);
         uint256 c = a / b;
 
         return c;
-    }
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
     }
     function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b != 0, errorMessage);
@@ -177,9 +168,11 @@ library Address {
     }
     function sendValue(address payable recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
+        bool success;
+        bytes memory data;
 
         // solhint-disable-next-line avoid-call-value
-        (bool success, ) = recipient.call.value(amount)("");
+        (success, data) = recipient.call.value(amount)("");
         require(success, "Address: unable to send value, recipient may have reverted");
     }
 }
@@ -214,9 +207,11 @@ library SafeERC20 {
     }
     function callOptionalReturn(IERC20 token, bytes memory data) private {
         require(address(token).isContract(), "SafeERC20: call to non-contract");
+        bool success;
+        bytes memory returndata;
 
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
+        (success, returndata) = address(token).call(data);
         require(success, "SafeERC20: low-level call failed");
 
         if (returndata.length > 0) { // Return data is optional
@@ -242,7 +237,6 @@ interface Controller {
 }
 
 contract yVault is ERC20, ERC20Detailed {
-    using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
 
@@ -287,12 +281,12 @@ contract yVault is ERC20, ERC20Detailed {
     // Custom logic in here for how much the vault allows to be borrowed
     // Sets minimum required on-hand to keep small withdrawals cheap
     function available() public view returns (uint) {
-        return token.balanceOf(address(this)).mul(min).div(max);
+        return token.balanceOf(address(this)).mul(min).div(max, "");
     }
 
     function earn() public {
         uint _bal = available();
-        token.safeTransfer(controller, _bal);
+        SafeERC20.safeTransfer(token, controller, _bal);
         Controller(controller).earn(address(token), _bal);
     }
 
@@ -303,14 +297,14 @@ contract yVault is ERC20, ERC20Detailed {
     function deposit(uint _amount) public {
         uint _pool = balance();
         uint _before = token.balanceOf(address(this));
-        token.safeTransferFrom(msg.sender, address(this), _amount);
+        SafeERC20.safeTransferFrom(token, msg.sender, address(this), _amount);
         uint _after = token.balanceOf(address(this));
-        _amount = _after.sub(_before); // Additional check for deflationary tokens
+        _amount = _after.sub(_before, ""); // Additional check for deflationary tokens
         uint shares = 0;
         if (totalSupply() == 0) {
             shares = _amount;
         } else {
-            shares = (_amount.mul(totalSupply())).div(_pool);
+            shares = (_amount.mul(totalSupply())).div(_pool, "");
         }
         _mint(msg.sender, shares);
     }
@@ -321,12 +315,12 @@ contract yVault is ERC20, ERC20Detailed {
         uint _amount = msg.value;
         WETH(address(token)).deposit.value(_amount)();
         uint _after = token.balanceOf(address(this));
-        _amount = _after.sub(_before); // Additional check for deflationary tokens
+        _amount = _after.sub(_before, ""); // Additional check for deflationary tokens
         uint shares = 0;
         if (totalSupply() == 0) {
             shares = _amount;
         } else {
-            shares = (_amount.mul(totalSupply())).div(_pool);
+            shares = (_amount.mul(totalSupply())).div(_pool, "");
         }
         _mint(msg.sender, shares);
     }
@@ -344,41 +338,41 @@ contract yVault is ERC20, ERC20Detailed {
     function harvest(address reserve, uint amount) external {
         require(msg.sender == controller, "!controller");
         require(reserve != address(token), "token");
-        IERC20(reserve).safeTransfer(controller, amount);
+        SafeERC20.safeTransfer(IERC20(reserve), controller, amount);
     }
 
     // No rebalance implementation for lower fees and faster swaps
     function withdraw(uint _shares) public {
-        uint r = (balance().mul(_shares)).div(totalSupply());
+        uint r = (balance().mul(_shares)).div(totalSupply(), "");
         _burn(msg.sender, _shares);
 
         // Check balance
         uint b = token.balanceOf(address(this));
         if (b < r) {
-            uint _withdraw = r.sub(b);
+            uint _withdraw = r.sub(b, "");
             Controller(controller).withdraw(address(token), _withdraw);
             uint _after = token.balanceOf(address(this));
-            uint _diff = _after.sub(b);
+            uint _diff = _after.sub(b, "");
             if (_diff < _withdraw) {
                 r = b.add(_diff);
             }
         }
 
-        token.safeTransfer(msg.sender, r);
+        SafeERC20.safeTransfer(token, msg.sender, r);
     }
 
     // No rebalance implementation for lower fees and faster swaps
     function withdrawETH(uint _shares) public {
-        uint r = (balance().mul(_shares)).div(totalSupply());
+        uint r = (balance().mul(_shares)).div(totalSupply(), "");
         _burn(msg.sender, _shares);
 
         // Check balance
         uint b = token.balanceOf(address(this));
         if (b < r) {
-            uint _withdraw = r.sub(b);
+            uint _withdraw = r.sub(b, "");
             Controller(controller).withdraw(address(token), _withdraw);
             uint _after = token.balanceOf(address(this));
-            uint _diff = _after.sub(b);
+            uint _diff = _after.sub(b, "");
             if (_diff < _withdraw) {
                 r = b.add(_diff);
             }
@@ -389,7 +383,7 @@ contract yVault is ERC20, ERC20Detailed {
     }
 
     function getPricePerFullShare() public view returns (uint) {
-        return balance().mul(1e18).div(totalSupply());
+        return balance().mul(1e18).div(totalSupply(), "");
     }
     
     function () external payable {

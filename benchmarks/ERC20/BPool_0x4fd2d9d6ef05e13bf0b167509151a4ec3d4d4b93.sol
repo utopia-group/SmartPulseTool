@@ -1,4 +1,3 @@
-// BColor.sol
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -12,7 +11,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity 0.5.12;
+pragma solidity ^0.5.0;
 
 contract BColor {
     function getColor()
@@ -28,7 +27,7 @@ contract BBronze is BColor {
         }
 }
 
-// BConst.sol
+
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -42,9 +41,7 @@ contract BBronze is BColor {
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity 0.5.12;
 
-import "./BColor.sol";
 
 contract BConst is BBronze {
     uint public constant BONE              = 10**18;
@@ -72,7 +69,6 @@ contract BConst is BBronze {
     uint public constant MAX_OUT_RATIO     = (BONE / 3) + 1 wei;
 }
 
-// BMath.sol
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -86,9 +82,175 @@ contract BConst is BBronze {
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity 0.5.12;
 
-import "./BNum.sol";
+
+contract BNum is BConst {
+
+    function btoi(uint a)
+        internal pure 
+        returns (uint)
+    {
+        return a / BONE;
+    }
+
+    function bfloor(uint a)
+        internal pure
+        returns (uint)
+    {
+        return btoi(a) * BONE;
+    }
+
+    function badd(uint a, uint b)
+        internal pure
+        returns (uint)
+    {
+        uint c = a + b;
+        require(c >= a);
+        return c;
+    }
+
+    function bsub(uint a, uint b)
+        internal pure
+        returns (uint)
+    {
+        uint c;
+        bool flag;
+        (c, flag) = bsubSign(a, b);
+        require(!flag);
+        return c;
+    }
+
+    function bsubSign(uint a, uint b)
+        internal pure
+        returns (uint, bool)
+    {
+        if (a >= b) {
+            return (a - b, false);
+        } else {
+            return (b - a, true);
+        }
+    }
+
+    function bmul(uint a, uint b)
+        internal pure
+        returns (uint)
+    {
+        uint c0 = a * b;
+        require(a == 0 || c0 / a == b);
+        uint c1 = c0 + (BONE / 2);
+        require(c1 >= c0);
+        uint c2 = c1 / BONE;
+        return c2;
+    }
+
+    function bdiv(uint a, uint b)
+        internal pure
+        returns (uint)
+    {
+        require(b != 0);
+        uint c0 = a * BONE;
+        require(a == 0 || c0 / a == BONE); // bmul overflow
+        uint c1 = c0 + (b / 2);
+        require(c1 >= c0); //  badd require
+        uint c2 = c1 / b;
+        return c2;
+    }
+
+    // DSMath.wpow
+    function bpowi(uint a, uint n)
+        internal pure
+        returns (uint)
+    {
+        uint z = n % 2 != 0 ? a : BONE;
+
+        for (n /= 2; n != 0; n /= 2) {
+            a = bmul(a, a);
+
+            if (n % 2 != 0) {
+                z = bmul(z, a);
+            }
+        }
+        return z;
+    }
+
+    // Compute b^(e.w) by splitting it into (b^e)*(b^0.w).
+    // Use `bpowi` for `b^e` and `bpowK` for k iterations
+    // of approximation of b^0.w
+    function bpow(uint base, uint exp)
+        internal pure
+        returns (uint)
+    {
+        require(base >= MIN_BPOW_BASE);
+        require(base <= MAX_BPOW_BASE);
+
+        uint whole  = bfloor(exp);   
+        uint remain = bsub(exp, whole);
+
+        uint wholePow = bpowi(base, btoi(whole));
+
+        if (remain == 0) {
+            return wholePow;
+        }
+
+        uint partialResult = bpowApprox(base, remain, BPOW_PRECISION);
+        return bmul(wholePow, partialResult);
+    }
+
+    function bpowApprox(uint base, uint exp, uint precision)
+        internal pure
+        returns (uint)
+    {
+        // term 0:
+        uint a     = exp;
+        uint x;
+        bool xneg;
+        (x, xneg)  = bsubSign(base, BONE);
+        uint term = BONE;
+        uint sum   = term;
+        bool negative = false;
+
+
+        // term(k) = numer / denom 
+        //         = (product(a - i - 1, i=1-->k) * x^k) / (k!)
+        // each iteration, multiply previous term by (a-(k-1)) * x / k
+        // continue until term is less than precision
+        for (uint i = 1; term >= precision; i++) {
+            uint bigK = i * BONE;
+            uint c;
+            bool cneg;
+            (c, cneg) = bsubSign(a, bsub(bigK, BONE));
+            term = bmul(term, bmul(c, x));
+            term = bdiv(term, bigK);
+            if (term == 0) break;
+
+            if (xneg) negative = !negative;
+            if (cneg) negative = !negative;
+            if (negative) {
+                sum = bsub(sum, term);
+            } else {
+                sum = badd(sum, term);
+            }
+        }
+
+        return sum;
+    }
+
+}
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
 
 contract BMath is BBronze, BConst, BNum {
     /**********************************************************************************************
@@ -362,7 +524,6 @@ contract BMath is BBronze, BConst, BNum {
 
 }
 
-// BNum.sol
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -376,158 +537,131 @@ contract BMath is BBronze, BConst, BNum {
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity 0.5.12;
-
-import "./BConst.sol";
-
-contract BNum is BConst {
-
-    function btoi(uint a)
-        internal pure 
-        returns (uint)
-    {
-        return a / BONE;
-    }
-
-    function bfloor(uint a)
-        internal pure
-        returns (uint)
-    {
-        return btoi(a) * BONE;
-    }
-
-    function badd(uint a, uint b)
-        internal pure
-        returns (uint)
-    {
-        uint c = a + b;
-        require(c >= a);
-        return c;
-    }
-
-    function bsub(uint a, uint b)
-        internal pure
-        returns (uint)
-    {
-        (uint c, bool flag) = bsubSign(a, b);
-        require(!flag);
-        return c;
-    }
-
-    function bsubSign(uint a, uint b)
-        internal pure
-        returns (uint, bool)
-    {
-        if (a >= b) {
-            return (a - b, false);
-        } else {
-            return (b - a, true);
-        }
-    }
-
-    function bmul(uint a, uint b)
-        internal pure
-        returns (uint)
-    {
-        uint c0 = a * b;
-        require(a == 0 || c0 / a == b);
-        uint c1 = c0 + (BONE / 2);
-        require(c1 >= c0);
-        uint c2 = c1 / BONE;
-        return c2;
-    }
-
-    function bdiv(uint a, uint b)
-        internal pure
-        returns (uint)
-    {
-        require(b != 0);
-        uint c0 = a * BONE;
-        require(a == 0 || c0 / a == BONE); // bmul overflow
-        uint c1 = c0 + (b / 2);
-        require(c1 >= c0); //  badd require
-        uint c2 = c1 / b;
-        return c2;
-    }
-
-    // DSMath.wpow
-    function bpowi(uint a, uint n)
-        internal pure
-        returns (uint)
-    {
-        uint z = n % 2 != 0 ? a : BONE;
-
-        for (n /= 2; n != 0; n /= 2) {
-            a = bmul(a, a);
-
-            if (n % 2 != 0) {
-                z = bmul(z, a);
-            }
-        }
-        return z;
-    }
-
-    // Compute b^(e.w) by splitting it into (b^e)*(b^0.w).
-    // Use `bpowi` for `b^e` and `bpowK` for k iterations
-    // of approximation of b^0.w
-    function bpow(uint base, uint exp)
-        internal pure
-        returns (uint)
-    {
-        require(base >= MIN_BPOW_BASE);
-        require(base <= MAX_BPOW_BASE);
-
-        uint whole  = bfloor(exp);   
-        uint remain = bsub(exp, whole);
-
-        uint wholePow = bpowi(base, btoi(whole));
-
-        if (remain == 0) {
-            return wholePow;
-        }
-
-        uint partialResult = bpowApprox(base, remain, BPOW_PRECISION);
-        return bmul(wholePow, partialResult);
-    }
-
-    function bpowApprox(uint base, uint exp, uint precision)
-        internal pure
-        returns (uint)
-    {
-        // term 0:
-        uint a     = exp;
-        (uint x, bool xneg)  = bsubSign(base, BONE);
-        uint term = BONE;
-        uint sum   = term;
-        bool negative = false;
 
 
-        // term(k) = numer / denom 
-        //         = (product(a - i - 1, i=1-->k) * x^k) / (k!)
-        // each iteration, multiply previous term by (a-(k-1)) * x / k
-        // continue until term is less than precision
-        for (uint i = 1; term >= precision; i++) {
-            uint bigK = i * BONE;
-            (uint c, bool cneg) = bsubSign(a, bsub(bigK, BONE));
-            term = bmul(term, bmul(c, x));
-            term = bdiv(term, bigK);
-            if (term == 0) break;
+// Highly opinionated token implementation
 
-            if (xneg) negative = !negative;
-            if (cneg) negative = !negative;
-            if (negative) {
-                sum = bsub(sum, term);
-            } else {
-                sum = badd(sum, term);
-            }
-        }
+interface IERC20 {
+    event Approval(address indexed src, address indexed dst, uint amt);
+    event Transfer(address indexed src, address indexed dst, uint amt);
 
-        return sum;
-    }
+    function totalSupply() external view returns (uint);
+    function balanceOf(address whom) external view returns (uint);
+    function allowance(address src, address dst) external view returns (uint);
 
+    function approve(address dst, uint amt) external returns (bool);
+    function transfer(address dst, uint amt) external returns (bool);
+    function transferFrom(
+        address src, address dst, uint amt
+    ) external returns (bool);
 }
 
-// BPool.sol
+contract BTokenBase is BNum {
+
+    mapping(address => uint)                   internal _balance;
+    mapping(address => mapping(address=>uint)) internal _allowance;
+    uint internal _totalSupply;
+
+    event Approval(address indexed src, address indexed dst, uint amt);
+    event Transfer(address indexed src, address indexed dst, uint amt);
+
+    function _mint(uint amt) internal {
+        _balance[address(this)] = badd(_balance[address(this)], amt);
+        _totalSupply = badd(_totalSupply, amt);
+        emit Transfer(address(0), address(this), amt);
+    }
+
+    function _burn(uint amt) internal {
+        require(_balance[address(this)] >= amt);
+        _balance[address(this)] = bsub(_balance[address(this)], amt);
+        _totalSupply = bsub(_totalSupply, amt);
+        emit Transfer(address(this), address(0), amt);
+    }
+
+    function _move(address src, address dst, uint amt) internal {
+        require(_balance[src] >= amt);
+        _balance[src] = bsub(_balance[src], amt);
+        _balance[dst] = badd(_balance[dst], amt);
+        emit Transfer(src, dst, amt);
+    }
+
+    function _push(address to, uint amt) internal {
+        _move(address(this), to, amt);
+    }
+
+    function _pull(address from, uint amt) internal {
+        _move(from, address(this), amt);
+    }
+}
+
+contract BToken is BTokenBase, IERC20 {
+
+    string  private _name     = "Cream Pool Token";
+    string  private _symbol   = "CRPT";
+    uint8   private _decimals = 18;
+
+    function name() public view returns (string memory) {
+        return _name;
+    }
+
+    function symbol() public view returns (string memory) {
+        return _symbol;
+    }
+
+    function decimals() public view returns(uint8) {
+        return _decimals;
+    }
+
+    function allowance(address src, address dst) external view returns (uint) {
+        return _allowance[src][dst];
+    }
+
+    function balanceOf(address whom) external view returns (uint) {
+        return _balance[whom];
+    }
+
+    function totalSupply() public view returns (uint) {
+        return _totalSupply;
+    }
+
+    function approve(address dst, uint amt) external returns (bool) {
+        _allowance[msg.sender][dst] = amt;
+        emit Approval(msg.sender, dst, amt);
+        return true;
+    }
+
+    function increaseApproval(address dst, uint amt) external returns (bool) {
+        _allowance[msg.sender][dst] = badd(_allowance[msg.sender][dst], amt);
+        emit Approval(msg.sender, dst, _allowance[msg.sender][dst]);
+        return true;
+    }
+
+    function decreaseApproval(address dst, uint amt) external returns (bool) {
+        uint oldValue = _allowance[msg.sender][dst];
+        if (amt > oldValue) {
+            _allowance[msg.sender][dst] = 0;
+        } else {
+            _allowance[msg.sender][dst] = bsub(oldValue, amt);
+        }
+        emit Approval(msg.sender, dst, _allowance[msg.sender][dst]);
+        return true;
+    }
+
+    function transfer(address dst, uint amt) external returns (bool) {
+        _move(msg.sender, dst, amt);
+        return true;
+    }
+
+    function transferFrom(address src, address dst, uint amt) external returns (bool) {
+        require(msg.sender == src || amt <= _allowance[src][msg.sender]);
+        _move(src, dst, amt);
+        if (msg.sender != src && _allowance[src][msg.sender] != uint256(-1)) {
+            _allowance[src][msg.sender] = bsub(_allowance[src][msg.sender], amt);
+            emit Approval(msg.sender, dst, _allowance[src][msg.sender]);
+        }
+        return true;
+    }
+}
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -541,10 +675,7 @@ contract BNum is BConst {
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity 0.5.12;
 
-import "./BToken.sol";
-import "./BMath.sol";
 
 contract BPool is BBronze, BToken, BMath {
 
@@ -1401,145 +1532,4 @@ contract BPool is BBronze, BToken, BMath {
 
 }
 
-// BToken.sol
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-pragma solidity 0.5.12;
-
-import "./BNum.sol";
-
-// Highly opinionated token implementation
-
-interface IERC20 {
-    event Approval(address indexed src, address indexed dst, uint amt);
-    event Transfer(address indexed src, address indexed dst, uint amt);
-
-    function totalSupply() external view returns (uint);
-    function balanceOf(address whom) external view returns (uint);
-    function allowance(address src, address dst) external view returns (uint);
-
-    function approve(address dst, uint amt) external returns (bool);
-    function transfer(address dst, uint amt) external returns (bool);
-    function transferFrom(
-        address src, address dst, uint amt
-    ) external returns (bool);
-}
-
-contract BTokenBase is BNum {
-
-    mapping(address => uint)                   internal _balance;
-    mapping(address => mapping(address=>uint)) internal _allowance;
-    uint internal _totalSupply;
-
-    event Approval(address indexed src, address indexed dst, uint amt);
-    event Transfer(address indexed src, address indexed dst, uint amt);
-
-    function _mint(uint amt) internal {
-        _balance[address(this)] = badd(_balance[address(this)], amt);
-        _totalSupply = badd(_totalSupply, amt);
-        emit Transfer(address(0), address(this), amt);
-    }
-
-    function _burn(uint amt) internal {
-        require(_balance[address(this)] >= amt);
-        _balance[address(this)] = bsub(_balance[address(this)], amt);
-        _totalSupply = bsub(_totalSupply, amt);
-        emit Transfer(address(this), address(0), amt);
-    }
-
-    function _move(address src, address dst, uint amt) internal {
-        require(_balance[src] >= amt);
-        _balance[src] = bsub(_balance[src], amt);
-        _balance[dst] = badd(_balance[dst], amt);
-        emit Transfer(src, dst, amt);
-    }
-
-    function _push(address to, uint amt) internal {
-        _move(address(this), to, amt);
-    }
-
-    function _pull(address from, uint amt) internal {
-        _move(from, address(this), amt);
-    }
-}
-
-contract BToken is BTokenBase, IERC20 {
-
-    string  private _name     = "Cream Pool Token";
-    string  private _symbol   = "CRPT";
-    uint8   private _decimals = 18;
-
-    function name() public view returns (string memory) {
-        return _name;
-    }
-
-    function symbol() public view returns (string memory) {
-        return _symbol;
-    }
-
-    function decimals() public view returns(uint8) {
-        return _decimals;
-    }
-
-    function allowance(address src, address dst) external view returns (uint) {
-        return _allowance[src][dst];
-    }
-
-    function balanceOf(address whom) external view returns (uint) {
-        return _balance[whom];
-    }
-
-    function totalSupply() public view returns (uint) {
-        return _totalSupply;
-    }
-
-    function approve(address dst, uint amt) external returns (bool) {
-        _allowance[msg.sender][dst] = amt;
-        emit Approval(msg.sender, dst, amt);
-        return true;
-    }
-
-    function increaseApproval(address dst, uint amt) external returns (bool) {
-        _allowance[msg.sender][dst] = badd(_allowance[msg.sender][dst], amt);
-        emit Approval(msg.sender, dst, _allowance[msg.sender][dst]);
-        return true;
-    }
-
-    function decreaseApproval(address dst, uint amt) external returns (bool) {
-        uint oldValue = _allowance[msg.sender][dst];
-        if (amt > oldValue) {
-            _allowance[msg.sender][dst] = 0;
-        } else {
-            _allowance[msg.sender][dst] = bsub(oldValue, amt);
-        }
-        emit Approval(msg.sender, dst, _allowance[msg.sender][dst]);
-        return true;
-    }
-
-    function transfer(address dst, uint amt) external returns (bool) {
-        _move(msg.sender, dst, amt);
-        return true;
-    }
-
-    function transferFrom(address src, address dst, uint amt) external returns (bool) {
-        require(msg.sender == src || amt <= _allowance[src][msg.sender]);
-        _move(src, dst, amt);
-        if (msg.sender != src && _allowance[src][msg.sender] != uint256(-1)) {
-            _allowance[src][msg.sender] = bsub(_allowance[src][msg.sender], amt);
-            emit Approval(msg.sender, dst, _allowance[src][msg.sender]);
-        }
-        return true;
-    }
-}
 

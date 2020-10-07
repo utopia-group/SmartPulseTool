@@ -1,6 +1,6 @@
 // File: openzeppelin-solidity/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.4.21;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -19,7 +19,7 @@ contract Ownable {
    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
    * account.
    */
-  function Ownable() public {
+  constructor() public {
     owner = msg.sender;
   }
 
@@ -45,7 +45,6 @@ contract Ownable {
 
 // File: openzeppelin-solidity/contracts/math/SafeMath.sol
 
-pragma solidity ^0.4.21;
 
 
 /**
@@ -96,7 +95,6 @@ library SafeMath {
 
 // File: contracts/GroupLockup.sol
 
-pragma solidity ^0.4.18;
 
 
 
@@ -194,7 +192,7 @@ contract GroupLockup is Ownable{
 
 		//update the user's lockup time who was be setted as old lockup time
 		for(uint256 user_list_index = 0; user_list_index < user_list.length; user_list_index++) {
-			if(user_list[user_list_index] != 0){
+			if(user_list[user_list_index] != address(0)){
 				user_address = user_list[user_list_index];
 				user_lockup_time = getLockupTime(user_address);
 				if(user_lockup_time == old_lockup_date){
@@ -223,7 +221,6 @@ contract GroupLockup is Ownable{
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol
 
-pragma solidity ^0.4.21;
 
 
 /**
@@ -240,7 +237,6 @@ contract ERC20Basic {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/BasicToken.sol
 
-pragma solidity ^0.4.21;
 
 
 
@@ -291,7 +287,6 @@ contract BasicToken is ERC20Basic {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20.sol
 
-pragma solidity ^0.4.21;
 
 
 
@@ -308,7 +303,6 @@ contract ERC20 is ERC20Basic {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol
 
-pragma solidity ^0.4.21;
 
 
 
@@ -410,7 +404,6 @@ contract StandardToken is ERC20, BasicToken {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol
 
-pragma solidity ^0.4.21;
 
 
 
@@ -460,25 +453,22 @@ contract MintableToken is StandardToken, Ownable {
 
 // File: contracts/ERC223/ERC223Token.sol
 
-pragma solidity ^0.4.18;
 
 
 contract ERC223Token is MintableToken{
-  function transfer(address to, uint256 value, bytes data) public returns (bool);
+  function transfer_ERC223(address to, uint256 value, bytes memory data) public returns (bool);
   event TransferERC223(address indexed from, address indexed to, uint256 value, bytes data);
 }
 
 // File: contracts/ERC223/ERC223ContractInterface.sol
 
-pragma solidity ^0.4.18;
 
 contract ERC223ContractInterface{
-  function tokenFallback(address from_, uint256 value_, bytes data_) external;
+  function tokenFallback(address from_, uint256 value_, bytes calldata data_) external;
 }
 
 // File: contracts/DEAPCoin.sol
 
-pragma solidity ^0.4.18;
 
 
 
@@ -590,7 +580,7 @@ contract DEAPCoin is ERC223Token{
 	* @param _value The amount to be transferred.
 	* @param _data The data info.
 	*/
-	function transfer(address _to, uint256 _value, bytes _data) public returns (bool) {
+	function transfer_ERC223(address _to, uint256 _value, bytes memory _data) public returns (bool) {
 		require(_to != address(0));
 		require(_value <= balances[msg.sender]);
 		require(_value > 0);
@@ -630,7 +620,7 @@ contract DEAPCoin is ERC223Token{
 	* @param _users The address list to transfer to.
 	* @param _values The amount list to be transferred.
 	*/
-	function batchTransfer(address _from, address[] _users, uint256[] _values) onlyOwner public returns (bool) {
+	function batchTransfer(address _from, address[] memory _users, uint256[] memory _values) onlyOwner public returns (bool) {
 
 		address to;
 		uint256 value;

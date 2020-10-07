@@ -336,7 +336,7 @@ contract ERC777 is IERC777, IERC20 {
 
     
     function send(address recipient, uint256 amount, bytes calldata data) external {
-        _send(msg.sender, msg.sender, recipient, amount, data, "", true);
+        _send(msg.sender, msg.sender, recipient, amount, data, bytes(""), true);
     }
 
     
@@ -345,18 +345,18 @@ contract ERC777 is IERC777, IERC20 {
 
         address from = msg.sender;
 
-        _callTokensToSend(from, from, recipient, amount, "", "");
+        _callTokensToSend(from, from, recipient, amount, bytes(""), bytes(""));
 
-        _move(from, from, recipient, amount, "", "");
+        _move(from, from, recipient, amount, bytes(""), bytes(""));
 
-        _callTokensReceived(from, from, recipient, amount, "", "", false);
+        _callTokensReceived(from, from, recipient, amount, bytes(""), bytes(""), false);
 
         return true;
     }
 
     
     function burn(uint256 amount, bytes calldata data) external {
-        _burn(msg.sender, msg.sender, amount, data, "");
+        _burn(msg.sender, msg.sender, amount, data, bytes(""));
     }
 
     
@@ -439,12 +439,12 @@ contract ERC777 is IERC777, IERC20 {
 
         address spender = msg.sender;
 
-        _callTokensToSend(spender, holder, recipient, amount, "", "");
+        _callTokensToSend(spender, holder, recipient, amount, bytes(""), bytes(""));
 
-        _move(spender, holder, recipient, amount, "", "");
+        _move(spender, holder, recipient, amount, bytes(""), bytes(""));
         _approve(holder, spender, _allowances[holder][spender].sub(amount));
 
-        _callTokensReceived(spender, holder, recipient, amount, "", "", false);
+        _callTokensReceived(spender, holder, recipient, amount, bytes(""), bytes(""), false);
 
         return true;
     }
@@ -640,7 +640,7 @@ contract ReversibleICOToken is ERC777 {
         freezerAddress = _freezerAddress;
         rescuerAddress = _rescuerAddress;
 
-        _mint(_tokenGenesisAddress, _tokenGenesisAddress, _initialSupply, "", "");
+        _mint(_tokenGenesisAddress, _tokenGenesisAddress, _initialSupply, bytes(""), bytes(""));
 
         if(_ricoAddress != address(0)) {
             rICO = ReversibleICO(_ricoAddress);

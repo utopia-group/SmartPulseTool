@@ -406,9 +406,11 @@ library SafeERC20 {
         //  3. The return value is decoded, which in turn checks the size of the returned data.
         // solhint-disable-next-line max-line-length
         require(address(token).isContract(), "SafeERC20: call to non-contract");
+        bool success;
+        bytes memory returndata;
 
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
+        (success, returndata) = address(token).call(data);
         require(success, "SafeERC20: low-level call failed");
 
         if (returndata.length > 0) { // Return data is optional
@@ -512,7 +514,6 @@ contract RewardsDistributionRecipient is Owned {
 
 contract TokenWrapper is ReentrancyGuard {
     using SafeMath for uint256;
-    using SafeERC20 for IERC20;
 
     IERC20 public stakingToken;
 
@@ -534,13 +535,13 @@ contract TokenWrapper is ReentrancyGuard {
     function stake(uint256 amount) public nonReentrant {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
-        stakingToken.safeTransferFrom(msg.sender, address(this), amount);
+        SafeERC20.safeTransferFrom(stakingToken, msg.sender, address(this), amount);
     }
 
     function withdraw(uint256 amount) public nonReentrant {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        stakingToken.safeTransfer(msg.sender, amount);
+        SafeERC20.safeTransfer(stakingToken, msg.sender, amount);
     }
 }
 
@@ -623,7 +624,7 @@ contract StakingRewards is TokenWrapper, RewardsDistributionRecipient {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            rewardsToken.safeTransfer(msg.sender, reward);
+            SafeERC20.safeTransfer(rewardsToken, msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
     }

@@ -248,8 +248,9 @@ contract DOSToken is ERC20, DSMath, DSStop, Managed {
         return transferFrom(msg.sender, dst, wad);
     }
 
-    function transferFrom(address src, address dst, uint wad) public stoppable returns (bool) {
-        require(_balances[src] >= wad, "token-insufficient-balance");
+    function transferFrom(address src, address dst, uint wadArg) public stoppable returns (bool) {
+        require(_balances[src] >= wadArg, "token-insufficient-balance");
+        uint wad = wadArg;
 
         if (isContract(manager)) {
             wad = ControllerManager(manager).onTransfer(src, dst, wad);
@@ -269,7 +270,7 @@ contract DOSToken is ERC20, DSMath, DSStop, Managed {
         return true;
     }
 
-    function approve(address guy) public returns (bool) {
+    function approve1(address guy) public returns (bool) {
         return approve(guy, uint(-1));
     }
 

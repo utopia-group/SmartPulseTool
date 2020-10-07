@@ -81,7 +81,6 @@ interface IUniswapV2ERC20 {
 
 // File: contracts/libraries/SafeMath.sol
 
-pragma solidity =0.5.16;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -101,7 +100,6 @@ library SafeMath {
 
 // File: contracts/UniswapV2ERC20.sol
 
-pragma solidity =0.5.16;
 
 
 
@@ -197,7 +195,6 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
 
 // File: contracts/libraries/Math.sol
 
-pragma solidity =0.5.16;
 
 // a library for performing various math operations
 
@@ -223,7 +220,6 @@ library Math {
 
 // File: contracts/libraries/UQ112x112.sol
 
-pragma solidity =0.5.16;
 
 // a library for handling binary fixed point numbers (https://en.wikipedia.org/wiki/Q_(number_format))
 
@@ -294,7 +290,6 @@ interface IUniswapV2Callee {
 
 // File: contracts/UniswapV2Pair.sol
 
-pragma solidity =0.5.16;
 
 
 
@@ -337,7 +332,10 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
     }
 
     function _safeTransfer(address token, address to, uint value) private {
-        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(SELECTOR, to, value));
+        bool success;
+        bytes memory data;
+
+        (success, data) = token.call(abi.encodeWithSelector(SELECTOR, to, value));
         require(success && (data.length == 0 || abi.decode(data, (bool))), 'UniswapV2: TRANSFER_FAILED');
     }
 
@@ -403,7 +401,10 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
 
     // this low-level function should be called from a contract which performs important safety checks
     function mint(address to) external lock returns (uint liquidity) {
-        (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
+        uint112 _reserve0;
+        uint112 _reserve1;
+        uint32 timestamp;
+        (_reserve0, _reserve1, timestamp) = getReserves(); // gas savings
         uint balance0 = IERC20(token0).balanceOf(address(this));
         uint balance1 = IERC20(token1).balanceOf(address(this));
         uint amount0 = balance0.sub(_reserve0);
@@ -427,7 +428,10 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
 
     // this low-level function should be called from a contract which performs important safety checks
     function burn(address to) external lock returns (uint amount0, uint amount1) {
-        (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
+        uint112 _reserve0;
+        uint112 _reserve1;
+        uint32 timestamp;
+        (_reserve0, _reserve1, timestamp) = getReserves(); // gas savings
         address _token0 = token0;                                // gas savings
         address _token1 = token1;                                // gas savings
         uint balance0 = IERC20(_token0).balanceOf(address(this));
@@ -453,20 +457,21 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
     // this low-level function should be called from a contract which performs important safety checks
     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external lock {
         require(amount0Out > 0 || amount1Out > 0, 'UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT');
-        (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
+        uint112 _reserve0;
+        uint112 _reserve1;
+        uint32 timestamp;
+        (_reserve0, _reserve1, timestamp) = getReserves(); // gas savings
         require(amount0Out < _reserve0 && amount1Out < _reserve1, 'UniswapV2: INSUFFICIENT_LIQUIDITY');
 
         uint balance0;
         uint balance1;
         { // scope for _token{0,1}, avoids stack too deep errors
-        address _token0 = token0;
-        address _token1 = token1;
-        require(to != _token0 && to != _token1, 'UniswapV2: INVALID_TO');
-        if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens
-        if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens
+        require(to != address(token0) && to != address(token1), 'UniswapV2: INVALID_TO');
+        if (amount0Out > 0) _safeTransfer(address(token0), to, amount0Out); // optimistically transfer tokens
+        if (amount1Out > 0) _safeTransfer(address(token1), to, amount1Out); // optimistically transfer tokens
         if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);
-        balance0 = IERC20(_token0).balanceOf(address(this));
-        balance1 = IERC20(_token1).balanceOf(address(this));
+        balance0 = IERC20(address(token0)).balanceOf(address(this));
+        balance1 = IERC20(address(token1)).balanceOf(address(this));
         }
         uint amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;
         uint amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;
@@ -478,7 +483,7 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
         }
 
         _update(balance0, balance1, _reserve0, _reserve1);
-        emit Swap(msg.sender, amount0In, amount1In, amount0Out, amount1Out, to);
+        //emit Swap(msg.sender, amount0In, amount1In, amount0Out, amount1Out, to);
     }
 
     // force balances to match reserves

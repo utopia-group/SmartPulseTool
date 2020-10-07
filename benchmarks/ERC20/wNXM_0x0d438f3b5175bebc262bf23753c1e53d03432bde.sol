@@ -169,9 +169,6 @@ library SafeMath {
      * Requirements:
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
@@ -225,9 +222,6 @@ library SafeMath {
      * Requirements:
      * - The divisor cannot be zero.
      */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
 
     /**
      * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
@@ -262,9 +256,6 @@ library SafeMath {
      * Requirements:
      * - The divisor cannot be zero.
      */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
 
     /**
      * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
@@ -480,7 +471,7 @@ contract ERC20 is Context, IERC20 {
         require(account != address(0), "ERC20: burn from the zero address");
 
         _balances[account] = _balances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _totalSupply = _totalSupply.sub(amount);
+        _totalSupply = _totalSupply.sub(amount, "");
         emit Transfer(account, address(0), amount);
     }
 
@@ -671,9 +662,11 @@ library Address {
      */
     function sendValue(address payable recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
+        bool success;
+        bytes memory data;
 
         // solhint-disable-next-line avoid-call-value
-        (bool success, ) = recipient.call.value(amount)("");
+        (success, data) = recipient.call.value(amount)("");
         require(success, "Address: unable to send value, recipient may have reverted");
     }
 }
@@ -743,9 +736,11 @@ library SafeERC20 {
         //  3. The return value is decoded, which in turn checks the size of the returned data.
         // solhint-disable-next-line max-line-length
         require(address(token).isContract(), "SafeERC20: call to non-contract");
+        bool success;
+        bytes memory returndata;
 
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
+        (success, returndata) = address(token).call(data);
         require(success, "SafeERC20: low-level call failed");
 
         if (returndata.length > 0) { // Return data is optional
@@ -974,7 +969,6 @@ contract ERC20Permit is ERC20, ERC20Detailed {
 
 
 contract wNXM is ERC20, ERC20Detailed, ERC20Permit {
-    using SafeERC20 for ERC20;
     using SafeMath for uint256;
 
     INXM public NXM;
@@ -1058,10 +1052,10 @@ contract wNXM is ERC20, ERC20Detailed, ERC20Permit {
         require(_to != address(0), "wNXM: can not send to zero address");
 
         if (_token == ERC20(address(NXM))) {
-            uint256 surplusBalance = _token.balanceOf(address(this)).sub(totalSupply());
+            uint256 surplusBalance = _token.balanceOf(address(this)).sub(totalSupply(), "");
             require(surplusBalance > 0, "wNXM: there is no accidentally sent NXM");
             uint256 balance = _balance == 0 ? surplusBalance : Math.min(surplusBalance, _balance);
-            _token.safeTransfer(_to, balance);
+            SafeERC20.safeTransfer(_token, _to, balance);
         } else if (_token == ERC20(0)) {
             // for Ether
             uint256 totalBalance = address(this).balance;
@@ -1072,7 +1066,7 @@ contract wNXM is ERC20, ERC20Detailed, ERC20Permit {
             uint256 totalBalance = _token.balanceOf(address(this));
             uint256 balance = _balance == 0 ? totalBalance : Math.min(totalBalance, _balance);
             require(balance > 0, "wNXM: trying to send 0 balance");
-            _token.safeTransfer(_to, balance);
+            SafeERC20.safeTransfer(_token, _to, balance);
         }
     }
 }

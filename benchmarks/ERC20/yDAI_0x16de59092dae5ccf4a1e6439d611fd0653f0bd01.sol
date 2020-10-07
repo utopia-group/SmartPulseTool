@@ -20,10 +20,6 @@ contract Context {
         return msg.sender;
     }
 
-    function _msgData() internal view returns (bytes memory) {
-        this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
-        return msg.data;
-    }
 }
 
 contract ERC20 is Context, IERC20 {
@@ -193,9 +189,11 @@ library Address {
     }
     function sendValue(address payable recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
+        bool success;
+        bytes memory data;
 
         // solhint-disable-next-line avoid-call-value
-        (bool success, ) = recipient.call.value(amount)("");
+        (success, data) = recipient.call.value(amount)("");
         require(success, "Address: unable to send value, recipient may have reverted");
     }
 }
@@ -230,9 +228,11 @@ library SafeERC20 {
     }
     function callOptionalReturn(IERC20 token, bytes memory data) private {
         require(address(token).isContract(), "SafeERC20: call to non-contract");
+        bool success;
+        bytes memory returndata;
 
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
+        (success, returndata) = address(token).call(data);
         require(success, "SafeERC20: low-level call failed");
 
         if (returndata.length > 0) { // Return data is optional
@@ -428,7 +428,13 @@ contract yDAI is ERC20, ERC20Detailed, ReentrancyGuard, Structs {
   }
 
   function recommend() public view returns (Lender) {
-    (,uint256 capr,uint256 iapr,uint256 aapr,uint256 dapr) = IIEarnManager(apr).recommend(token);
+    uint256 capr;
+    uint256 iapr;
+    uint256 aapr;
+    uint256 dapr;
+    string memory choice;
+    
+    (choice,capr,iapr,aapr,dapr) = IIEarnManager(apr).recommend(token);
     uint256 max = 0;
     if (capr > max) {
       max = capr;

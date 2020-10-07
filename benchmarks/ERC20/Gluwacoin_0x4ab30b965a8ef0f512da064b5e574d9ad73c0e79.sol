@@ -339,7 +339,7 @@ contract Gluwacoin is Erc20Plus, Owned
         return true;
     }
 
-    function transfer(address _from, address _to, uint256 _value, uint256 _fee, uint256 _nonce, bytes memory _sig) public returns (bool success)
+    function transfer6(address _from, address _to, uint256 _value, uint256 _fee, uint256 _nonce, bytes memory _sig) public returns (bool success)
     {
         require(_to != address(0), "Can not transfer to zero address");
 

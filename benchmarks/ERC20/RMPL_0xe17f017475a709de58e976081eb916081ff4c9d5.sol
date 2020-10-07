@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity ^0.5.0;
 
 /* 
     RMPL.sol
@@ -132,17 +132,17 @@ contract ERC20Detailed is Initializable, IERC20 {
   string private _symbol;
   uint8 private _decimals;
 
-  function initialize(string name, string symbol, uint8 decimals) internal initializer {
+  function initialize(string memory name, string memory symbol, uint8 decimals) internal initializer {
     _name = name;
     _symbol = symbol;
     _decimals = decimals;
   }
 
-  function name() public view returns(string) {
+  function name() public view returns(string memory) {
     return _name;
   }
 
-  function symbol() public view returns(string) {
+  function symbol() public view returns(string memory) {
     return _symbol;
   }
 
@@ -162,9 +162,6 @@ library SafeMath {
         return c;
     }
 
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
 
     function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b <= a, errorMessage);
@@ -184,9 +181,6 @@ library SafeMath {
         return c;
     }
 
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
 
     function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b > 0, errorMessage);
@@ -195,9 +189,6 @@ library SafeMath {
         return c;
     }
 
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
 
     function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
         require(b != 0, errorMessage);
@@ -235,7 +226,7 @@ library SafeMathInt {
     int256 private constant MIN_INT256 = int256(1) << 255;
     int256 private constant MAX_INT256 = ~(int256(1) << 255);
 
-    function mul(int256 a, int256 b)
+    /*function mul(int256 a, int256 b)
         internal
         pure
         returns (int256)
@@ -246,7 +237,7 @@ library SafeMathInt {
         require(c != MIN_INT256 || (a & MIN_INT256) != (b & MIN_INT256));
         require((b == 0) || (c / b == a));
         return c;
-    }
+    }*/
 
     function div(int256 a, int256 b)
         internal
@@ -374,7 +365,7 @@ contract RMPL is Ownable, ERC20Detailed {
         }
 
         if (supplyDelta < 0) {
-            _totalSupply = _totalSupply.sub(uint256(supplyDelta.abs()));
+            _totalSupply = _totalSupply.sub(uint256(supplyDelta.abs()), "");
         } else {
             _totalSupply = _totalSupply.add(uint256(supplyDelta));
         }
@@ -383,7 +374,7 @@ contract RMPL is Ownable, ERC20Detailed {
             _totalSupply = MAX_SUPPLY;
         }
 
-        _gonsPerFragment = TOTAL_GONS.div(_totalSupply);
+        _gonsPerFragment = TOTAL_GONS.div(_totalSupply, "");
 		
 		// From this point forward, _gonsPerFragment is taken as the source of truth.
         // We recalculate a new _totalSupply to be in agreement with the _gonsPerFragment
@@ -394,7 +385,7 @@ contract RMPL is Ownable, ERC20Detailed {
         // In the case of _totalSupply <= MAX_UINT128 (our current supply cap), this
         // deviation is guaranteed to be < 1, so we can omit this step. If the supply cap is
         // ever increased, it must be re-included.
-        // _totalSupply = TOTAL_GONS.div(_gonsPerFragment)
+        // _totalSupply = TOTAL_GONS.div(_gonsPerFragment, "")
 		
 		emit LogRebase(_epoch, _totalSupply);
 
@@ -419,7 +410,7 @@ contract RMPL is Ownable, ERC20Detailed {
         
         _totalSupply = INITIAL_FRAGMENTS_SUPPLY;
         _gonBalances[msg.sender] = TOTAL_GONS;
-        _gonsPerFragment = TOTAL_GONS.div(_totalSupply);
+        _gonsPerFragment = TOTAL_GONS.div(_totalSupply, "");
 
         emit Transfer(address(0x0), msg.sender, _totalSupply);
     }
@@ -446,7 +437,7 @@ contract RMPL is Ownable, ERC20Detailed {
         view
         returns (uint256)
     {
-        return _gonBalances[who].div(_gonsPerFragment);
+        return _gonBalances[who].div(_gonsPerFragment, "");
     }
 
 	/**
@@ -462,7 +453,7 @@ contract RMPL is Ownable, ERC20Detailed {
         returns (bool)
     {
         uint256 merValue = value.mul(_gonsPerFragment);
-        _gonBalances[msg.sender] = _gonBalances[msg.sender].sub(merValue);
+        _gonBalances[msg.sender] = _gonBalances[msg.sender].sub(merValue, "");
         _gonBalances[to] = _gonBalances[to].add(merValue);
         emit Transfer(msg.sender, to, value);
         return true;
@@ -495,10 +486,10 @@ contract RMPL is Ownable, ERC20Detailed {
         validRecipient(to)
         returns (bool)
     {
-        _allowedFragments[from][msg.sender] = _allowedFragments[from][msg.sender].sub(value);
+        _allowedFragments[from][msg.sender] = _allowedFragments[from][msg.sender].sub(value, "");
 
         uint256 merValue = value.mul(_gonsPerFragment);
-        _gonBalances[from] = _gonBalances[from].sub(merValue);
+        _gonBalances[from] = _gonBalances[from].sub(merValue, "");
         _gonBalances[to] = _gonBalances[to].add(merValue);
         emit Transfer(from, to, value);
 
@@ -559,7 +550,7 @@ contract RMPL is Ownable, ERC20Detailed {
         if (subtractedValue >= oldValue) {
             _allowedFragments[msg.sender][spender] = 0;
         } else {
-            _allowedFragments[msg.sender][spender] = oldValue.sub(subtractedValue);
+            _allowedFragments[msg.sender][spender] = oldValue.sub(subtractedValue, "");
         }
         emit Approval(msg.sender, spender, _allowedFragments[msg.sender][spender]);
         return true;
@@ -571,7 +562,7 @@ contract RMPL is Ownable, ERC20Detailed {
      * @param data Transaction data payload
      */
 	
-    function addTransaction(address destination, bytes data)
+    function addTransaction(address destination, bytes calldata data)
         external
         onlyOwner
     {
@@ -632,7 +623,7 @@ contract RMPL is Ownable, ERC20Detailed {
      * @return True on success
      */
 
-    function externalCall(address destination, bytes data)
+    function externalCall(address destination, bytes memory data)
         internal
         returns (bool)
     {

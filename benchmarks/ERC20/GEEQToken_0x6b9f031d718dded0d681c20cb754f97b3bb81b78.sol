@@ -1,4 +1,4 @@
-pragma solidity ^0.4.26;
+pragma solidity ^0.5.0;
 library SafeMath {
     function add(uint a, uint b) internal pure returns (uint c) {
         c = a + b;
@@ -22,9 +22,9 @@ library SafeMath {
     }
 }
 contract ERC20Interface {
-    function totalSupply() public constant returns (uint);
-    function balanceOf(address tokenOwner) public constant returns (uint balance);
-    function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
+    function totalSupply() public view returns (uint);
+    function balanceOf(address tokenOwner) public view returns (uint balance);
+    function allowance(address tokenOwner, address spender) public view returns (uint remaining);
     function transfer(address to, uint tokens) public returns (bool success);
     function approve(address spender, uint tokens) public returns (bool success);   
     function transferFrom(address from, address to, uint tokens) public returns (bool success);
@@ -34,7 +34,7 @@ contract ERC20Interface {
 }
 
 contract ApproveAndCallFallBack {
-    function receiveApproval(address from, uint256 tokens, address token, bytes data) public;
+    function receiveApproval(address from, uint256 tokens, address token, bytes memory data) public;
 }
 
 contract Owned {
@@ -117,10 +117,10 @@ contract GEEQToken is ERC20Interface, Owned {
     }
 
     
-    function totalSupply() public constant returns (uint) {
+    function totalSupply() public view returns (uint) {
         return _totalSupply;
     }
-    function totalMinted() public constant returns (uint) {
+    function totalMinted() public view returns (uint) {
         return _totalMinted;
     }
     function burn(uint256 tokens) internal {      //works even if contract is paused
@@ -147,7 +147,7 @@ contract GEEQToken is ERC20Interface, Owned {
 
 
     //Below is the ERC20 logic, with Pause disabling transfer.
-    function balanceOf(address tokenOwner) public constant returns (uint balance) {
+    function balanceOf(address tokenOwner) public view returns (uint balance) {
         return balances[tokenOwner];
     }
 
@@ -181,16 +181,16 @@ contract GEEQToken is ERC20Interface, Owned {
         }
     }
     
-    function allowance(address tokenOwner, address spender) public constant returns (uint remaining) {
+    function allowance(address tokenOwner, address spender) public view returns (uint remaining) {
         return allowed[tokenOwner][spender];
     }  
-    function approveAndCall(address spender, uint tokens, bytes data) public returns (bool success) {
+    function approveAndCall(address spender, uint tokens, bytes memory data) public returns (bool success) {
         allowed[msg.sender][spender] = tokens;
         emit Approval(msg.sender, spender, tokens);
-        ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, this, data);
+        ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, address(this), data);
         return true;           //unnecessarily explicit
     }  
-    function() public { }
+    function() external { }
     
 
 }
