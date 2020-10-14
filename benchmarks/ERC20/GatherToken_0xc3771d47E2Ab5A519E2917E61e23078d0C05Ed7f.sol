@@ -1,4 +1,4 @@
-pragma solidity ^0.4.26;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -49,7 +49,6 @@ library SafeMath {
 
 // File: contracts/Ownable.sol
 
-pragma solidity ^0.4.26;
 
 
 /**
@@ -98,7 +97,6 @@ contract Ownable {
 
 // File: contracts/Gather_coin.sol
 
-pragma solidity ^0.4.26;
 
 
 

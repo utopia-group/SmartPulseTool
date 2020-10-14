@@ -1,5 +1,5 @@
-// Address.sol
 pragma solidity ^0.5.0;
+
 
 /**
  * @title LOAPROTOCOL
@@ -36,11 +36,139 @@ library Address {
     }
 }
 
-// ERC20.sol
-pragma solidity ^0.5.0;
 
-import "./IERC20.sol";
-import "./SafeMath.sol";
+/**
+ * @title LOAPROTOCOL
+
+ */
+interface IERC20 {
+    function transfer(address to, uint256 value) external returns (bool);
+
+    function approve(address spender, uint256 value) external returns (bool);
+
+    function transferFrom(address from, address to, uint256 value) external returns (bool);
+
+    function totalSupply() external view returns (uint256);
+
+    function balanceOf(address who) external view returns (uint256);
+
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+
+
+library SafeMath {
+
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a, "SafeMath: addition overflow");
+
+        return c;
+    }
+
+
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b <= a, "SafeMath: subtraction overflow");
+        uint256 c = a - b;
+
+        return c;
+    }
+
+
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b, "SafeMath: multiplication overflow");
+
+        return c;
+    }
+
+
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        require(b > 0, "SafeMath: division by zero");
+        uint256 c = a / b;
+
+
+        return c;
+    }
+
+
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b != 0, "SafeMath: modulo by zero");
+        return a % b;
+    }
+}
+
+
+/**
+ * @title LOAPROTOCOL
+
+ */
+library SafeERC20 {
+    using SafeMath for uint256;
+    using Address for address;
+
+    function safeTransfer(IERC20 token, address to, uint256 value) internal {
+        callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));
+    }
+
+    function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {
+        callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));
+    }
+
+    function safeApprove(IERC20 token, address spender, uint256 value) internal {
+        // safeApprove should only be called when setting an initial allowance,
+        // or when resetting it to zero. To increase and decrease it, use
+        // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'
+        // solhint-disable-next-line max-line-length
+        require((value == 0) || (token.allowance(address(this), spender) == 0),
+            "SafeERC20: approve from non-zero to non-zero allowance"
+        );
+        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));
+    }
+
+    function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {
+        uint256 newAllowance = token.allowance(address(this), spender).add(value);
+        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
+    }
+
+    function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {
+        uint256 newAllowance = token.allowance(address(this), spender).sub(value);
+        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
+    }
+
+
+    function callOptionalReturn(IERC20 token, bytes memory data) private {
+        // We need to perform a low level call here, to bypass Solidity's return data size checking mechanism, since
+        // we're implementing it ourselves.
+
+        // A Solidity high level call has three parts:
+        //  1. The target address is checked to verify it contains contract code
+        //  2. The call itself is made, and success asserted
+        //  3. The return value is decoded, which in turn checks the size of the returned data.
+        // solhint-disable-next-line max-line-length
+        require(address(token).isContract(), "SafeERC20: call to non-contract");
+
+        // solhint-disable-next-line avoid-low-level-calls
+        (bool success, bytes memory returndata) = address(token).call(data);
+        require(success, "SafeERC20: low-level call failed");
+
+        if (returndata.length > 0) { // Return data is optional
+            // solhint-disable-next-line max-line-length
+            require(abi.decode(returndata, (bool)), "SafeERC20: ERC20 operation did not succeed");
+        }
+    }
+}
+
 
 /**
  * @title LOAPROTOCOL
@@ -145,30 +273,6 @@ contract ERC20 is IERC20 {
     }
 }
 
-// ERC20Burnable.sol
-pragma solidity ^0.5.0;
-
-import "./ERC20.sol";
-
-/**
- * @title LOAPROTOCOL
-
- */
-contract ERC20Burnable is ERC20 {
-
-    function burn(uint256 value) public {
-        _burn(msg.sender, value);
-    }
-
-    function burnFrom(address from, uint256 value) public {
-        _burnFrom(from, value);
-    }
-}
-
-// ERC20Detailed.sol
-pragma solidity ^0.5.0;
-
-import "./IERC20.sol";
 
 /**
  * @title LOAPROTOCOL
@@ -201,172 +305,23 @@ contract ERC20Detailed is IERC20 {
     }
 }
 
-// IERC20.sol
-pragma solidity ^0.5.0;
+
 
 /**
  * @title LOAPROTOCOL
 
  */
-interface IERC20 {
-    function transfer(address to, uint256 value) external returns (bool);
+contract ERC20Burnable is ERC20 {
 
-    function approve(address spender, uint256 value) external returns (bool);
+    function burn(uint256 value) public {
+        _burn(msg.sender, value);
+    }
 
-    function transferFrom(address from, address to, uint256 value) external returns (bool);
-
-    function totalSupply() external view returns (uint256);
-
-    function balanceOf(address who) external view returns (uint256);
-
-    function allowance(address owner, address spender) external view returns (uint256);
-
-    event Transfer(address indexed from, address indexed to, uint256 value);
-
-    event Approval(address indexed owner, address indexed spender, uint256 value);
-}
-
-// LOAPROTOCOL.sol
-pragma solidity ^0.5.0;
-
-import "./ERC20.sol";
-import "./ERC20Detailed.sol";
-import "./ERC20Burnable.sol";
-import "./TokenTimelock.sol";
-/**
- * @title LOAPROTOCOL
-
- */
-contract LOAPROTOCOL is ERC20, ERC20Detailed,ERC20Burnable {
-
-
-    constructor () public ERC20Detailed("LOAPROTOCOL", "LOA", 18) {
-        _mint(msg.sender, 2000000000 * (10 ** uint256(decimals())));
+    function burnFrom(address from, uint256 value) public {
+        _burnFrom(from, value);
     }
 }
 
-// SafeERC20.sol
-pragma solidity ^0.5.0;
-
-import "./IERC20.sol";
-import "./SafeMath.sol";
-import "./Address.sol";
-
-/**
- * @title LOAPROTOCOL
-
- */
-library SafeERC20 {
-    using SafeMath for uint256;
-    using Address for address;
-
-    function safeTransfer(IERC20 token, address to, uint256 value) internal {
-        callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));
-    }
-
-    function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {
-        callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));
-    }
-
-    function safeApprove(IERC20 token, address spender, uint256 value) internal {
-        // safeApprove should only be called when setting an initial allowance,
-        // or when resetting it to zero. To increase and decrease it, use
-        // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'
-        // solhint-disable-next-line max-line-length
-        require((value == 0) || (token.allowance(address(this), spender) == 0),
-            "SafeERC20: approve from non-zero to non-zero allowance"
-        );
-        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));
-    }
-
-    function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {
-        uint256 newAllowance = token.allowance(address(this), spender).add(value);
-        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
-    }
-
-    function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {
-        uint256 newAllowance = token.allowance(address(this), spender).sub(value);
-        callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
-    }
-
-
-    function callOptionalReturn(IERC20 token, bytes memory data) private {
-        // We need to perform a low level call here, to bypass Solidity's return data size checking mechanism, since
-        // we're implementing it ourselves.
-
-        // A Solidity high level call has three parts:
-        //  1. The target address is checked to verify it contains contract code
-        //  2. The call itself is made, and success asserted
-        //  3. The return value is decoded, which in turn checks the size of the returned data.
-        // solhint-disable-next-line max-line-length
-        require(address(token).isContract(), "SafeERC20: call to non-contract");
-
-        // solhint-disable-next-line avoid-low-level-calls
-        (bool success, bytes memory returndata) = address(token).call(data);
-        require(success, "SafeERC20: low-level call failed");
-
-        if (returndata.length > 0) { // Return data is optional
-            // solhint-disable-next-line max-line-length
-            require(abi.decode(returndata, (bool)), "SafeERC20: ERC20 operation did not succeed");
-        }
-    }
-}
-
-// SafeMath.sol
-pragma solidity ^0.5.0;
-
-
-library SafeMath {
-
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-        uint256 c = a + b;
-        require(c >= a, "SafeMath: addition overflow");
-
-        return c;
-    }
-
-
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b <= a, "SafeMath: subtraction overflow");
-        uint256 c = a - b;
-
-        return c;
-    }
-
-
-    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-
-        if (a == 0) {
-            return 0;
-        }
-
-        uint256 c = a * b;
-        require(c / a == b, "SafeMath: multiplication overflow");
-
-        return c;
-    }
-
-
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-
-        require(b > 0, "SafeMath: division by zero");
-        uint256 c = a / b;
-
-
-        return c;
-    }
-
-
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b != 0, "SafeMath: modulo by zero");
-        return a % b;
-    }
-}
-
-// TokenTimelock.sol
-pragma solidity ^0.5.0;
-
-import "./SafeERC20.sol";
 
 /**
  * @title LOAPROTOCOL
@@ -424,6 +379,19 @@ contract TokenTimelock {
         require(amount > 0, "TokenTimelock: no tokens to release");
 
         _token.safeTransfer(_beneficiary, amount);
+    }
+}
+
+
+/**
+ * @title LOAPROTOCOL
+
+ */
+contract LOAPROTOCOL is ERC20, ERC20Detailed,ERC20Burnable {
+
+
+    constructor () public ERC20Detailed("LOAPROTOCOL", "LOA", 18) {
+        _mint(msg.sender, 2000000000 * (10 ** uint256(decimals())));
     }
 }
 

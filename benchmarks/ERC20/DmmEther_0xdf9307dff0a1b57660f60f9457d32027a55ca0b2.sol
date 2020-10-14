@@ -1493,7 +1493,7 @@ contract ERC20 is Context, IERC20, ReentrancyGuard, Ownable {
      *
      * @param account The address to check
     */
-    modifier notBlacklisted(address account) {
+    modifier notBlacklistableBlacklisted(address account) {
         require(Blacklistable(blacklistable()).isBlacklisted(account) == false, "BLACKLISTED");
         _;
     }
@@ -1601,8 +1601,8 @@ contract ERC20 is Context, IERC20, ReentrancyGuard, Ownable {
         address spender,
         uint256 addedValue
     )
-    notBlacklisted(_msgSender())
-    notBlacklisted(spender)
+    notBlacklistableBlacklisted(_msgSender())
+    notBlacklistableBlacklisted(spender)
     public returns (bool) {
         _approve(_msgSender(), spender, _allowances[_msgSender()][spender].add(addedValue));
         return true;
@@ -1626,8 +1626,8 @@ contract ERC20 is Context, IERC20, ReentrancyGuard, Ownable {
         address spender,
         uint256 subtractedValue
     )
-    notBlacklisted(_msgSender())
-    notBlacklisted(spender)
+    notBlacklistableBlacklisted(_msgSender())
+    notBlacklistableBlacklisted(spender)
     public returns (bool) {
         _approve(_msgSender(), spender, _allowances[_msgSender()][spender].sub(subtractedValue, "ALLOWANCE_BELOW_ZERO"));
         return true;

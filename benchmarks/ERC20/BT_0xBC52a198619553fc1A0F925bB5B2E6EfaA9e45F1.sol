@@ -1,32 +1,76 @@
-// BPToken.sol
-pragma solidity >= 0.5.0;
+pragma solidity ^0.5.0;
 
-import "./ERC20.sol";
+interface IERC20 {
+    function totalSupply() external view returns (uint256);
 
-contract BT is ERC20{
+    function balanceOf(address who) external view returns (uint256);
 
-    string  public constant  name = "Blockchain Password Token";
-    string  public constant  symbol = "BT";
-    uint8   public constant  decimals = 18;
-    uint256 public constant INITIAL_SUPPLY = 1e8 * (10 ** uint256(decimals));
+    function allowance(address owner, address spender)
+    external view returns (uint256);
 
-    constructor() public{
-        _mint(msg.sender, INITIAL_SUPPLY);
+    function transfer(address to, uint256 value) external returns (bool);
+
+    function approve(address spender, uint256 value)
+    external returns (bool);
+
+    function transferFrom(address from, address to, uint256 value)
+    external returns (bool);
+
+    event Transfer(
+        address indexed from,
+        address indexed to,
+        uint256 value
+    );
+
+    event Approval(
+        address indexed owner,
+        address indexed spender,
+        uint256 value
+    );
+}
+
+library SafeMath {
+
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b);
+
+        return c;
     }
 
-    function burn(uint amount) external{
-        _burn(msg.sender, amount);
+
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b > 0); // Solidity only automatically asserts when dividing by 0
+        uint256 c = a / b;
+
+        return c;
     }
 
-    function burnFrom(address account, uint amount) external{
-        _burnFrom(account, amount);
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b <= a);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a);
+
+        return c;
+    }
+
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b != 0);
+        return a % b;
     }
 }
-// ERC20.sol
-pragma solidity >= 0.5.0;
 
-import "./IERC20.sol";
-import "./safemath.sol";
 
 contract ERC20 is IERC20 {
     using SafeMath for uint256;
@@ -221,79 +265,23 @@ contract ERC20 is IERC20 {
         _burn(account, amount);
     }
 }
-// IERC20.sol
-pragma solidity >= 0.5.0;
 
-interface IERC20 {
-    function totalSupply() external view returns (uint256);
+contract BT is ERC20{
 
-    function balanceOf(address who) external view returns (uint256);
+    string  public constant  name = "Blockchain Password Token";
+    string  public constant  symbol = "BT";
+    uint8   public constant  decimals = 18;
+    uint256 public constant INITIAL_SUPPLY = 1e8 * (10 ** uint256(decimals));
 
-    function allowance(address owner, address spender)
-    external view returns (uint256);
-
-    function transfer(address to, uint256 value) external returns (bool);
-
-    function approve(address spender, uint256 value)
-    external returns (bool);
-
-    function transferFrom(address from, address to, uint256 value)
-    external returns (bool);
-
-    event Transfer(
-        address indexed from,
-        address indexed to,
-        uint256 value
-    );
-
-    event Approval(
-        address indexed owner,
-        address indexed spender,
-        uint256 value
-    );
-}
-// safemath.sol
-pragma solidity >=0.4.24;
-
-library SafeMath {
-
-    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-
-        if (a == 0) {
-            return 0;
-        }
-
-        uint256 c = a * b;
-        require(c / a == b);
-
-        return c;
+    constructor() public{
+        _mint(msg.sender, INITIAL_SUPPLY);
     }
 
-
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b > 0); // Solidity only automatically asserts when dividing by 0
-        uint256 c = a / b;
-
-        return c;
+    function burn(uint amount) external{
+        _burn(msg.sender, amount);
     }
 
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b <= a);
-        uint256 c = a - b;
-
-        return c;
-    }
-
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-        uint256 c = a + b;
-        require(c >= a);
-
-        return c;
-    }
-
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b != 0);
-        return a % b;
+    function burnFrom(address account, uint amount) external{
+        _burnFrom(account, amount);
     }
 }
-

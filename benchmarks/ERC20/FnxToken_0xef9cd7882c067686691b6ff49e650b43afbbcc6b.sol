@@ -1,4 +1,4 @@
-pragma solidity 0.4.24;
+pragma solidity ^0.5.0;
 
 /**
  * @title ERC20 interface
@@ -444,17 +444,17 @@ contract FnxToken is Owned, ERC20{
      * EXTERNAL FUNCTION
      *
      * @dev change token name
-     * @param name token name
-     * @param symbol token symbol
+     * @param newName token name
+     * @param newSymbol token symbol
      *
      */
-    function changeTokenName(string memory name, string memory symbol)
+    function changeTokenName(string memory newName, string memory newSymbol)
         public
         onlyOwner
     {
         //check parameter in ico minter contract
-        _name = name;
-        _symbol = symbol;
+        _name = newName;
+        _symbol = newSymbol;
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing

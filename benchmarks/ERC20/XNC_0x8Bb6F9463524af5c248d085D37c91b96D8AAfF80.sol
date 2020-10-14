@@ -1,223 +1,54 @@
-// BasicToken.sol
-pragma solidity ^0.4.24;
-
-
-import "./ERC20Basic.sol";
-import "./SafeMath.sol";
-
+pragma solidity ^0.5.0;
 
 /**
- * @title Basic token
- * @dev Basic version of StandardToken, with no allowances.
+ * @title SafeMath
+ * @dev Math operations with safety checks that throw on error
  */
-contract BasicToken is ERC20Basic {
-  using SafeMath for uint256;
-
-  mapping(address => uint256) internal balances;
-
-  uint256 internal totalSupply_;
+library SafeMath {
 
   /**
-  * @dev Total number of tokens in existence
+  * @dev Multiplies two numbers, throws on overflow.
   */
-  function totalSupply() public view returns (uint256) {
-    return totalSupply_;
-  }
-
-  /**
-  * @dev Transfer token for a specified address
-  * @param _to The address to transfer to.
-  * @param _value The amount to be transferred.
-  */
-  function transfer(address _to, uint256 _value) public returns (bool) {
-    require(_value <= balances[msg.sender]);
-    require(_to != address(0));
-
-    balances[msg.sender] = balances[msg.sender].sub(_value);
-    balances[_to] = balances[_to].add(_value);
-    emit Transfer(msg.sender, _to, _value);
-    return true;
-  }
-
-  /**
-  * @dev Gets the balance of the specified address.
-  * @param _owner The address to query the the balance of.
-  * @return An uint256 representing the amount owned by the passed address.
-  */
-  function balanceOf(address _owner) public view returns (uint256) {
-    return balances[_owner];
-  }
-
-}
-
-// CappedToken.sol
-pragma solidity ^0.4.24;
-
-import "./MintableToken.sol";
-
-
-/**
- * @title Capped token
- * @dev Mintable token with a token cap.
- */
-contract CappedToken is MintableToken {
-
-  uint256 public cap;
-
-  constructor(uint256 _cap) public {
-    require(_cap > 0);
-    cap = _cap;
-  }
-
-  /**
-   * @dev Function to mint tokens
-   * @param _to The address that will receive the minted tokens.
-   * @param _amount The amount of tokens to mint.
-   * @return A boolean that indicates if the operation was successful.
-   */
-  function mint(
-    address _to,
-    uint256 _amount
-  )
-    public
-    returns (bool)
-  {
-    require(totalSupply_.add(_amount) <= cap);
-
-    return super.mint(_to, _amount);
-  }
-
-}
-
-// CapToken.sol
-pragma solidity ^0.4.24;
-
-import "./MintableToken.sol";
-import "./CappedToken.sol";
-
-contract XNC is CappedToken {
- 
-    string public name = "Xian Coin";
-    string public symbol = "XNC";
-    uint8 public decimals = 18;
-
-    constructor(
-        uint256 _cap
-        )
-        public
-        CappedToken( _cap ) {
+  function mul(uint256 _a, uint256 _b) internal pure returns (uint256 c) {
+    // Gas optimization: this is cheaper than asserting 'a' not being zero, but the
+    // benefit is lost if 'b' is also tested.
+    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+    if (_a == 0) {
+      return 0;
     }
-}
 
-
-
-
-
-// ERC20.sol
-pragma solidity ^0.4.24;
-
-import "./ERC20Basic.sol";
-
-
-/**
- * @title ERC20 interface
- * @dev see https://github.com/ethereum/EIPs/issues/20
- */
-contract ERC20 is ERC20Basic {
-  function allowance(address _owner, address _spender)
-    public view returns (uint256);
-
-  function transferFrom(address _from, address _to, uint256 _value)
-    public returns (bool);
-
-  function approve(address _spender, uint256 _value) public returns (bool);
-  event Approval(
-    address indexed owner,
-    address indexed spender,
-    uint256 value
-  );
-}
-
-// ERC20Basic.sol
-pragma solidity ^0.4.24;
-
-
-/**
- * @title ERC20Basic
- * @dev Simpler version of ERC20 interface
- * See https://github.com/ethereum/EIPs/issues/179
- */
-contract ERC20Basic {
-  function totalSupply() public view returns (uint256);
-  function balanceOf(address _who) public view returns (uint256);
-  function transfer(address _to, uint256 _value) public returns (bool);
-  event Transfer(address indexed from, address indexed to, uint256 value);
-}
-
-// MintableToken.sol
-pragma solidity ^0.4.24;
-
-import "./StandardToken.sol";
-import "./Ownable.sol";
-
-
-/**
- * @title Mintable token
- * @dev Simple ERC20 Token example, with mintable token creation
- * Based on code by TokenMarketNet: https://github.com/TokenMarketNet/ico/blob/master/contracts/MintableToken.sol
- */
-contract MintableToken is StandardToken, Ownable {
-  event Mint(address indexed to, uint256 amount);
-  event MintFinished();
-
-  bool public mintingFinished = false;
-
-
-  modifier canMint() {
-    require(!mintingFinished);
-    _;
-  }
-
-  modifier hasMintPermission() {
-    require(msg.sender == owner);
-    _;
+    c = _a * _b;
+    assert(c / _a == _b);
+    return c;
   }
 
   /**
-   * @dev Function to mint tokens
-   * @param _to The address that will receive the minted tokens.
-   * @param _amount The amount of tokens to mint.
-   * @return A boolean that indicates if the operation was successful.
-   */
-  function mint(
-    address _to,
-    uint256 _amount
-  )
-    public
-    hasMintPermission
-    canMint
-    returns (bool)
-  {
-    totalSupply_ = totalSupply_.add(_amount);
-    balances[_to] = balances[_to].add(_amount);
-    emit Mint(_to, _amount);
-    emit Transfer(address(0), _to, _amount);
-    return true;
+  * @dev Integer division of two numbers, truncating the quotient.
+  */
+  function div(uint256 _a, uint256 _b) internal pure returns (uint256) {
+    // assert(_b > 0); // Solidity automatically throws when dividing by 0
+    // uint256 c = _a / _b;
+    // assert(_a == _b * c + _a % _b); // There is no case in which this doesn't hold
+    return _a / _b;
   }
 
   /**
-   * @dev Function to stop minting new tokens.
-   * @return True if the operation was successful.
-   */
-  function finishMinting() public onlyOwner canMint returns (bool) {
-    mintingFinished = true;
-    emit MintFinished();
-    return true;
+  * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 _a, uint256 _b) internal pure returns (uint256) {
+    assert(_b <= _a);
+    return _a - _b;
+  }
+
+  /**
+  * @dev Adds two numbers, throws on overflow.
+  */
+  function add(uint256 _a, uint256 _b) internal pure returns (uint256 c) {
+    c = _a + _b;
+    assert(c >= _a);
+    return c;
   }
 }
-
-// Ownable.sol
-pragma solidity ^0.4.24;
 
 
 /**
@@ -282,65 +113,82 @@ contract Ownable {
   }
 }
 
-// SafeMath.sol
-pragma solidity ^0.4.24;
+
+/**
+ * @title ERC20Basic
+ * @dev Simpler version of ERC20 interface
+ * See https://github.com/ethereum/EIPs/issues/179
+ */
+contract ERC20Basic {
+  function totalSupply() public view returns (uint256);
+  function balanceOf(address _who) public view returns (uint256);
+  function transfer(address _to, uint256 _value) public returns (bool);
+  event Transfer(address indexed from, address indexed to, uint256 value);
+}
 
 
 /**
- * @title SafeMath
- * @dev Math operations with safety checks that throw on error
+ * @title ERC20 interface
+ * @dev see https://github.com/ethereum/EIPs/issues/20
  */
-library SafeMath {
+contract ERC20 is ERC20Basic {
+  function allowance(address _owner, address _spender)
+    public view returns (uint256);
 
-  /**
-  * @dev Multiplies two numbers, throws on overflow.
-  */
-  function mul(uint256 _a, uint256 _b) internal pure returns (uint256 c) {
-    // Gas optimization: this is cheaper than asserting 'a' not being zero, but the
-    // benefit is lost if 'b' is also tested.
-    // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
-    if (_a == 0) {
-      return 0;
-    }
+  function transferFrom(address _from, address _to, uint256 _value)
+    public returns (bool);
 
-    c = _a * _b;
-    assert(c / _a == _b);
-    return c;
-  }
-
-  /**
-  * @dev Integer division of two numbers, truncating the quotient.
-  */
-  function div(uint256 _a, uint256 _b) internal pure returns (uint256) {
-    // assert(_b > 0); // Solidity automatically throws when dividing by 0
-    // uint256 c = _a / _b;
-    // assert(_a == _b * c + _a % _b); // There is no case in which this doesn't hold
-    return _a / _b;
-  }
-
-  /**
-  * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
-  */
-  function sub(uint256 _a, uint256 _b) internal pure returns (uint256) {
-    assert(_b <= _a);
-    return _a - _b;
-  }
-
-  /**
-  * @dev Adds two numbers, throws on overflow.
-  */
-  function add(uint256 _a, uint256 _b) internal pure returns (uint256 c) {
-    c = _a + _b;
-    assert(c >= _a);
-    return c;
-  }
+  function approve(address _spender, uint256 _value) public returns (bool);
+  event Approval(
+    address indexed owner,
+    address indexed spender,
+    uint256 value
+  );
 }
 
-// StandardToken.sol
-pragma solidity ^0.4.24;
+/**
+ * @title Basic token
+ * @dev Basic version of StandardToken, with no allowances.
+ */
+contract BasicToken is ERC20Basic {
+  using SafeMath for uint256;
 
-import "./BasicToken.sol";
-import "./ERC20.sol";
+  mapping(address => uint256) internal balances;
+
+  uint256 internal totalSupply_;
+
+  /**
+  * @dev Total number of tokens in existence
+  */
+  function totalSupply() public view returns (uint256) {
+    return totalSupply_;
+  }
+
+  /**
+  * @dev Transfer token for a specified address
+  * @param _to The address to transfer to.
+  * @param _value The amount to be transferred.
+  */
+  function transfer(address _to, uint256 _value) public returns (bool) {
+    require(_value <= balances[msg.sender]);
+    require(_to != address(0));
+
+    balances[msg.sender] = balances[msg.sender].sub(_value);
+    balances[_to] = balances[_to].add(_value);
+    emit Transfer(msg.sender, _to, _value);
+    return true;
+  }
+
+  /**
+  * @dev Gets the balance of the specified address.
+  * @param _owner The address to query the the balance of.
+  * @return An uint256 representing the amount owned by the passed address.
+  */
+  function balanceOf(address _owner) public view returns (uint256) {
+    return balances[_owner];
+  }
+
+}
 
 
 /**
@@ -461,4 +309,113 @@ contract StandardToken is ERC20, BasicToken {
   }
 
 }
+
+
+/**
+ * @title Mintable token
+ * @dev Simple ERC20 Token example, with mintable token creation
+ * Based on code by TokenMarketNet: https://github.com/TokenMarketNet/ico/blob/master/contracts/MintableToken.sol
+ */
+contract MintableToken is StandardToken, Ownable {
+  event Mint(address indexed to, uint256 amount);
+  event MintFinished();
+
+  bool public mintingFinished = false;
+
+
+  modifier canMint() {
+    require(!mintingFinished);
+    _;
+  }
+
+  modifier hasMintPermission() {
+    require(msg.sender == owner);
+    _;
+  }
+
+  /**
+   * @dev Function to mint tokens
+   * @param _to The address that will receive the minted tokens.
+   * @param _amount The amount of tokens to mint.
+   * @return A boolean that indicates if the operation was successful.
+   */
+  function mint(
+    address _to,
+    uint256 _amount
+  )
+    public
+    hasMintPermission
+    canMint
+    returns (bool)
+  {
+    totalSupply_ = totalSupply_.add(_amount);
+    balances[_to] = balances[_to].add(_amount);
+    emit Mint(_to, _amount);
+    emit Transfer(address(0), _to, _amount);
+    return true;
+  }
+
+  /**
+   * @dev Function to stop minting new tokens.
+   * @return True if the operation was successful.
+   */
+  function finishMinting() public onlyOwner canMint returns (bool) {
+    mintingFinished = true;
+    emit MintFinished();
+    return true;
+  }
+}
+
+
+/**
+ * @title Capped token
+ * @dev Mintable token with a token cap.
+ */
+contract CappedToken is MintableToken {
+
+  uint256 public cap;
+
+  constructor(uint256 _cap) public {
+    require(_cap > 0);
+    cap = _cap;
+  }
+
+  /**
+   * @dev Function to mint tokens
+   * @param _to The address that will receive the minted tokens.
+   * @param _amount The amount of tokens to mint.
+   * @return A boolean that indicates if the operation was successful.
+   */
+  function mint(
+    address _to,
+    uint256 _amount
+  )
+    public
+    returns (bool)
+  {
+    require(totalSupply_.add(_amount) <= cap);
+
+    return super.mint(_to, _amount);
+  }
+
+}
+
+
+contract XNC is CappedToken {
+ 
+    string public name = "Xian Coin";
+    string public symbol = "XNC";
+    uint8 public decimals = 18;
+
+    constructor(
+        uint256 _cap
+        )
+        public
+        CappedToken( _cap ) {
+    }
+}
+
+
+
+
 

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 /**
  * @title SafeMath of GMC
@@ -56,7 +56,7 @@ contract owned {
     }
 }
 
-interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) external; }
+interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes calldata _extraData) external; }
 
 contract TokenERC20 is owned{
     using SafeMath for uint256;
@@ -76,8 +76,8 @@ contract TokenERC20 is owned{
     
     constructor(
         uint256 initialSupply,
-        string tokenName,
-        string tokenSymbol
+        string memory tokenName,
+        string memory tokenSymbol
     ) public {
         totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
         balanceOf[msg.sender] = 0;                // Give the creator all initial tokens
@@ -108,18 +108,18 @@ contract TokenERC20 is owned{
         return true;
     }
     
-    function approveAndCall(address _spender, uint256 _value, bytes _extraData)
+    function approveAndCall(address _spender, uint256 _value, bytes memory _extraData)
         public onlyReleased
         returns (bool success) {
         tokenRecipient spender = tokenRecipient(_spender);
         if (approve(_spender, _value)) {
-            spender.receiveApproval(msg.sender, _value, this, _extraData);
+            spender.receiveApproval(msg.sender, _value, address(this), _extraData);
             return true;
         }
     }
 
     function _transfer(address _from, address _to, uint _value) internal onlyReleased {
-        require(_to != 0x0);
+        require(_to != address(0x0));
         require(balanceOf[_from] >= _value);
         require(balanceOf[_to] + _value > balanceOf[_to]);
         uint previousBalances = balanceOf[_from].add(balanceOf[_to]);
@@ -183,14 +183,14 @@ contract GMC is owned, TokenERC20 {
     /* Initializes contract with initial supply tokens to the creator of the contract */
     constructor(
         uint256 initialSupply,
-        string tokenName,
-        string tokenSymbol
+        string memory tokenName,
+        string memory tokenSymbol
     ) TokenERC20(initialSupply, tokenName, tokenSymbol) public {
     }
 
       /* Internal transfer, only can be called by this contract */
       function _transfer(address _from, address _to, uint _value) internal onlyReleased {
-        require (_to != 0x0);                               // Prevent transfer to 0x0 address. Use burn() instead
+        require (_to != address(0x0));                               // Prevent transfer to 0x0 address. Use burn() instead
         require (balanceOf[_from] >= _value);               // Check if the sender has enough
         require (balanceOf[_to] + _value >= balanceOf[_to]); // Check for overflows
         require(!frozenAccount[_from]);                     // Check if sender is frozen
@@ -214,8 +214,8 @@ contract GMC is owned, TokenERC20 {
         require (mintedAmount > 0);
         totalSupply = totalSupply.add(mintedAmount);
         balanceOf[target] = balanceOf[target].add(mintedAmount);
-        emit Transfer(0, this, mintedAmount);
-        emit Transfer(this, target, mintedAmount);
+        emit Transfer(address(0), address(this), mintedAmount);
+        emit Transfer(address(this), target, mintedAmount);
     }
 
 

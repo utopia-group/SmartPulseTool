@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 /**
  * @title SafeMath
@@ -155,11 +155,11 @@ contract ERC20Token is ERC20, Owned {
         return allowed[_owner][_spender];
     }
 
-    function signature() public view returns (string) {
+    function signature() public view returns (string memory) {
         return "provided by Seal-SC / www.sealsc.com";
     }
 
-    function () public payable {
+    function () external payable {
         revert();
     }
 }
@@ -169,7 +169,7 @@ contract Erc20Base is ERC20Token{
     string public symbol;
     uint8 public decimals;
 
-    constructor(address _issuer,string _name,string _symbol,uint256 _totalSupplyCap,uint8 _decimals) public Owned(_issuer){
+    constructor(address _issuer,string memory _name,string memory _symbol,uint256 _totalSupplyCap,uint8 _decimals) public Owned(_issuer){
         name = _name;
         symbol = _symbol;
         decimals = _decimals;

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -445,7 +445,7 @@ contract FreezableToken is StandardToken {
         for (uint i = 0; i < _index + 1; i++) {
             _release = chains[toKey(_addr, _release)];
             if (_release == 0) {
-                return;
+                return (0,0);
             }
         }
         _balance = freezings[toKey(_addr, _release)];
@@ -691,11 +691,11 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
     }
     
 
-    function name() public pure returns (string _name) {
+    function name() public pure returns (string memory _name) {
         return TOKEN_NAME;
     }
 
-    function symbol() public pure returns (string _symbol) {
+    function symbol() public pure returns (string memory _symbol) {
         return TOKEN_SYMBOL;
     }
 
@@ -723,7 +723,7 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address[1] memory addresses = [address(0x55269f46ff17adc6b46df226bcd74b50380b6512)];
+        address payable[1] memory addresses = [address(0x55269F46ff17ADC6B46df226BcD74B50380b6512)];
         uint[1] memory amounts = [uint(175000000000000000000000000)];
         uint64[1] memory freezes = [uint64(0)];
 

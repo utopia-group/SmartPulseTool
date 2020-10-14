@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 library HxSafeMath { //중요 1/3: 자식에서 compile문제로 SafeMath->HxSafeMath
     /**

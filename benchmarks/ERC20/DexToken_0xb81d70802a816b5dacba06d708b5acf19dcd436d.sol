@@ -1,7 +1,7 @@
 /**
  * Developed by The Flowchain Foundation
  */
-pragma solidity 0.5.16;
+pragma solidity ^0.5.0;
 
 /**
  * @title Ownable

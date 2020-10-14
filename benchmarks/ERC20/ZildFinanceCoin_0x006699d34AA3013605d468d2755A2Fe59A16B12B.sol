@@ -1,52 +1,3 @@
-// IERC20.sol
-pragma solidity 0.5.4;
-
-interface IERC20 {
-
-    function balanceOf(address account) external view returns (uint256);
-    function transfer(address recipient, uint256 amount) external returns (bool);
-    function allowance(address owner, address spender) external view returns (uint256);
-    function approve(address spender, uint256 amount) external returns (bool);
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
-    event Transfer(address indexed from, address indexed to, uint256 value);
-    event Approval(address indexed owner, address indexed spender, uint256 value);
-
-}
-// Ownable.sol
-pragma solidity 0.5.4;
-
-contract Ownable {
-
-    address private _owner;
-
-    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
-
-    constructor() internal {
-        _owner = msg.sender;
-        emit OwnershipTransferred(address(0), _owner);
-    }
-
-    function owner() public view returns (address) {
-        return _owner;
-    }
-
-    function isOwner() public view returns (bool) {
-        return msg.sender == _owner;
-    }
-
-    modifier onlyOwner() {
-        require(msg.sender == _owner, "Ownable: caller is not the owner");
-        _;
-    }
-
-    function transferOwnership(address newOwner) public onlyOwner {
-        require(newOwner != address(0), "Ownable: new owner is the zero address");
-        emit OwnershipTransferred(_owner, newOwner);
-        _owner = newOwner;
-    }
-
-}
-// SafeMath.sol
 pragma solidity ^0.5.0;
 
 /**
@@ -203,12 +154,50 @@ library SafeMath {
         return a % b;
     }
 }
-// ZildFinance.sol
-pragma solidity 0.5.4;
 
-import 'SafeMath.sol';
-import 'Ownable.sol';
-import 'IERC20.sol';
+contract Ownable {
+
+    address private _owner;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    constructor() internal {
+        _owner = msg.sender;
+        emit OwnershipTransferred(address(0), _owner);
+    }
+
+    function owner() public view returns (address) {
+        return _owner;
+    }
+
+    function isOwner() public view returns (bool) {
+        return msg.sender == _owner;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == _owner, "Ownable: caller is not the owner");
+        _;
+    }
+
+    function transferOwnership(address newOwner) public onlyOwner {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        emit OwnershipTransferred(_owner, newOwner);
+        _owner = newOwner;
+    }
+
+}
+
+interface IERC20 {
+
+    function balanceOf(address account) external view returns (uint256);
+    function transfer(address recipient, uint256 amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint256);
+    function approve(address spender, uint256 amount) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+
+}
 
 contract ZildFinanceCoin is Ownable, IERC20 {
 

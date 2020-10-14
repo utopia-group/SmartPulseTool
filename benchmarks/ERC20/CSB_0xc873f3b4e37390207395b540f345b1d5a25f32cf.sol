@@ -1,4 +1,4 @@
-pragma solidity ^0.4.21;
+pragma solidity ^0.5.0;
 
 
 contract CSBInterface {
@@ -65,9 +65,9 @@ contract CSB is CSBInterface {
 
     constructor(
         uint256 _initialAmount,
-        string _tokenName,
+        string memory _tokenName,
         uint8 _decimalUnits,
-        string _tokenSymbol
+        string memory _tokenSymbol
     ) public {
         balances[msg.sender] = _initialAmount;               // Give the creator all initial tokens
         totalSupply = _initialAmount;                        // Update total supply

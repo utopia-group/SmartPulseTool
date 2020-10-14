@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2018-10-04
 */
 
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 // produced by the Solididy File Flattener (c) David Appleton 2018
 // contact : dave@akomba.com
 // released under Apache 2.0 licence
@@ -173,7 +173,7 @@ contract DetailedERC20 is ERC20 {
   string public symbol;
   uint8 public decimals;
 
-  constructor(string _name, string _symbol, uint8 _decimals) public {
+  constructor(string memory _name, string memory _symbol, uint8 _decimals) public {
     name = _name;
     symbol = _symbol;
     decimals = _decimals;
@@ -626,7 +626,7 @@ contract TONToken is BurnableToken, MintableToken, WhitelistedPausableToken, Det
         address _spender,
         uint256 _value,
         bytes4 _selector,
-        bytes _callParams
+        bytes memory _callParams
     )
         public
         payable
@@ -639,7 +639,8 @@ contract TONToken is BurnableToken, MintableToken, WhitelistedPausableToken, Det
 
         bytes memory callData = abi.encodePacked(_selector, uint256(msg.sender), _callParams);
         // solium-disable-next-line security/no-call-value
-        require(_spender.call.value(msg.value)(callData), "proxied call failed");
+        (bool success, ) = _spender.call.value(msg.value)(callData);
+        require(success, "proxied call failed");
         return true;
     }
 }

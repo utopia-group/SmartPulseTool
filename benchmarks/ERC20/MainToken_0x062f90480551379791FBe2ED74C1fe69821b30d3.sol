@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -445,7 +445,7 @@ contract FreezableToken is StandardToken {
         for (uint i = 0; i < _index + 1; i++) {
             _release = chains[toKey(_addr, _release)];
             if (_release == 0) {
-                return;
+                return (0,0);
             }
         }
         _balance = freezings[toKey(_addr, _release)];
@@ -670,7 +670,7 @@ contract Consts {
     string public constant TOKEN_NAME = "YMAX";
     string public constant TOKEN_SYMBOL = "YMAX";
     bool public constant PAUSED = false;
-    address public constant TARGET_USER = 0xa175eb5cccafb0719268e69e63617b0915466af2;
+    address public constant TARGET_USER = 0xA175eB5CCcAfB0719268e69E63617B0915466af2;
     
     bool public constant CONTINUE_MINTING = false;
 }
@@ -691,11 +691,11 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
     }
     
 
-    function name() public pure returns (string _name) {
+    function name() public pure returns (string memory _name) {
         return TOKEN_NAME;
     }
 
-    function symbol() public pure returns (string _symbol) {
+    function symbol() public pure returns (string memory _symbol) {
         return TOKEN_SYMBOL;
     }
 
@@ -723,7 +723,7 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address[5] memory addresses = [address(0xaba494aadacf77788d277d8e7391e4e23b7a081e),address(0x7a1ee961d743cba36621682a6458fe733d36be91),address(0x341877e92771e38c38beef03a4dacbbba5a156f0),address(0xb2e025fe7d06bbe6eb59116035b8d0ab1d787474),address(0xa674fba74f6b328be68c8754cc1ee7765c98ceaf)];
+        address payable[5] memory addresses = [address(0xAbA494aAdAcf77788d277D8E7391e4E23b7a081E),address(0x7A1EE961D743CBA36621682A6458FE733d36be91),address(0x341877E92771E38c38bEef03A4DaCBBBA5A156f0),address(0xB2e025FE7D06bbe6eb59116035B8D0ab1D787474),address(0xA674FBa74f6b328bE68C8754cC1ee7765C98cEAF)];
         uint[5] memory amounts = [uint(10000000000000000000000),uint(2000000000000000000000),uint(6100000000000000000000),uint(2500000000000000000000),uint(11400000000000000000000)];
         uint64[5] memory freezes = [uint64(1631905201),uint64(0),uint64(1758135601),uint64(0),uint64(0)];
 

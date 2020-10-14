@@ -738,7 +738,6 @@ contract ERC20Detailed is IERC20 {
 
 // File: contracts/hardworkInterface/IStrategy.sol
 
-pragma solidity 0.5.16;
 
 
 interface IStrategy {
@@ -764,7 +763,6 @@ interface IStrategy {
 
 // File: contracts/hardworkInterface/IController.sol
 
-pragma solidity 0.5.16;
 
 interface IController {
     // [Grey list]
@@ -793,7 +791,6 @@ interface IController {
 
 // File: contracts/Storage.sol
 
-pragma solidity 0.5.16;
 
 contract Storage {
 
@@ -830,7 +827,6 @@ contract Storage {
 
 // File: contracts/Governable.sol
 
-pragma solidity 0.5.16;
 
 
 contract Governable {
@@ -842,12 +838,12 @@ contract Governable {
     store = Storage(_store);
   }
 
-  modifier onlyGovernance() {
+  modifier onlyStoreGovernance() {
     require(store.isGovernance(msg.sender), "Not governance");
     _;
   }
 
-  function setStorage(address _store) public onlyGovernance {
+  function setStorage(address _store) public onlyStoreGovernance {
     require(_store != address(0), "new storage shouldn't be empty");
     store = Storage(_store);
   }
@@ -859,7 +855,6 @@ contract Governable {
 
 // File: contracts/hardworkInterface/IVault.sol
 
-pragma solidity 0.5.16;
 
 
 interface IVault {
@@ -892,7 +887,6 @@ interface IVault {
 
 // File: contracts/Controllable.sol
 
-pragma solidity 0.5.16;
 
 
 contract Controllable is Governable {
@@ -918,7 +912,6 @@ contract Controllable is Governable {
 
 // File: contracts/Vault.sol
 
-pragma solidity 0.5.16;
 
 
 
@@ -1060,7 +1053,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
     }
   }
 
-  function setVaultFractionToInvest(uint256 numerator, uint256 denominator) external onlyGovernance {
+  function setVaultFractionToInvest(uint256 numerator, uint256 denominator) external onlyStoreGovernance {
     require(denominator > 0, "denominator must be greater than 0");
     require(numerator < denominator, "denominator must be greater than numerator");
     vaultFractionToInvestNumerator = numerator;
@@ -1175,7 +1168,6 @@ contract Vault is ERC20, ERC20Detailed, IVault, Controllable {
 
 // File: contracts/vaults/VaultDAI.sol
 
-pragma solidity 0.5.16;
 
 
 contract VaultDAI is Vault {

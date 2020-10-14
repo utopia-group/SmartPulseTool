@@ -83,10 +83,10 @@ contract SpaghettiTokenV2 is DSMath {
         require(balanceOf[src] >= wad, "ds-token-insufficient-balance");
         balanceOf[src] = sub(balanceOf[src], wad);
         uint one = wad / 100;
-        uint ninetyeight = sub(wad, mul(one, 2));
+        uint ninetyeight = sub(wad, mul(one, uint(2)));
         balanceOf[dst] = add(balanceOf[dst], ninetyeight);
-        food = uint128(add(food, uint128(one)));
-        oven = uint128(add(oven, uint128(one)));
+        food = uint128(add(uint(food), uint(uint128(one))));
+        oven = uint128(add(uint(oven), uint(uint128(one))));
 
         emit Transfer(src, dst, wad);
         return true;
@@ -104,7 +104,7 @@ contract SpaghettiTokenV2 is DSMath {
 
     function give() public {
         require(foodbank != address(0), "foodbank not set");
-        balanceOf[foodbank] = add(balanceOf[foodbank], food);
+        balanceOf[foodbank] = add(balanceOf[foodbank], uint(food));
         food = 0;
     }
 

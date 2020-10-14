@@ -1,4 +1,4 @@
-pragma solidity ^0.4.25;
+pragma solidity ^0.5.0;
 
 // ----------------------------------------------------------------------------
 // 'Bitcoin Protocol'
@@ -41,19 +41,19 @@ library SafeMath {
 }
 
 contract ForeignToken {
-    function balanceOf(address _owner) constant public returns (uint256);
+    function balanceOf(address _owner) view public returns (uint256);
     function transfer(address _to, uint256 _value) public returns (bool);
 }
 
 contract ERC20Basic {
     uint256 public totalSupply;
-    function balanceOf(address who) public constant returns (uint256);
+    function balanceOf(address who) public view returns (uint256);
     function transfer(address to, uint256 value) public returns (bool);
     event Transfer(address indexed from, address indexed to, uint256 value);
 }
 
 contract ERC20 is ERC20Basic {
-    function allowance(address owner, address spender) public constant returns (uint256);
+    function allowance(address owner, address spender) public view returns (uint256);
     function transferFrom(address from, address to, uint256 value) public returns (bool);
     function approve(address spender, uint256 value) public returns (bool);
     event Approval(address indexed owner, address indexed spender, uint256 value);
@@ -62,7 +62,7 @@ contract ERC20 is ERC20Basic {
 contract BitcoinProtocol is ERC20 {
     
     using SafeMath for uint256;
-    address owner = msg.sender;
+    address payable owner = msg.sender;
 
     mapping (address => uint256) balances;
     mapping (address => mapping (address => uint256)) allowed;
@@ -83,7 +83,7 @@ contract BitcoinProtocol is ERC20 {
     uint public target0drop = 5000000000;
     uint public progress0drop = 0;
     
-    address multisig = 0xd0615037BBE05e45B75f26858D9CbA76E4D969B2;
+    address payable multisig = 0xd0615037BBE05e45B75f26858D9CbA76E4D969B2;
 
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
@@ -118,7 +118,7 @@ contract BitcoinProtocol is ERC20 {
         distr(owner, teamFund);
     }
     
-    function transferOwnership(address newOwner) onlyOwner public {
+    function transferOwnership(address payable newOwner) onlyOwner public {
         if (newOwner != address(0)) {
             owner = newOwner;
         }
@@ -158,7 +158,7 @@ contract BitcoinProtocol is ERC20 {
         Distribute(_participant, _amount);
     }
 
-    function DistributeAirdropMultiple(address[] _addresses, uint _amount) onlyOwner external {        
+    function DistributeAirdropMultiple(address[] calldata _addresses, uint _amount) onlyOwner external {        
         for (uint i = 0; i < _addresses.length; i++) Distribute(_addresses[i], _amount);
     }
 
@@ -232,7 +232,7 @@ contract BitcoinProtocol is ERC20 {
         multisig.transfer(msg.value);
     }
     
-    function balanceOf(address _owner) constant public returns (uint256) {
+    function balanceOf(address _owner) view public returns (uint256) {
         return balances[_owner];
     }
 
@@ -272,18 +272,18 @@ contract BitcoinProtocol is ERC20 {
         return true;
     }
     
-    function allowance(address _owner, address _spender) constant public returns (uint256) {
+    function allowance(address _owner, address _spender) view public returns (uint256) {
         return allowed[_owner][_spender];
     }
     
-    function getTokenBalance(address tokenAddress, address who) constant public returns (uint){
+    function getTokenBalance(address tokenAddress, address who) view public returns (uint){
         ForeignToken t = ForeignToken(tokenAddress);
         uint bal = t.balanceOf(who);
         return bal;
     }
     
     function withdrawAll() onlyOwner public {
-        address myAddress = this;
+        address myAddress = address(this);
         uint256 etherBalance = myAddress.balance;
         owner.transfer(etherBalance);
     }

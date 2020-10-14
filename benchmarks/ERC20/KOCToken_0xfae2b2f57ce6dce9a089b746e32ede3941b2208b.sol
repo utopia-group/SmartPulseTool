@@ -1,8 +1,173 @@
-// ERC20.sol
-pragma solidity ^0.5.2;
+pragma solidity >=0.4.21 <0.6.0;
 
-import "./IERC20.sol";
-import "./SafeMath.sol";
+/**
+ * @title SafeMath
+ * @dev Unsigned math operations with safety checks that revert on error
+ */
+library SafeMath {
+    /**
+     * @dev Multiplies two unsigned integers, reverts on overflow.
+     */
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+        if (a == 0) {
+            return 0;
+        }
+
+        uint256 c = a * b;
+        require(c / a == b);
+
+        return c;
+    }
+
+    /**
+     * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.
+     */
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+        // Solidity only automatically asserts when dividing by 0
+        require(b > 0);
+        uint256 c = a / b;
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+        return c;
+    }
+
+    /**
+     * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).
+     */
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b <= a);
+        uint256 c = a - b;
+
+        return c;
+    }
+
+    /**
+     * @dev Adds two unsigned integers, reverts on overflow.
+     */
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c >= a);
+
+        return c;
+    }
+
+    /**
+     * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),
+     * reverts when dividing by zero.
+     */
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+        require(b != 0);
+        return a % b;
+    }
+}
+
+
+/**
+ * @title Roles
+ * @dev Library for managing addresses assigned to a Role.
+ */
+library Roles {
+    struct Role {
+        mapping (address => bool) bearer;
+    }
+
+    /**
+     * @dev give an account access to this role
+     */
+    function add(Role storage role, address account) internal {
+        require(account != address(0));
+        require(!has(role, account));
+
+        role.bearer[account] = true;
+    }
+
+    /**
+     * @dev remove an account's access to this role
+     */
+    function remove(Role storage role, address account) internal {
+        require(account != address(0));
+        require(has(role, account));
+
+        role.bearer[account] = false;
+    }
+
+    /**
+     * @dev check if an account has this role
+     * @return bool
+     */
+    function has(Role storage role, address account) internal view returns (bool) {
+        require(account != address(0));
+        return role.bearer[account];
+    }
+}
+
+
+contract MinterRole {
+    using Roles for Roles.Role;
+
+    event MinterAdded(address indexed account);
+    event MinterRemoved(address indexed account);
+
+    Roles.Role private _minters;
+
+    constructor () internal {
+        _addMinter(msg.sender);
+    }
+
+    modifier onlyMinter() {
+        require(isMinter(msg.sender));
+        _;
+    }
+
+    function isMinter(address account) public view returns (bool) {
+        return _minters.has(account);
+    }
+
+    function addMinter(address account) public onlyMinter {
+        _addMinter(account);
+    }
+
+    function renounceMinter() public {
+        _removeMinter(msg.sender);
+    }
+
+    function _addMinter(address account) internal {
+        _minters.add(account);
+        emit MinterAdded(account);
+    }
+
+    function _removeMinter(address account) internal {
+        _minters.remove(account);
+        emit MinterRemoved(account);
+    }
+}
+
+
+/**
+ * @title ERC20 interface
+ * @dev see https://eips.ethereum.org/EIPS/eip-20
+ */
+interface IERC20 {
+    function transfer(address to, uint256 value) external returns (bool);
+
+    function approve(address spender, uint256 value) external returns (bool);
+
+    function transferFrom(address from, address to, uint256 value) external returns (bool);
+
+    function totalSupply() external view returns (uint256);
+
+    function balanceOf(address who) external view returns (uint256);
+
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
 
 /**
  * @title Standard ERC20 token
@@ -190,68 +355,7 @@ contract ERC20 is IERC20 {
     }
 }
 
-// ERC20Burnable.sol
-pragma solidity ^0.5.2;
 
-import "./ERC20.sol";
-//销毁账户代币，销毁授权代币
-/**
- * @title Burnable Token
- * @dev Token that can be irreversibly burned (destroyed).
- */
-contract ERC20Burnable is ERC20 {
-    /**
-     * @dev Burns a specific amount of tokens.
-     * @param value The amount of token to be burned.
-     */
-    function burn(uint256 value) public {
-        _burn(msg.sender, value);
-    }
-
-    /**
-     * @dev Burns a specific amount of tokens from the target address and decrements allowance
-     * @param from address The account whose tokens will be burned.
-     * @param value uint256 The amount of token to be burned.
-     */
-    function burnFrom(address from, uint256 value) public {
-        _burnFrom(from, value);
-    }
-}
-
-// ERC20Capped.sol
-pragma solidity ^0.5.2;
-
-import "./ERC20Mintable.sol";
-//设置合约代币容量，增发后代币数量应小于总容量
-/**
- * @title Capped token
- * @dev Mintable token with a token cap.
- */
-contract ERC20Capped is ERC20Mintable {
-    uint256 private _cap;
-
-    constructor (uint256 cap) public {
-        require(cap > 0);
-        _cap = cap;
-    }
-
-    /**
-     * @return the cap for the token minting.
-     */
-    function cap() public view returns (uint256) {
-        return _cap;
-    }
-   //
-    function _mint(address account, uint256 value) internal {
-        require(totalSupply().add(value) <= _cap);
-        super._mint(account, value);
-    }
-}
-
-// ERC20Detailed.sol
-pragma solidity ^0.5.2;
-
-import "./IERC20.sol";
 //记录erc20代币信息
 /**
  * @title ERC20Detailed token
@@ -292,11 +396,7 @@ contract ERC20Detailed is IERC20 {
     }
 }
 
-// ERC20Mintable.sol
-pragma solidity ^0.5.2;
 
-import "./ERC20.sol";
-import "./MinterRole.sol";
 //增发代币（指定账户）
 /**
  * @title ERC20Mintable
@@ -315,192 +415,58 @@ contract ERC20Mintable is ERC20, MinterRole {
     }
 }
 
-// IERC20.sol
-pragma solidity ^0.5.2;
 
+//设置合约代币容量，增发后代币数量应小于总容量
 /**
- * @title ERC20 interface
- * @dev see https://eips.ethereum.org/EIPS/eip-20
+ * @title Capped token
+ * @dev Mintable token with a token cap.
  */
-interface IERC20 {
-    function transfer(address to, uint256 value) external returns (bool);
+contract ERC20Capped is ERC20Mintable {
+    uint256 private _cap;
 
-    function approve(address spender, uint256 value) external returns (bool);
-
-    function transferFrom(address from, address to, uint256 value) external returns (bool);
-
-    function totalSupply() external view returns (uint256);
-
-    function balanceOf(address who) external view returns (uint256);
-
-    function allowance(address owner, address spender) external view returns (uint256);
-
-    event Transfer(address indexed from, address indexed to, uint256 value);
-
-    event Approval(address indexed owner, address indexed spender, uint256 value);
-}
-
-// MinterRole.sol
-pragma solidity ^0.5.2;
-
-import "./Roles.sol";
-
-contract MinterRole {
-    using Roles for Roles.Role;
-
-    event MinterAdded(address indexed account);
-    event MinterRemoved(address indexed account);
-
-    Roles.Role private _minters;
-
-    constructor () internal {
-        _addMinter(msg.sender);
+    constructor (uint256 cap) public {
+        require(cap > 0);
+        _cap = cap;
     }
 
-    modifier onlyMinter() {
-        require(isMinter(msg.sender));
-        _;
+    /**
+     * @return the cap for the token minting.
+     */
+    function cap() public view returns (uint256) {
+        return _cap;
     }
-
-    function isMinter(address account) public view returns (bool) {
-        return _minters.has(account);
-    }
-
-    function addMinter(address account) public onlyMinter {
-        _addMinter(account);
-    }
-
-    function renounceMinter() public {
-        _removeMinter(msg.sender);
-    }
-
-    function _addMinter(address account) internal {
-        _minters.add(account);
-        emit MinterAdded(account);
-    }
-
-    function _removeMinter(address account) internal {
-        _minters.remove(account);
-        emit MinterRemoved(account);
+   //
+    function _mint(address account, uint256 value) internal {
+        require(totalSupply().add(value) <= _cap);
+        super._mint(account, value);
     }
 }
 
-// Roles.sol
-pragma solidity ^0.5.2;
 
+//销毁账户代币，销毁授权代币
 /**
- * @title Roles
- * @dev Library for managing addresses assigned to a Role.
+ * @title Burnable Token
+ * @dev Token that can be irreversibly burned (destroyed).
  */
-library Roles {
-    struct Role {
-        mapping (address => bool) bearer;
+contract ERC20Burnable is ERC20 {
+    /**
+     * @dev Burns a specific amount of tokens.
+     * @param value The amount of token to be burned.
+     */
+    function burn(uint256 value) public {
+        _burn(msg.sender, value);
     }
 
     /**
-     * @dev give an account access to this role
+     * @dev Burns a specific amount of tokens from the target address and decrements allowance
+     * @param from address The account whose tokens will be burned.
+     * @param value uint256 The amount of token to be burned.
      */
-    function add(Role storage role, address account) internal {
-        require(account != address(0));
-        require(!has(role, account));
-
-        role.bearer[account] = true;
-    }
-
-    /**
-     * @dev remove an account's access to this role
-     */
-    function remove(Role storage role, address account) internal {
-        require(account != address(0));
-        require(has(role, account));
-
-        role.bearer[account] = false;
-    }
-
-    /**
-     * @dev check if an account has this role
-     * @return bool
-     */
-    function has(Role storage role, address account) internal view returns (bool) {
-        require(account != address(0));
-        return role.bearer[account];
+    function burnFrom(address from, uint256 value) public {
+        _burnFrom(from, value);
     }
 }
 
-// SafeMath.sol
-pragma solidity ^0.5.2;
-
-/**
- * @title SafeMath
- * @dev Unsigned math operations with safety checks that revert on error
- */
-library SafeMath {
-    /**
-     * @dev Multiplies two unsigned integers, reverts on overflow.
-     */
-    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
-        // benefit is lost if 'b' is also tested.
-        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
-        if (a == 0) {
-            return 0;
-        }
-
-        uint256 c = a * b;
-        require(c / a == b);
-
-        return c;
-    }
-
-    /**
-     * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.
-     */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        // Solidity only automatically asserts when dividing by 0
-        require(b > 0);
-        uint256 c = a / b;
-        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
-
-        return c;
-    }
-
-    /**
-     * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).
-     */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b <= a);
-        uint256 c = a - b;
-
-        return c;
-    }
-
-    /**
-     * @dev Adds two unsigned integers, reverts on overflow.
-     */
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-        uint256 c = a + b;
-        require(c >= a);
-
-        return c;
-    }
-
-    /**
-     * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),
-     * reverts when dividing by zero.
-     */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b != 0);
-        return a % b;
-    }
-}
-
-// TLPToken.sol
-pragma solidity >=0.4.21 <0.6.0;
-
-import "./ERC20.sol";
-import "./ERC20Detailed.sol";
-import "./ERC20Capped.sol";
-import "./ERC20Burnable.sol";
 
 // 测试用的Token
 contract KOCToken is ERC20, ERC20Detailed, ERC20Burnable {

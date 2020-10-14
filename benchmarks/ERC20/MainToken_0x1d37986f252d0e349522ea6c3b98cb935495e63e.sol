@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -427,7 +427,7 @@ contract FreezableToken is StandardToken {
         for (uint i = 0; i < _index + 1; i++) {
             _release = chains[toKey(_addr, _release)];
             if (_release == 0) {
-                return;
+                return (0,0);
             }
         }
         _balance = freezings[toKey(_addr, _release)];
@@ -673,11 +673,11 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
     }
     
 
-    function name() public pure returns (string _name) {
+    function name() public pure returns (string memory _name) {
         return TOKEN_NAME;
     }
 
-    function symbol() public pure returns (string _symbol) {
+    function symbol() public pure returns (string memory _symbol) {
         return TOKEN_SYMBOL;
     }
 

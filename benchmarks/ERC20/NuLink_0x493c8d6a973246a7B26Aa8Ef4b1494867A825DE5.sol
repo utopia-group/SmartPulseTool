@@ -1,7 +1,4 @@
-// EIP20Interface.sol
-// Abstract contract for the full ERC 20 Token standard
-// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
-pragma solidity ^0.4.21;
+pragma solidity ^0.5.0;
 
 
 contract EIP20Interface {
@@ -49,16 +46,6 @@ contract EIP20Interface {
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 }
-// NuLink.sol
-
-/*
-Implements EIP20 token standard: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
-.*/
-
-
-pragma solidity ^0.4.21;
-
-import "./EIP20Interface.sol";
 
 
 contract NuLink is EIP20Interface {
@@ -71,11 +58,11 @@ contract NuLink is EIP20Interface {
     uint8 public decimals;                //How many decimals to show.
     string public symbol;                 //An identifier: eg SBX
 
-    function NuLink(
+    constructor(
         uint256 _initialAmount,
-        string _tokenName,
+        string memory _tokenName,
         uint8 _decimalUnits,
-        string _tokenSymbol
+        string memory _tokenSymbol
     ) public {
         balances[msg.sender] = _initialAmount;               // Give the creator all initial tokens
         totalSupply = _initialAmount;                        // Update total supply

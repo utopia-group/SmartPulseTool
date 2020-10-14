@@ -1,4 +1,4 @@
-pragma solidity ^0.4.26;
+pragma solidity ^0.5.0;
 
 interface ERC20 {
 function transferFrom(address _from, address _to, uint256 _value)
@@ -6,9 +6,9 @@ external returns (bool);
 function transfer(address _to, uint256 _value)
 external returns (bool);
 function balanceOf(address _owner)
-external constant returns (uint256);
+external view returns (uint256);
 function allowance(address _owner, address _spender)
-external returns (uint256);
+external view returns (uint256);
 function approve(address _spender, uint256 _value)
 external returns (bool);
 event Approval(address indexed _owner, address indexed _spender, uint256  _val);
@@ -31,7 +31,7 @@ constructor() public {
     holders[msg.sender] = totalSupply;
 }
 
-function () public {
+function () external {
 revert();
 }
 

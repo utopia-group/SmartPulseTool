@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 contract ERC20Basic {
   function totalSupply() public view returns (uint256);
@@ -20,7 +20,7 @@ contract DetailedERC20 is ERC20 {
   string public note;
   uint8 public decimals;
 
-  constructor(string _name, string _symbol, string _note, uint8 _decimals) public {
+  constructor(string memory _name, string memory _symbol, string memory _note, uint8 _decimals) public {
     name = _name;
     symbol = _symbol;
     note = _note;
@@ -389,7 +389,7 @@ contract GranC is BurnableToken, DetailedERC20, ERC20Token, TokenLock {
     return true;
   }
 
-  function() public payable { // don't send eth directly to token contract
+  function() external payable { // don't send eth directly to token contract
     revert();
   }
 }

@@ -1,6 +1,6 @@
 // File: openzeppelin-eth/contracts/math/SafeMath.sol
 
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -69,7 +69,6 @@ library SafeMath {
 
 // File: zos-lib/contracts/Initializable.sol
 
-pragma solidity >=0.4.24 <0.6.0;
 
 
 /**
@@ -129,7 +128,6 @@ contract Initializable {
 
 // File: openzeppelin-eth/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.4.24;
 
 
 /**
@@ -212,7 +210,6 @@ contract Ownable is Initializable {
 
 // File: openzeppelin-eth/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.4.24;
 
 
 /**
@@ -250,7 +247,6 @@ interface IERC20 {
 
 // File: openzeppelin-eth/contracts/token/ERC20/ERC20Detailed.sol
 
-pragma solidity ^0.4.24;
 
 
 
@@ -266,7 +262,7 @@ contract ERC20Detailed is Initializable, IERC20 {
   string private _symbol;
   uint8 private _decimals;
 
-  function initialize(string name, string symbol, uint8 decimals) public initializer {
+  function initialize(string memory name, string memory symbol, uint8 decimals) public initializer {
     _name = name;
     _symbol = symbol;
     _decimals = decimals;
@@ -275,14 +271,14 @@ contract ERC20Detailed is Initializable, IERC20 {
   /**
    * @return the name of the token.
    */
-  function name() public view returns(string) {
+  function name() public view returns(string memory) {
     return _name;
   }
 
   /**
    * @return the symbol of the token.
    */
-  function symbol() public view returns(string) {
+  function symbol() public view returns(string memory) {
     return _symbol;
   }
 
@@ -323,7 +319,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-pragma solidity 0.4.24;
 
 
 /**
@@ -406,7 +401,6 @@ library SafeMathInt {
 
 // File: contracts/uFragments.sol
 
-pragma solidity 0.4.24;
 
 
 
