@@ -67,4 +67,45 @@ echo "\"" >> ${CONTRACT_DIR}/${CONTRACT_NAME%.sol}-erc20-spec.ini
 (cd ${VERIFIED_DIR};
 make -C erc20/${CONTRACT_NAME%.sol}/ clean;
 make -C erc20/${CONTRACT_NAME%.sol}/;
-make -C erc20/${CONTRACT_NAME%.sol}/ test &> erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log)
+
+# refresh .log file
+rm -f erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
+touch erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
+
+# run each of 14 specs
+specs=(
+	"totalSupply"
+	"balanceOf"
+	"allowance"
+	"approve"
+	"transfer-success-1"
+	"transfer-success-2"
+	"transfer-failure-1-a"
+	"transfer-failure-1-b"
+	"transfer-failure-2"
+	"transferFrom-success-1"
+	"transferFrom-success-2"
+	"transferFrom-failure-1-a"
+	"transferFrom-failure-1-b"
+	"transferFrom-failure-2"
+)
+correct=0
+for i in ${!specs[@]}
+do
+	# run the spec
+	make -C erc20/${CONTRACT_NAME%.sol}/ test SPEC_NAMES="${specs[$i]}" &> _kevm_script_tmp.log
+
+	# grep _kevm_script_tmp.log for success/failure
+	if grep -q "SPEC PROVED:" _kevm_script_tmp.log; then 
+		echo "Proved: ${specs[$i]}";
+		((++correct));
+	else
+		echo "Failed: ${specs[$i]}";
+	fi
+
+	# append SPECific log to overall log
+	cat _kevm_script_tmp.log >> erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
+done
+
+echo "Proved ${correct} out of ${#specs[@]} specs";
+rm -f _kevm_script_tmp.log)

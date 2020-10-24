@@ -8,7 +8,8 @@ TMPLS:=../module-tmpl.k ../spec-tmpl.k
 
 KPROVE_OPTS=--smt-prelude $(RESOURCES)/evm.smt2
 
-SPEC_NAMES:=totalSupply \
+ifeq ($(SPEC_NAMES),)
+	SPEC_NAMES:=totalSupply \
             balanceOf \
             allowance \
             approve \
@@ -22,5 +23,6 @@ SPEC_NAMES:=totalSupply \
             transferFrom-failure-1-a \
             transferFrom-failure-1-b \
             transferFrom-failure-2
+endif
 
 include ../../resources/kprove.mak
