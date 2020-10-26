@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERIFIED_DIR=/home/jon/Documents/Research/verified-smart-contracts
+VERIFIED_DIR=/mnt/extra/verified-smart-contracts
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -88,17 +88,29 @@ specs=(
 	"transferFrom-failure-2"
 )
 correct=0
+TIME_OUT_LIMIT=900 # default: 15min
 for i in ${!specs[@]}
 do
 	# run the spec
-	make -C erc20/${CONTRACT_NAME%.sol}/ test SPEC_NAMES="${specs[$i]}" &> _kevm_script_tmp.log
+	trap 'kill -INT -$PID' INT
+	timeout $TIME_OUT_LIMIT make -C erc20/${CONTRACT_NAME%.sol}/ test SPEC_NAMES="${specs[$i]}" &> _kevm_script_tmp.log &
+	PID=$! # pid of job most recently put in background
+	wait $PID
+	RETVAL=$?
+
+	time_taken="timed out"
+	if [[ $RETVAL != 124 ]]
+	then
+		# extract runtime
+		time_taken=$(cat _kevm_script_tmp.log | awk '/^Total  / {print $3}')
+	fi
 
 	# grep _kevm_script_tmp.log for success/failure
 	if grep -q "SPEC PROVED:" _kevm_script_tmp.log; then 
-		echo "Proved: ${specs[$i]}";
+		echo "Proved: ${specs[$i]} -- ${time_taken}";
 		((++correct));
 	else
-		echo "Failed: ${specs[$i]}";
+		echo "Failed: ${specs[$i]} -- ${time_taken}";
 	fi
 
 	# append SPECific log to overall log
