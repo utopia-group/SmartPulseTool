@@ -50,9 +50,6 @@ cp ${1} ${CONTRACT_DIR}
 sed -i 's/assert(/require(/g' ${CONTRACT_DIR}/${CONTRACT_NAME}
 
 # copy Makefile and .ini from defaults
-#cp ${THIS_DIR}/template1.mak ${CONTRACT_DIR}/Makefile
-#echo "${CONTRACT_NAME%.sol}" >> ${CONTRACT_DIR}/Makefile
-#cat ${THIS_DIR}/template2.mak >> ${CONTRACT_DIR}/Makefile
 cp ${THIS_DIR}/template.mak ${CONTRACT_DIR}/Makefile
 sed -i "s/CONTRACT_NAME/${CONTRACT_NAME%.sol}/g" ${CONTRACT_DIR}/Makefile
 cp ${THIS_DIR}/template.ini ${CONTRACT_DIR}/${CONTRACT_NAME%.sol}-erc20-spec.ini
