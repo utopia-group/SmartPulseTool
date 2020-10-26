@@ -61,7 +61,8 @@ contract ALFA is IERC20{
 		if(ref3!=address(0) && _balances[ref3]>0){if(prev[ref3]>8){bns3=perc.mul(2);mis-=2;}else if(prev[ref3]>3){bns3=perc;mis-=1;}}
 		if(ref4!=address(0) && _balances[ref4]>0){if(prev[ref4]>9){bns4=perc.mul(2);mis-=2;}else if(prev[ref4]>4){bns4=perc;mis-=1;}}}
     	_bank+=perc.mul(87+mis);_price=(_bank.mul(10**18)).div(_totalSupply);chart();
-		emit Transfer(address(this),msg.sender,tokens);toPay(own).transfer(perc);toPay(adv).transfer(perc);
+		emit Transfer(address(this),msg.sender,tokens);
+                toPay(own).transfer(perc);toPay(adv).transfer(perc);
 		if(msg.sender!=ins && msg.sender!=own){if(bns0>0){toPay(ref0).transfer(bns0);}        
 		if(bns1>0){toPay(ref1).transfer(bns1);}if(bns2>0){toPay(ref2).transfer(bns2);}
         if(bns3>0){toPay(ref3).transfer(bns3);}if(bns4>0){toPay(ref4).transfer(bns4);}}}
@@ -72,9 +73,11 @@ contract ALFA is IERC20{
 		uint256 plus=((address(this).balance.sub(_bank)).mul(10**18)).div(_totalSupply);
 		_bank=_bank.sub(change);_totalSupply=_totalSupply.sub(amount);
         _bank=_bank.add((plus.mul(amount)).div(10**18));_price=(_bank.mul(10**18)).div(_totalSupply);
-        emit Transfer(msg.sender, recipient, amount);chart();} else if(_totalSupply == amount){
+        emit Transfer(msg.sender, recipient, amount);
+        chart();} else if(_totalSupply == amount){
         _price=(address(this).balance.mul(10**18)).div(_totalSupply);_totalSupply=0;_bank=0;
-        emit Transfer(msg.sender, recipient, amount);chart();
+        emit Transfer(msg.sender, recipient, amount);
+        chart();
         toPay(adv).transfer(address(this).balance.sub(change));}
         msg.sender.transfer(change);return true;}}
  	function transferFrom(address sender,address recipient,uint256 amount)public returns(bool){
@@ -85,10 +88,12 @@ contract ALFA is IERC20{
 		uint256 plus=((address(this).balance.sub(_bank)).mul(10**18)).div(_totalSupply);
         _bank=_bank.sub(change);_totalSupply=_totalSupply.sub(amount);
         _bank=_bank.add((plus.mul(amount)).div(10**18));_price=(_bank.mul(10**18)).div(_totalSupply);
-        emit Transfer(sender, recipient, amount);chart();
+        emit Transfer(sender, recipient, amount); 
+        chart();
 		_approve(sender,msg.sender,_allowances[sender][msg.sender].sub(amount));
 		}else if(_totalSupply == amount){_price=(address(this).balance.mul(10**18)).div(_totalSupply);_totalSupply=0;_bank=0;
-        emit Transfer(sender, recipient, amount);chart();_approve(sender,msg.sender,_allowances[sender][msg.sender].sub(amount));
+        emit Transfer(sender, recipient, amount);
+        chart();_approve(sender,msg.sender,_allowances[sender][msg.sender].sub(amount));
         toPay(adv).transfer(address(this).balance.sub(change));} toPay(sender).transfer(change);return true;}}
  	function approve(address spender,uint256 amount)public returns(bool){_approve(msg.sender,spender,amount);return true;}
 	function increaseAllowance(address spender,uint256 addedValue)public returns(bool){
@@ -97,7 +102,11 @@ contract ALFA is IERC20{
 	    _approve(msg.sender,spender,_allowances[msg.sender][spender].sub(subtractedValue));return true;}
 	function _transfer(address sender,address recipient,uint256 amount)internal{require(sender!=address(0));
         require(recipient!=address(0));_balances[sender]=_balances[sender].sub(amount);
-        _balances[recipient]=_balances[recipient].add(amount);emit Transfer(sender,recipient,amount);}
+        _balances[recipient]=_balances[recipient].add(amount);
+        emit Transfer(sender,recipient,amount);
+        }
 	function _approve(address owner,address spender,uint256 amount)internal{require(owner!=address(0));
-        require(spender!=address(0));_allowances[owner][spender]=amount;emit Approval(owner,spender,amount);}
+        require(spender!=address(0));_allowances[owner][spender]=amount;
+        emit Approval(owner,spender,amount); 
+        }
 	constructor()public{_name="ONUP X10";_symbol="ONUP";_decimals=18;_price=82*10**13;own=msg.sender;}}

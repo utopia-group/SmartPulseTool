@@ -48,6 +48,7 @@ mkdir -p ${CONTRACT_DIR}
 # copy .sol file over
 cp ${1} ${CONTRACT_DIR}
 sed -i 's/assert(/require(/g' ${CONTRACT_DIR}/${CONTRACT_NAME}
+sed -i -r 's/^([[:space:]]*)emit /\1\/\/emit /g' ${CONTRACT_DIR}/${CONTRACT_NAME}
 
 # copy Makefile and .ini from defaults
 #cp ${THIS_DIR}/template1.mak ${CONTRACT_DIR}/Makefile
