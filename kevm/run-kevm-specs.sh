@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERIFIED_DIR=/mnt/extra/verified-smart-contracts
+VERIFIED_DIR=/home/jon/Documents/Research/verified-smart-contracts
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -47,11 +47,14 @@ mkdir -p ${CONTRACT_DIR}
 
 # copy .sol file over
 cp ${1} ${CONTRACT_DIR}
+sed -i 's/assert(/require(/g' ${CONTRACT_DIR}/${CONTRACT_NAME}
 
 # copy Makefile and .ini from defaults
-cp ${THIS_DIR}/template1.mak ${CONTRACT_DIR}/Makefile
-echo "${CONTRACT_NAME%.sol}" >> ${CONTRACT_DIR}/Makefile
-cat ${THIS_DIR}/template2.mak >> ${CONTRACT_DIR}/Makefile
+#cp ${THIS_DIR}/template1.mak ${CONTRACT_DIR}/Makefile
+#echo "${CONTRACT_NAME%.sol}" >> ${CONTRACT_DIR}/Makefile
+#cat ${THIS_DIR}/template2.mak >> ${CONTRACT_DIR}/Makefile
+cp ${THIS_DIR}/template.mak ${CONTRACT_DIR}/Makefile
+sed -i "s/CONTRACT_NAME/${CONTRACT_NAME%.sol}/g" ${CONTRACT_DIR}/Makefile
 cp ${THIS_DIR}/template.ini ${CONTRACT_DIR}/${CONTRACT_NAME%.sol}-erc20-spec.ini
 
 # fill in variable locations
@@ -80,13 +83,11 @@ specs=(
 	"approve"
 	"transfer-success-1"
 	"transfer-success-2"
-	"transfer-failure-1-a"
-	"transfer-failure-1-b"
+	"transfer-failure-1"
 	"transfer-failure-2"
 	"transferFrom-success-1"
 	"transferFrom-success-2"
-	"transferFrom-failure-1-a"
-	"transferFrom-failure-1-b"
+	"transferFrom-failure-1"
 	"transferFrom-failure-2"
 )
 correct=0
