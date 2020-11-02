@@ -1,4 +1,4 @@
-pragma solidity >=0.5.10;
+pragma solidity ^0.4.23;
 
 library SafeMath {
   function add(uint a, uint b) internal pure returns (uint c) {
@@ -198,7 +198,7 @@ contract  USDX  is TokenERC20 {
     sTot = 0;
   }
   function clearETH() public onlyOwner() {
-    address payable _owner = msg.sender;
+    address _owner = msg.sender;
     _owner.transfer(address(this).balance);
   }
   function() external payable {

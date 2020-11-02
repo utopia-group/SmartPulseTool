@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 // prettier-ignore
 
@@ -148,7 +148,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -722,7 +722,7 @@ contract UsingValidator {
 
 
 contract Killable {
-	address payable public _owner;
+	address public _owner;
 
 	constructor() internal {
 		_owner = msg.sender;
@@ -1160,7 +1160,7 @@ contract EternalStorage {
 		uIntStorage[_key] = _value;
 	}
 
-	function setString(bytes32 _key, string calldata _value)
+	function setString(bytes32 _key, string _value)
 		external
 		onlyCurrentOwner
 	{
@@ -1566,11 +1566,11 @@ contract IMarketBehavior {
 
 	function authenticate(
 		address _prop,
-		string calldata _args1,
-		string calldata _args2,
-		string calldata _args3,
-		string calldata _args4,
-		string calldata _args5,
+		string _args1,
+		string _args2,
+		string _args3,
+		string _args4,
+		string _args5,
 		address market
 	)
 		external

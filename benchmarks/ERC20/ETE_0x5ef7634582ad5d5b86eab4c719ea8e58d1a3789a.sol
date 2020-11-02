@@ -1,6 +1,6 @@
 // File: node_modules\@openzeppelin\contracts\token\ERC20\IERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -79,7 +79,7 @@ interface IERC20 {
 
 // File: @openzeppelin\contracts\token\ERC20\ERC20Detailed.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -135,7 +135,7 @@ contract ERC20Detailed is IERC20 {
 
 // File: node_modules\@openzeppelin\contracts\GSN\Context.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /*
  * @dev Provides information about the current execution context, including the
@@ -153,14 +153,14 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 }
 
 // File: node_modules\@openzeppelin\contracts\math\SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -310,7 +310,7 @@ library SafeMath {
 
 // File: @openzeppelin\contracts\token\ERC20\ERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -542,7 +542,7 @@ contract ERC20 is Context, IERC20 {
 
 // File: contracts\SimpleCoin.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract ETE is ERC20, ERC20Detailed {
     constructor ()

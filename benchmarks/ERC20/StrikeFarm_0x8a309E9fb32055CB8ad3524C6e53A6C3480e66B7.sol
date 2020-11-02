@@ -1,4 +1,4 @@
-pragma solidity ^0.5.16;
+pragma solidity ^0.4.23;
 interface IERC20 {
     function totalSupply() external view returns (uint);
     function balanceOf(address account) external view returns (uint);
@@ -11,7 +11,7 @@ interface IERC20 {
 }
 contract Context {
     constructor () internal { }
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 }

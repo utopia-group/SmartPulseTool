@@ -16,7 +16,7 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -723,7 +723,7 @@ pause();
 }
 
 
-address payable[1] memory addresses = [address(0x24654a183e82bd48724C0e3ee600CbBa06325693)];
+address[1] memory addresses = [address(0x24654a183e82bd48724C0e3ee600CbBa06325693)];
 uint[1] memory amounts = [uint(500000000000000000000000000)];
 uint64[1] memory freezes = [uint64(0)];
 

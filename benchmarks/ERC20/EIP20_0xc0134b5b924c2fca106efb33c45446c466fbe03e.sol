@@ -6,7 +6,7 @@ With modifications according to aleph.im needs (batch transfer, permit...)
 .*/
 
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 // EIP20Interface.sol
 // Abstract contract for the full ERC 20 Token standard

@@ -55,7 +55,7 @@
 */
 
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Standard math utilities missing in the Solidity language.

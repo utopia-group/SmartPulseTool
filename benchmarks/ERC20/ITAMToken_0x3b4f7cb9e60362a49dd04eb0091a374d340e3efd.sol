@@ -1,6 +1,6 @@
 // File: openzeppelin-solidity/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title SafeMath
@@ -68,7 +68,7 @@ library SafeMath {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title ERC20 interface
@@ -94,7 +94,7 @@ interface IERC20 {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 
@@ -241,7 +241,7 @@ contract ERC20 {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20Capped.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -271,7 +271,7 @@ contract ERC20Capped is ERC20 {
 
 // File: contracts/ITAMToken.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 
@@ -330,7 +330,7 @@ contract ITAMToken is ERC20Capped {
                                     50000000 ether, 50000000 ether, 50000000 ether,
                                     50000000 ether, 50000000 ether, 50000000 ether,
                                     50000000 ether, 50000000 ether, 50000000 ether];
-    address payable public inAppAddress;
+    address public inAppAddress;
 
     ERC20 erc20;
 
@@ -348,7 +348,7 @@ contract ITAMToken is ERC20Capped {
     constructor(address _firstMaster, address _secondMaster, address _thirdMaster,
                 address _owner, address _gameMaster, address _strategicSaleAddress,
                 address _privateSaleAddress, address _publicSaleAddress, address _teamAddress,
-                address _advisorAddress, address _marketingAddress, address _ecoAddress, address payable _inAppAddress) public ERC20Capped(TOTAL_CAP) {
+                address _advisorAddress, address _marketingAddress, address _ecoAddress, address _inAppAddress) public ERC20Capped(TOTAL_CAP) {
         firstMaster = _firstMaster;
         secondMaster = _secondMaster;
         thirdMaster = _thirdMaster;
@@ -435,7 +435,7 @@ contract ITAMToken is ERC20Capped {
     }
 
     function setAddresses(address _strategicSaleAddress, address _privateSaleAddress, address _publicSaleAddress, address _teamAddress, address _advisorAddress, address _marketingAddress, address _ecoAddress,
-                          address payable _inAppAddress) public onlyOwner {
+                          address _inAppAddress) public onlyOwner {
         strategicSaleAddress = _strategicSaleAddress;
         privateSaleAddress = _privateSaleAddress;
         publicSaleAddress = _publicSaleAddress;
@@ -516,7 +516,7 @@ contract ITAMToken is ERC20Capped {
         return itemAmount;
     }
 
-    function purchaseItemOnERC20(address payable tokenAddress, uint64 appId, uint64 itemId) external onlyNotBlackList returns(bool) {
+    function purchaseItemOnERC20(address tokenAddress, uint64 appId, uint64 itemId) external onlyNotBlackList returns(bool) {
         uint256 itemAmount = _getItemAmount(appId, itemId, tokenAddress);
 
         erc20 = ERC20(tokenAddress);

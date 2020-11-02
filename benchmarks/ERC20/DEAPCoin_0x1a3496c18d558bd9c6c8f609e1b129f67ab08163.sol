@@ -1,6 +1,6 @@
 // File: openzeppelin-solidity/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -464,7 +464,7 @@ contract ERC223Token is MintableToken{
 
 
 contract ERC223ContractInterface{
-  function tokenFallback(address from_, uint256 value_, bytes calldata data_) external;
+  function tokenFallback(address from_, uint256 value_, bytes data_) external;
 }
 
 // File: contracts/DEAPCoin.sol

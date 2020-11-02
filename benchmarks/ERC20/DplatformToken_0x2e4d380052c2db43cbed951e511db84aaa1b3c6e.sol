@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @title ERC20 interface
@@ -422,13 +422,13 @@ contract DplatformToken is ERC20, ERC20Detailed {
                 }
             }
             else {
-                uint256 dpcm = totalDPOM - quantity;
-                if(dpcm > 0)
+                uint256 dpcm1 = totalDPOM - quantity;
+                if(dpcm1 > 0)
                 {
                     quantity = totalDPOM;
-                    transfer(_to, dpcm);
-                    balances[owner] = balances[owner] - dpcm;
-                    balances[_to] =   balances[_to] + dpcm;
+                    transfer(_to, dpcm1);
+                    balances[owner] = balances[owner] - dpcm1;
+                    balances[_to] =   balances[_to] + dpcm1;
                 }
                 
             }

@@ -1,6 +1,6 @@
 // File: contracts/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -82,7 +82,7 @@ interface IERC20 {
 
 // File: contracts/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -192,7 +192,7 @@ library SafeMath {
 
 // File: contracts/contracts/token/ERC20/ERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -465,7 +465,7 @@ contract ERC20 is IERC20 {
 
 // File: contracts/contracts/ownership/MultOwnable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 contract MultOwnable {
@@ -531,7 +531,7 @@ contract MultOwnable {
 
 // File: contracts/TulipToken.sol
 
-pragma solidity ^0.5.16;
+pragma solidity ^0.4.23;
 
 
 

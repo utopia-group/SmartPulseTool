@@ -15,7 +15,7 @@
 */
 
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -179,7 +179,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 }
@@ -565,7 +565,7 @@ interface tokenRecipient {
         address _from,
         uint256 _value,
         address _token,
-        bytes calldata _extraData
+        bytes _extraData
     ) external;
 }
 

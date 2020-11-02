@@ -2,8 +2,8 @@
  *Submitted for verification at Etherscan.io on 2019-05-06
 */
 
-pragma solidity ^0.5.0;
-interface tokenRecipient {  function receiveApproval(address _from, uint256 _value, address _token, bytes calldata _extraData) external; }
+pragma solidity ^0.4.23;
+interface tokenRecipient {  function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) external; }
 contract TokenERC20 {
     // Public variables of the token
     string public name;

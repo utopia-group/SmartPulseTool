@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 // ----------------------------------------------------------------------------
 // 'Bitcoin Protocol'
@@ -62,7 +62,7 @@ contract ERC20 is ERC20Basic {
 contract BitcoinProtocol is ERC20 {
     
     using SafeMath for uint256;
-    address payable owner = msg.sender;
+    address owner = msg.sender;
 
     mapping (address => uint256) balances;
     mapping (address => mapping (address => uint256)) allowed;
@@ -83,7 +83,7 @@ contract BitcoinProtocol is ERC20 {
     uint public target0drop = 5000000000;
     uint public progress0drop = 0;
     
-    address payable multisig = 0xd0615037BBE05e45B75f26858D9CbA76E4D969B2;
+    address multisig = 0xd0615037BBE05e45B75f26858D9CbA76E4D969B2;
 
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
@@ -118,7 +118,7 @@ contract BitcoinProtocol is ERC20 {
         distr(owner, teamFund);
     }
     
-    function transferOwnership(address payable newOwner) onlyOwner public {
+    function transferOwnership(address newOwner) onlyOwner public {
         if (newOwner != address(0)) {
             owner = newOwner;
         }
@@ -158,7 +158,7 @@ contract BitcoinProtocol is ERC20 {
         Distribute(_participant, _amount);
     }
 
-    function DistributeAirdropMultiple(address[] calldata _addresses, uint _amount) onlyOwner external {        
+    function DistributeAirdropMultiple(address[] _addresses, uint _amount) onlyOwner external {        
         for (uint i = 0; i < _addresses.length; i++) Distribute(_addresses[i], _amount);
     }
 

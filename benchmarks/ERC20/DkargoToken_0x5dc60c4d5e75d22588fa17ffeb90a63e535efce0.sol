@@ -1,6 +1,6 @@
 // File: contracts/DkargoPrefix.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 /// @title DkargoPrefix
 /// @notice 디카르고 컨트랙트 여부 식별용 prefix 컨트랙트 정의
@@ -26,7 +26,7 @@ contract DkargoPrefix {
 
 // File: contracts/authority/Ownership.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 /// @title Onwership
 /// @dev 오너 확인 및 소유권 이전 처리
@@ -76,7 +76,7 @@ contract Ownership {
 
 // File: contracts/libs/refs/SafeMath.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -199,7 +199,7 @@ library SafeMath {
 
 // File: contracts/chain/AddressChain.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 
 /// @title AddressChain
@@ -324,7 +324,7 @@ contract AddressChain {
 
 // File: contracts/introspection/ERC165/IERC165.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 /// @title IERC165
 /// @dev EIP165 interface 선언
@@ -336,7 +336,7 @@ interface IERC165 {
 
 // File: contracts/introspection/ERC165/ERC165.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 
 /// @title ERC165
@@ -372,7 +372,7 @@ contract ERC165 is IERC165 {
 
 // File: contracts/token/ERC20/IERC20.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 /// @title IERC20
 /// @notice EIP20 interface 선언
@@ -392,7 +392,7 @@ interface IERC20 {
 
 // File: contracts/token/ERC20/ERC20.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -522,7 +522,7 @@ contract ERC20 is IERC20 {
 
 // File: contracts/token/ERC20/ERC20Safe.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -568,7 +568,7 @@ contract ERC20Safe is ERC20 {
 
 // File: contracts/DkargoToken.sol
 
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity ^0.4.23;
 
 
 

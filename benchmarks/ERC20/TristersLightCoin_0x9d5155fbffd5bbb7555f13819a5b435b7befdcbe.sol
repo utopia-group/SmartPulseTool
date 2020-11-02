@@ -1,5 +1,5 @@
 // Address.sol
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 library Address {
 
@@ -9,7 +9,7 @@ library Address {
         return size > 0;
     }
 
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
 

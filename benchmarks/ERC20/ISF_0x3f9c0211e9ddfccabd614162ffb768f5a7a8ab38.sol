@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title ERC20 interface
@@ -24,7 +24,7 @@ interface IERC20 {
 
 
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title SafeMath
@@ -92,7 +92,7 @@ library SafeMath {
 
 
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 
@@ -284,7 +284,7 @@ contract ERC20 is IERC20 {
 
 
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title Ownable
@@ -360,7 +360,7 @@ contract Ownable {
 
 
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -385,7 +385,7 @@ contract ERC20Protected is ERC20 {
 
 
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 
@@ -441,7 +441,7 @@ contract ERC20DetailedChangeable is ERC20, Ownable {
 
 
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 

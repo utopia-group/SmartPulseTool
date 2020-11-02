@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 library SafeMath {
 
@@ -200,7 +200,7 @@ interface Comptroller {
 }
 
 contract UniswapV2Router02 {
-    function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts);
+    function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] path, address to, uint deadline) external returns (uint[] memory amounts);
 }
 
 contract blackholeswap is ERC20Mintable {
@@ -295,8 +295,12 @@ contract blackholeswap is ERC20Mintable {
 
     // DAI + USDC
     function S() external returns (uint256) {
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
         return(a.add(c).sub(b).sub(d));
     }
 
@@ -363,8 +367,12 @@ contract blackholeswap is ERC20Mintable {
 
     function dai2usdcIn(uint256 input, uint256 min_output, uint256 deadline) external returns (uint256) {
         require(block.timestamp <= deadline, "EXPIRED");
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
 
         uint256 output = getInputPrice(input.mul(fee).div(1e18), a, b, c, d);
         securityCheck(input, output, a, b, c, d);
@@ -383,8 +391,12 @@ contract blackholeswap is ERC20Mintable {
     
     function usdc2daiIn(uint256 input, uint256 min_output, uint256 deadline) external returns (uint256) {
         require(block.timestamp <= deadline, "EXPIRED");
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
 
         uint256 output = getInputPrice(input.mul(fee).div(1e6), c, d, a, b); // input * rate() * fee / 1e18
         securityCheck(input.mul(rate()), output, c, d, a, b);
@@ -402,8 +414,12 @@ contract blackholeswap is ERC20Mintable {
 
     function dai2usdcOut(uint256 max_input, uint256 output, uint256 deadline) external returns (uint256) {
         require(block.timestamp <= deadline, "EXPIRED");
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
 
         uint256 input = getOutputPrice(output.mul(rate()), a, b, c, d);
         securityCheck(input, output.mul(rate()), a, b, c, d);
@@ -422,8 +438,12 @@ contract blackholeswap is ERC20Mintable {
     
     function usdc2daiOut(uint256 max_input, uint256 output, uint256 deadline) external returns (uint256) {
         require(block.timestamp <= deadline, "EXPIRED");
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
 
         uint256 input = getOutputPrice(output, c, d, a, b);
         securityCheck(input, output, c, d, a, b);
@@ -483,14 +503,18 @@ contract blackholeswap is ERC20Mintable {
     |        Liquidity Functions        |
     |__________________________________*/
 
-    function addLiquidity(uint256 share, uint256[4] calldata tokens) external returns (uint256 dai_in, uint256 dai_out, uint256 usdc_in, uint256 usdc_out) {
+    function addLiquidity(uint256 share, uint256[4] tokens) external returns (uint256 dai_in, uint256 dai_out, uint256 usdc_in, uint256 usdc_out) {
         require(share >= 1e15, 'INVALID_ARGUMENT'); // 1000 * rate()
 
         collectComp();
 
         if (_totalSupply > 0) {
-            (uint256 a, uint256 b) = getDaiBalance();
-            (uint256 c, uint256 d) = getUSDCBalance();
+	    uint256 a;
+ 	    uint256 b;
+	    uint256 c;
+	    uint256 d;
+            (a, b) = getDaiBalance();
+            (c, d) = getUSDCBalance();
 
             dai_in = share.mul(a).divCeil(_totalSupply);
             dai_out = share.mul(b).div(_totalSupply);
@@ -515,25 +539,29 @@ contract blackholeswap is ERC20Mintable {
             emit AddLiquidity(msg.sender, share, dai_amount, usdc_amount);
             return (dai_in, dai_out, usdc_in, usdc_out);
         } else {
-            uint256 dai_amount = share.divCeil(2);
-            uint256 usdc_amount = share.divCeil(rate().mul(2));
+            uint256 dai_amount1 = share.divCeil(2);
+            uint256 usdc_amount1 = share.divCeil(rate().mul(2));
 
             _mint(msg.sender, share);
-            doTransferIn(Dai, cDai, 0, msg.sender, dai_amount);
-            doTransferIn(USDC, cUSDC, 0, msg.sender, usdc_amount);
+            doTransferIn(Dai, cDai, 0, msg.sender, dai_amount1);
+            doTransferIn(USDC, cUSDC, 0, msg.sender, usdc_amount1);
             
-            emit AddLiquidity(msg.sender, share, int256(dai_amount), int256(usdc_amount));
-            return (dai_amount, 0, usdc_amount, 0);
+            emit AddLiquidity(msg.sender, share, int256(dai_amount1), int256(usdc_amount1));
+            return (dai_amount1, 0, usdc_amount1, 0);
         }
     }
 
-    function removeLiquidity(uint256 share, uint256[4] calldata tokens) external returns (uint256 dai_in, uint256 dai_out, uint256 usdc_in, uint256 usdc_out) {
+    function removeLiquidity(uint256 share, uint256[4] tokens) external returns (uint256 dai_in, uint256 dai_out, uint256 usdc_in, uint256 usdc_out) {
         require(share > 0, 'INVALID_ARGUMENT');
 
         collectComp();
 
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+ 	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
 
         dai_out = share.mul(a).div(_totalSupply);
         dai_in = share.mul(b).divCeil(_totalSupply);
@@ -568,8 +596,12 @@ contract blackholeswap is ERC20Mintable {
         uint256 _comp = Comp.balanceOf(address(this));
         if(_comp == 0) return;
 
-        (uint256 a, uint256 b) = getDaiBalance();
-        (uint256 c, uint256 d) = getUSDCBalance();
+	uint256 a;
+ 	uint256 b;
+	uint256 c;
+	uint256 d;
+        (a, b) = getDaiBalance();
+        (c, d) = getUSDCBalance();
 
         bool isDai = a.add(d) > c.add(b);
 

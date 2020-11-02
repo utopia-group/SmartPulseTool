@@ -1,4 +1,4 @@
-pragma solidity ^0.5.15;
+pragma solidity ^0.4.23;
 
 // File: @openzeppelin/contracts/utils/Address.sol
 
@@ -33,12 +33,12 @@ library Address {
     }
 
     /**
-     * @dev Converts an `address` into `address payable`. Note that this is
+     * @dev Converts an `address` into `address`. Note that this is
      * simply a type cast: the actual underlying value is not changed.
      *
      * _Available since v2.4.0._
      */
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
 
@@ -60,7 +60,7 @@ library Address {
      *
      * _Available since v2.4.0._
      */
-    function sendValue(address payable recipient, uint256 amount) internal {
+    function sendValue(address recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
 
         // solhint-disable-next-line avoid-call-value
@@ -209,7 +209,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 

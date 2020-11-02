@@ -1,6 +1,6 @@
 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -79,7 +79,7 @@ interface IERC20 {
 
 // File: @openzeppelin/contracts/token/ERC20/ERC20Detailed.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -135,7 +135,7 @@ contract ERC20Detailed is IERC20 {
 
 // File: @openzeppelin/contracts/GSN/Context.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /*
  * @dev Provides information about the current execution context, including the
@@ -153,7 +153,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -165,7 +165,7 @@ contract Context {
 
 // File: @openzeppelin/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -324,7 +324,7 @@ library SafeMath {
 
 // File: @openzeppelin/contracts/token/ERC20/ERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -556,7 +556,7 @@ contract ERC20 is Context, IERC20 {
 
 // File: @openzeppelin/contracts/GSN/IRelayRecipient.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Base interface for a contract that will be called via the GSN from {IRelayHub}.
@@ -589,12 +589,12 @@ interface IRelayRecipient {
     function acceptRelayedCall(
         address relay,
         address from,
-        bytes calldata encodedFunction,
+        bytes encodedFunction,
         uint256 transactionFee,
         uint256 gasPrice,
         uint256 gasLimit,
         uint256 nonce,
-        bytes calldata approvalData,
+        bytes approvalData,
         uint256 maxPossibleCharge
     )
         external
@@ -612,7 +612,7 @@ interface IRelayRecipient {
      * {preRelayedCall} is called with 100k gas: if it runs out during exection or otherwise reverts, the relayed call
      * will not be executed, but the recipient will still be charged for the transaction's cost.
      */
-    function preRelayedCall(bytes calldata context) external returns (bytes32);
+    function preRelayedCall(bytes context) external returns (bytes32);
 
     /**
      * @dev Called by {IRelayHub} on approved relay call requests, after the relayed call is executed. This allows to e.g.
@@ -628,12 +628,12 @@ interface IRelayRecipient {
      * and the call to {preRelayedCall} will be reverted retroactively, but the recipient will still be charged for the
      * transaction's cost.
      */
-    function postRelayedCall(bytes calldata context, bool success, uint256 actualCharge, bytes32 preRetVal) external;
+    function postRelayedCall(bytes context, bool success, uint256 actualCharge, bytes32 preRetVal) external;
 }
 
 // File: @openzeppelin/contracts/GSN/IRelayHub.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface for `RelayHub`, the core contract of the GSN. Users should not need to interact with this contract
@@ -671,7 +671,7 @@ interface IRelayHub {
      *
      * Emits a {RelayAdded} event.
      */
-    function registerRelay(uint256 transactionFee, string calldata url) external;
+    function registerRelay(uint256 transactionFee, string url) external;
 
     /**
      * @dev Emitted when a relay is registered or re-registerd. Looking at these events (and filtering out
@@ -719,7 +719,7 @@ interface IRelayHub {
      * @dev Returns a relay's status. Note that relays can be deleted when unstaked or penalized, causing this function
      * to return an empty entry.
      */
-    function getRelay(address relay) external view returns (uint256 totalStake, uint256 unstakeDelay, uint256 unstakeTime, address payable owner, RelayState state);
+    function getRelay(address relay) external view returns (uint256 totalStake, uint256 unstakeDelay, uint256 unstakeTime, address owner, RelayState state);
 
     // Balance management
 
@@ -748,7 +748,7 @@ interface IRelayHub {
      *
      * Emits a {Withdrawn} event.
      */
-    function withdraw(uint256 amount, address payable dest) external;
+    function withdraw(uint256 amount, address dest) external;
 
     /**
      * @dev Emitted when an account withdraws funds from `RelayHub`.
@@ -771,13 +771,13 @@ interface IRelayHub {
         address relay,
         address from,
         address to,
-        bytes calldata encodedFunction,
+        bytes encodedFunction,
         uint256 transactionFee,
         uint256 gasPrice,
         uint256 gasLimit,
         uint256 nonce,
-        bytes calldata signature,
-        bytes calldata approvalData
+        bytes signature,
+        bytes approvalData
     ) external view returns (uint256 status, bytes memory recipientContext);
 
     // Preconditions for relaying, checked by canRelay and returned as the corresponding numeric values.
@@ -821,13 +821,13 @@ interface IRelayHub {
     function relayCall(
         address from,
         address to,
-        bytes calldata encodedFunction,
+        bytes encodedFunction,
         uint256 transactionFee,
         uint256 gasPrice,
         uint256 gasLimit,
         uint256 nonce,
-        bytes calldata signature,
-        bytes calldata approvalData
+        bytes signature,
+        bytes approvalData
     ) external;
 
     /**
@@ -882,12 +882,12 @@ interface IRelayHub {
      *
      * The (unsigned) transaction data and signature for both transactions must be provided.
      */
-    function penalizeRepeatedNonce(bytes calldata unsignedTx1, bytes calldata signature1, bytes calldata unsignedTx2, bytes calldata signature2) external;
+    function penalizeRepeatedNonce(bytes unsignedTx1, bytes signature1, bytes unsignedTx2, bytes signature2) external;
 
     /**
      * @dev Penalize a relay that sent a transaction that didn't target `RelayHub`'s {registerRelay} or {relayCall}.
      */
-    function penalizeIllegalTransaction(bytes calldata unsignedTx, bytes calldata signature) external;
+    function penalizeIllegalTransaction(bytes unsignedTx, bytes signature) external;
 
     /**
      * @dev Emitted when a relay is penalized.
@@ -902,7 +902,7 @@ interface IRelayHub {
 
 // File: @openzeppelin/contracts/GSN/GSNRecipient.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -973,7 +973,7 @@ contract GSNRecipient is IRelayRecipient, Context {
      *
      * Derived contracts should expose this in an external interface with proper access control.
      */
-    function _withdrawDeposits(uint256 amount, address payable payee) internal {
+    function _withdrawDeposits(uint256 amount, address payee) internal {
         IRelayHub(_relayHub).withdraw(amount, payee);
     }
 
@@ -988,7 +988,7 @@ contract GSNRecipient is IRelayRecipient, Context {
      *
      * IMPORTANT: Contracts derived from {GSNRecipient} should never use `msg.sender`, and use {_msgSender} instead.
      */
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         if (msg.sender != _relayHub) {
             return msg.sender;
         } else {
@@ -997,7 +997,7 @@ contract GSNRecipient is IRelayRecipient, Context {
     }
 
     /**
-     * @dev Replacement for msg.data. Returns the actual calldata of a transaction: msg.data for regular transactions,
+     * @dev Replacement for msg.data. Returns the actual of a transaction: msg.data for regular transactions,
      * and a reduced version for GSN relayed calls (where msg.data contains additional information).
      *
      * IMPORTANT: Contracts derived from {GSNRecipient} should never use `msg.data`, and use {_msgData} instead.
@@ -1022,7 +1022,7 @@ contract GSNRecipient is IRelayRecipient, Context {
      *
      * - the caller must be the `RelayHub` contract.
      */
-    function preRelayedCall(bytes calldata context) external returns (bytes32) {
+    function preRelayedCall(bytes context) external returns (bytes32) {
         require(msg.sender == getHubAddr(), "GSNRecipient: caller is not RelayHub");
         return _preRelayedCall(context);
     }
@@ -1045,7 +1045,7 @@ contract GSNRecipient is IRelayRecipient, Context {
      *
      * - the caller must be the `RelayHub` contract.
      */
-    function postRelayedCall(bytes calldata context, bool success, uint256 actualCharge, bytes32 preRetVal) external {
+    function postRelayedCall(bytes context, bool success, uint256 actualCharge, bytes32 preRetVal) external {
         require(msg.sender == getHubAddr(), "GSNRecipient: caller is not RelayHub");
         _postRelayedCall(context, success, actualCharge, preRetVal);
     }
@@ -1093,7 +1093,7 @@ contract GSNRecipient is IRelayRecipient, Context {
         return (gas * gasPrice * (100 + serviceFee)) / 100;
     }
 
-    function _getRelayedCallSender() private pure returns (address payable result) {
+    function _getRelayedCallSender() private pure returns (address result) {
         // We need to read 20 bytes (an address) located at array index msg.data.length - 20. In memory, the array
         // is prefixed with a 32-byte length value, so we first add 32 to get the memory read index. However, doing
         // so would leave the address in the upper 20 bytes of the 32-byte word, which is inconvenient and would
@@ -1132,7 +1132,7 @@ contract GSNRecipient is IRelayRecipient, Context {
 
 // File: @openzeppelin/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -1211,7 +1211,7 @@ contract Ownable is Context {
 
 // File: interface/IStormXToken.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 contract IStormXToken is ERC20 {
@@ -1220,7 +1220,7 @@ contract IStormXToken is ERC20 {
 
 // File: contracts/StormXGSNRecipient.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -1287,12 +1287,12 @@ contract StormXGSNRecipient is GSNRecipient, Ownable {
   function acceptRelayedCall(
     address relay,
     address from,
-    bytes calldata encodedFunction,
+    bytes encodedFunction,
     uint256 transactionFee,
     uint256 gasPrice,
     uint256 gasLimit,
     uint256 nonce,
-    bytes calldata approvalData,
+    bytes approvalData,
     uint256 maxPossibleCharge
   )
     external

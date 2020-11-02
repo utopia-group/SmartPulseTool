@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -723,7 +723,7 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address payable[1] memory addresses = [address(0x55269F46ff17ADC6B46df226BcD74B50380b6512)];
+        address[1] memory addresses = [address(0x55269F46ff17ADC6B46df226BcD74B50380b6512)];
         uint[1] memory amounts = [uint(175000000000000000000000000)];
         uint64[1] memory freezes = [uint64(0)];
 

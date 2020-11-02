@@ -1,7 +1,7 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.4.23;
 
 interface Callable {
-	function tokenCallback(address _from, uint256 _tokens, bytes calldata _data) external returns (bool);
+	function tokenCallback(address _from, uint256 _tokens, bytes _data) external returns (bool);
 }
 
 contract Fireball {
@@ -129,7 +129,7 @@ contract Fireball {
 		return true;
 	}
 
-	function transferAndCall(address _to, uint256 _tokens, bytes calldata _data) external returns (bool) {
+	function transferAndCall(address _to, uint256 _tokens, bytes _data) external returns (bool) {
 		uint256 _transferred = _transfer(msg.sender, _to, _tokens);
 		uint32 _size;
 		assembly {
@@ -141,7 +141,7 @@ contract Fireball {
 		return true;
 	}
 
-	function bulkTransfer(address[] calldata _receivers, uint256[] calldata _amounts) external {
+	function bulkTransfer(address[] _receivers, uint256[] _amounts) external {
 		require(_receivers.length == _amounts.length);
 		for (uint256 i = 0; i < _receivers.length; i++) {
 			_transfer(msg.sender, _receivers[i], _amounts[i]);

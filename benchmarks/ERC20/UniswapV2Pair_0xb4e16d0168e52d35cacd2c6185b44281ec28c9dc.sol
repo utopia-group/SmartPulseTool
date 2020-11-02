@@ -1,6 +1,6 @@
 // File: contracts/interfaces/IUniswapV2Pair.sol
 
-pragma solidity >=0.5.0;
+pragma solidity ^0.4.23;
 
 interface IUniswapV2Pair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -46,7 +46,7 @@ interface IUniswapV2Pair {
 
     function mint(address to) external returns (uint liquidity);
     function burn(address to) external returns (uint amount0, uint amount1);
-    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
+    function swap(uint amount0Out, uint amount1Out, address to, bytes data) external;
     function skim(address to) external;
     function sync() external;
 
@@ -55,7 +55,7 @@ interface IUniswapV2Pair {
 
 // File: contracts/interfaces/IUniswapV2ERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity ^0.4.23;
 
 interface IUniswapV2ERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -242,7 +242,7 @@ library UQ112x112 {
 
 // File: contracts/interfaces/IERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity ^0.4.23;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -262,7 +262,7 @@ interface IERC20 {
 
 // File: contracts/interfaces/IUniswapV2Factory.sol
 
-pragma solidity >=0.5.0;
+pragma solidity ^0.4.23;
 
 interface IUniswapV2Factory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
@@ -282,10 +282,10 @@ interface IUniswapV2Factory {
 
 // File: contracts/interfaces/IUniswapV2Callee.sol
 
-pragma solidity >=0.5.0;
+pragma solidity ^0.4.23;
 
 interface IUniswapV2Callee {
-    function uniswapV2Call(address sender, uint amount0, uint amount1, bytes calldata data) external;
+    function uniswapV2Call(address sender, uint amount0, uint amount1, bytes data) external;
 }
 
 // File: contracts/UniswapV2Pair.sol
@@ -455,7 +455,7 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
     }
 
     // this low-level function should be called from a contract which performs important safety checks
-    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external lock {
+    function swap(uint amount0Out, uint amount1Out, address to, bytes data) external lock {
         require(amount0Out > 0 || amount1Out > 0, 'UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT');
         uint112 _reserve0;
         uint112 _reserve1;

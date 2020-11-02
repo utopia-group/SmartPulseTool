@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2018-10-04
 */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 // produced by the Solididy File Flattener (c) David Appleton 2018
 // contact : dave@akomba.com
 // released under Apache 2.0 licence
@@ -639,7 +639,7 @@ contract TONToken is BurnableToken, MintableToken, WhitelistedPausableToken, Det
 
         bytes memory callData = abi.encodePacked(_selector, uint256(msg.sender), _callParams);
         // solium-disable-next-line security/no-call-value
-        (bool success, ) = _spender.call.value(msg.value)(callData);
+        bool success = _spender.call.value(msg.value)(callData);
         require(success, "proxied call failed");
         return true;
     }

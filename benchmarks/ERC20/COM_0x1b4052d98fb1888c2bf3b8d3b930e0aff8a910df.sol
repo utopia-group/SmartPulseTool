@@ -2,7 +2,7 @@
  * official website https://communitytoken.network
 */
 
-pragma solidity ^0.5.17;
+pragma solidity ^0.4.23;
 
 interface IERC20 {
   function totalSupply() external view returns (uint256);

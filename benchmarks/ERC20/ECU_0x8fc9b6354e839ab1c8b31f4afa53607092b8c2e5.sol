@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-04-02
 */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 // ----------------------------------------------------------------------------
 // 'ECU'  token contract

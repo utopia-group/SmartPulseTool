@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 contract ModuleKeys {
@@ -34,7 +34,7 @@ interface INexus {
     function proposeModule(bytes32 _key, address _addr) external;
     function cancelProposedModule(bytes32 _key) external;
     function acceptProposedModule(bytes32 _key) external;
-    function acceptProposedModules(bytes32[] calldata _keys) external;
+    function acceptProposedModules(bytes32[] _keys) external;
 
     function requestLockModule(bytes32 _key) external;
     function cancelLockModule(bytes32 _key) external;
@@ -181,7 +181,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 }

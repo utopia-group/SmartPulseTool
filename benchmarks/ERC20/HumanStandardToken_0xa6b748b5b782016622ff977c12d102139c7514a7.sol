@@ -1,6 +1,6 @@
 
 // Token.sol
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 contract Token{
    
     uint256 public totalSupply;
@@ -86,7 +86,7 @@ contract HumanStandardToken is StandardToken {
         _;
     }
 
-    function HumanStandardToken(uint256 _initialAmount, string memory _tokenName, uint8 _decimalUnits, string memory _tokenSymbol,address _owner) public {
+    constructor(uint256 _initialAmount, string memory _tokenName, uint8 _decimalUnits, string memory _tokenSymbol,address _owner) public {
         balances[msg.sender] = _initialAmount; 
         totalSupply = _initialAmount;        
         name = _tokenName;                 
@@ -103,7 +103,7 @@ contract HumanStandardToken is StandardToken {
         //call the receiveApproval function on the contract you want to be notified. This crafts the function signature manually so one doesn't have to include a contract in here just for this.
         //receiveApproval(address _from, uint256 _value, address _tokenContract, bytes _extraData)
         //it is assumed that when does this that the call *should* succeed, otherwise one would use vanilla approve instead.
-        require(_spender.call(bytes4(bytes32(sha3("receiveApproval(address,uint256,address,bytes)"))), msg.sender, _value, this, _extraData));
+        require(_spender.call(bytes4(bytes32(keccak256("receiveApproval(address,uint256,address,bytes)"))), msg.sender, _value, this, _extraData));
         return true;
     }
 
@@ -111,8 +111,8 @@ contract HumanStandardToken is StandardToken {
     function mintToken(address target, uint256 mintedAmount) public onlyOwner returns (bool success) {
         balances[target] += mintedAmount;
         totalSupply += mintedAmount;
-        Transfer(0, owner, mintedAmount);
-        Transfer(owner, target, mintedAmount);
+        emit Transfer(0, owner, mintedAmount);
+        emit Transfer(owner, target, mintedAmount);
         return true;
     }
 

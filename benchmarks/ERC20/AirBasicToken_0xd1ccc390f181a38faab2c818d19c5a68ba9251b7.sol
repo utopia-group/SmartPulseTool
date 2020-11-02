@@ -1,5 +1,5 @@
 // airbasictoken.sol
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 // ownable.sol
@@ -12,7 +12,7 @@ pragma solidity ^0.5.0;
  * functions, this simplifies the implementation of "user permissions".
  */
 contract Ownable {
-  address payable public owner;
+  address public owner;
  
   /**
    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
@@ -349,14 +349,14 @@ contract AirBasicToken is StandardToken, BurnableToken, Ownable {
         return super.transfer(_to, _value);
     }    
   
-    function lock ( address[] calldata _addr ) onlyOwner external  {
+    function lock ( address[] _addr ) onlyOwner external  {
         for (uint i = 0; i < _addr.length; i++) {
           balanceLocked[_addr[i]] =  true;  
         }
     }
     
    
-    function unlock ( address[] calldata _addr ) onlyOwner external  {
+    function unlock ( address[] _addr ) onlyOwner external  {
         for (uint i = 0; i < _addr.length; i++) {
           balanceLocked[_addr[i]] =  false;  
         }

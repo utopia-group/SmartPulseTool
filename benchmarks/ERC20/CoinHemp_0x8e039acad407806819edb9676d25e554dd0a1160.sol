@@ -1,10 +1,10 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract CoinHemp // @eachvar
 {
     // ======== 初始化代币相关逻辑 ==============
     // 地址信息
-    address payable public admin_address = 0xE00ebe6ADd57A2cf8eFBc77E046c7008f3087bC2; // @eachvar
+    address public admin_address = 0xE00ebe6ADd57A2cf8eFBc77E046c7008f3087bC2; // @eachvar
     address public account_address = 0xE00ebe6ADd57A2cf8eFBc77E046c7008f3087bC2; // @eachvar 初始化后转入代币的地址
     
     // 定义账户余额
@@ -158,7 +158,7 @@ contract CoinHemp // @eachvar
         _;
     }
 
-    function setAdmin( address payable new_admin_address ) 
+    function setAdmin( address new_admin_address ) 
     public 
     admin_only 
     returns (bool)

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.17;
+pragma solidity ^0.4.23;
 
 /*
   _______                   ____  _____  
@@ -22,7 +22,7 @@ interface ERC20 {
 
 
 interface ApproveAndCallFallBack {
-    function receiveApproval(address from, uint tokens, address token, bytes calldata data) external;
+    function receiveApproval(address from, uint tokens, address token, bytes data) external;
 }
 
 
@@ -108,7 +108,7 @@ contract Team3D is ERC20 {
         return true;
     }
 
-    function approveAndCall(address spender, uint256 tokens, bytes calldata data) external returns (bool) {
+    function approveAndCall(address spender, uint256 tokens, bytes data) external returns (bool) {
         allowed[msg.sender][spender] = tokens;
         emit Approval(msg.sender, spender, tokens);
         ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, address(this), data);

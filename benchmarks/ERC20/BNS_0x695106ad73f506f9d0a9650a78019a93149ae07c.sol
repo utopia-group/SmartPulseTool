@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 // File: openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
 
@@ -26,7 +26,7 @@ interface IERC20 {
 
 // File: openzeppelin-solidity/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title SafeMath
@@ -94,7 +94,7 @@ library SafeMath {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 /**
  * @title Standard ERC20 token
@@ -282,7 +282,7 @@ contract ERC20 is IERC20 {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -326,7 +326,7 @@ contract ERC20Detailed is IERC20 {
 
 // File: openzeppelin-solidity/contracts/token/ERC20/ERC20Burnable.sol
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -354,10 +354,10 @@ contract ERC20Burnable is ERC20 {
 
 // File: contracts/BNS.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract BNS is ERC20, ERC20Detailed, ERC20Burnable {
     constructor() ERC20Detailed('BNS Token', 'BNS', 8) public {
-        _mint(msg.sender, 2_500_000_000 * 10 ** 8);
+        _mint(msg.sender, 2500000000 * 10 ** 8);
     }
 }

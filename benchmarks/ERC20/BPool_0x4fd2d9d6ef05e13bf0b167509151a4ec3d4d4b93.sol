@@ -11,7 +11,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract BColor {
     function getColor()
@@ -1069,7 +1069,7 @@ contract BPool is BBronze, BToken, BMath {
         return calcSpotPrice(inRecord.balance, inRecord.denorm, outRecord.balance, outRecord.denorm, 0);
     }
 
-    function joinPool(uint poolAmountOut, uint[] calldata maxAmountsIn)
+    function joinPool(uint poolAmountOut, uint[] maxAmountsIn)
         external
         _logs_
         _lock_
@@ -1094,7 +1094,7 @@ contract BPool is BBronze, BToken, BMath {
         _pushPoolShare(msg.sender, poolAmountOut);
     }
 
-    function exitPool(uint poolAmountIn, uint[] calldata minAmountsOut)
+    function exitPool(uint poolAmountIn, uint[] minAmountsOut)
         external
         _logs_
         _lock_

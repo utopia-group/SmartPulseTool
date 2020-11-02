@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -92,7 +92,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -559,6 +559,6 @@ contract ERC20Burnable is Context, ERC20 {
 
 contract BoltToken is ERC20Detailed, ERC20Burnable {
     constructor() ERC20Detailed("Bolt Token", "BOLT", 18) public {
-      _mint(msg.sender, 1_000_000_000 ether);
+      _mint(msg.sender, 1000000000 ether);
     }
 }

@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-07-23
 */
 
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 /**
 * @title ERC20 interface 
 * @dev see https://eips.ethereum.org/EIPS/eip-20 

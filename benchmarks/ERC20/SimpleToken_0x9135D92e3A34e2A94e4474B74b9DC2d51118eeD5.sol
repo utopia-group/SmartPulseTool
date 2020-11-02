@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.23;
 
 interface IERC20 {
   
@@ -49,7 +49,7 @@ contract Context {
     constructor () internal { }
     
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 

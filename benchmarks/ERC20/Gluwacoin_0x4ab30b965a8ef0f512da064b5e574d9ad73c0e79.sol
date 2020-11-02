@@ -1,5 +1,5 @@
 // ECDSA.sol
-pragma solidity ^0.5.9;
+pragma solidity ^0.4.23;
 /** 
 The MIT License (MIT)
 
@@ -107,7 +107,7 @@ library ECDSA {
 }
 
 // SafeMath.sol
-pragma solidity ^0.5.9;
+pragma solidity ^0.4.23;
 /**
 The MIT License (MIT)
 
@@ -195,7 +195,7 @@ library SafeMath {
 
 
 // Gluwacoin.sol
-pragma solidity ^0.5.9;
+pragma solidity ^0.4.23;
 
 
 contract Erc20

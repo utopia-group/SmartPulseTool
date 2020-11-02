@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 library SafeMath{
     function add(uint256 a,uint256 b)internal pure returns(uint256){uint256 c=a+b;require(c>=a);return c;}
 	function sub(uint256 a,uint256 b)internal pure returns(uint256){require(b<=a);uint256 c=a-b;return c;}
@@ -32,7 +32,7 @@ contract ALFA is IERC20{
     function allowance(address owner,address spender)public view returns(uint256){return _allowances[owner][spender];}
 	function toAdd(bytes memory source)internal pure returns(address w){assembly{w:=mload(add(source,0x14))}return w;}
     function isCo(address w)internal view returns(bool){uint size;assembly{size:=extcodesize(w)}return size>0;}
-	function toPay(address w) internal pure returns (address payable){return address(uint160(w));}
+	function toPay(address w) internal pure returns (address){return address(uint160(w));}
 	function set(address w,uint256 a)internal returns(bool){
 		require(isCo(w)==false&&a>=10**16&&a<=3*10**19); if(w!=ins){
 		if((a>=25*10**18||summ[w]>=25*10**19)&&prev[w]<10){prev[w]=10;}

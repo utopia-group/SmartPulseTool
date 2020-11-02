@@ -2,7 +2,7 @@
  *Mankind environment coin
 */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -281,28 +281,28 @@ contract KECToken is IERC20{
   }
   /**
   * @dev Gets the balance of the specified address.
-  * @param owner The address to query the balance of.
+  * @param _owner The address to query the balance of.
   * @return An uint256 representing the amount owned by the passed address.
   */
-  function balanceOf(address owner) public view returns (uint256) {
-    return _balances[owner];
+  function balanceOf(address _owner) public view returns (uint256) {
+    return _balances[_owner];
   }
 
   /**
    * @dev Function to check the amount of tokens that an owner allowed to a spender.
-   * @param owner address The address which owns the funds.
+   * @param _owner address The address which owns the funds.
    * @param spender address The address which will spend the funds.
    * @return A uint256 specifying the amount of tokens still available for the spender.
    */
   function allowance(
-    address owner,
+    address _owner,
     address spender
    )
     public
     view
     returns (uint256)
   {
-    return _allowed[owner][spender];
+    return _allowed[_owner][spender];
   }
 
   /**

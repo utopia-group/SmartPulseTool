@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract Ownable {
     address public owner;
@@ -22,7 +22,7 @@ contract Ownable {
 }
 
 contract ApproveAndCallFallBack {
-    function receiveApproval(address from, uint256 value, address token, bytes calldata data) external;
+    function receiveApproval(address from, uint256 value, address token, bytes data) external;
 }
 
 contract Hakka is Ownable {
@@ -96,7 +96,7 @@ contract Hakka is Ownable {
     }
 
     // --- Approve and call contract ---
-    function approveAndCall(address spender, uint256 amount, bytes calldata data) external returns (bool) {
+    function approveAndCall(address spender, uint256 amount, bytes data) external returns (bool) {
         allowance[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
         ApproveAndCallFallBack(spender).receiveApproval(msg.sender, amount, address(this), data);

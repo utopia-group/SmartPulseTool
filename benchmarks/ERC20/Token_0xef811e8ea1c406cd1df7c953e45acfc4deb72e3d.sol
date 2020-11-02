@@ -1,6 +1,6 @@
 // File: contracts/SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @title SafeMath

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @title SafeMath
@@ -309,7 +309,7 @@ contract EDC is PausableToken {
         totalSupply = totalSupply.sub(_tokens);
         emit TokensBurned(msg.sender, _tokens);
     }
-    function destroy(address payable _benefitiary) external onlyOwner{
+    function destroy(address _benefitiary) external onlyOwner{
         selfdestruct(_benefitiary);
     }
 }

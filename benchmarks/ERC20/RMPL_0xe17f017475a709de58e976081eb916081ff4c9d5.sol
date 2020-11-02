@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /* 
     RMPL.sol
@@ -562,7 +562,7 @@ contract RMPL is Ownable, ERC20Detailed {
      * @param data Transaction data payload
      */
 	
-    function addTransaction(address destination, bytes calldata data)
+    function addTransaction(address destination, bytes data)
         external
         onlyOwner
     {

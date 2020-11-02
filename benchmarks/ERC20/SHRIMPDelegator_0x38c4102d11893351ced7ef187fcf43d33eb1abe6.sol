@@ -6,7 +6,7 @@
  *Submitted for verification at Etherscan.io on 2020-08-11
 */
 
-pragma solidity 0.5.17;
+pragma solidity ^0.4.23;
 
 
 library SafeMath {

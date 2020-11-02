@@ -6,7 +6,7 @@
  *Submitted for verification at Etherscan.io on 2020-08-04
 */
 
-pragma solidity ^0.5.16;
+pragma solidity ^0.4.23;
 
 interface IERC20 {
     function totalSupply() external view returns (uint256);
@@ -23,7 +23,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -212,10 +212,10 @@ library Address {
         assembly { codehash := extcodehash(account) }
         return (codehash != 0x0 && codehash != accountHash);
     }
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
-    function sendValue(address payable recipient, uint256 amount) internal {
+    function sendValue(address recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
 
         // solhint-disable-next-line avoid-call-value
@@ -276,7 +276,7 @@ interface Controller {
 interface Aave {
     function borrow(address _reserve, uint _amount, uint _interestRateModel, uint16 _referralCode) external;
     function setUserUseReserveAsCollateral(address _reserve, bool _useAsCollateral) external;
-    function repay(address _reserve, uint _amount, address payable _onBehalfOf) external payable;
+    function repay(address _reserve, uint _amount, address _onBehalfOf) external payable;
     function getUserAccountData(address _user)
         external
         view

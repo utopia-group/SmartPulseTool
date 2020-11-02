@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2020-08-12
 */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -709,7 +709,7 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address payable[2] memory addresses = [address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d),address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d)];
+        address[2] memory addresses = [address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d),address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d)];
         uint[2] memory amounts = [uint(48000000000000000000000000),uint(6000000000000000000000000)];
         uint64[2] memory freezes = [uint64(0),uint64(0)];
 

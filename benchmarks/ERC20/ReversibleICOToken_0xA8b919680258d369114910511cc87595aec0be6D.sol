@@ -24,7 +24,7 @@
  * destroyed. This makes integration with ERC20 applications seamless.
  */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 interface IERC777 {
@@ -44,10 +44,10 @@ interface IERC777 {
     function balanceOf(address owner) external view returns (uint256);
 
     
-    function send(address recipient, uint256 amount, bytes calldata data) external;
+    function send(address recipient, uint256 amount, bytes data) external;
 
     
-    function burn(uint256 amount, bytes calldata data) external;
+    function burn(uint256 amount, bytes data) external;
 
     
     function isOperatorFor(address operator, address tokenHolder) external view returns (bool);
@@ -66,16 +66,16 @@ interface IERC777 {
         address sender,
         address recipient,
         uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
+        bytes data,
+        bytes operatorData
     ) external;
 
     
     function operatorBurn(
         address account,
         uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
+        bytes data,
+        bytes operatorData
     ) external;
 
     event Sent(
@@ -103,8 +103,8 @@ interface IERC777Recipient {
         address from,
         address to,
         uint256 amount,
-        bytes calldata userData,
-        bytes calldata operatorData
+        bytes userData,
+        bytes operatorData
     ) external;
 }
 
@@ -115,8 +115,8 @@ interface IERC777Sender {
         address from,
         address to,
         uint256 amount,
-        bytes calldata userData,
-        bytes calldata operatorData
+        bytes userData,
+        bytes operatorData
     ) external;
 }
 
@@ -213,7 +213,7 @@ library Address {
     }
 
     
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
 }
@@ -232,7 +232,7 @@ interface IERC1820Registry {
     function getInterfaceImplementer(address account, bytes32 interfaceHash) external view returns (address);
 
     
-    function interfaceHash(string calldata interfaceName) external pure returns (bytes32);
+    function interfaceHash(string interfaceName) external pure returns (bytes32);
 
     
     function updateERC165Cache(address account, bytes4 interfaceId) external;
@@ -335,7 +335,7 @@ contract ERC777 is IERC777, IERC20 {
     }
 
     
-    function send(address recipient, uint256 amount, bytes calldata data) external {
+    function send(address recipient, uint256 amount, bytes data) external {
         _send(msg.sender, msg.sender, recipient, amount, data, bytes(""), true);
     }
 
@@ -355,7 +355,7 @@ contract ERC777 is IERC777, IERC20 {
     }
 
     
-    function burn(uint256 amount, bytes calldata data) external {
+    function burn(uint256 amount, bytes data) external {
         _burn(msg.sender, msg.sender, amount, data, bytes(""));
     }
 
@@ -405,8 +405,8 @@ contract ERC777 is IERC777, IERC20 {
         address sender,
         address recipient,
         uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
+        bytes data,
+        bytes operatorData
     )
     external
     {
@@ -415,7 +415,7 @@ contract ERC777 is IERC777, IERC20 {
     }
 
     
-    function operatorBurn(address account, uint256 amount, bytes calldata data, bytes calldata operatorData) external {
+    function operatorBurn(address account, uint256 amount, bytes data, bytes operatorData) external {
         require(isOperatorFor(msg.sender, account), "ERC777: caller is not an operator for holder");
         _burn(msg.sender, account, amount, data, operatorData);
     }

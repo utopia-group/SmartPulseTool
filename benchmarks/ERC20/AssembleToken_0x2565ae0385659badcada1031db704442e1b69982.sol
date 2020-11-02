@@ -1,4 +1,4 @@
-pragma solidity ^0.5.9;
+pragma solidity ^0.4.23;
 
 library SafeMath
 {
@@ -448,14 +448,15 @@ contract AssembleToken is ERC20Interface, OwnerHelper
         
         uint nowTime = now;
         endSaleTime = nowTime;
+	uint i;
         
-        for(uint i = 0; i < teamVestingTime; i++)
+        for(i = 0; i < teamVestingTime; i++)
         {
             tmVestingTimer[i] = endSaleTime + teamVestingLockDate + ((i+1) * month);
             tmVestingBalances[i] = teamVestingSupply;
         }
         
-        for(uint i = 0; i < advisorVestingTime; i++)
+        for(i = 0; i < advisorVestingTime; i++)
         {
             advVestingTimer[i] = endSaleTime + advisorVestingLockDate + (3 * (i+1) * month);
             advVestingBalances[i] = advisorVestingSupply;

@@ -1,6 +1,6 @@
 // File: @openzeppelin/contracts/token/ERC777/IERC777.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC777Token standard as defined in the EIP.
@@ -58,7 +58,7 @@ interface IERC777 {
      * - if `recipient` is a contract, it must implement the `tokensReceived`
      * interface.
      */
-    function send(address recipient, uint256 amount, bytes calldata data) external;
+    function send(address recipient, uint256 amount, bytes data) external;
 
     /**
      * @dev Destroys `amount` tokens from the caller's account, reducing the
@@ -73,7 +73,7 @@ interface IERC777 {
      *
      * - the caller must have at least `amount` tokens.
      */
-    function burn(uint256 amount, bytes calldata data) external;
+    function burn(uint256 amount, bytes data) external;
 
     /**
      * @dev Returns true if an account is an operator of `tokenHolder`.
@@ -143,8 +143,8 @@ interface IERC777 {
         address sender,
         address recipient,
         uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
+        bytes data,
+        bytes operatorData
     ) external;
 
     /**
@@ -165,8 +165,8 @@ interface IERC777 {
     function operatorBurn(
         address account,
         uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
+        bytes data,
+        bytes operatorData
     ) external;
 
     event Sent(
@@ -189,7 +189,7 @@ interface IERC777 {
 
 // File: @openzeppelin/contracts/token/ERC777/IERC777Recipient.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC777TokensRecipient standard as defined in the EIP.
@@ -217,14 +217,14 @@ interface IERC777Recipient {
         address from,
         address to,
         uint amount,
-        bytes calldata userData,
-        bytes calldata operatorData
+        bytes userData,
+        bytes operatorData
     ) external;
 }
 
 // File: @openzeppelin/contracts/token/ERC777/IERC777Sender.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC777TokensSender standard as defined in the EIP.
@@ -252,14 +252,14 @@ interface IERC777Sender {
         address from,
         address to,
         uint amount,
-        bytes calldata userData,
-        bytes calldata operatorData
+        bytes userData,
+        bytes operatorData
     ) external;
 }
 
 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -338,7 +338,7 @@ interface IERC20 {
 
 // File: @openzeppelin/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -448,7 +448,7 @@ library SafeMath {
 
 // File: @openzeppelin/contracts/utils/Address.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Collection of functions related to the address type,
@@ -478,7 +478,7 @@ library Address {
 
 // File: @openzeppelin/contracts/introspection/IERC1820Registry.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the global ERC1820 Registry, as defined in the
@@ -555,7 +555,7 @@ interface IERC1820Registry {
      * corresponding
      * [section of the EIP](https://eips.ethereum.org/EIPS/eip-1820#interface-name).
      */
-    function interfaceHash(string calldata interfaceName) external pure returns (bytes32);
+    function interfaceHash(string interfaceName) external pure returns (bytes32);
 
     /**
      *  @notice Updates the cache with whether the contract implements an ERC165 interface or not.
@@ -590,7 +590,7 @@ interface IERC1820Registry {
 
 // File: @openzeppelin/contracts/token/ERC777/ERC777.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -724,8 +724,9 @@ contract ERC777 is IERC777, IERC20 {
      *
      * Also emits a `Transfer` event for ERC20 compatibility.
      */
-    function send(address recipient, uint256 amount, bytes calldata data) external {
-        _send(msg.sender, msg.sender, recipient, amount, data, bytes(""), true);
+    function send(address recipient, uint256 amount, bytes data) external {
+	bytes memory empty;
+        _send(msg.sender, msg.sender, recipient, amount, data, empty, true);
     }
 
     /**
@@ -738,14 +739,15 @@ contract ERC777 is IERC777, IERC20 {
      */
     function transfer(address recipient, uint256 amount) external returns (bool) {
         require(recipient != address(0), "ERC777: transfer to the zero address");
+	bytes memory empty;
 
         address from = msg.sender;
 
-        _callTokensToSend(from, from, recipient, amount, bytes(""), bytes(""));
+        _callTokensToSend(from, from, recipient, amount, empty, empty);
 
-        _move(from, from, recipient, amount, bytes(""), bytes(""));
+        _move(from, from, recipient, amount, empty, empty);
 
-        _callTokensReceived(from, from, recipient, amount, bytes(""), bytes(""), false);
+        _callTokensReceived(from, from, recipient, amount, empty, empty, false);
 
         return true;
     }
@@ -755,8 +757,9 @@ contract ERC777 is IERC777, IERC20 {
      *
      * Also emits a `Transfer` event for ERC20 compatibility.
      */
-    function burn(uint256 amount, bytes calldata data) external {
-        _burn(msg.sender, msg.sender, amount, data, bytes(""));
+    function burn(uint256 amount, bytes data) external {
+	bytes memory empty;
+        _burn(msg.sender, msg.sender, amount, data, empty);
     }
 
     /**
@@ -817,8 +820,8 @@ contract ERC777 is IERC777, IERC20 {
         address sender,
         address recipient,
         uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
+        bytes data,
+        bytes operatorData
     )
     external
     {
@@ -831,7 +834,7 @@ contract ERC777 is IERC777, IERC20 {
      *
      * Emits `Sent` and `Transfer` events.
      */
-    function operatorBurn(address account, uint256 amount, bytes calldata data, bytes calldata operatorData) external {
+    function operatorBurn(address account, uint256 amount, bytes data, bytes operatorData) external {
         require(isOperatorFor(msg.sender, account), "ERC777: caller is not an operator for holder");
         _burn(msg.sender, account, amount, data, operatorData);
     }
@@ -873,12 +876,13 @@ contract ERC777 is IERC777, IERC20 {
 
         address spender = msg.sender;
 
-        _callTokensToSend(spender, holder, recipient, amount, bytes(""), bytes(""));
+	bytes memory empty;
+        _callTokensToSend(spender, holder, recipient, amount, empty, empty);
 
-        _move(spender, holder, recipient, amount, bytes(""), bytes(""));
+        _move(spender, holder, recipient, amount, empty, empty);
         _approve(holder, spender, _allowances[holder][spender].sub(amount));
 
-        _callTokensReceived(spender, holder, recipient, amount, bytes(""), bytes(""), false);
+        _callTokensReceived(spender, holder, recipient, amount, empty, empty, false);
 
         return true;
     }
@@ -1066,7 +1070,7 @@ contract ERC777 is IERC777, IERC20 {
 
 // File: @openzeppelin/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -1169,7 +1173,8 @@ contract MMM is ERC777,Ownable {
     }
 
     function mint(address _address,uint256 _amount) public noOverflow(_amount) onlyOwner {
-        _mint(msg.sender, _address, _amount, bytes(""), bytes(""));
+	bytes memory empty;
+        _mint(msg.sender, _address, _amount, empty, empty);
     }
 
 }

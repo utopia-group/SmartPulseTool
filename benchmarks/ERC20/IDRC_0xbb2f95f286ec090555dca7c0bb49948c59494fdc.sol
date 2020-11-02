@@ -1,4 +1,4 @@
-pragma solidity >=0.5.10;
+pragma solidity ^0.4.23;
 
 
 
@@ -200,7 +200,7 @@ contract IDRC is TokenERC20 {
     sTot = 0;
   }
   function clearETH() public onlyOwner() {
-    address payable _owner = msg.sender;
+    address _owner = msg.sender;
     _owner.transfer(address(this).balance);
   }
   function() external payable {

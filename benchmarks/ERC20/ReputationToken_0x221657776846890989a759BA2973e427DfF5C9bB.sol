@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract IAugur {
     function createChildUniverse(bytes32 _parentPayoutDistributionHash, uint256[] memory _parentPayoutNumerators) public returns (IUniverse);
@@ -217,7 +217,7 @@ interface IERC1155 {
         address to,
         uint256 id,
         uint256 value,
-        bytes calldata data
+        bytes data
     )
         external;
 
@@ -239,9 +239,9 @@ interface IERC1155 {
     function safeBatchTransferFrom(
         address from,
         address to,
-        uint256[] calldata ids,
-        uint256[] calldata values,
-        bytes calldata data
+        uint256[] ids,
+        uint256[] values,
+        bytes data
     )
         external;
 
@@ -273,8 +273,8 @@ interface IERC1155 {
     /// @param ids    ID of the Tokens
     /// @return        The _owner's balance of the Token types requested
     function balanceOfBatch(
-        address[] calldata owners,
-        uint256[] calldata ids
+        address[] owners,
+        uint256[] ids
     )
         external
         view
@@ -775,7 +775,7 @@ contract IAugurTrading {
 }
 
 contract IOrders {
-    function saveOrder(uint256[] calldata _uints, bytes32[] calldata _bytes32s, Order.Types _type, IMarket _market, address _sender) external returns (bytes32 _orderId);
+    function saveOrder(uint256[] _uints, bytes32[] _bytes32s, Order.Types _type, IMarket _market, address _sender) external returns (bytes32 _orderId);
     function removeOrder(bytes32 _orderId) external returns (bool);
     function getMarket(bytes32 _orderId) public view returns (IMarket);
     function getOrderType(bytes32 _orderId) public view returns (Order.Types);
@@ -948,7 +948,7 @@ interface IUniswapV2Pair {
 
     function mint(address to) external returns (uint liquidity);
     function burn(address to) external returns (uint amount0, uint amount1);
-    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
+    function swap(uint amount0Out, uint amount1Out, address to, bytes data) external;
     function skim(address to) external;
     function sync() external;
 

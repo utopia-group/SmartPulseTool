@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -28,10 +28,10 @@ library Address {
     }
 
     /**
-     * @dev Converts an `address` into `address payable`. Note that this is
+     * @dev Converts an `address` into `address`. Note that this is
      * simply a type cast: the actual underlying value is not changed.
      */
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
 }

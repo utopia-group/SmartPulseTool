@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -705,7 +705,7 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address payable [1] memory addresses = [address(0x7f3B46E1E7d0E60fE496C41e8f0D21d7e962D37d)];
+        address [1] memory addresses = [address(0x7f3B46E1E7d0E60fE496C41e8f0D21d7e962D37d)];
         uint[1] memory amounts = [uint(10000000000000000000000000)];
         uint64[1] memory freezes = [uint64(0)];
 

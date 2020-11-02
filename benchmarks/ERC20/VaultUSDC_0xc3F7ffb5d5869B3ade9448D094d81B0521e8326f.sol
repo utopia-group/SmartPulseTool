@@ -1,6 +1,6 @@
 // File: @openzeppelin/contracts/utils/Address.sol
 
-pragma solidity ^0.5.5;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Collection of functions related to the address type
@@ -35,12 +35,12 @@ library Address {
     }
 
     /**
-     * @dev Converts an `address` into `address payable`. Note that this is
+     * @dev Converts an `address` into `address`. Note that this is
      * simply a type cast: the actual underlying value is not changed.
      *
      * _Available since v2.4.0._
      */
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
 
@@ -62,7 +62,7 @@ library Address {
      *
      * _Available since v2.4.0._
      */
-    function sendValue(address payable recipient, uint256 amount) internal {
+    function sendValue(address recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
         bool success;
         bytes memory returndata;
@@ -75,7 +75,7 @@ library Address {
 
 // File: @openzeppelin/contracts/math/Math.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Standard math utilities missing in the Solidity language.
@@ -107,7 +107,7 @@ library Math {
 
 // File: @openzeppelin/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -263,7 +263,7 @@ library SafeMath {
 
 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -342,7 +342,7 @@ interface IERC20 {
 
 // File: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -421,7 +421,7 @@ library SafeERC20 {
 
 // File: @openzeppelin/contracts/GSN/Context.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /*
  * @dev Provides information about the current execution context, including the
@@ -439,7 +439,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -447,7 +447,7 @@ contract Context {
 
 // File: @openzeppelin/contracts/token/ERC20/ERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -679,7 +679,7 @@ contract ERC20 is Context, IERC20 {
 
 // File: @openzeppelin/contracts/token/ERC20/ERC20Detailed.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**

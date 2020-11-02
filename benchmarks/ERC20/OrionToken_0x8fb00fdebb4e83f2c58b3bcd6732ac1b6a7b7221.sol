@@ -1,5 +1,5 @@
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -164,7 +164,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 }
@@ -471,7 +471,7 @@ contract ERC20 is Context, IERC20 {
     }
 }
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @title Roles

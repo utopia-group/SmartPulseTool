@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 interface IERC20 {
     function totalSupply() external view returns (uint256);
@@ -15,7 +15,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -169,10 +169,10 @@ library Address {
         assembly { codehash := extcodehash(account) }
         return (codehash != 0x0 && codehash != accountHash);
     }
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
-    function sendValue(address payable recipient, uint256 amount) internal {
+    function sendValue(address recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
         bool success; 
         bytes memory data;

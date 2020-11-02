@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-07-28
 */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 // ----------------------------------------------------------------------------
 // 'XMD Coin' token contract

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @title SafeMath
@@ -218,7 +218,7 @@ contract StandardToken is ERC20, BasicToken {
 
 
 interface tokenRecipient { 
-    function receiveApproval(address _from, uint256 _value, bytes calldata _extraData) external;
+    function receiveApproval(address _from, uint256 _value, bytes _extraData) external;
 }
 
 contract KriosToken is StandardToken, Ownable {
@@ -236,7 +236,7 @@ contract KriosToken is StandardToken, Ownable {
         emit Transfer(address(0), msg.sender, initialSupply);
     }
     
-    function approveAndCall(address _spender, uint256 _value, bytes calldata _extraData)
+    function approveAndCall(address _spender, uint256 _value, bytes _extraData)
         external
         returns (bool success) 
     {

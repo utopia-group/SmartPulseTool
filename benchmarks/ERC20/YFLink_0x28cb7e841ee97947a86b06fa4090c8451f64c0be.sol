@@ -35,7 +35,7 @@ SOFTWARE.
 
 */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 interface IERC20 {
     function totalSupply() external view returns (uint);
@@ -52,7 +52,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 }

@@ -1,6 +1,6 @@
 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
@@ -79,7 +79,7 @@ interface IERC20 {
 
 // File: @openzeppelin/contracts/math/SafeMath.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -238,7 +238,7 @@ library SafeMath {
 
 // File: @openzeppelin/contracts/utils/Address.sol
 
-pragma solidity ^0.5.5;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Collection of functions related to the address type
@@ -271,12 +271,12 @@ library Address {
     }
 
     /**
-     * @dev Converts an `address` into `address payable`. Note that this is
+     * @dev Converts an `address` into `address`. Note that this is
      * simply a type cast: the actual underlying value is not changed.
      *
      * _Available since v2.4.0._
      */
-    function toPayable(address account) internal pure returns (address payable) {
+    function toPayable(address account) internal pure returns (address) {
         return address(uint160(account));
     }
 
@@ -298,7 +298,7 @@ library Address {
      *
      * _Available since v2.4.0._
      */
-    function sendValue(address payable recipient, uint256 amount) internal {
+    function sendValue(address recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Address: insufficient balance");
 
         // solhint-disable-next-line avoid-call-value
@@ -309,7 +309,7 @@ library Address {
 
 // File: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -386,7 +386,7 @@ library SafeERC20 {
 
 // File: contracts/constants/CommonConstants.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 contract CommonConstants {
 
@@ -396,7 +396,7 @@ contract CommonConstants {
 
 // File: contracts/interfaces/InterestRateInterface.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 interface InterestRateInterface {
 
@@ -414,7 +414,7 @@ interface InterestRateInterface {
 
 // File: @openzeppelin/contracts/GSN/Context.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /*
  * @dev Provides information about the current execution context, including the
@@ -432,7 +432,7 @@ contract Context {
     constructor () internal { }
     // solhint-disable-previous-line no-empty-blocks
 
-    function _msgSender() internal view returns (address payable) {
+    function _msgSender() internal view returns (address) {
         return msg.sender;
     }
 
@@ -444,7 +444,7 @@ contract Context {
 
 // File: @openzeppelin/contracts/ownership/Ownable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -522,7 +522,7 @@ contract Ownable is Context {
 
 // File: contracts/utils/Blacklistable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -598,7 +598,7 @@ contract Blacklistable is Ownable {
 
 // File: contracts/interfaces/IDmmController.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -625,8 +625,8 @@ interface IDmmController {
      */
     function addMarket(
         address underlyingToken,
-        string calldata symbol,
-        string calldata name,
+        string symbol,
+        string name,
         uint8 decimals,
         uint minMintAmount,
         uint minRedeemAmount,
@@ -831,7 +831,7 @@ interface IDmmController {
 
 // File: contracts/interfaces/IDmmToken.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 /**
@@ -1119,7 +1119,7 @@ interface IDmmToken {
 
 // File: contracts/libs/DmmTokenLibrary.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -1372,7 +1372,7 @@ library DmmTokenLibrary {
 
 // File: @openzeppelin/contracts/utils/ReentrancyGuard.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 /**
  * @dev Contract module that helps prevent reentrant calls to a function.
@@ -1413,7 +1413,7 @@ contract ReentrancyGuard {
 
 // File: contracts/interfaces/IOwnable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 interface IOwnable {
 
@@ -1423,7 +1423,7 @@ interface IOwnable {
 
 // File: contracts/interfaces/IPausable.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 interface IPausable {
 
@@ -1433,7 +1433,7 @@ interface IPausable {
 
 // File: contracts/utils/ERC20.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
@@ -1722,7 +1722,7 @@ contract ERC20 is Context, IERC20, ReentrancyGuard, Ownable {
 
 // File: contracts/impl/DmmToken.sol
 
-pragma solidity ^0.5.12;
+pragma solidity ^0.4.23;
 
 
 
@@ -2146,7 +2146,7 @@ contract DmmToken is ERC20, IDmmToken, CommonConstants {
 
 // File: contracts/interfaces/IWETH.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 interface IWETH {
 
@@ -2158,7 +2158,7 @@ interface IWETH {
 
 // File: contracts/impl/DmmEther.sol
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.23;
 
 
 
