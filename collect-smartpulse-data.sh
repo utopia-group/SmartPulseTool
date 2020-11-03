@@ -1,11 +1,14 @@
 #!/bin/bash
 
-# where CSV data will be outputted
-DATA_FILENAME="smartpulse-data.csv"
 
 if [ ! $# -eq 2 ]; then
   printf "Invalid syntax:\n./collect-smartpulse-data.sh -[n|a] PATH/TO/CONTRACTS\n-n: create new CSV\n-a: (default) append to existing CSV\n";
 fi
+
+# TODO: validate directory
+CONTRACT_DIR=$2
+# where CSV data will be outputted
+DATA_FILENAME="$CONTRACT_DIR/smartpulse-data.csv"
 
 # handle -n option
 NEW_CSV=false
@@ -33,11 +36,11 @@ else
   printf "Benchmark,Spec,Result,Runtime\n" > $DATA_FILENAME
 fi
 
-# TODO: validate directory
-CONTRACT_DIR=$2
 
 for contract in ${CONTRACT_DIR}/*.sol; do
-  contract_short_name=$(echo "${contract}" | awk -F '_' '{print $1}' ) # ABC_0x234234324 --> ABC
+  echo ${contract}
+  #contract_short_name=$(basename "${contract}" | awk -F '_' '{print $1}' ) # ABC_0x234234324 --> ABC
+  contract_short_name=$(basename "${contract}" | gawk 'match($0,/(.*)_/,a) {print a[1]}')
   # !! the following line assumes the relevant contract in the file is $contract_short_name
   ./test-all-props.sh $contract $contract_short_name | tee _smartpulse_script_log.tmp
   grep -E "^Property [A-Za-z-]+ [a-z-]+ -- [0-9]+ s$" _smartpulse_script_log.tmp > _smartpulse_filtered_log.tmp
