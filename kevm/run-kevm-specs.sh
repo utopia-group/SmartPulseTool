@@ -40,8 +40,8 @@ TOTALSUPPLY_LOC="${!TOTAL}"
 
 ### set up verified-smart-contract side of things
 CONTRACT_DIR="${VERIFIED_DIR}/erc20/${CONTRACT_NAME%.sol}"
-echo "${CONTRACT_NAME}"
-echo "${CONTRACT_DIR}"
+#echo "${CONTRACT_NAME}"
+#echo "${CONTRACT_DIR}"
 
 mkdir -p ${CONTRACT_DIR}
 
@@ -118,5 +118,5 @@ do
 	cat _kevm_script_tmp.log >> erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
 done
 
-echo "Proved ${correct} out of ${#specs[@]} specs";
-rm -f _kevm_script_tmp.log)
+echo "Proved ${correct} out of ${#specs[@]} specs";)
+
