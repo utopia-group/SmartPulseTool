@@ -103,24 +103,23 @@ do
 	wait $PID
 	RETVAL=$?
 	ELAPSED_TIME=$(($SECONDS - $START_TIME))
-	TIME_MSG=$(echo "$(($ELAPSED_TIME/60))m $(($ELAPSED_TIME%60))s")
 
 	if [[ $RETVAL == 124 ]]
 	then
-		echo "Property ${property_names[$i]} timed out -- ${TIME_OUT_LIMIT}s";
+		echo "Property ${property_names[$i]} timed-out -- ${TIME_OUT_LIMIT}s";
 		((++timedout));
 	else
 		logtail=$(tail -n 20 ${logName})
 		if [[ "$logtail" == *" correct"* ]]
 		then
-			echo "Property ${property_names[$i]} verified -- ${TIME_MSG}";
+			echo "Property ${property_names[$i]} verified -- ${ELAPSED_TIME} s";
 			((++correct));
 		elif [[ "$logtail" == *"End of lasso representation"* ]]
 		then
-			echo "Property ${property_names[$i]} has counterexample -- ${TIME_MSG}";
+			echo "Property ${property_names[$i]} counterexample -- ${ELAPSED_TIME} s";
 			((++counterexample));
 		else
-			echo "Property ${property_names[$i]} had an exception -- ${TIME_MSG}";
+			echo "Property ${property_names[$i]} exception -- ${ELAPSED_TIME} s";
 			((++exception));
 		fi
 	fi
