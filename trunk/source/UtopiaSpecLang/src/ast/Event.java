@@ -160,6 +160,22 @@ public class Event extends AstNode {
 		}
 	}
 	
+	private boolean containsName(AstNode node, String name) {
+		if (node instanceof Name) {
+			Name n = (Name) node;
+			if (name.equals(n.getIdent())) {
+				return true;
+			}
+		}		
+		for (AstNode n: node.getOutgoingNodes()) {
+			if(containsName(n, name)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public ArrayList<String> getRealArgs(Procedure p) {
 		ArrayList<String> real_args = new ArrayList<String>();
 		ArrayList<AstNode> args = this.getFunc().getArgs().getArgs();
@@ -205,6 +221,9 @@ public class Event extends AstNode {
 			else if(idents.length > 1) {
 				throw new RuntimeException("Expected there to be a single return value");
 			}
+		}
+		else if(this.constraint != null && p.getOutParams().length == 0 && containsName(this.constraint, "return")) {
+			throw new RuntimeException("Variable 'return' cannot be used in a procedure that does not return a value");
 		}
 		
 		return this.constraint;
