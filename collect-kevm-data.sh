@@ -1,11 +1,14 @@
 #!/bin/bash
 
 # where CSV data will be outputted
-DATA_FILENAME="kevm-data.csv"
 
 if [ ! $# -eq 2 ]; then
   printf "Invalid syntax:\n./collect-kevm-data.sh -[n|a] PATH/TO/CONTRACTS\n-n: create new CSV\n-a: (default) append to existing CSV\n";
 fi
+
+# TODO: validate directory
+CONTRACT_DIR=$2
+DATA_FILENAME="$CONTRACT_DIR/kevm-data.csv"
 
 # handle -n option
 NEW_CSV=false
@@ -33,8 +36,6 @@ else
   printf "Benchmark,Spec,Result,Runtime\n" > $DATA_FILENAME
 fi
 
-# TODO: validate directory
-CONTRACT_DIR=$2
 
 for contract in ${CONTRACT_DIR}/*.sol; do
   ./kevm/run-kevm-specs.sh $contract | tee _kevm_script_log.tmp

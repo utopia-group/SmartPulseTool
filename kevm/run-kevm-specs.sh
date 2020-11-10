@@ -1,12 +1,14 @@
 #!/bin/bash
 
-VERIFIED_DIR=/mnt/extra/verified-smart-contracts
+#VERIFIED_DIR=/mnt/extra/verified-smart-contracts
+VERIFIED_DIR=/mnt/data0/jon/verified-smart-contracts
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # extract filename if absolute path
 CONTRACT_NAME="${1##*/}" # ABC_0x123456.sol
-CONTRACT_SHORT_NAME=$(echo "${CONTRACT_NAME}" | awk -F '_' '{print $1}' ) # ABC
+#CONTRACT_SHORT_NAME=$(echo "${CONTRACT_NAME}" | awk -F '_' '{print $1}' ) # ABC
+CONTRACT_SHORT_NAME=$(basename "${1}" | gawk 'match($0,/(.*)_/,a) {print a[1]}')
 # make sure CONTRACT_NAME is a .sol file
 if [[ ${CONTRACT_NAME: -4} != ".sol" ]]; then
 	echo "Syntax is ./run-kevm-specs.sh CONTRACT_NAME"
@@ -62,16 +64,20 @@ echo -e "_balances: ${BALANCES_LOC}\n_allowances: ${ALLOWANCES_LOC}\n_totalSuppl
 mkdir -p ${CONTRACT_DIR}/solc_out
 solc --bin-runtime --overwrite -o ${CONTRACT_DIR}/solc_out ${CONTRACT_DIR}/${CONTRACT_NAME} > /dev/null
 printf "code: \"0x" >> ${CONTRACT_DIR}/${CONTRACT_NAME%.sol}-erc20-spec.ini
+echo "${CONTRACT_DIR}/solc_out/${CONTRACT_SHORT_NAME}.bin-runtime"
 cat ${CONTRACT_DIR}/solc_out/${CONTRACT_SHORT_NAME}.bin-runtime >> ${CONTRACT_DIR}/${CONTRACT_NAME%.sol}-erc20-spec.ini
 echo "\"" >> ${CONTRACT_DIR}/${CONTRACT_NAME%.sol}-erc20-spec.ini
 
 (cd ${VERIFIED_DIR};
-make -C erc20/${CONTRACT_NAME%.sol}/ clean;
+#make -C erc20/${CONTRACT_NAME%.sol}/ clean;
 make -C erc20/${CONTRACT_NAME%.sol}/;
 
+mkdir -p kevm_logs
+logFile=kevm_logs/${CONTRACT_NAME%.sol}.log
+
 # refresh .log file
-rm -f erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
-touch erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
+rm -f ${logFile}
+touch ${logFile}
 
 # run each of 14 specs
 specs=(
@@ -115,7 +121,7 @@ do
 	fi
 
 	# append SPECific log to overall log
-	cat _kevm_script_tmp.log >> erc20/${CONTRACT_NAME%.sol}/${CONTRACT_NAME%.sol}.log
+	cat _kevm_script_tmp.log >> ${logFile}
 done
 
 echo "Proved ${correct} out of ${#specs[@]} specs";)
