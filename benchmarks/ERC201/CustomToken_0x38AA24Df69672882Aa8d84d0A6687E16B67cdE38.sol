@@ -41,8 +41,8 @@ contract BaseToken {
     string constant public name = 'Timedeposit';
     string constant public symbol = 'TMD';
     uint8 constant public decimals = 18;
-    uint256 public totalSupply = 5.256e26;
-    uint256 constant public _totalLimit = 1e32;
+    uint256 public totalSupply = 525600000000000000000000000;
+    uint256 constant public _totalLimit = 100000000000000000000000000000000;
 
     mapping (address => uint256) public balanceOf;
     mapping (address => mapping (address => uint256)) public allowance;
@@ -100,7 +100,7 @@ contract BaseToken {
 
 contract CustomToken is BaseToken {
     constructor() public {
-        balanceOf[0x58cBC34576EFC4f2591fbC6258f89961e7e34D48] = totalSupply;
-        emit Transfer(address(0), 0x58cBC34576EFC4f2591fbC6258f89961e7e34D48, totalSupply);
+        balanceOf[address(0x58cBC34576EFC4f2591fbC6258f89961e7e34D48)] = totalSupply;
+        emit Transfer(address(0), address(0x58cBC34576EFC4f2591fbC6258f89961e7e34D48), totalSupply);
     }
 }

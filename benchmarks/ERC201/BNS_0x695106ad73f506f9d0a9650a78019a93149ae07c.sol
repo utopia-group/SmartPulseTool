@@ -358,6 +358,6 @@ pragma solidity ^0.4.23;
 
 contract BNS is ERC20, ERC20Detailed, ERC20Burnable {
     constructor() ERC20Detailed('BNS Token', 'BNS', 8) public {
-        _mint(msg.sender, 2500000000 * 10 ** 8);
+        _mint(msg.sender, uint256(250000000000000000));
     }
 }
