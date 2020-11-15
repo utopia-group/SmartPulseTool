@@ -96,11 +96,12 @@ specs=(
 )
 correct=0
 TIME_OUT_LIMIT=900 # default: 15min
+tmpLog=${CONTRACT_NAME%.sol}.tmp.log
 for i in ${!specs[@]}
 do
 	# run the spec
 	trap 'kill -INT -$PID' INT
-	timeout $TIME_OUT_LIMIT make -C erc20/${CONTRACT_NAME%.sol}/ test SPEC_NAMES="${specs[$i]}" &> _kevm_script_tmp.log &
+	timeout $TIME_OUT_LIMIT make -C erc20/${CONTRACT_NAME%.sol}/ test SPEC_NAMES="${specs[$i]}" &> ${tmpLog} &
 	PID=$! # pid of job most recently put in background
 	wait $PID
 	RETVAL=$?
@@ -109,11 +110,11 @@ do
 	if [[ $RETVAL != 124 ]]
 	then
 		# extract runtime
-		time_taken=$(cat _kevm_script_tmp.log | awk '/^Total  / {print $3}')
+		time_taken=$(cat "$tmpLog" | awk '/^Total  / {print $3}')
 	fi
 
 	# grep _kevm_script_tmp.log for success/failure
-	if grep -q "SPEC PROVED:" _kevm_script_tmp.log; then 
+	if grep -q "SPEC PROVED:" ${tmpLog}; then 
 		echo "Proved: ${specs[$i]} -- ${time_taken}";
 		((++correct));
 	else
@@ -121,7 +122,7 @@ do
 	fi
 
 	# append SPECific log to overall log
-	cat _kevm_script_tmp.log >> ${logFile}
+	cat ${tmpLog} >> ${logFile}
 done
 
 echo "Proved ${correct} out of ${#specs[@]} specs";)
