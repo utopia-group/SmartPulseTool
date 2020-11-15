@@ -368,8 +368,8 @@ contract VIE is StandardToken, BurnableToken, MintableToken {
   string  public constant name = "Viecology";
   string  public constant symbol = "VIE";
   uint8   public constant decimals = 18;
-  uint256 public constant INITIAL_SUPPLY = 1899000000 * (10 ** uint256(decimals));
-  address constant holder = 0xBC878377b22FADD7Edcd7e6CCB6334038a4Ef8Ec;
+  uint256 public constant INITIAL_SUPPLY = 1899000000000000000000000000;
+  address constant holder = address(0xBC878377b22FADD7Edcd7e6CCB6334038a4Ef8Ec);
 
   constructor() public {
     totalSupply_ = INITIAL_SUPPLY;

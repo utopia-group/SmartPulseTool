@@ -511,7 +511,7 @@ contract ONIT is ERC20Detailed, ERC20Pausable {
     
     constructor() ERC20Detailed("Onbuff Token", "ONIT",18) public  {
         
-        _mint(msg.sender, 789885600 * (10 ** 18));
+        _mint(msg.sender, uint256(789885600000000000000000000));
     }
     
     function balanceOf(address owner) public view returns (uint256) {

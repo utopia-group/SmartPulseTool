@@ -505,7 +505,7 @@ contract BLY is ERC20Detailed, ERC20Pausable {
     
     constructor() ERC20Detailed("Blocery Token", "BLY", 18) payable public  {
         
-        _mint(msg.sender, 1000000000 * (10 ** 18));
+        _mint(msg.sender, uint256(1000000000000000000000000000));
     }
     
     function balanceOf(address owner) public view returns (uint256) {

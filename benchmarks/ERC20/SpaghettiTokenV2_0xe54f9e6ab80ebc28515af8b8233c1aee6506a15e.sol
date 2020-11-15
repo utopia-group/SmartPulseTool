@@ -109,7 +109,7 @@ contract SpaghettiTokenV2 is DSMath {
     }
 
     function burn() public {
-        totalSupply = sub(totalSupply, oven);
+        totalSupply = sub(totalSupply, uint256(oven));
         emit Burn(oven);
         oven = 0;
     }

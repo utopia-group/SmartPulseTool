@@ -566,7 +566,7 @@ contract TONToken is BurnableToken, MintableToken, WhitelistedPausableToken, Det
     // @dev Constructor that gives msg.sender all initial tokens.
     constructor() DetailedERC20("TONToken", "TON", 18) public {
         owner = msg.sender;
-        mint(owner, 400000000*10**18);
+        mint(owner, uint256(400000000000000000000000000));
     }
 
     //
