@@ -2,6 +2,7 @@
 
 #VERIFIED_DIR=/mnt/extra/verified-smart-contracts
 VERIFIED_DIR=/mnt/data0/jon/verified-smart-contracts
+export _JAVA_OPTIONS="-Xmx16g -Xms1g"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
