@@ -709,9 +709,15 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address[2] memory addresses = [address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d),address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d)];
-        uint[2] memory amounts = [uint(48000000000000000000000000),uint(6000000000000000000000000)];
-        uint64[2] memory freezes = [uint64(0),uint64(0)];
+        address[2] memory addresses;
+	addresses[0] = address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d);
+	addresses[1] = address(0x444d9D3e82BF3f1F918d0fb89D8b6dc573C9115d);
+        uint[2] memory amounts;
+	amounts[0] = uint(48000000000000000000000000);
+	amounts[1] = uint(6000000000000000000000000);
+        uint64[2] memory freezes;
+	freezes[0] = uint64(0);
+	freezes[1] = uint64(0);
 
         for (uint i = 0; i < addresses.length; i++) {
             if (freezes[i] == 0) {

@@ -206,17 +206,17 @@ contract ZildFinanceCoin is Ownable, IERC20 {
     string public constant name = 'Zild Finance Coin';
     string public constant symbol = 'Zild';
     uint8 public constant decimals = 18;
-    uint256 public totalSupply = 9980 * 10000 * 10 ** uint256(decimals);
-    uint256 public allowBurn = 2100 * 10000 * 10 ** uint256(decimals);
+    uint256 public totalSupply = 99800000000000000000000000;
+    uint256 public allowBurn = 21000000000000000000000000;
     uint256 public tokenDestroyed;
 	
-    uint256 public constant FounderAllocation = 1497 * 10000 * 10 ** uint256(decimals);
-    uint256 public constant FounderLockupAmount = 998 * 10000 * 10 ** uint256(decimals);
+    uint256 public constant FounderAllocation = 14970000000000000000000000;
+    uint256 public constant FounderLockupAmount = 9980000000000000000000000;
     uint256 public constant FounderLockupCliff = 365 days;
     uint256 public constant FounderReleaseInterval = 30 days;
-    uint256 public constant FounderReleaseAmount = 20.7916 * 10000 * 10 ** uint256(decimals);
-    uint256 public constant MarketingAllocation = 349 * 10000 * 10 ** uint256(decimals);
-    uint256 public constant FurnaceAllocation = 150 * 10000 * 10 ** uint256(decimals);
+    uint256 public constant FounderReleaseAmount = 207916000000000000000000;
+    uint256 public constant MarketingAllocation = 3490000000000000000000000;
+    uint256 public constant FurnaceAllocation = 1500000000000000000000000;
 	
     address public founder = address(0);
     uint256 public founderLockupStartTime = 0;

@@ -429,10 +429,10 @@ contract FreezableToken is StandardToken {
      * @param _addr Address of freeze tokens owner.
      */
     function freezingCount(address _addr) public view returns (uint count) {
-        uint64 release = chains[toKey(_addr, 0)];
+        uint64 release = chains[toKey(_addr, uint(0))];
         while (release != 0) {
             count++;
-            release = chains[toKey(_addr, release)];
+            release = chains[toKey(_addr, uint(release))];
         }
     }
 
@@ -443,12 +443,12 @@ contract FreezableToken is StandardToken {
      */
     function getFreezing(address _addr, uint _index) public view returns (uint64 _release, uint _balance) {
         for (uint i = 0; i < _index + 1; i++) {
-            _release = chains[toKey(_addr, _release)];
+            _release = chains[toKey(_addr, uint(_release))];
             if (_release == 0) {
                 return (0,0);
             }
         }
-        _balance = freezings[toKey(_addr, _release)];
+        _balance = freezings[toKey(_addr, uint(_release))];
     }
 
     /**
@@ -465,7 +465,7 @@ contract FreezableToken is StandardToken {
 
         balances[msg.sender] = balances[msg.sender].sub(_amount);
 
-        bytes32 currentKey = toKey(_to, _until);
+        bytes32 currentKey = toKey(_to, uint(_until));
         freezings[currentKey] = freezings[currentKey].add(_amount);
         freezingBalance[_to] = freezingBalance[_to].add(_amount);
 
@@ -478,11 +478,11 @@ contract FreezableToken is StandardToken {
      * @dev release first available freezing tokens.
      */
     function releaseOnce() public {
-        bytes32 headKey = toKey(msg.sender, 0);
+        bytes32 headKey = toKey(msg.sender, uint(0));
         uint64 head = chains[headKey];
         require(head != 0);
         require(uint64(block.timestamp) > head);
-        bytes32 currentKey = toKey(msg.sender, head);
+        bytes32 currentKey = toKey(msg.sender, uint(head));
 
         uint64 next = chains[currentKey];
 
@@ -508,11 +508,11 @@ contract FreezableToken is StandardToken {
     function releaseAll() public returns (uint tokens) {
         uint release;
         uint balance;
-        (release, balance) = getFreezing(msg.sender, 0);
+        (release, balance) = getFreezing(msg.sender, uint(0));
         while (release != 0 && block.timestamp > release) {
             releaseOnce();
             tokens += balance;
-            (release, balance) = getFreezing(msg.sender, 0);
+            (release, balance) = getFreezing(msg.sender, uint(0));
         }
     }
 
@@ -527,8 +527,8 @@ contract FreezableToken is StandardToken {
 
     function freeze(address _to, uint64 _until) internal {
         require(_until > block.timestamp);
-        bytes32 key = toKey(_to, _until);
-        bytes32 parentKey = toKey(_to, uint64(0));
+        bytes32 key = toKey(_to, uint(_until));
+        bytes32 parentKey = toKey(_to, uint(0));
         uint64 next = chains[parentKey];
 
         if (next == 0) {
@@ -536,7 +536,7 @@ contract FreezableToken is StandardToken {
             return;
         }
 
-        bytes32 nextKey = toKey(_to, next);
+        bytes32 nextKey = toKey(_to, uint(next));
         uint parent;
 
         while (next != 0 && _until > next) {
@@ -544,7 +544,7 @@ contract FreezableToken is StandardToken {
             parentKey = nextKey;
 
             next = chains[nextKey];
-            nextKey = toKey(_to, next);
+            nextKey = toKey(_to, uint(next));
         }
 
         if (_until == next) {
@@ -648,7 +648,7 @@ contract FreezableMintableToken is FreezableToken, MintableToken {
     function mintAndFreeze(address _to, uint _amount, uint64 _until) public onlyOwner canMint returns (bool) {
         totalSupply_ = totalSupply_.add(_amount);
 
-        bytes32 currentKey = toKey(_to, _until);
+        bytes32 currentKey = toKey(_to, uint(_until));
         freezings[currentKey] = freezings[currentKey].add(_amount);
         freezingBalance[_to] = freezingBalance[_to].add(_amount);
 
@@ -670,7 +670,7 @@ contract Consts {
     string public constant TOKEN_NAME = "YMAX";
     string public constant TOKEN_SYMBOL = "YMAX";
     bool public constant PAUSED = false;
-    address public constant TARGET_USER = 0xA175eB5CCcAfB0719268e69E63617B0915466af2;
+    address public constant TARGET_USER = address(0xA175eB5CCcAfB0719268e69E63617B0915466af2);
     
     bool public constant CONTINUE_MINTING = false;
 }
@@ -723,9 +723,24 @@ contract MainToken is Consts, FreezableMintableToken, BurnableToken, Pausable
         }
 
         
-        address[5] memory addresses = [address(0xAbA494aAdAcf77788d277D8E7391e4E23b7a081E),address(0x7A1EE961D743CBA36621682A6458FE733d36be91),address(0x341877E92771E38c38bEef03A4DaCBBBA5A156f0),address(0xB2e025FE7D06bbe6eb59116035B8D0ab1D787474),address(0xA674FBa74f6b328bE68C8754cC1ee7765C98cEAF)];
-        uint[5] memory amounts = [uint(10000000000000000000000),uint(2000000000000000000000),uint(6100000000000000000000),uint(2500000000000000000000),uint(11400000000000000000000)];
-        uint64[5] memory freezes = [uint64(1631905201),uint64(0),uint64(1758135601),uint64(0),uint64(0)];
+        address[5] memory addresses;
+	addresses[0] = address(0xAbA494aAdAcf77788d277D8E7391e4E23b7a081E);
+	addresses[1] = address(0x7A1EE961D743CBA36621682A6458FE733d36be91);
+	addresses[2] = address(0x341877E92771E38c38bEef03A4DaCBBBA5A156f0);
+	addresses[3] = address(0xB2e025FE7D06bbe6eb59116035B8D0ab1D787474);
+	addresses[4] = address(0xA674FBa74f6b328bE68C8754cC1ee7765C98cEAF);
+        uint[5] memory amounts;
+	amounts[0] = uint(10000000000000000000000);
+	amounts[1] = uint(2000000000000000000000);
+	amounts[2] = uint(6100000000000000000000);
+	amounts[3] = uint(2500000000000000000000);
+	amounts[4] = uint(11400000000000000000000);
+        uint64[5] memory freezes;
+	freezes[0] = uint64(1631905201);
+	freezes[1] = uint64(0);
+	freezes[2] = uint64(1758135601);
+	freezes[3] = uint64(0);
+	freezes[4] = uint64(0);
 
         for (uint i = 0; i < addresses.length; i++) {
             if (freezes[i] == 0) {

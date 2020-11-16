@@ -301,7 +301,7 @@ contract _0xMoneroToken is ERC20Interface, Owned {
 
 
             //the PoW must contain work that includes a recent ethereum block hash (challenge number) and the msg.sender's address to prevent MITM attacks
-            bytes32 digest =  keccak256(challengeNumber, msg.sender, nonce );
+            bytes32 digest =  keccak256(abi.encode(challengeNumber, msg.sender, nonce));
 
             //the challenge digest must match the expected
             if (digest != challenge_digest) revert();
@@ -460,7 +460,7 @@ contract _0xMoneroToken is ERC20Interface, Owned {
     //help debug mining software
     function getMintDigest(uint256 nonce, bytes32 challenge_digest, bytes32 challenge_number) public view returns (bytes32 digesttest) {
 
-        bytes32 digest = keccak256(challenge_number,msg.sender,nonce);
+        bytes32 digest = keccak256(abi.encode(challenge_number,msg.sender,nonce));
 
         return digest;
 
@@ -469,7 +469,7 @@ contract _0xMoneroToken is ERC20Interface, Owned {
         //help debug mining software
       function checkMintSolution(uint256 nonce, bytes32 challenge_digest, bytes32 challenge_number, uint testTarget) public view returns (bool success) {
 
-          bytes32 digest = keccak256(challenge_number,msg.sender,nonce);
+          bytes32 digest = keccak256(abi.encode(challenge_number,msg.sender,nonce));
 
           if(uint256(digest) > testTarget) revert();
 

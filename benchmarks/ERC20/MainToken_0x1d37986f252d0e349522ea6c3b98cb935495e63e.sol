@@ -411,10 +411,10 @@ contract FreezableToken is StandardToken {
      * @param _addr Address of freeze tokens owner.
      */
     function freezingCount(address _addr) public view returns (uint count) {
-        uint64 release = chains[toKey(_addr, 0)];
+        uint64 release = chains[toKey(_addr, uint(0))];
         while (release != 0) {
             count++;
-            release = chains[toKey(_addr, release)];
+            release = chains[toKey(_addr, uint(release))];
         }
     }
 
@@ -425,12 +425,12 @@ contract FreezableToken is StandardToken {
      */
     function getFreezing(address _addr, uint _index) public view returns (uint64 _release, uint _balance) {
         for (uint i = 0; i < _index + 1; i++) {
-            _release = chains[toKey(_addr, _release)];
+            _release = chains[toKey(_addr, uint(_release))];
             if (_release == 0) {
                 return (0,0);
             }
         }
-        _balance = freezings[toKey(_addr, _release)];
+        _balance = freezings[toKey(_addr, uint(_release))];
     }
 
     /**
@@ -447,7 +447,7 @@ contract FreezableToken is StandardToken {
 
         balances[msg.sender] = balances[msg.sender].sub(_amount);
 
-        bytes32 currentKey = toKey(_to, _until);
+        bytes32 currentKey = toKey(_to, uint(_until));
         freezings[currentKey] = freezings[currentKey].add(_amount);
         freezingBalance[_to] = freezingBalance[_to].add(_amount);
 
@@ -460,11 +460,11 @@ contract FreezableToken is StandardToken {
      * @dev release first available freezing tokens.
      */
     function releaseOnce() public {
-        bytes32 headKey = toKey(msg.sender, 0);
+        bytes32 headKey = toKey(msg.sender, uint(0));
         uint64 head = chains[headKey];
         require(head != 0);
         require(uint64(block.timestamp) > head);
-        bytes32 currentKey = toKey(msg.sender, head);
+        bytes32 currentKey = toKey(msg.sender, uint(head));
 
         uint64 next = chains[currentKey];
 
@@ -490,11 +490,11 @@ contract FreezableToken is StandardToken {
     function releaseAll() public returns (uint tokens) {
         uint release;
         uint balance;
-        (release, balance) = getFreezing(msg.sender, 0);
+        (release, balance) = getFreezing(msg.sender, uint(0));
         while (release != 0 && block.timestamp > release) {
             releaseOnce();
             tokens += balance;
-            (release, balance) = getFreezing(msg.sender, 0);
+            (release, balance) = getFreezing(msg.sender, uint(0));
         }
     }
 
@@ -509,8 +509,8 @@ contract FreezableToken is StandardToken {
 
     function freeze(address _to, uint64 _until) internal {
         require(_until > block.timestamp);
-        bytes32 key = toKey(_to, _until);
-        bytes32 parentKey = toKey(_to, uint64(0));
+        bytes32 key = toKey(_to, uint(_until));
+        bytes32 parentKey = toKey(_to, uint(0));
         uint64 next = chains[parentKey];
 
         if (next == 0) {
@@ -518,7 +518,7 @@ contract FreezableToken is StandardToken {
             return;
         }
 
-        bytes32 nextKey = toKey(_to, next);
+        bytes32 nextKey = toKey(_to, uint(next));
         uint parent;
 
         while (next != 0 && _until > next) {
@@ -526,7 +526,7 @@ contract FreezableToken is StandardToken {
             parentKey = nextKey;
 
             next = chains[nextKey];
-            nextKey = toKey(_to, next);
+            nextKey = toKey(_to, uint(next));
         }
 
         if (_until == next) {
@@ -630,7 +630,7 @@ contract FreezableMintableToken is FreezableToken, MintableToken {
     function mintAndFreeze(address _to, uint _amount, uint64 _until) public onlyOwner canMint returns (bool) {
         totalSupply_ = totalSupply_.add(_amount);
 
-        bytes32 currentKey = toKey(_to, _until);
+        bytes32 currentKey = toKey(_to, uint(_until));
         freezings[currentKey] = freezings[currentKey].add(_amount);
         freezingBalance[_to] = freezingBalance[_to].add(_amount);
 
@@ -652,7 +652,7 @@ contract Consts {
     string public constant TOKEN_NAME = "ChartEx";
     string public constant TOKEN_SYMBOL = "CHART";
     bool public constant PAUSED = false;
-    address public constant TARGET_USER = 0xDb12655c0D92BaFB1cbCD3D539499b9Ff3406515;
+    address public constant TARGET_USER = address(0xDb12655c0D92BaFB1cbCD3D539499b9Ff3406515);
     
     bool public constant CONTINUE_MINTING = true;
 }
