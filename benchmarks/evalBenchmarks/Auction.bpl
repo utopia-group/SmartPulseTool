@@ -3,12 +3,23 @@
 
 // Prop 2
 // LTLVariables: a:Ref
-// LTLProperty: [](!finished(*, this.pendingReturns[a] != fsum(Auction.Bid, 2, msg.sender == a) - fsum(send(from, to, amt), 2, to == a)))
+// LTLProperty: [](!finished(*, this.pendingReturns[a] != fsum(Auction.Bid, 2, msg.sender == a) - fsum(send(from, to, amt), 2, to == a))) 
 
 // Prop 3
+// 3a
+// LTLVariables: a:Ref
+// LTLFairness: <>(finished(Auction.Bid, msg.sender == a && msg.value != 0)) && [](<>(started(Auction.Withdraw, msg.sender == a))) && [](!reverted(send(from, to, amt), to == a )) && [](!started(Auction.Withdraw, msg.sender == a && a == this.highestBidder))
+// LTLProperty: <>(finished(send(from, to, amt), to == a && amt == fsum(Auction.Bid, 2, msg.sender == a))) 
+
+// 3b
+// LTLVariables: a:Ref
+// LTLFairness: <>(finished(Auction.Bid, msg.sender == a && msg.value != 0)) && [](<>(started(Auction.Withdraw, msg.sender == a))) && [](finished(Auction.Withdraw, msg.sender == a) ==> [](!started(Auction.Bid, msg.sender == a)))
+// LTLProperty: [](finished(send(from, to, amt), to == a && amt == fsum(Auction.Bid, 2, msg.sender == a) && a != highestBidder_Auction[from]) ==> [](!started(send(from, to, amt), to == a)))
+
+// 3 combined
 // #LTLVariables: a:Ref
-// #LTLFairness: <>(finished(Auction.Bid, msg.sender == a && msg.value != 0)) && [](<>(started(Auction.Withdraw, msg.sender == a))) && [](finished(Auction.Withdraw, msg.sender == a) ==> [](!started(Auction.Bid, msg.sender == a)))
-// #LTLProperty: [](finished(send(from, to, amt), to == a && amt == fsum(Auction.Bid, 2, msg.sender == a) && a != highestBidder_Auction[from]) ==> [](!started(send(from, to, amt), to == a)))
+// #LTLFairness: <>(finished(Auction.Bid, msg.sender == a && msg.value != 0)) && [](<>(started(Auction.Withdraw, msg.sender == a))) && [](!reverted(send(from, to, amt), to == a )) && [](!started(Auction.Withdraw, msg.sender == a && a == this.highestBidder))
+// #LTLProperty: <>(finished(send(from, to, amt), to == a && amt == fsum(Auction.Bid, 2, msg.sender == a))) && [](finished(send(from, to, amt), to == a && amt == fsum(Auction.Bid, 2, msg.sender == a)) ==> [](!started(send(from, to, amt), to == a && amt == fsum(Auction.Bid, 2, msg.sender == a))))
 
 type Ref = int;
 type ContractName = int;
@@ -725,8 +736,8 @@ __tmp__Balance[this] := (__tmp__Balance[this]) + (msgvalue_MSG);
 assume ((end_s91) >= (0));
 assume ((__tmp__auctionStart_Auction[this]) >= (0));
 assume ((__tmp__biddingTime_Auction[this]) >= (0));
-assume (((__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this])) >= (0));
-end_s91 := (__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this]);
+assume ((((__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936)) >= (0));
+end_s91 := ((__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 assume ((end_s91) >= (0));
 assume ((__tmp__now) >= (0));
 if (((end_s91) < (__tmp__now)) || (__tmp__ended_Auction[this])) {
@@ -742,7 +753,7 @@ return;
 assume ((__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]]) >= (0));
 assume ((__tmp__highestBid_Auction[this]) >= (0));
 __tmp__sum_pendingReturns0[__tmp__pendingReturns_Auction[this]] := (__tmp__sum_pendingReturns0[__tmp__pendingReturns_Auction[this]]) - (__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]]);
-__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]] := (__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]]) + (__tmp__highestBid_Auction[this]);
+__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]] := ((__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]]) + (__tmp__highestBid_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 __tmp__sum_pendingReturns0[__tmp__pendingReturns_Auction[this]] := (__tmp__sum_pendingReturns0[__tmp__pendingReturns_Auction[this]]) + (__tmp__M_Ref_int_pendingReturns0[__tmp__pendingReturns_Auction[this]][__tmp__highestBidder_Auction[this]]);
 __tmp__highestBidder_Auction[this] := msgsender_MSG;
 assume ((__tmp__highestBid_Auction[this]) >= (0));
@@ -763,8 +774,8 @@ Balance[this] := (Balance[this]) + (msgvalue_MSG);
 assume ((end_s91) >= (0));
 assume ((auctionStart_Auction[this]) >= (0));
 assume ((biddingTime_Auction[this]) >= (0));
-assume (((auctionStart_Auction[this]) + (biddingTime_Auction[this])) >= (0));
-end_s91 := (auctionStart_Auction[this]) + (biddingTime_Auction[this]);
+assume ((((auctionStart_Auction[this]) + (biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936)) >= (0));
+end_s91 := ((auctionStart_Auction[this]) + (biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 assume ((end_s91) >= (0));
 assume ((now) >= (0));
 if (((end_s91) < (now)) || (ended_Auction[this])) {
@@ -780,7 +791,7 @@ return;
 assume ((M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]]) >= (0));
 assume ((highestBid_Auction[this]) >= (0));
 sum_pendingReturns0[pendingReturns_Auction[this]] := (sum_pendingReturns0[pendingReturns_Auction[this]]) - (M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]]);
-M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]] := (M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]]) + (highestBid_Auction[this]);
+M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]] := ((M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]]) + (highestBid_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 sum_pendingReturns0[pendingReturns_Auction[this]] := (sum_pendingReturns0[pendingReturns_Auction[this]]) + (M_Ref_int_pendingReturns0[pendingReturns_Auction[this]][highestBidder_Auction[this]]);
 highestBidder_Auction[this] := msgsender_MSG;
 assume ((highestBid_Auction[this]) >= (0));
@@ -862,8 +873,8 @@ var __var_6: bool;
 assume ((end_s162) >= (0));
 assume ((__tmp__auctionStart_Auction[this]) >= (0));
 assume ((__tmp__biddingTime_Auction[this]) >= (0));
-assume (((__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this])) >= (0));
-end_s162 := (__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this]);
+assume ((((__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936)) >= (0));
+end_s162 := ((__tmp__auctionStart_Auction[this]) + (__tmp__biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 assume ((__tmp__now) >= (0));
 assume ((end_s162) >= (0));
 if (((__tmp__now) <= (end_s162)) || (!(__tmp__ended_Auction[this]))) {
@@ -894,8 +905,8 @@ var __var_6: bool;
 assume ((end_s162) >= (0));
 assume ((auctionStart_Auction[this]) >= (0));
 assume ((biddingTime_Auction[this]) >= (0));
-assume (((auctionStart_Auction[this]) + (biddingTime_Auction[this])) >= (0));
-end_s162 := (auctionStart_Auction[this]) + (biddingTime_Auction[this]);
+assume ((((auctionStart_Auction[this]) + (biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936)) >= (0));
+end_s162 := ((auctionStart_Auction[this]) + (biddingTime_Auction[this])) % (115792089237316195423570985008687907853269984665640564039457584007913129639936);
 assume ((now) >= (0));
 assume ((end_s162) >= (0));
 if (((now) <= (end_s162)) || (!(ended_Auction[this]))) {

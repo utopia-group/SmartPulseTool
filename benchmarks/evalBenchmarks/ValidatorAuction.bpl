@@ -9,9 +9,22 @@
 // LTLFairness: (<>(finished(ValidatorAuction.bid, (user == msg.sender)))) && (<>(finished(ValidatorAuction.withdraw, (user == msg.sender && this.auctionState == 3))))
 // LTLProperty: []((finished(ValidatorAuction.closeAuction, (low == this.lowestSlotPrice))) ==> (<>(finished(send(from, to, amt), (to == user && amt == fsum(ValidatorAuction.bid, 2, (user == msg.sender)) - low)))))
 
-// #LTLVariables: user:Ref
-// #LTLFairness: (<>(finished(ValidatorAuction.bid, (user == msg.sender)))) && (<>(finished(ValidatorAuction.withdraw, (user == msg.sender && this.auctionState == 4))))
-// #LTLProperty: []((finished(ValidatorAuction.closeAuction)) ==> (<>(finished(send(from, to, amt), (to == user && amt == fsum(ValidatorAuction.bid, 2, (user == msg.sender)))))))
+// LTLVariables: user:Ref
+// LTLFairness: (<>(finished(ValidatorAuction.bid, (user == msg.sender)))) && (<>(finished(ValidatorAuction.withdraw, (user == msg.sender && this.auctionState == 4))))
+// LTLProperty: []((finished(ValidatorAuction.closeAuction)) ==> (<>(finished(send(from, to, amt), (to == user && amt == fsum(ValidatorAuction.bid, 2, (user == msg.sender)))))))
+
+// Tmp Prop 1
+// LTLProperty: [](!finished(*, Balance[this] < sum_bids2[bids_ValidatorAuction[this]]))
+
+// Tmp Prop 2
+// LTLVariables: a:Ref
+// LTLProperty: [](!finished(*, this.bids[a] != fsum(ValidatorAuction.bid, 2, msg.sender == a) - fsum(send(from, to, amt), 2, to == a)))
+
+// Tmp Prop 3
+// #LTLVariables: a:Ref
+// #LTLFairness: <>(finished(ValidatorAuction.bid, msg.sender == a && msg.value != 0)) && [](<>(started(ValidatorAuction.withdraw, msg.sender == a))) && [](!reverted(send(from, to, amt), to == a)) && <>(started(ValidatorAuction.depositBids, this.auctionState != 0 && this.auctionState != 1))
+// #LTLProperty: <>(finished(send(from, to, amt), to == a && amt == fsum(ValidatorAuction.bid, 2, msg.sender == a))) && [](finished(send(from, to, amt), to == a && amt == fsum(ValidatorAuction.bid, 2, msg.sender == a)) ==> [](!started(send(from, to, amt), to == a && amt == fsum(ValidatorAuction.bid, 2, msg.sender == a))))
+
 
 type Ref = int;
 
