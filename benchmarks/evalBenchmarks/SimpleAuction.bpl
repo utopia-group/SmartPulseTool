@@ -5,9 +5,21 @@
 // LTLFairness: [](<>(finished(SimpleAuction.withdraw, (user == msg.sender))))
 // LTLProperty: []((finished(SimpleAuction.bid, (user == old(this.highestBidder) && val == old(this.highestBid) && user != 0))) ==> (<>(finished(send(from, to, amt), (to == user && amt >= val)))))
 
-// #LTLVariables: user:Ref,val:int,ben:Ref
-// #LTLFairness: <>(finished(SimpleAuction.auctionEnd, (ben == beneficiary_SimpleAuction[this])))
-// #LTLProperty: []((finished(SimpleAuction.bid, (user == this.highestBidder && val == msg.value)) && (X([](!finished(SimpleAuction.bid, (user == old(this.highestBidder))))))) ==> (<>(finished(send(from, to, amt), (to == ben && amt == val)))))
+// LTLVariables: user:Ref,val:int,ben:Ref
+// LTLFairness: <>(finished(SimpleAuction.auctionEnd, (ben == beneficiary_SimpleAuction[this])))
+// LTLProperty: []((finished(SimpleAuction.bid, (user == this.highestBidder && val == msg.value)) && (X([](!finished(SimpleAuction.bid, (user == old(this.highestBidder))))))) ==> (<>(finished(send(from, to, amt), (to == ben && amt == val)))))
+
+// tmp prop 1
+// LTLProperty: [](!finished(*, Balance[this] < this.highestBid + sum_pendingReturns0[pendingReturns_SimpleAuction[this]]))
+
+// tmp prop 2
+// LTLVariables: a:Ref
+// LTLProperty: [](!finished(*, this.pendingReturns[a] != fsum(SimpleAuction.bid, 2, msg.sender == a) - fsum(send(from, to, amt), 2, to == a)))
+
+// tmp prop 3
+// #LTLVariables: a:Ref
+// #LTLFairness: <>(finished(SimpleAuction.bid, msg.sender == a && msg.value != 0)) && [](<>(started(SimpleAuction.withdraw, msg.sender == a))) && [](!reverted(send(from, to, amt), to == a)) && [](!started(SimpleAuction.withdraw, msg.sender == a && a == this.highestBidder))
+// #LTLProperty: <>(finished(send(from, to, amt), to == a && amt == fsum(SimpleAuction.bid, 2, msg.sender == a))) && [](finished(send(from, to, amt), to == a && amt == fsum(SimpleAuction.bid, 2, msg.sender == a)) ==> [](!started(send(from, to, amt), to == a && amt == fsum(SimpleAuction.bid, 2, msg.sender == a))))
 
 type Ref = int;
 
