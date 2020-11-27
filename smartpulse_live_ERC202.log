@@ -1,0 +1,1446 @@
+benchmarks/ERC202//MRDF_0x5f3e90b7ecfbc4f63b60c55ec0e825a927467bcc.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//MRDF_0x5f3e90b7ecfbc4f63b60c55ec0e825a927467bcc.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 3.98 s
+Property balanceof verified -- 3.94 s
+Property allowance verified -- 4.40 s
+Property approve counterexample -- 10.67 s
+Property transfer-normal counterexample -- 7.55 s
+Property transfer-self counterexample -- 7.78 s
+Property transfer-fail timed-out -- 900s
+Property transfer-self-fail verified -- 4.31 s
+Property transferfrom-normal counterexample -- 11.88 s
+Property transferfrom-self counterexample -- 12.21 s
+Property transferfrom-fail verified -- 10.91 s
+Property transferfrom-self-fail verified -- 5.92 s
+Verified 6 out of 12 properties
+5 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//MyAdvancedToken_0x86c9f9df4a0bfc9a52eb3d16bcce3bc50d1a34ae.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//MyAdvancedToken_0x86c9f9df4a0bfc9a52eb3d16bcce3bc50d1a34ae.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 5.21 s
+Property balanceof verified -- 5.07 s
+Property allowance verified -- 4.99 s
+Property approve verified -- 9.04 s
+Property transfer-normal counterexample -- 17.04 s
+Property transfer-self counterexample -- 16.57 s
+Property transfer-fail verified -- 9.90 s
+Property transfer-self-fail verified -- 6.28 s
+Property transferfrom-normal counterexample -- 50.33 s
+Property transferfrom-self counterexample -- 33.26 s
+Property transferfrom-fail verified -- 17.29 s
+Property transferfrom-self-fail verified -- 7.49 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//MyToken_0xc3957cf07d0970deedfced034a092b496f9067da.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//MyToken_0xc3957cf07d0970deedfced034a092b496f9067da.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply counterexample -- 15.74 s
+Property balanceof verified -- 4.34 s
+Property allowance verified -- 4.34 s
+Property approve verified -- 6.14 s
+Property transfer-normal verified -- 9.06 s
+Property transfer-self verified -- 38.97 s
+Property transfer-fail verified -- 7.50 s
+Property transfer-self-fail verified -- 4.46 s
+Property transferfrom-normal verified -- 75.90 s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail verified -- 9.89 s
+Property transferfrom-self-fail verified -- 6.18 s
+Verified 10 out of 12 properties
+1 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//NOL_0x69ac90dc10c1beb0584735f219854b1a0e72f45b.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//NOL_0x69ac90dc10c1beb0584735f219854b1a0e72f45b.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 5.11 s
+Property balanceof verified -- 5.80 s
+Property allowance verified -- 4.97 s
+Property approve verified -- 9.78 s
+Property transfer-normal counterexample -- 24.31 s
+Property transfer-self counterexample -- 16.74 s
+Property transfer-fail verified -- 9.86 s
+Property transfer-self-fail verified -- 6.19 s
+Property transferfrom-normal counterexample -- 60.93 s
+Property transferfrom-self counterexample -- 29.86 s
+Property transferfrom-fail verified -- 28.80 s
+Property transferfrom-self-fail verified -- 10.16 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//NuLink_0x493c8d6a973246a7B26Aa8Ef4b1494867A825DE5.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//NuLink_0x493c8d6a973246a7B26Aa8Ef4b1494867A825DE5.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: constant expression contains large constant(s);
+if the large constant is an operand in a power operation,
+modulo arithmetic check will not work correctly
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Property totalsupply verified -- 3.05 s
+Property balanceof verified -- 3.40 s
+Property allowance verified -- 3.14 s
+Property approve verified -- 4.36 s
+Property transfer-normal verified -- 6.88 s
+Property transfer-self verified -- 13.36 s
+Property transfer-fail counterexample -- 92.59 s
+Property transfer-self-fail verified -- 3.24 s
+Property transferfrom-normal exception -- 30.29 s
+Property transferfrom-self counterexample -- 25.70 s
+Property transferfrom-fail counterexample -- 37.60 s
+Property transferfrom-self-fail verified -- 5.42 s
+Verified 8 out of 12 properties
+3 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC202//NXTG_ERC20_0x60ec679cf3a48d89efa774fccd3dc59ef1401330.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//NXTG_ERC20_0x60ec679cf3a48d89efa774fccd3dc59ef1401330.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of NXTG_ERC20...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of NXTG_ERC20...
+Property totalsupply counterexample -- 31.66 s
+Property balanceof verified -- 6.72 s
+Property allowance verified -- 6.34 s
+Property approve verified -- 11.09 s
+Property transfer-normal verified -- 30.50 s
+Property transfer-self verified -- 33.96 s
+Property transfer-fail verified -- 12.78 s
+Property transfer-self-fail verified -- 6.87 s
+Property transferfrom-normal verified -- 52.94 s
+Property transferfrom-self verified -- 134.14 s
+Property transferfrom-fail verified -- 22.30 s
+Property transferfrom-self-fail verified -- 10.99 s
+Verified 11 out of 12 properties
+1 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly called in the inheritance/modifier list specified in OMAToken...
+Property totalsupply verified -- 4.85 s
+Property balanceof verified -- 4.67 s
+Property allowance verified -- 4.59 s
+Property approve counterexample -- 13.28 s
+Property transfer-normal counterexample -- 11.82 s
+Property transfer-self counterexample -- 29.50 s
+Property transfer-fail verified -- 11.88 s
+Property transfer-self-fail verified -- 5.02 s
+Property transferfrom-normal counterexample -- 39.16 s
+Property transferfrom-self counterexample -- 25.64 s
+Property transferfrom-fail verified -- 10.96 s
+Property transferfrom-self-fail verified -- 7.09 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//OMToken_0x2baEcDf43734F22FD5c152DB08E3C27233F0c7d2.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//OMToken_0x2baEcDf43734F22FD5c152DB08E3C27233F0c7d2.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor PauserRole_PauserRole that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Burnable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in OMToken...
+Warning!!: Invoking base constructor PauserRole_PauserRole that is not explicitly called in the inheritance/modifier list specified in OMToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in OMToken...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in OMToken...
+Property totalsupply verified -- 14.10 s
+Property balanceof verified -- 16.19 s
+Property allowance verified -- 18.97 s
+Property approve counterexample -- 37.68 s
+Property transfer-normal counterexample -- 25.66 s
+Property transfer-self counterexample -- 116.30 s
+Property transfer-fail verified -- 30.75 s
+Property transfer-self-fail verified -- 10.86 s
+Property transferfrom-normal counterexample -- 66.38 s
+Property transferfrom-self counterexample -- 55.26 s
+Property transferfrom-fail verified -- 47.45 s
+Property transferfrom-self-fail verified -- 32.87 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//ONIT_0x410e731c2970dce3add351064acf5ce9e33fdbf0.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ONIT_0x410e731c2970dce3add351064acf5ce9e33fdbf0.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in Pausable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor PauserRole_PauserRole that is not explicitly in inheritance list of ERC20Pausable...
+Warning: A mapping with nested array timelockList of valuetype LockInfo[]
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ONIT...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in ONIT...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in ONIT...
+Warning!!: Invoking base constructor PauserRole_PauserRole that is not explicitly called in the inheritance/modifier list specified in ONIT...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in ONIT...
+Warning!!: Only handle delete for scalars and arrays, found struct ONIT.LockInfo storage ref
+Property totalsupply verified -- 12.13 s
+Property balanceof counterexample -- 397.33 s
+Property allowance verified -- 10.53 s
+Property approve counterexample -- 36.29 s
+Property transfer-normal counterexample -- 56.20 s
+Property transfer-self counterexample -- 132.22 s
+Property transfer-fail counterexample -- 151.75 s
+Property transfer-self-fail counterexample -- 145.04 s
+Property transferfrom-normal counterexample -- 84.88 s
+Property transferfrom-self counterexample -- 80.31 s
+Property transferfrom-fail counterexample -- 401.57 s
+Property transferfrom-self-fail exception -- 231.58 s
+Verified 2 out of 12 properties
+9 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC202//OrionToken_0x8fb00fdebb4e83f2c58b3bcd6732ac1b6a7b7221.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//OrionToken_0x8fb00fdebb4e83f2c58b3bcd6732ac1b6a7b7221.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in OrionToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in OrionToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in OrionToken...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in OrionToken...
+Warning!!: Invoking base constructor ERC20Mintable_ERC20Mintable that is not explicitly called in the inheritance/modifier list specified in OrionToken...
+Property totalsupply verified -- 8.68 s
+Property balanceof verified -- 8.08 s
+Property allowance verified -- 7.42 s
+Property approve counterexample -- 22.75 s
+Property transfer-normal counterexample -- 13.60 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 17.01 s
+Property transfer-self-fail verified -- 8.00 s
+Property transferfrom-normal counterexample -- 19.30 s
+Property transferfrom-self counterexample -- 18.86 s
+Property transferfrom-fail verified -- 45.05 s
+Property transferfrom-self-fail verified -- 19.55 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in Pausable...
+Warning!!: Invoking base constructor Context_Context that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in RariToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in RariToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in RariToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in RariToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in RariToken...
+Property totalsupply verified -- 7.32 s
+Property balanceof verified -- 6.63 s
+Property allowance verified -- 8.34 s
+Property approve counterexample -- 23.48 s
+Property transfer-normal counterexample -- 16.06 s
+Property transfer-self counterexample -- 99.81 s
+Property transfer-fail verified -- 19.60 s
+Property transfer-self-fail verified -- 8.08 s
+Property transferfrom-normal counterexample -- 23.18 s
+Property transferfrom-self counterexample -- 20.87 s
+Property transferfrom-fail verified -- 24.22 s
+Property transferfrom-self-fail verified -- 13.87 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//RewardToken_0xa0246c9032bC3A600820415aE600c6388619A14D.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//RewardToken_0xa0246c9032bC3A600820415aE600c6388619A14D.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in RewardToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in RewardToken...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in RewardToken...
+Warning!!: Invoking base constructor ERC20Mintable_ERC20Mintable that is not explicitly called in the inheritance/modifier list specified in RewardToken...
+Property totalsupply verified -- 13.64 s
+Property balanceof verified -- 14.45 s
+Property allowance verified -- 13.31 s
+Property approve counterexample -- 36.87 s
+Property transfer-normal counterexample -- 28.25 s
+Property transfer-self verified -- 353.53 s
+Property transfer-fail verified -- 24.41 s
+Property transfer-self-fail verified -- 12.51 s
+Property transferfrom-normal counterexample -- 31.13 s
+Property transferfrom-self counterexample -- 30.04 s
+Property transferfrom-fail verified -- 61.54 s
+Property transferfrom-self-fail verified -- 29.98 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//RICH_0x025daf950c6e814dee4c96e13c98d3196d22e60c.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//RICH_0x025daf950c6e814dee4c96e13c98d3196d22e60c.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: constant expression contains large constant(s);
+if the large constant is an operand in a power operation,
+modulo arithmetic check will not work correctly
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of RICH...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of RICH...
+Property totalsupply counterexample -- 32.39 s
+Property balanceof verified -- 6.64 s
+Property allowance verified -- 6.01 s
+Property approve verified -- 11.34 s
+Property transfer-normal timed-out -- 900s
+Property transfer-self verified -- 37.44 s
+Property transfer-fail verified -- 13.04 s
+Property transfer-self-fail verified -- 6.70 s
+Property transferfrom-normal verified -- 50.83 s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail verified -- 20.12 s
+Property transferfrom-self-fail verified -- 10.95 s
+Verified 9 out of 12 properties
+1 counterexamples
+0 exceptions
+2 timed out
+benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: signed integer arithmetic is not handled with /useModularArithmetic option
+VeriSol translation error: File , Line -1, Contract SafeMathInt, Function mod:: Unknown binary operator: <<....
+mv: cannot stat '__SolToBoogieTest_out.bpl': No such file or directory
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property totalsupply exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property balanceof exception -- .04 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property allowance exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property approve exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transfer-normal exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transfer-self exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transfer-fail exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transfer-self-fail exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transferfrom-normal exception -- .04 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transferfrom-self exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transferfrom-fail exception -- .05 s
+cat: benchmarks/ERC202//RMPL_0xe17f017475a709de58e976081eb916081ff4c9d5.bpl: No such file or directory
+Property transferfrom-self-fail exception -- .05 s
+Verified 0 out of 12 properties
+0 counterexamples
+12 exceptions
+0 timed out
+benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+VeriSol translation error: File , Line -1, Contract Context, Function _msgData:: Unknown member for msg: msg.data....
+mv: cannot stat '__SolToBoogieTest_out.bpl': No such file or directory
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property totalsupply exception -- .04 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property balanceof exception -- .04 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property allowance exception -- .04 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property approve exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transfer-normal exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transfer-self exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transfer-fail exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transfer-self-fail exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transferfrom-normal exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transferfrom-self exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transferfrom-fail exception -- .05 s
+cat: benchmarks/ERC202//SimpleToken_0x9135D92e3A34e2A94e4474B74b9DC2d51118eeD5.bpl: No such file or directory
+Property transferfrom-self-fail exception -- .05 s
+Verified 0 out of 12 properties
+0 counterexamples
+12 exceptions
+0 timed out
+benchmarks/ERC202//SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 3.34 s
+Property balanceof verified -- 3.19 s
+Property allowance verified -- 2.92 s
+Property approve verified -- 4.26 s
+Property transfer-normal counterexample -- 17.96 s
+Property transfer-self exception -- 22.51 s
+Property transfer-fail timed-out -- 900s
+Property transfer-self-fail verified -- 3.24 s
+Property transferfrom-normal timed-out -- 900s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail exception -- 238.13 s
+Property transferfrom-self-fail counterexample -- 19.87 s
+Verified 5 out of 12 properties
+2 counterexamples
+2 exceptions
+3 timed out
+benchmarks/ERC202//SpaghettiTokenV2_0xe54f9e6ab80ebc28515af8b8233c1aee6506a15e.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//SpaghettiTokenV2_0xe54f9e6ab80ebc28515af8b8233c1aee6506a15e.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 5.28 s
+Property balanceof verified -- 5.18 s
+Property allowance verified -- 5.10 s
+Property approve verified -- 8.02 s
+Property transfer-normal counterexample -- 21.76 s
+Property transfer-self counterexample -- 21.98 s
+Property transfer-fail counterexample -- 494.56 s
+Property transfer-self-fail verified -- 4.45 s
+Property transferfrom-normal timed-out -- 900s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail exception -- 191.46 s
+Property transferfrom-self-fail counterexample -- 24.43 s
+Verified 5 out of 12 properties
+4 counterexamples
+1 exceptions
+2 timed out
+benchmarks/ERC202//StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 99.33 s
+Property balanceof verified -- 4.76 s
+Property allowance counterexample -- 9.40 s
+Property approve counterexample -- 15.24 s
+Property transfer-normal counterexample -- 9.41 s
+Property transfer-self counterexample -- 9.25 s
+Property transfer-fail verified -- 6.45 s
+Property transfer-self-fail verified -- 4.02 s
+Property transferfrom-normal counterexample -- 20.21 s
+Property transferfrom-self counterexample -- 15.38 s
+Property transferfrom-fail exception -- 12.38 s
+Property transferfrom-self-fail counterexample -- 12.26 s
+Verified 4 out of 12 properties
+7 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC202//StrikeFarm_0x8a309E9fb32055CB8ad3524C6e53A6C3480e66B7.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//StrikeFarm_0x8a309E9fb32055CB8ad3524C6e53A6C3480e66B7.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in StrikeFarm...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in StrikeFarm...
+Property totalsupply verified -- 4.08 s
+Property balanceof verified -- 3.99 s
+Property allowance verified -- 3.81 s
+Property approve counterexample -- 13.23 s
+Property transfer-normal counterexample -- 8.62 s
+Property transfer-self verified -- 10.03 s
+Property transfer-fail verified -- 8.26 s
+Property transfer-self-fail verified -- 4.48 s
+Property transferfrom-normal counterexample -- 13.60 s
+Property transferfrom-self counterexample -- 13.22 s
+Property transferfrom-fail verified -- 10.21 s
+Property transferfrom-self-fail verified -- 6.94 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Property totalsupply verified -- 3.63 s
+Property balanceof verified -- 3.58 s
+Property allowance verified -- 3.99 s
+Property approve counterexample -- 12.34 s
+Property transfer-normal exception -- 9.00 s
+Property transfer-self exception -- 7.78 s
+Property transfer-fail verified -- 6.06 s
+Property transfer-self-fail verified -- 4.20 s
+Property transferfrom-normal counterexample -- 14.53 s
+Property transferfrom-self counterexample -- 14.38 s
+Property transferfrom-fail verified -- 12.73 s
+Property transferfrom-self-fail verified -- 6.15 s
+Verified 7 out of 12 properties
+3 counterexamples
+2 exceptions
+0 timed out
+benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: A mapping with nested array lockup of valuetype Lock[]
+VeriSol translation error: File , Line -1, Contract BaseToken, Function destruction:: Cannot find a function with signature: selfdestruct(address)....
+mv: cannot stat '__SolToBoogieTest_out.bpl': No such file or directory
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property totalsupply exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property balanceof exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property allowance exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property approve exception -- .04 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transfer-normal exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transfer-self exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transfer-fail exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transfer-self-fail exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transferfrom-normal exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transferfrom-self exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transferfrom-fail exception -- .05 s
+cat: benchmarks/ERC202//THECASH_0xcd475371e39c0d94e82fccc9dd0ea710d0dc0c0b.bpl: No such file or directory
+Property transferfrom-self-fail exception -- .05 s
+Verified 0 out of 12 properties
+0 counterexamples
+12 exceptions
+0 timed out
+benchmarks/ERC202//Token_0x66b3037aa8dd64c3ef1aee13a4d1f2509f672d1c.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//Token_0x66b3037aa8dd64c3ef1aee13a4d1f2509f672d1c.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in Token...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in Token...
+Property totalsupply verified -- 4.80 s
+Property balanceof verified -- 4.82 s
+Property allowance verified -- 4.49 s
+Property approve counterexample -- 18.24 s
+Property transfer-normal counterexample -- 10.81 s
+Property transfer-self verified -- 15.38 s
+Property transfer-fail verified -- 9.75 s
+Property transfer-self-fail verified -- 5.38 s
+Property transferfrom-normal counterexample -- 19.36 s
+Property transferfrom-self counterexample -- 15.72 s
+Property transferfrom-fail verified -- 13.34 s
+Property transferfrom-self-fail verified -- 9.05 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//Token_0xef811e8ea1c406cd1df7c953e45acfc4deb72e3d.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//Token_0xef811e8ea1c406cd1df7c953e45acfc4deb72e3d.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Property totalsupply verified -- 3.03 s
+Property balanceof verified -- 2.99 s
+Property allowance verified -- 3.23 s
+Property approve counterexample -- 9.71 s
+Property transfer-normal counterexample -- 6.58 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 5.68 s
+Property transfer-self-fail verified -- 3.24 s
+Property transferfrom-normal counterexample -- 10.07 s
+Property transferfrom-self counterexample -- 10.42 s
+Property transferfrom-fail verified -- 6.67 s
+Property transferfrom-self-fail verified -- 4.45 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 3.39 s
+Property balanceof verified -- 3.26 s
+Property allowance verified -- 3.47 s
+Property approve verified -- 5.82 s
+Property transfer-normal exception -- .14 s
+Property transfer-self exception -- .14 s
+Property transfer-fail verified -- 6.13 s
+Property transfer-self-fail verified -- 4.29 s
+Property transferfrom-normal counterexample -- 40.51 s
+Property transferfrom-self counterexample -- 28.51 s
+Property transferfrom-fail verified -- 8.38 s
+Property transferfrom-self-fail verified -- 5.34 s
+Verified 8 out of 12 properties
+2 counterexamples
+2 exceptions
+0 timed out
+benchmarks/ERC202//TokenERC20_0xd08Bd5110B58396d435665de74A43a06B0136B10.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TokenERC20_0xd08Bd5110B58396d435665de74A43a06B0136B10.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 2.85 s
+Property balanceof verified -- 2.83 s
+Property allowance verified -- 2.83 s
+Property approve verified -- 4.13 s
+Property transfer-normal counterexample -- 8.25 s
+Property transfer-self counterexample -- 8.90 s
+Property transfer-fail verified -- 4.80 s
+Property transfer-self-fail verified -- 3.29 s
+Property transferfrom-normal counterexample -- 28.71 s
+Property transferfrom-self counterexample -- 21.93 s
+Property transferfrom-fail verified -- 6.34 s
+Property transferfrom-self-fail verified -- 4.44 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in DetailedERC20...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of WhitelistedPausableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of WhitelistedPausableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of WhitelistedPausableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of WhitelistedPausableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of WhitelistedPausableToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly in inheritance list of WhitelistedPausableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in TONToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in TONToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in TONToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in TONToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in TONToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in TONToken...
+Warning!!: Invoking base constructor PausableToken_PausableToken that is not explicitly called in the inheritance/modifier list specified in TONToken...
+VeriSol translation error: File , Line -1, Contract TONToken, Function approveAndCallWithSender:: Variable argument function abi.encodePacked(...) currently supported only for 1 or 2 arguments, encountered  3 arguments....
+mv: cannot stat '__SolToBoogieTest_out.bpl': No such file or directory
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property totalsupply exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property balanceof exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property allowance exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property approve exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transfer-normal exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transfer-self exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transfer-fail exception -- .04 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transfer-self-fail exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transferfrom-normal exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transferfrom-self exception -- .04 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transferfrom-fail exception -- .05 s
+cat: benchmarks/ERC202//TONToken_0x6a6c2ada3ce053561c2fbc3ee211f23d9b8c520a.bpl: No such file or directory
+Property transferfrom-self-fail exception -- .05 s
+Verified 0 out of 12 properties
+0 counterexamples
+12 exceptions
+0 timed out
+benchmarks/ERC202//TrifoliumCoin_0xaF3573E1E223c601340AdE1f1D52cd106B264367.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TrifoliumCoin_0xaF3573E1E223c601340AdE1f1D52cd106B264367.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply counterexample -- 15.48 s
+Property balanceof verified -- 4.72 s
+Property allowance verified -- 4.75 s
+Property approve verified -- 6.41 s
+Property transfer-normal verified -- 13.70 s
+Property transfer-self verified -- 19.90 s
+Property transfer-fail verified -- 7.75 s
+Property transfer-self-fail verified -- 4.50 s
+Property transferfrom-normal timed-out -- 900s
+Property transferfrom-self verified -- 48.28 s
+Property transferfrom-fail verified -- 14.41 s
+Property transferfrom-self-fail verified -- 6.15 s
+Verified 10 out of 12 properties
+1 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 4.26 s
+Property balanceof verified -- 4.35 s
+Property allowance verified -- 4.00 s
+Property approve counterexample -- 22.83 s
+Property transfer-normal counterexample -- 13.22 s
+Property transfer-self verified -- 18.08 s
+Property transfer-fail verified -- 5.56 s
+Property transfer-self-fail verified -- 4.82 s
+Property transferfrom-normal counterexample -- 27.52 s
+Property transferfrom-self counterexample -- 28.90 s
+Property transferfrom-fail verified -- 8.20 s
+Property transferfrom-self-fail verified -- 6.96 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//TSTToken_0xf67041758d3b6e56d6fdafa5b32038302c3634da.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TSTToken_0xf67041758d3b6e56d6fdafa5b32038302c3634da.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in TSTToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in TSTToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in TSTToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in TSTToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in TSTToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in TSTToken...
+Property totalsupply verified -- 6.17 s
+Property balanceof verified -- 6.22 s
+Property allowance verified -- 6.23 s
+Property approve verified -- 9.67 s
+Property transfer-normal counterexample -- 11.23 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 9.58 s
+Property transfer-self-fail verified -- 6.04 s
+Property transferfrom-normal counterexample -- 19.64 s
+Property transferfrom-self counterexample -- 17.39 s
+Property transferfrom-fail verified -- 13.75 s
+Property transferfrom-self-fail verified -- 11.58 s
+Verified 8 out of 12 properties
+3 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//TulipToken_0x3D1BE3fEf769399CcE7e504E85324d622F23Cf85.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//TulipToken_0x3D1BE3fEf769399CcE7e504E85324d622F23Cf85.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in TulipToken...
+Property totalsupply verified -- 4.83 s
+Property balanceof verified -- 4.58 s
+Property allowance verified -- 4.62 s
+Property approve counterexample -- 13.70 s
+Property transfer-normal counterexample -- 8.73 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 13.69 s
+Property transfer-self-fail verified -- 4.84 s
+Property transferfrom-normal counterexample -- 12.82 s
+Property transferfrom-self counterexample -- 12.94 s
+Property transferfrom-fail verified -- 12.27 s
+Property transferfrom-self-fail verified -- 10.29 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ULMC...
+Property totalsupply verified -- 3.89 s
+Property balanceof verified -- 3.82 s
+Property allowance verified -- 3.91 s
+Property approve counterexample -- 12.97 s
+Property transfer-normal counterexample -- 8.33 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 16.86 s
+Property transfer-self-fail verified -- 4.10 s
+Property transferfrom-normal counterexample -- 13.93 s
+Property transferfrom-self counterexample -- 13.61 s
+Property transferfrom-fail verified -- 12.24 s
+Property transferfrom-self-fail verified -- 5.37 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//ULU_0x035bfe6057e15ea692c0dfdcab3bb41a64dd2ad4.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ULU_0x035bfe6057e15ea692c0dfdcab3bb41a64dd2ad4.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in ULU...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ULU...
+Property totalsupply verified -- 5.13 s
+Property balanceof verified -- 5.21 s
+Property allowance verified -- 4.94 s
+Property approve counterexample -- 14.88 s
+Property transfer-normal counterexample -- 9.24 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 14.56 s
+Property transfer-self-fail verified -- 5.95 s
+Property transferfrom-normal counterexample -- 15.52 s
+Property transferfrom-self counterexample -- 13.63 s
+Property transferfrom-fail verified -- 18.28 s
+Property transferfrom-self-fail verified -- 12.60 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//UPCToken_0x91c4b0cfc5eac8b8c5fd953ae9fbc707b520a7d6.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//UPCToken_0x91c4b0cfc5eac8b8c5fd953ae9fbc707b520a7d6.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in UPCToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in UPCToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in UPCToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in UPCToken...
+Property totalsupply verified -- 5.35 s
+Property balanceof verified -- 6.40 s
+Property allowance verified -- 5.48 s
+Property approve counterexample -- 19.39 s
+Property transfer-normal counterexample -- 13.33 s
+Property transfer-self exception -- 31.62 s
+Property transfer-fail verified -- 11.64 s
+Property transfer-self-fail verified -- 6.90 s
+Property transferfrom-normal counterexample -- 18.47 s
+Property transferfrom-self counterexample -- 18.23 s
+Property transferfrom-fail verified -- 14.44 s
+Property transferfrom-self-fail verified -- 9.11 s
+Verified 7 out of 12 properties
+4 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC202//USD_0x8679f1f00725c3b02918604438a5200b0acf7584.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//USD_0x8679f1f00725c3b02918604438a5200b0acf7584.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 4.12 s
+Property balanceof verified -- 3.84 s
+Property allowance verified -- 3.49 s
+Property approve counterexample -- 12.85 s
+Property transfer-normal counterexample -- 8.19 s
+Property transfer-self counterexample -- 7.45 s
+Property transfer-fail timed-out -- 900s
+Property transfer-self-fail verified -- 4.34 s
+Property transferfrom-normal counterexample -- 12.45 s
+Property transferfrom-self counterexample -- 11.92 s
+Property transferfrom-fail verified -- 8.55 s
+Property transferfrom-self-fail verified -- 5.89 s
+Verified 6 out of 12 properties
+5 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//USDollarHKex_0x164f0C960c164F8988a556B4EB86d3a696b8E7f0.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//USDollarHKex_0x164f0C960c164F8988a556B4EB86d3a696b8E7f0.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of PausableToken...
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning: A mapping with nested array allocations of valuetype TimeLock[]
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in USDollarHKex...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in USDollarHKex...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in USDollarHKex...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in USDollarHKex...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in USDollarHKex...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in USDollarHKex...
+VeriSol translation error: exception in IsUintWSize: Input string was not in a correct format.
+VeriSol translation error: exception in IsUintWSize: Input string was not in a correct format.
+VeriSol translation error: exception in IsUintWSize: Input string was not in a correct format.
+VeriSol translation error: exception in IsUintWSize: Input string was not in a correct format.
+Property totalsupply verified -- 7.72 s
+Property balanceof verified -- 7.27 s
+Property allowance verified -- 7.60 s
+Property approve counterexample -- 36.70 s
+Property transfer-normal counterexample -- 14.90 s
+Property transfer-self counterexample -- 14.99 s
+Property transfer-fail verified -- 25.52 s
+Property transfer-self-fail verified -- 11.37 s
+Property transferfrom-normal counterexample -- 22.09 s
+Property transferfrom-self counterexample -- 19.22 s
+Property transferfrom-fail verified -- 36.46 s
+Property transferfrom-self-fail verified -- 19.16 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//USDX_0xbec4a69d6a5fbcb2303c13d24ea1a51a6f19bd12.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//USDX_0xbec4a69d6a5fbcb2303c13d24ea1a51a6f19bd12.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of USDX...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of USDX...
+Property totalsupply counterexample -- 31.54 s
+Property balanceof verified -- 6.39 s
+Property allowance verified -- 6.43 s
+Property approve verified -- 11.13 s
+Property transfer-normal verified -- 33.83 s
+Property transfer-self verified -- 25.06 s
+Property transfer-fail verified -- 13.20 s
+Property transfer-self-fail verified -- 7.05 s
+Property transferfrom-normal verified -- 57.74 s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail verified -- 19.45 s
+Property transferfrom-self-fail verified -- 10.64 s
+Verified 10 out of 12 properties
+1 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//VIE_0x74639EfB889C1Fb44c8A3F64c681E549Bb077e4d.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//VIE_0x74639EfB889C1Fb44c8A3F64c681E549Bb077e4d.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of BasicToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor LockableToken_LockableToken that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor LockableToken_LockableToken that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor LockableToken_LockableToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in VIE...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in VIE...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in VIE...
+Warning!!: Invoking base constructor LockableToken_LockableToken that is not explicitly called in the inheritance/modifier list specified in VIE...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in VIE...
+Property totalsupply verified -- 6.94 s
+Property balanceof verified -- 7.49 s
+Property allowance verified -- 7.12 s
+Property approve counterexample -- 30.58 s
+Property transfer-normal counterexample -- 12.05 s
+Property transfer-self counterexample -- 34.67 s
+Property transfer-fail verified -- 16.89 s
+Property transfer-self-fail verified -- 7.39 s
+Property transferfrom-normal counterexample -- 18.47 s
+Property transferfrom-self counterexample -- 17.66 s
+Property transferfrom-fail verified -- 17.69 s
+Property transferfrom-self-fail verified -- 10.88 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//VIToken_0xd321ca7cd7a233483b8cd5a11a89e9337e70df84.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//VIToken_0xd321ca7cd7a233483b8cd5a11a89e9337e70df84.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in VIToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in VIToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in VIToken...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in VIToken...
+Warning!!: Invoking base constructor ERC20Mintable_ERC20Mintable that is not explicitly called in the inheritance/modifier list specified in VIToken...
+Property totalsupply verified -- 8.55 s
+Property balanceof verified -- 7.90 s
+Property allowance verified -- 8.22 s
+Property approve counterexample -- 28.63 s
+Property transfer-normal counterexample -- 18.33 s
+Property transfer-self verified -- 103.86 s
+Property transfer-fail verified -- 21.30 s
+Property transfer-self-fail verified -- 8.36 s
+Property transferfrom-normal counterexample -- 29.77 s
+Property transferfrom-self counterexample -- 25.58 s
+Property transferfrom-fail verified -- 23.85 s
+Property transferfrom-self-fail verified -- 15.07 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//Wafl_0x3Fee076a0f0218899B89fE7e3F54dd2dC18917E0.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//Wafl_0x3Fee076a0f0218899B89fE7e3F54dd2dC18917E0.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor PauserRole_PauserRole that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Burnable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in Wafl...
+Warning!!: Invoking base constructor PauserRole_PauserRole that is not explicitly called in the inheritance/modifier list specified in Wafl...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in Wafl...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in Wafl...
+Property totalsupply verified -- 12.22 s
+Property balanceof verified -- 16.19 s
+Property allowance verified -- 10.94 s
+Property approve counterexample -- 62.55 s
+Property transfer-normal counterexample -- 37.05 s
+Property transfer-self counterexample -- 109.83 s
+Property transfer-fail verified -- 30.55 s
+Property transfer-self-fail verified -- 12.22 s
+Property transferfrom-normal counterexample -- 53.17 s
+Property transferfrom-self counterexample -- 49.96 s
+Property transferfrom-fail verified -- 91.70 s
+Property transferfrom-self-fail verified -- 21.56 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//WXB_0x549ed593defa6ce92fb8e8ce08bec1a804ca1fbe.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//WXB_0x549ed593defa6ce92fb8e8ce08bec1a804ca1fbe.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Property totalsupply verified -- 2.85 s
+Property balanceof verified -- 3.04 s
+Property allowance verified -- 2.84 s
+Property approve counterexample -- 9.79 s
+Property transfer-normal verified -- 7.06 s
+Property transfer-self counterexample -- 6.23 s
+Property transfer-fail verified -- 4.25 s
+Property transfer-self-fail verified -- 2.54 s
+Property transferfrom-normal verified -- 56.33 s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail verified -- 7.26 s
+Property transferfrom-self-fail verified -- 4.15 s
+Verified 9 out of 12 properties
+2 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//XMDDexChain_0xa8b0279acc96efebd09955ad8240b2d30b53055e.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//XMDDexChain_0xa8b0279acc96efebd09955ad8240b2d30b53055e.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply counterexample -- 14.09 s
+Property balanceof verified -- 4.35 s
+Property allowance verified -- 4.42 s
+Property approve verified -- 6.37 s
+Property transfer-normal verified -- 15.90 s
+Property transfer-self verified -- 21.27 s
+Property transfer-fail verified -- 6.96 s
+Property transfer-self-fail verified -- 4.65 s
+Property transferfrom-normal timed-out -- 900s
+Property transferfrom-self verified -- 59.60 s
+Property transferfrom-fail verified -- 12.27 s
+Property transferfrom-self-fail verified -- 6.94 s
+Verified 10 out of 12 properties
+1 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//XNC_0x8Bb6F9463524af5c248d085D37c91b96D8AAfF80.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//XNC_0x8Bb6F9463524af5c248d085D37c91b96D8AAfF80.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in CappedToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in XNC...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in XNC...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in XNC...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in XNC...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in XNC...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in XNC...
+Property totalsupply verified -- 5.88 s
+Property balanceof verified -- 5.86 s
+Property allowance verified -- 5.86 s
+Property approve verified -- 9.73 s
+Property transfer-normal counterexample -- 11.02 s
+Property transfer-self verified -- 34.72 s
+Property transfer-fail verified -- 9.93 s
+Property transfer-self-fail verified -- 5.95 s
+Property transferfrom-normal counterexample -- 18.54 s
+Property transferfrom-self counterexample -- 17.38 s
+Property transferfrom-fail verified -- 12.36 s
+Property transferfrom-self-fail verified -- 12.07 s
+Verified 9 out of 12 properties
+3 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//YearnFinanceBitToken_0xf0a0f3a6fa6bed75345171a5ea18abcadf6453ba.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//YearnFinanceBitToken_0xf0a0f3a6fa6bed75345171a5ea18abcadf6453ba.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply counterexample -- 11.98 s
+Property balanceof verified -- 3.62 s
+Property allowance verified -- 3.57 s
+Property approve verified -- 5.10 s
+Property transfer-normal verified -- 10.57 s
+Property transfer-self verified -- 26.21 s
+Property transfer-fail verified -- 5.80 s
+Property transfer-self-fail verified -- 3.87 s
+Property transferfrom-normal verified -- 32.97 s
+Property transferfrom-self verified -- 64.48 s
+Property transferfrom-fail verified -- 7.52 s
+Property transferfrom-self-fail verified -- 5.13 s
+Verified 11 out of 12 properties
+1 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//YFI_0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//YFI_0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in YFI...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in YFI...
+Property totalsupply verified -- 4.92 s
+Property balanceof verified -- 4.65 s
+Property allowance verified -- 4.44 s
+Property approve counterexample -- 12.99 s
+Property transfer-normal counterexample -- 8.55 s
+Property transfer-self verified -- 38.13 s
+Property transfer-fail verified -- 9.77 s
+Property transfer-self-fail verified -- 5.07 s
+Property transferfrom-normal counterexample -- 12.48 s
+Property transferfrom-self counterexample -- 12.07 s
+Property transferfrom-fail verified -- 13.59 s
+Property transferfrom-self-fail verified -- 10.44 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//YFLink_0x28cb7e841ee97947a86b06fa4090c8451f64c0be.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//YFLink_0x28cb7e841ee97947a86b06fa4090c8451f64c0be.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in YFLink...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in YFLink...
+Property totalsupply verified -- 4.71 s
+Property balanceof verified -- 5.42 s
+Property allowance verified -- 5.29 s
+Property approve counterexample -- 12.76 s
+Property transfer-normal counterexample -- 8.42 s
+Property transfer-self verified -- 39.98 s
+Property transfer-fail verified -- 9.20 s
+Property transfer-self-fail verified -- 5.25 s
+Property transferfrom-normal counterexample -- 13.88 s
+Property transferfrom-self counterexample -- 12.27 s
+Property transferfrom-fail verified -- 14.34 s
+Property transferfrom-self-fail verified -- 10.58 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//YFV_0x45f24baeef268bb6d63aee5129015d69702bcdfa.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//YFV_0x45f24baeef268bb6d63aee5129015d69702bcdfa.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in YFV...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in YFV...
+Property totalsupply verified -- 4.93 s
+Property balanceof verified -- 4.46 s
+Property allowance verified -- 4.95 s
+Property approve counterexample -- 12.99 s
+Property transfer-normal counterexample -- 8.38 s
+Property transfer-self verified -- 474.52 s
+Property transfer-fail verified -- 24.50 s
+Property transfer-self-fail verified -- 5.32 s
+Property transferfrom-normal counterexample -- 13.66 s
+Property transferfrom-self counterexample -- 11.53 s
+Property transferfrom-fail verified -- 16.06 s
+Property transferfrom-self-fail verified -- 10.95 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//YSM_0x9ad2018bdbc21db14457542ee26cbbf0565f8687.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//YSM_0x9ad2018bdbc21db14457542ee26cbbf0565f8687.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Property totalsupply verified -- 2.88 s
+Property balanceof verified -- 2.65 s
+Property allowance verified -- 2.95 s
+Property approve counterexample -- 9.86 s
+Property transfer-normal verified -- 7.70 s
+Property transfer-self counterexample -- 6.69 s
+Property transfer-fail verified -- 4.50 s
+Property transfer-self-fail verified -- 2.65 s
+Property transferfrom-normal verified -- 75.24 s
+Property transferfrom-self verified -- 74.93 s
+Property transferfrom-fail verified -- 6.13 s
+Property transferfrom-self-fail verified -- 3.16 s
+Verified 10 out of 12 properties
+2 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//ZAI_0x6a90445976b4a9ad09de0c1621048483d2f5589f.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZAI_0x6a90445976b4a9ad09de0c1621048483d2f5589f.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of ZAI...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of ZAI...
+Property totalsupply counterexample -- 33.64 s
+Property balanceof verified -- 6.85 s
+Property allowance verified -- 6.23 s
+Property approve verified -- 11.39 s
+Property transfer-normal verified -- 29.36 s
+Property transfer-self verified -- 68.93 s
+Property transfer-fail verified -- 14.12 s
+Property transfer-self-fail verified -- 7.12 s
+Property transferfrom-normal verified -- 147.33 s
+Property transferfrom-self verified -- 169.27 s
+Property transferfrom-fail verified -- 29.20 s
+Property transferfrom-self-fail verified -- 11.04 s
+Verified 11 out of 12 properties
+1 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//ZEBELLION_0x98a1208a9287e378d329225836b823481d890409.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZEBELLION_0x98a1208a9287e378d329225836b823481d890409.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: constant expression contains large constant(s);
+if the large constant is an operand in a power operation,
+modulo arithmetic check will not work correctly
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of ZEBELLION...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of ZEBELLION...
+Property totalsupply counterexample -- 34.11 s
+Property balanceof verified -- 6.69 s
+Property allowance verified -- 6.55 s
+Property approve verified -- 11.35 s
+Property transfer-normal verified -- 28.03 s
+Property transfer-self verified -- 57.99 s
+Property transfer-fail verified -- 12.71 s
+Property transfer-self-fail verified -- 6.62 s
+Property transferfrom-normal verified -- 53.26 s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail verified -- 28.60 s
+Property transferfrom-self-fail verified -- 10.06 s
+Verified 10 out of 12 properties
+1 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//Zhey_ERC20_0x31126416f0dbc1283dc5295ee6ea04ff83ee3531.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//Zhey_ERC20_0x31126416f0dbc1283dc5295ee6ea04ff83ee3531.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of Zhey_ERC20...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of Zhey_ERC20...
+Property totalsupply counterexample -- 34.59 s
+Property balanceof verified -- 6.89 s
+Property allowance verified -- 6.73 s
+Property approve verified -- 11.69 s
+Property transfer-normal verified -- 44.86 s
+Property transfer-self verified -- 66.90 s
+Property transfer-fail verified -- 13.69 s
+Property transfer-self-fail verified -- 6.88 s
+Property transferfrom-normal verified -- 165.66 s
+Property transferfrom-self verified -- 126.20 s
+Property transferfrom-fail verified -- 20.80 s
+Property transferfrom-self-fail verified -- 10.77 s
+Verified 11 out of 12 properties
+1 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//Zhey_ERC20_0x851be0d936cb611d2cab3c3963338288445c1e52.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//Zhey_ERC20_0x851be0d936cb611d2cab3c3963338288445c1e52.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning: constant expression contains large constant(s);
+if the large constant is an operand in a power operation,
+modulo arithmetic check will not work correctly
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of Zhey_ERC20...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of Zhey_ERC20...
+Property totalsupply counterexample -- 33.51 s
+Property balanceof verified -- 6.66 s
+Property allowance verified -- 6.82 s
+Property approve verified -- 11.05 s
+Property transfer-normal timed-out -- 900s
+Property transfer-self verified -- 29.33 s
+Property transfer-fail verified -- 13.59 s
+Property transfer-self-fail verified -- 6.26 s
+Property transferfrom-normal verified -- 154.75 s
+Property transferfrom-self verified -- 186.79 s
+Property transferfrom-fail verified -- 20.47 s
+Property transferfrom-self-fail verified -- 10.89 s
+Verified 10 out of 12 properties
+1 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC202//ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 4.91 s
+Property balanceof verified -- 4.99 s
+Property allowance verified -- 4.95 s
+Property approve counterexample -- 22.45 s
+Property transfer-normal counterexample -- 13.41 s
+Property transfer-self counterexample -- 47.80 s
+Property transfer-fail verified -- 6.79 s
+Property transfer-self-fail verified -- 5.26 s
+Property transferfrom-normal counterexample -- 19.03 s
+Property transferfrom-self counterexample -- 28.11 s
+Property transferfrom-fail verified -- 10.50 s
+Property transferfrom-self-fail verified -- 8.67 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//ZJYB_0x8084db66552b505cbf18359cb4ead0fb059c65d8.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZJYB_0x8084db66552b505cbf18359cb4ead0fb059c65d8.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 3.87 s
+Property balanceof verified -- 4.35 s
+Property allowance verified -- 3.53 s
+Property approve counterexample -- 12.00 s
+Property transfer-normal counterexample -- 7.20 s
+Property transfer-self counterexample -- 7.66 s
+Property transfer-fail verified -- 374.85 s
+Property transfer-self-fail verified -- 4.64 s
+Property transferfrom-normal counterexample -- 12.41 s
+Property transferfrom-self counterexample -- 12.34 s
+Property transferfrom-fail verified -- 11.60 s
+Property transferfrom-self-fail verified -- 6.11 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC202//ZTokens_ERC20_0x521a2ac7b33b09fa21a1ad7c040f4e1b5912c1d0.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZTokens_ERC20_0x521a2ac7b33b09fa21a1ad7c040f4e1b5912c1d0.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Interface_ERC20Interface that is not explicitly in inheritance list of ZTokens_ERC20...
+Warning!!: Invoking base constructor Owned_Owned that is not explicitly in inheritance list of ZTokens_ERC20...
+Property totalsupply counterexample -- 31.80 s
+Property balanceof verified -- 6.18 s
+Property allowance verified -- 6.08 s
+Property approve verified -- 10.99 s
+Property transfer-normal verified -- 32.87 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 12.48 s
+Property transfer-self-fail verified -- 6.76 s
+Property transferfrom-normal verified -- 186.10 s
+Property transferfrom-self timed-out -- 900s
+Property transferfrom-fail verified -- 19.92 s
+Property transferfrom-self-fail verified -- 10.14 s
+Verified 9 out of 12 properties
+1 counterexamples
+0 exceptions
+2 timed out
+benchmarks/ERC202//ZXL_0xfb3B4D413Fb8dF96C6336E8DD103f8af38B48F87.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZXL_0xfb3B4D413Fb8dF96C6336E8DD103f8af38B48F87.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 2.73 s
+Property balanceof verified -- 2.88 s
+Property allowance verified -- 2.60 s
+Property approve verified -- 4.19 s
+Property transfer-normal exception -- .11 s
+Property transfer-self exception -- .11 s
+Property transfer-fail verified -- 3.15 s
+Property transfer-self-fail verified -- 3.17 s
+Property transferfrom-normal counterexample -- 29.65 s
+Property transferfrom-self counterexample -- 16.32 s
+Property transferfrom-fail verified -- 6.15 s
+Property transferfrom-self-fail verified -- 4.46 s
+Verified 8 out of 12 properties
+2 counterexamples
+2 exceptions
+0 timed out
+benchmarks/ERC202//ZZZ_0xc75F15AdA581219c95485c578E124df3985e4CE0.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC202//ZZZ_0xc75F15AdA581219c95485c578E124df3985e4CE0.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in ZZZ...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ZZZ...
+Property totalsupply verified -- 6.18 s
+Property balanceof verified -- 5.59 s
+Property allowance verified -- 6.45 s
+Property approve counterexample -- 17.49 s
+Property transfer-normal counterexample -- 9.83 s
+Property transfer-self counterexample -- 10.35 s
+Property transfer-fail verified -- 28.58 s
+Property transfer-self-fail verified -- 5.55 s
+Property transferfrom-normal counterexample -- 16.13 s
+Property transferfrom-self counterexample -- 15.58 s
+Property transferfrom-fail verified -- 50.23 s
+Property transferfrom-self-fail verified -- 13.95 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out

@@ -1,0 +1,530 @@
+benchmarks/ERC20//JUSToken_0x14ca41eecd7d81d5d13098586c0d2314eba285be.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//JUSToken_0x14ca41eecd7d81d5d13098586c0d2314eba285be.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply verified -- 2.84 s
+Property balanceof verified -- 2.89 s
+Property allowance verified -- 2.94 s
+Property approve verified -- 4.35 s
+Property transfer-normal exception -- .11 s
+Property transfer-self exception -- .13 s
+Property transfer-fail verified -- 7.75 s
+Property transfer-self-fail verified -- 3.22 s
+Property transferfrom-normal counterexample -- 23.32 s
+Property transferfrom-self counterexample -- 20.77 s
+Property transferfrom-fail verified -- 6.25 s
+Property transferfrom-self-fail verified -- 4.52 s
+Verified 8 out of 12 properties
+2 counterexamples
+2 exceptions
+0 timed out
+benchmarks/ERC20//KardiachainToken_0xbd6467a31899590474ce1e84f70594c53d628e46.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//KardiachainToken_0xbd6467a31899590474ce1e84f70594c53d628e46.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Pausable...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of ERC20Pausable...
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in KardiachainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in KardiachainToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in KardiachainToken...
+Property totalsupply verified -- 5.76 s
+Property balanceof verified -- 5.46 s
+Property allowance verified -- 5.79 s
+Property approve counterexample -- 21.68 s
+Property transfer-normal counterexample -- 14.71 s
+Property transfer-self counterexample -- 43.34 s
+Property transfer-fail verified -- 12.27 s
+Property transfer-self-fail verified -- 6.49 s
+Property transferfrom-normal counterexample -- 18.44 s
+Property transferfrom-self counterexample -- 17.38 s
+Property transferfrom-fail verified -- 25.78 s
+Property transferfrom-self-fail verified -- 9.48 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//KECToken_0x7825adf319ed717f8402b439c41c7f7e4f061d14.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//KECToken_0x7825adf319ed717f8402b439c41c7f7e4f061d14.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Property totalsupply verified -- 4.07 s
+Property balanceof verified -- 3.74 s
+Property allowance verified -- 3.59 s
+Property approve counterexample -- 10.18 s
+Property transfer-normal counterexample -- 8.10 s
+Property transfer-self counterexample -- 15.58 s
+Property transfer-fail verified -- 6.17 s
+Property transfer-self-fail verified -- 3.75 s
+Property transferfrom-normal counterexample -- 11.69 s
+Property transferfrom-self counterexample -- 12.22 s
+Property transferfrom-fail verified -- 8.59 s
+Property transferfrom-self-fail verified -- 5.75 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//KeepToken_0x85Eee30c52B0b379b046Fb0F85F4f3Dc3009aFEC.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//KeepToken_0x85Eee30c52B0b379b046Fb0F85F4f3Dc3009aFEC.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Burnable...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in KeepToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in KeepToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in KeepToken...
+Property totalsupply verified -- 5.71 s
+Property balanceof verified -- 5.22 s
+Property allowance verified -- 6.06 s
+Property approve counterexample -- 16.33 s
+Property transfer-normal counterexample -- 10.64 s
+Property transfer-self verified -- 39.68 s
+Property transfer-fail verified -- 12.35 s
+Property transfer-self-fail verified -- 6.11 s
+Property transferfrom-normal counterexample -- 15.40 s
+Property transferfrom-self counterexample -- 15.57 s
+Property transferfrom-fail verified -- 16.75 s
+Property transferfrom-self-fail verified -- 10.13 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//KOCToken_0xfae2b2f57ce6dce9a089b746e32ede3941b2208b.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//KOCToken_0xfae2b2f57ce6dce9a089b746e32ede3941b2208b.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Mintable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor MinterRole_MinterRole that is not explicitly called in the inheritance/modifier list specified in ERC20Capped...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Burnable...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in KOCToken...
+Property totalsupply verified -- 6.48 s
+Property balanceof verified -- 6.42 s
+Property allowance verified -- 6.22 s
+Property approve counterexample -- 16.93 s
+Property transfer-normal counterexample -- 11.32 s
+Property transfer-self verified -- 14.15 s
+Property transfer-fail verified -- 11.81 s
+Property transfer-self-fail verified -- 6.62 s
+Property transferfrom-normal counterexample -- 18.29 s
+Property transferfrom-self counterexample -- 17.52 s
+Property transferfrom-fail verified -- 16.03 s
+Property transferfrom-self-fail verified -- 9.32 s
+Verified 8 out of 12 properties
+4 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//KriosToken_0x42566cfefc853c232117eba4413e45782a72715d.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//KriosToken_0x42566cfefc853c232117eba4413e45782a72715d.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in KriosToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in KriosToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in KriosToken...
+Property totalsupply verified -- 4.47 s
+Property balanceof verified -- 4.77 s
+Property allowance verified -- 4.76 s
+Property approve verified -- 7.01 s
+Property transfer-normal counterexample -- 13.24 s
+Property transfer-self verified -- 13.25 s
+Property transfer-fail verified -- 7.90 s
+Property transfer-self-fail verified -- 5.03 s
+Property transferfrom-normal timed-out -- 900s
+Property transferfrom-self counterexample -- 240.35 s
+Property transferfrom-fail verified -- 15.58 s
+Property transferfrom-self-fail verified -- 7.32 s
+Verified 9 out of 12 properties
+2 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC20//Litecoin_SV_0xee059f0ca1507e4e20c689b20cff71b5e924f7bd.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//Litecoin_SV_0xee059f0ca1507e4e20c689b20cff71b5e924f7bd.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Property totalsupply counterexample -- 15.70 s
+Property balanceof verified -- 4.39 s
+Property allowance verified -- 4.46 s
+Property approve verified -- 6.50 s
+Property transfer-normal verified -- 11.84 s
+Property transfer-self verified -- 20.26 s
+Property transfer-fail verified -- 8.07 s
+Property transfer-self-fail verified -- 4.66 s
+Property transferfrom-normal verified -- 152.33 s
+Property transferfrom-self verified -- 76.99 s
+Property transferfrom-fail verified -- 11.05 s
+Property transferfrom-self-fail verified -- 7.42 s
+Verified 11 out of 12 properties
+1 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//LUCKYToken_0xE478d4F4a87D4D641AF97ca0b5Cc3dB61e266357.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//LUCKYToken_0xE478d4F4a87D4D641AF97ca0b5Cc3dB61e266357.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of PausableToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in LUCKYToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in LUCKYToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in LUCKYToken...
+Warning!!: Invoking base constructor Pausable_Pausable that is not explicitly called in the inheritance/modifier list specified in LUCKYToken...
+Property totalsupply verified -- 6.40 s
+Property balanceof verified -- 6.35 s
+Property allowance verified -- 6.33 s
+Property approve counterexample -- 25.75 s
+Property transfer-normal counterexample -- 17.62 s
+Property transfer-self counterexample -- 37.99 s
+Property transfer-fail verified -- 17.53 s
+Property transfer-self-fail verified -- 6.98 s
+Property transferfrom-normal counterexample -- 22.95 s
+Property transferfrom-self counterexample -- 24.98 s
+Property transferfrom-fail verified -- 20.50 s
+Property transferfrom-self-fail verified -- 14.29 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//MainToken_0x062f90480551379791FBe2ED74C1fe69821b30d3.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MainToken_0x062f90480551379791FBe2ED74C1fe69821b30d3.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor FreezableToken_FreezableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Property totalsupply verified -- 12.86 s
+Property balanceof counterexample -- 90.23 s
+Property allowance verified -- 15.30 s
+Property approve verified -- 26.18 s
+Property transfer-normal counterexample -- 66.08 s
+Property transfer-self counterexample -- 110.32 s
+Property transfer-fail verified -- 36.06 s
+Property transfer-self-fail verified -- 14.72 s
+Property transferfrom-normal counterexample -- 55.28 s
+Property transferfrom-self counterexample -- 54.55 s
+Property transferfrom-fail verified -- 56.89 s
+Property transferfrom-self-fail verified -- 31.47 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//MainToken_0x0eF3b2024ae079e6dBC2b37435cE30d2731F0101.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MainToken_0x0eF3b2024ae079e6dBC2b37435cE30d2731F0101.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor FreezableToken_FreezableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Property totalsupply verified -- 12.66 s
+Property balanceof exception -- 85.12 s
+Property allowance verified -- 11.59 s
+Property approve verified -- 24.84 s
+Property transfer-normal counterexample -- 56.81 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 33.71 s
+Property transfer-self-fail verified -- 12.58 s
+Property transferfrom-normal counterexample -- 58.21 s
+Property transferfrom-self counterexample -- 44.75 s
+Property transferfrom-fail verified -- 35.69 s
+Property transferfrom-self-fail verified -- 31.72 s
+Verified 7 out of 12 properties
+3 counterexamples
+1 exceptions
+1 timed out
+benchmarks/ERC20//MainToken_0x1b980e05943de3db3a459c72325338d327b6f5a9.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MainToken_0x1b980e05943de3db3a459c72325338d327b6f5a9.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor FreezableToken_FreezableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Property totalsupply verified -- 13.02 s
+Property balanceof exception -- 94.34 s
+Property allowance verified -- 12.19 s
+Property approve verified -- 24.56 s
+Property transfer-normal counterexample -- 61.42 s
+Property transfer-self counterexample -- 138.18 s
+Property transfer-fail verified -- 34.96 s
+Property transfer-self-fail verified -- 13.85 s
+Property transferfrom-normal counterexample -- 53.34 s
+Property transferfrom-self counterexample -- 48.92 s
+Property transferfrom-fail verified -- 41.80 s
+Property transferfrom-self-fail verified -- 33.69 s
+Verified 7 out of 12 properties
+4 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC20//MainToken_0x1d37986f252d0e349522ea6c3b98cb935495e63e.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MainToken_0x1d37986f252d0e349522ea6c3b98cb935495e63e.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor FreezableToken_FreezableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Property totalsupply verified -- 14.95 s
+Property balanceof exception -- 97.62 s
+Property allowance verified -- 11.99 s
+Property approve verified -- 23.82 s
+Property transfer-normal counterexample -- 52.16 s
+Property transfer-self counterexample -- 106.51 s
+Property transfer-fail verified -- 36.72 s
+Property transfer-self-fail verified -- 13.32 s
+Property transferfrom-normal counterexample -- 44.16 s
+Property transferfrom-self counterexample -- 42.28 s
+Property transferfrom-fail verified -- 38.48 s
+Property transferfrom-self-fail verified -- 31.00 s
+Verified 7 out of 12 properties
+4 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC20//MainToken_0xa2d0e29a9627e20FD886a8106DD0AE429403a57d.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MainToken_0xa2d0e29a9627e20FD886a8106DD0AE429403a57d.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor FreezableToken_FreezableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Property totalsupply verified -- 12.33 s
+Property balanceof counterexample -- 77.21 s
+Property allowance verified -- 12.57 s
+Property approve verified -- 24.69 s
+Property transfer-normal counterexample -- 58.40 s
+Property transfer-self counterexample -- 110.93 s
+Property transfer-fail verified -- 35.06 s
+Property transfer-self-fail verified -- 12.46 s
+Property transferfrom-normal counterexample -- 46.01 s
+Property transferfrom-self counterexample -- 48.01 s
+Property transferfrom-fail verified -- 35.49 s
+Property transferfrom-self-fail verified -- 32.12 s
+Verified 7 out of 12 properties
+5 counterexamples
+0 exceptions
+0 timed out
+benchmarks/ERC20//MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of StandardToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of MintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of BurnableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly in inheritance list of FreezableMintableToken...
+Warning!!: Invoking base constructor ERC20Basic_ERC20Basic that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor ERC20_ERC20 that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor BasicToken_BasicToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor StandardToken_StandardToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor FreezableToken_FreezableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor Ownable_Ownable that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Warning!!: Invoking base constructor MintableToken_MintableToken that is not explicitly called in the inheritance/modifier list specified in MainToken...
+Property totalsupply verified -- 12.66 s
+Property balanceof exception -- 87.79 s
+Property allowance verified -- 14.14 s
+Property approve verified -- 25.17 s
+Property transfer-normal counterexample -- 59.03 s
+Property transfer-self counterexample -- 102.89 s
+Property transfer-fail verified -- 37.43 s
+Property transfer-self-fail verified -- 15.05 s
+Property transferfrom-normal counterexample -- 51.00 s
+Property transferfrom-self counterexample -- 49.39 s
+Property transferfrom-fail verified -- 42.06 s
+Property transferfrom-self-fail verified -- 36.44 s
+Verified 7 out of 12 properties
+4 counterexamples
+1 exceptions
+0 timed out
+benchmarks/ERC20//MetaToken_0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MetaToken_0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor ModuleKeys_ModuleKeys that is not explicitly called in the inheritance/modifier list specified in GovernedMinterRole...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly in inheritance list of ERC20Burnable...
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning!!: Invoking base constructor ModuleKeys_ModuleKeys that is not explicitly called in the inheritance/modifier list specified in MetaToken...
+Warning!!: Invoking base constructor Context_Context that is not explicitly called in the inheritance/modifier list specified in MetaToken...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in MetaToken...
+Property totalsupply verified -- 7.83 s
+Property balanceof verified -- 7.63 s
+Property allowance verified -- 7.64 s
+Property approve counterexample -- 28.65 s
+Property transfer-normal counterexample -- 51.85 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 18.45 s
+Property transfer-self-fail verified -- 8.53 s
+Property transferfrom-normal counterexample -- 28.65 s
+Property transferfrom-self counterexample -- 23.72 s
+Property transferfrom-fail verified -- 51.58 s
+Property transferfrom-self-fail verified -- 15.26 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out
+benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning!!: Invoking base constructor Token_Token that is not explicitly called in the inheritance/modifier list specified in HumanStandardToken...
+VeriSol translation error: File , Line -1, Contract HumanStandardToken, Function approveAndCall:: Number of outPArams for call statement should be 2....
+mv: cannot stat '__SolToBoogieTest_out.bpl': No such file or directory
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property totalsupply exception -- .04 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property balanceof exception -- .04 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property allowance exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property approve exception -- .04 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transfer-normal exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transfer-self exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transfer-fail exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transfer-self-fail exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transferfrom-normal exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transferfrom-self exception -- .05 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transferfrom-fail exception -- .07 s
+cat: benchmarks/ERC20//MintAndBurnToken_0x6b01c3170ae1efebee1a3159172cb3f7a5ecf9e5.bpl: No such file or directory
+Property transferfrom-self-fail exception -- .05 s
+Verified 0 out of 12 properties
+0 counterexamples
+12 exceptions
+0 timed out
+benchmarks/ERC20//MMM_0xf453ac18fa17b9ec9a76fbf219ba9fe4612edd0a.sol
+SpecFilesDir = /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20
+... running Solc on /mnt/data0/jon/SmartPulseTool/benchmarks/ERC20//MMM_0xf453ac18fa17b9ec9a76fbf219ba9fe4612edd0a.sol
+/home/jon/.dotnet/tools/solc
+... running SolToBoogie to translate Solidity to Boogie
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning in IsUintConst: constant expression is neither Literal nor BinaryOperation with Literal operands; hint: use temps for subexpressions
+Warning!!: Invoking base constructor IERC777_IERC777 that is not explicitly called in the inheritance/modifier list specified in MMM...
+Warning!!: Invoking base constructor IERC20_IERC20 that is not explicitly called in the inheritance/modifier list specified in MMM...
+Property totalsupply verified -- 6.53 s
+Property balanceof verified -- 6.55 s
+Property allowance verified -- 7.30 s
+Property approve counterexample -- 23.02 s
+Property transfer-normal counterexample -- 13.57 s
+Property transfer-self timed-out -- 900s
+Property transfer-fail verified -- 24.90 s
+Property transfer-self-fail verified -- 6.82 s
+Property transferfrom-normal counterexample -- 16.72 s
+Property transferfrom-self counterexample -- 20.78 s
+Property transferfrom-fail verified -- 19.30 s
+Property transferfrom-self-fail verified -- 15.76 s
+Verified 7 out of 12 properties
+4 counterexamples
+0 exceptions
+1 timed out

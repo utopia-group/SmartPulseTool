@@ -1,0 +1,360 @@
+/mnt/data0/jon/verified-smart-contracts/erc20/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/solc_out/AENSToken.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/AENSToken_0xd38de88687172bde440755b5237987e4a87c23a7'
+Failed: totalSupply -- 
+Failed: balanceOf -- 
+Failed: allowance -- 
+Failed: approve -- 
+Failed: transfer-success-1 -- 
+Failed: transfer-success-2 -- timed out
+Failed: transfer-failure-1 -- 
+Failed: transfer-failure-2 -- timed out
+Failed: transferFrom-success-1 -- timed out
+Failed: transferFrom-success-2 -- 
+Failed: transferFrom-failure-1 -- timed out
+Failed: transferFrom-failure-2 -- 
+Proved 0 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/solc_out/BitcoinProtocol.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/BitcoinProtocol_0x747d3780e8a78e644e20b2d1d4df51c42814b34e'
+Proved: totalSupply -- 633.224
+Proved: balanceOf -- 611.757
+Proved: allowance -- 663.282
+Failed: approve -- 697.971
+Failed: transfer-success-1 -- 692.672
+Proved: transfer-success-2 -- 662.478
+Proved: transfer-failure-1 -- 686.882
+Proved: transfer-failure-2 -- 643.211
+Failed: transferFrom-success-1 -- 761.870
+Failed: transferFrom-success-2 -- 748.624
+Proved: transferFrom-failure-1 -- 622.354
+Proved: transferFrom-failure-2 -- 645.440
+Proved 8 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/solc_out/DOSToken.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/DOSToken_0x0A913beaD80F321E7Ac35285Ee10d9d922659cB7'
+Proved: totalSupply -- 590.769
+Proved: balanceOf -- 605.277
+Proved: allowance -- 589.532
+Failed: approve -- 621.686
+Failed: transfer-success-1 -- 622.894
+Failed: transfer-success-2 -- 623.620
+Failed: transfer-failure-1 -- 625.679
+Proved: transfer-failure-2 -- 614.603
+Failed: transferFrom-success-1 -- 664.389
+Failed: transferFrom-success-2 -- 648.254
+Failed: transferFrom-failure-1 -- 635.228
+Failed: transferFrom-failure-2 -- 663.457
+Proved 4 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/solc_out/ERC20.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/ERC20_0xdF3A0a958F5a599Aa8f3071AA6488C22416EFB89'
+Proved: totalSupply -- 343.984
+Proved: balanceOf -- 342.376
+Proved: allowance -- 353.167
+Failed: approve -- 372.399
+Failed: transfer-success-1 -- 385.185
+Failed: transfer-success-2 -- 380.538
+Proved: transfer-failure-1 -- 378.051
+Proved: transfer-failure-2 -- 369.411
+Failed: transferFrom-success-1 -- 388.397
+Failed: transferFrom-success-2 -- 404.096
+Proved: transferFrom-failure-1 -- 385.132
+Proved: transferFrom-failure-2 -- 404.924
+Proved 7 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/solc_out/GEEQToken.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78'
+Proved: totalSupply -- 392.669
+Proved: balanceOf -- 393.642
+Proved: allowance -- 411.466
+Proved: approve -- 444.477
+Failed: transfer-success-1 -- 421.307
+Failed: transfer-success-2 -- 450.586
+Proved: transfer-failure-1 -- 427.531
+Proved: transfer-failure-2 -- 415.493
+Failed: transferFrom-success-1 -- 433.410
+Failed: transferFrom-success-2 -- 417.727
+Proved: transferFrom-failure-1 -- 411.697
+Proved: transferFrom-failure-2 -- 399.235
+Proved 8 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/solc_out/OMAToken.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/OMAToken_0xade84da51b67cbe9002c85b7422c86d78a52f0d2'
+Proved: totalSupply -- 265.669
+Proved: balanceOf -- 270.158
+Proved: allowance -- 282.272
+Failed: approve -- 264.039
+Failed: transfer-success-1 -- 308.671
+Failed: transfer-success-2 -- 308.178
+Proved: transfer-failure-1 -- 315.518
+Proved: transfer-failure-2 -- 284.831
+Failed: transferFrom-success-1 -- 322.205
+Failed: transferFrom-success-2 -- 311.453
+Proved: transferFrom-failure-1 -- 308.037
+Proved: transferFrom-failure-2 -- 289.465
+Proved 7 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/solc_out/RariToken.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/RariToken_0xfca59cd816ab1ead66534d82bc21e7515ce441cf'
+Proved: totalSupply -- 484.889
+Proved: balanceOf -- 498.401
+Proved: allowance -- 504.759
+Failed: approve -- 505.194
+Failed: transfer-success-1 -- 521.812
+Failed: transfer-success-2 -- 529.608
+Proved: transfer-failure-1 -- 531.441
+Proved: transfer-failure-2 -- 529.546
+Failed: transferFrom-success-1 -- 546.110
+Failed: transferFrom-success-2 -- 524.008
+Proved: transferFrom-failure-1 -- 550.118
+Proved: transferFrom-failure-2 -- 534.048
+Proved 7 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/solc_out/Team3D.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30'
+Proved: totalSupply -- 299.346
+Proved: balanceOf -- 312.631
+Proved: allowance -- 314.087
+Failed: approve -- 328.891
+Failed: transfer-success-1 -- 348.832
+Failed: transfer-success-2 -- 339.685
+Proved: transfer-failure-1 -- 361.637
+Proved: transfer-failure-2 -- 326.577
+Failed: transferFrom-success-1 -- 346.664
+Failed: transferFrom-success-2 -- 339.070
+Proved: transferFrom-failure-1 -- 342.754
+Proved: transferFrom-failure-2 -- 318.279
+Proved 7 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/solc_out/TokenERC20.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/TokenERC20_0x97e989FD773745f7E1678c2004057F1378591A71'
+Proved: totalSupply -- 281.318
+Proved: balanceOf -- 282.158
+Proved: allowance -- 284.562
+Proved: approve -- 291.210
+Failed: transfer-success-1 -- 338.895
+Failed: transfer-success-2 -- 330.067
+Proved: transfer-failure-1 -- 301.025
+Proved: transfer-failure-2 -- 296.022
+Failed: transferFrom-success-1 -- 334.088
+Failed: transferFrom-success-2 -- 346.681
+Proved: transferFrom-failure-1 -- 304.996
+Proved: transferFrom-failure-2 -- 304.195
+Proved 8 out of 12 specs
+/mnt/data0/jon/verified-smart-contracts/erc20/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/solc_out/TristersLightCoin.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe'
+Proved: totalSupply -- 394.473
+Proved: balanceOf -- 420.053
+Proved: allowance -- 406.535
+Failed: approve -- 424.008
+Failed: transfer-success-1 -- 470.874
+Proved: transfer-success-2 -- 431.995
+Proved: transfer-failure-1 -- 436.250
+Proved: transfer-failure-2 -- 418.997
+Failed: transferFrom-success-1 -- 477.988
+Failed: transferFrom-success-2 -- 441.578
+Proved: transferFrom-failure-1 -- 460.560
+Proved: transferFrom-failure-2 -- 444.458
+Proved 8 out of 12 specs
