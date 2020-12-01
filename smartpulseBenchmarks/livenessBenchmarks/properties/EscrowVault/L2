@@ -1,0 +1,3 @@
+// #LTLVariables: ben:Ref
+// #LTLFairness: <>(finished(EscrowVault.deposit)) && <>(finished(EscrowVault.close, (ben == this.beneficiary)))
+// #LTLProperty: (<>(finished(send(from, to, amt), (to == ben && amt == fsum(EscrowVault.deposit, 2)))))

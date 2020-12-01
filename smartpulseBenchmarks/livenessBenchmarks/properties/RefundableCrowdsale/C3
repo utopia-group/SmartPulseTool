@@ -1,0 +1,3 @@
+// #LTLVariables: b:Ref
+// #LTLFairness: <>(started(RefundableCrowdsale.claimRefund(refundee), this._finalized == true && RefundableCrowdsale.goalReached() == false && refundee == b)) && [](!reverted(send(from, to, amt), to == b))
+// #LTLProperty: [](finished(Crowdsale.buyTokens, msg.sender == b && msg.value != 0) ==> <>(finished(send(from, to, amt), to == b && amt == fsum(Crowdsale.buyTokens, 2, msg.sender == b))))

@@ -1,0 +1,3 @@
+// #LTLVariables: user:Ref
+// #LTLFairness: (<>(finished(EscrowVault.deposit(payee), (payee == user)))) && (<>(finished(EscrowVault.refund(payee), (payee == user))))
+// #LTLProperty: []((finished(EscrowVault.enableRefunds)) ==> (<>(finished(send(from, to, amt), (to == user && amt == fsum(EscrowVault.deposit(payee), 2, payee == user))))))

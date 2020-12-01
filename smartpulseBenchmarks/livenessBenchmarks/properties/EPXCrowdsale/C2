@@ -1,0 +1,3 @@
+// #LTLVariables: b:Ref
+// #LTLFairness: [](!started(EPXCrowdsale.refund, msg.sender == b)) && [](<>(started(EPXCrowdsale.initialEPXSupply))) && <>(finished(EPXCrowdsale.checkGoalReached, this.isCrowdSaleClosed == true)) 
+// #LTLProperty: [](finished(EPXCrowdsale.buy, msg.sender == b) ==> [](!finished(*, this.usersEPXfundValue[b] != fsum(EPXCrowdsale.buy, 2, msg.sender == b)))) 

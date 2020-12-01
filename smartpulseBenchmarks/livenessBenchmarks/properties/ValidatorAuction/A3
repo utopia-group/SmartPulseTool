@@ -1,0 +1,3 @@
+// #LTLVariables: a:Ref
+// #LTLFairness: <>(finished(ValidatorAuction.bid, msg.sender == a && msg.value != 0)) && [](<>(started(ValidatorAuction.withdraw, msg.sender == a))) && [](!reverted(send(from, to, amt), to == a)) && <>(started(ValidatorAuction.depositBids, this.auctionState != 0 && this.auctionState != 1))
+// #LTLProperty: <>(finished(send(from, to, amt), to == a && amt == fsum(ValidatorAuction.bid, 2, msg.sender == a))) && [](finished(send(from, to, amt), to == a && amt == fsum(ValidatorAuction.bid, 2, msg.sender == a)) ==> [](!started(send(from, to, amt), to == a && amt == fsum(ValidatorAuction.bid, 2, msg.sender == a))))

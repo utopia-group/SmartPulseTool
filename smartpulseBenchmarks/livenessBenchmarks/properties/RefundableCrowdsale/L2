@@ -1,0 +1,3 @@
+// #LTLVariables: ben:Ref
+// #LTLFairness: <>(finished(Crowdsale.buyTokens)) && <>(finished(FinalizableCrowdsale.finalize, (ben == Crowdsale.wallet())))
+// #LTLProperty: []((INV {TimedCrowdsale.hasClosed() == true && RefundableCrowdsale.goalReached() == true && FinalizableCrowdsale.finalized() == false}) ==> <>(finished(send(from, to, amt), (to == ben && amt == fsum(Crowdsale.buyTokens, 2)))))

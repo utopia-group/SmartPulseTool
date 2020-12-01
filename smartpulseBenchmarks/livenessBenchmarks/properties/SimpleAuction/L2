@@ -1,0 +1,3 @@
+// #LTLVariables: user:Ref,val:int,ben:Ref
+// #LTLFairness: <>(finished(SimpleAuction.auctionEnd, (ben == beneficiary_SimpleAuction[this])))
+// #LTLProperty: []((finished(SimpleAuction.bid, (user == this.highestBidder && val == msg.value)) && (X([](!finished(SimpleAuction.bid))))) ==> (<>(finished(send(from, to, amt), (to == ben && amt == val)))))
