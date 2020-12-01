@@ -1,0 +1,3 @@
+// #LTLVariables: b:Ref,v:int
+// #LTLFairness: <>(started(Crowdfunding.Claim, this.funded == false && Balance[this] < this.goal && this.max_block < now && msg.sender == b)) && [](!reverted(send(from, to, amt), to == b)) 
+// #LTLProperty: [](finished(Crowdfunding.Donate, msg.sender == b && msg.value == v && v != 0) ==> <>(finished(send(from, to, amt), to == b && amt == v))) 

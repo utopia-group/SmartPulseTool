@@ -1,0 +1,3 @@
+// #LTLVariables: b:Ref
+// #LTLFairness: <>(started(EPXCrowdsale.refund, this.isCrowdSaleClosed == true && this.areFundsReleasedToBeneficiary == false && msg.sender == b)) && [](!reverted(send(from, to, amt), to == b)) 
+// #LTLProperty: [](finished(EPXCrowdsale.buy, msg.sender == b && msg.value != 0) ==> <>(finished(send(from, to, amt), to == b && amt == fsum(EPXCrowdsale.buy, 2, msg.sender == b)))) 

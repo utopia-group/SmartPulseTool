@@ -1,7 +1,7 @@
 import sys
 import re
 
-cexMap = {}
+unknownMap = {}
 
 for f in sys.argv:
     f = open(f, 'r')
@@ -12,7 +12,7 @@ for f in sys.argv:
     timePattern = re.compile("[0-9\.]+")
 
     benchmark = ""
-    timeLine = ""
+    curResults = {}
 
     for i in range(0, len(lines)):
         line = lines[i]
@@ -20,20 +20,27 @@ for f in sys.argv:
         m = leavingPattern.match(line)
         if(m):
             benchmark = m.group(1)
-            timeLine += m.group(1)
 
         m = propPattern.match(line)
         if(m):
             if(m.group(1) == "Proved"):
-                timeLine += ","
+                curResults[m.group(2)] = 0
             elif(m.group(1) == "Failed"):
                 if(timePattern.match(m.group(3))):
-                    timeLine += "," + m.group(3)
+                    curResults[m.group(2)] = 0
                 else:
-                    timeLine += ","
+                    curResults[m.group(2)] = 1
         if provedPattern.match(line):
-            cexMap[benchmark] = timeLine
-            timeLine = ""
+            unknownMap[benchmark] = curResults
+            curResults = {}
 
-for key in cexMap:
-    print(cexMap[key])
+unknownAcc = {}
+for bench in unknownMap:
+    for test in unknownMap[bench]:
+        if(test in unknownAcc):
+            unknownAcc[test] += unknownMap[bench][test]
+        else:
+            unknownAcc[test] = unknownMap[bench][test]
+
+for key in unknownAcc:
+    print(key + " -- " + str(unknownAcc[key]))

@@ -27,7 +27,7 @@ library SafeMath {
     /**
      * @dev Multiplies two unsigned integers, reverts on overflow.
      */
-    /*function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
         // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
         // benefit is lost if 'b' is also tested.
         // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
@@ -39,19 +39,19 @@ library SafeMath {
         require(c / a == b);
 
         return c;
-    }*/
+    }
 
     /**
      * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.
      */
-    /*function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
         // Solidity only automatically asserts when dividing by 0
         require(b > 0);
         uint256 c = a / b;
         // assert(a == b * c + a % b); // There is no case in which this doesn't hold
 
         return c;
-    }*/
+    }
 
     /**
      * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).
@@ -77,10 +77,10 @@ library SafeMath {
      * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),
      * reverts when dividing by zero.
      */
-    /*function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
         require(b != 0);
         return a % b;
-    }*/
+    }
 }
 
 // File: installed_contracts/openzeppelin-solidity/contracts/ownership/Secondary.sol
@@ -166,11 +166,7 @@ contract Escrow is Secondary {
      * @dev Stores the sent amount as credit to be withdrawn.
      * @param payee The destination address of the funds.
      */
-    function deposit(address payee) public payable {
-        deposit_Escrow(payee);
-    }
-
-    function deposit_Escrow(address payee) internal onlyPrimary {
+    function deposit(address payee) public payable onlyPrimary {
         uint256 amount = msg.value;
         _deposits[payee] = _deposits[payee].add(amount);
 
@@ -181,11 +177,7 @@ contract Escrow is Secondary {
      * @dev Withdraw accumulated balance for a payee.
      * @param payee The address whose funds will be withdrawn and transferred to.
      */
-    function withdraw(address payable payee) public {
-        withdraw_Escrow(payee);
-    }
-
-    function withdraw_Escrow(address payable payee) internal onlyPrimary {
+    function withdraw(address payable payee) public onlyPrimary {
         uint256 payment = _deposits[payee];
 
         _deposits[payee] = 0;
@@ -216,8 +208,7 @@ contract ConditionalEscrow is Escrow {
 
     function withdraw(address payable payee) public {
         require(withdrawalAllowed(payee));
-        //super.withdraw(payee);
-        withdraw_Escrow(payee);
+        super.withdraw(payee);
     }
 }
 
@@ -276,8 +267,7 @@ contract RefundEscrow is ConditionalEscrow {
      */
     function deposit(address refundee) public payable {
         require(_state == State.Active);
-        //super.deposit(refundee);
-        deposit_Escrow(refundee);
+        super.deposit(refundee);
     }
 
     /**

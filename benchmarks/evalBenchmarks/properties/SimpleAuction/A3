@@ -1,0 +1,3 @@
+// #LTLVariables: a:Ref
+// #LTLFairness: [](<>(started(SimpleAuction.withdraw, msg.sender == a))) && [](!started(SimpleAuction.withdraw, msg.sender == a && a == this.highestBidder)) && <>(finished(SimpleAuction.auctionEnd, a != this.beneficiary)) && [](!finished(send(from, to, amt), to == a && success == false))
+// #LTLProperty: [](finished(SimpleAuction.bid, msg.sender == a && msg.value != 0) ==> <>(finished(send(from, to, amt), to == a))) && [](!started(send(from, to, amt), to == a && amt != fsum(SimpleAuction.bid, 2, msg.sender == a) - fsum(send(from, to, amt), 2, to == a)))

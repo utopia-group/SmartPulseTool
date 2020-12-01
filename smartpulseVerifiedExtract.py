@@ -6,10 +6,12 @@ verMap = {}
 for f in sys.argv:
     f = open(f, 'r')
     lines = f.readlines()
-    provedPattern = re.compile('Proved \d+ out of \d+ specs')
-    leavingPattern = re.compile("make: Leaving directory '(.*)'")
-    propPattern = re.compile("([a-zA-Z]+): ([a-zA-Z0-9-]+) -- (.*)")
+
+    provedPattern = re.compile('Verified \d+ out of \d+ properties')
+    solPattern = re.compile('(\S+)\.sol')
+    propPattern = re.compile("Property (\S+) (\S+) -- (\S*)\s*s")
     timePattern = re.compile("[0-9\.]+")
+
 
     benchmark = ""
     timeLine = ""
@@ -17,21 +19,21 @@ for f in sys.argv:
     for i in range(0, len(lines)):
         line = lines[i]
 
-        m = leavingPattern.match(line)
+        m = solPattern.match(line)
         if(m):
             benchmark = m.group(1)
             timeLine += m.group(1)
 
         m = propPattern.match(line)
         if(m):
-            if(m.group(1) == "Proved"):
+            if(m.group(2) == "verified"):
                 timeLine += "," + m.group(3)
-            elif(m.group(1) == "Failed"):
+            else:
                 timeLine += ","
-        if provedPattern.match(line):
+
+        if(provedPattern.match(line)):
             verMap[benchmark] = timeLine
             timeLine = ""
 
 for key in verMap:
     print(verMap[key])
-

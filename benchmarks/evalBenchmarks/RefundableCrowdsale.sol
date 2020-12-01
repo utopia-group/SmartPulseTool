@@ -242,11 +242,7 @@ contract Escrow is Secondary {
      * @dev Stores the sent amount as credit to be withdrawn.
      * @param payee The destination address of the funds.
      */
-    function deposit(address payee) public payable {
-        deposit_Escrow(payee);
-    }
-
-    function deposit_Escrow(address payee) internal onlyPrimary {
+    function deposit(address payee) public payable onlyPrimary {
         uint256 amount = msg.value;
         _deposits[payee] = _deposits[payee].add(amount);
 
@@ -257,11 +253,7 @@ contract Escrow is Secondary {
      * @dev Withdraw accumulated balance for a payee.
      * @param payee The address whose funds will be withdrawn and transferred to.
      */
-    function withdraw(address payable payee) public {
-        withdraw_Escrow(payee);
-    }
-
-    function withdraw_Escrow(address payable payee) internal onlyPrimary {
+    function withdraw(address payable payee) public onlyPrimary {
         uint256 payment = _deposits[payee];
 
         _deposits[payee] = 0;
@@ -282,8 +274,7 @@ contract ConditionalEscrow is Escrow {
 
     function withdraw(address payable payee) public {
         require(withdrawalAllowed(payee), "ConditionalEscrow: payee is not allowed to withdraw");
-        //super.withdraw(payee);
-        withdraw_Escrow(payee);
+        super.withdraw(payee);
     }
 }
 
@@ -326,8 +317,7 @@ contract RefundEscrow is ConditionalEscrow {
      */
     function deposit(address refundee) public payable {
         require(_state == State.Active, "RefundEscrow: can only deposit while active");
-        //super.deposit(refundee);
-        deposit_Escrow(refundee);
+        super.deposit(refundee);
     }
 
     /**
@@ -629,10 +619,6 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param weiAmount Value in wei involved in the purchase
      */
     function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view {
-        _preValidatePurchase_Crowdsale(beneficiary, weiAmount);
-    }
-
-    function _preValidatePurchase_Crowdsale(address beneficiary, uint256 weiAmount) internal view {
         require(beneficiary != address(0), "Crowdsale: beneficiary is the zero address");
         require(weiAmount != 0, "Crowdsale: weiAmount is 0");
         this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
@@ -769,8 +755,7 @@ contract TimedCrowdsale is Crowdsale {
      * @param weiAmount Amount of wei contributed
      */
     function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal onlyWhileOpen view {
-        _preValidatePurchase_Crowdsale(beneficiary, weiAmount);
-        //super._preValidatePurchase(beneficiary, weiAmount);
+        super._preValidatePurchase(beneficiary, weiAmount);
     }
 
     /**
@@ -825,12 +810,9 @@ contract FinalizableCrowdsale is TimedCrowdsale {
      * executed entirely.
      */
     function _finalization() internal {
-        _finalization_FinalizableCrowdsale();
-    }
-
-    function _finalization_FinalizableCrowdsale() internal {
         // solhint-disable-previous-line no-empty-blocks
     }
+
 }
 
 contract RefundableCrowdsale is Context, FinalizableCrowdsale {
@@ -889,8 +871,7 @@ contract RefundableCrowdsale is Context, FinalizableCrowdsale {
             _escrow.enableRefunds();
         }
 
-        //super._finalization();
-        _finalization_FinalizableCrowdsale();
+        super._finalization();
     }
 
     /**

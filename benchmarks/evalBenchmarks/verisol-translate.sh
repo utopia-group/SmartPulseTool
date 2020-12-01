@@ -42,27 +42,20 @@ mv ValidatorAuction-tmp.bpl attacker-models/inf-callback/ValidatorAuction.bpl
 
 echo "Translating Simple Auction"
 
-VeriSol `realpath  ./SimpleAuction.sol` SimpleAuction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith
+VeriSol `realpath  ./SimpleAuction.sol` SimpleAuction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useNumericOperators
 
-boogie /print:SimpleAuction-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
-
-post-proccess SimpleAuction-tmp.bpl
+mv __SolToBoogieTest_out.bpl SimpleAuction-tmp.bpl
 
 mv SimpleAuction-tmp.bpl attacker-models/no-callback/SimpleAuction.bpl
 
-VeriSol `realpath  ./SimpleAuction.sol` SimpleAuction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:callback
-
-boogie /print:SimpleAuction-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
-
-post-proccess SimpleAuction-tmp.bpl
+VeriSol `realpath  ./SimpleAuction.sol` SimpleAuction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:callback /useNumericOperators
+mv __SolToBoogieTest_out.bpl SimpleAuction-tmp.bpl
 
 mv SimpleAuction-tmp.bpl attacker-models/single-callback/SimpleAuction.bpl
 
-VeriSol `realpath  ./SimpleAuction.sol` SimpleAuction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:multipleCallbacks
+VeriSol `realpath  ./SimpleAuction.sol` SimpleAuction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:multipleCallbacks /useNumericOperators
 
-boogie /print:SimpleAuction-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
-
-post-proccess SimpleAuction-tmp.bpl
+mv __SolToBoogieTest_out.bpl SimpleAuction-tmp.bpl
 
 mv SimpleAuction-tmp.bpl attacker-models/inf-callback/SimpleAuction.bpl
 
@@ -178,3 +171,76 @@ boogie /print:EscrowVault-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
 post-proccess EscrowVault-tmp.bpl
 
 mv EscrowVault-tmp.bpl attacker-models/inf-callback/EscrowVault.bpl
+
+echo "Translating Crowdfunding"
+
+VeriSol `realpath  ./Crowdfunding.sol` Crowdfunding /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith
+
+boogie /print:Crowdfunding-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+post-proccess Crowdfunding-tmp.bpl
+
+mv Crowdfunding-tmp.bpl attacker-models/no-callback/Crowdfunding.bpl
+
+VeriSol `realpath  ./Crowdfunding.sol` Crowdfunding /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:callback
+
+boogie /print:Crowdfunding-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+post-proccess Crowdfunding-tmp.bpl
+
+mv Crowdfunding-tmp.bpl attacker-models/single-callback/Crowdfunding.bpl
+
+VeriSol `realpath  ./Crowdfunding.sol` Crowdfunding /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:multipleCallbacks
+
+boogie /print:Crowdfunding-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+post-proccess Crowdfunding-tmp.bpl
+
+mv Crowdfunding-tmp.bpl attacker-models/inf-callback/Crowdfunding.bpl
+
+echo "Translating Auction"
+
+VeriSol `realpath  ./Auction.sol` Auction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /useNumericOperators
+
+mv __SolToBoogieTest_out.bpl Auction-tmp.bpl
+
+mv Auction-tmp.bpl attacker-models/no-callback/Auction.bpl
+
+VeriSol `realpath  ./Auction.sol` Auction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:callback /useNumericOperators
+
+mv __SolToBoogieTest_out.bpl Auction-tmp.bpl
+
+mv Auction-tmp.bpl attacker-models/single-callback/Auction.bpl
+
+VeriSol `realpath  ./Auction.sol` Auction /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:multipleCallbacks /useNumericOperators
+
+mv __SolToBoogieTest_out.bpl Auction-tmp.bpl
+
+mv Auction-tmp.bpl attacker-models/inf-callback/Auction.bpl
+
+echo "Translating RockPaperScissors"
+
+VeriSol `realpath  ./RockPaperScissors.sol` RockPaperScissors /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith
+
+boogie /print:RockPaperScissors-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+post-proccess RockPaperScissors-tmp.bpl
+
+mv RockPaperScissors-tmp.bpl attacker-models/no-callback/RockPaperScissors.bpl
+
+VeriSol `realpath  ./RockPaperScissors.sol` RockPaperScissors /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:callback
+
+boogie /print:RockPaperScissors-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+post-proccess RockPaperScissors-tmp.bpl
+
+mv RockPaperScissors-tmp.bpl attacker-models/single-callback/RockPaperScissors.bpl
+
+VeriSol `realpath  ./RockPaperScissors.sol` RockPaperScissors /modelReverts /omitSourceLineInfo /omitAxioms /instrumentGas /doModSet /noPrf /noChk /omitDataValuesInTrace /QuantFreeAllocs /instrumentSums /omitBoogieHarness /createMainHarness /noCustomTypes /alias /noNonlinearArith /stubModel:multipleCallbacks
+
+boogie /print:RockPaperScissors-tmp.bpl /pretty:1 /noVerify __SolToBoogieTest_out.bpl
+
+post-proccess RockPaperScissors-tmp.bpl
+
+mv RockPaperScissors-tmp.bpl attacker-models/inf-callback/RockPaperScissors.bpl
+

@@ -1,0 +1,3 @@
+// #LTLVariables: b:Ref
+// #LTLFairness: [](!started(RefundableCrowdsale.claimRefund(refundee), refundee == b)) && [](<>(finished(RefundableCrowdsale.goal, true == true)))
+// #LTLProperty: [](finished(Crowdsale.buyTokens, msg.sender == b) ==> [](!finished(*, M_Ref_int__deposits0[_deposits_Escrow[_escrow_RefundableCrowdsale[this]]][b] != fsum(Crowdsale.buyTokens, 2, msg.sender == b))))
