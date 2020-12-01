@@ -1,0 +1,934 @@
+This is Ultimate 0.1.24-f1553f5-m
+[2020-11-24 17:33:22,671 INFO  L170        SettingsManager]: Resetting all preferences to default values...
+[2020-11-24 17:33:22,672 INFO  L174        SettingsManager]: Resetting UltimateCore preferences to default values
+[2020-11-24 17:33:22,681 INFO  L177        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2020-11-24 17:33:22,681 INFO  L174        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2020-11-24 17:33:22,681 INFO  L174        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2020-11-24 17:33:22,683 INFO  L174        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2020-11-24 17:33:22,684 INFO  L174        SettingsManager]: Resetting LassoRanker preferences to default values
+[2020-11-24 17:33:22,686 INFO  L174        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2020-11-24 17:33:22,687 INFO  L174        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2020-11-24 17:33:22,689 INFO  L177        SettingsManager]: Büchi Program Product provides no preferences, ignoring...
+[2020-11-24 17:33:22,689 INFO  L174        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2020-11-24 17:33:22,691 INFO  L174        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2020-11-24 17:33:22,693 INFO  L174        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2020-11-24 17:33:22,695 INFO  L174        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2020-11-24 17:33:22,696 INFO  L174        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2020-11-24 17:33:22,697 INFO  L174        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2020-11-24 17:33:22,699 INFO  L174        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2020-11-24 17:33:22,700 INFO  L174        SettingsManager]: Resetting CodeCheck preferences to default values
+[2020-11-24 17:33:22,701 INFO  L174        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2020-11-24 17:33:22,702 INFO  L174        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2020-11-24 17:33:22,703 INFO  L174        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2020-11-24 17:33:22,704 INFO  L177        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2020-11-24 17:33:22,705 INFO  L177        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2020-11-24 17:33:22,705 INFO  L174        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2020-11-24 17:33:22,705 INFO  L174        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2020-11-24 17:33:22,706 INFO  L174        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2020-11-24 17:33:22,706 INFO  L177        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2020-11-24 17:33:22,707 INFO  L174        SettingsManager]: Resetting UtopiaLTL2Aut preferences to default values
+[2020-11-24 17:33:22,707 INFO  L174        SettingsManager]: Resetting UtopiaSpecLang preferences to default values
+[2020-11-24 17:33:22,707 INFO  L174        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2020-11-24 17:33:22,708 INFO  L174        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2020-11-24 17:33:22,708 INFO  L174        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2020-11-24 17:33:22,709 INFO  L174        SettingsManager]: Resetting Witness Printer preferences to default values
+[2020-11-24 17:33:22,710 INFO  L177        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2020-11-24 17:33:22,710 INFO  L174        SettingsManager]: Resetting CDTParser preferences to default values
+[2020-11-24 17:33:22,710 INFO  L177        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2020-11-24 17:33:22,710 INFO  L177        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2020-11-24 17:33:22,710 INFO  L174        SettingsManager]: Resetting SmtParser preferences to default values
+[2020-11-24 17:33:22,711 INFO  L174        SettingsManager]: Resetting Witness Parser preferences to default values
+[2020-11-24 17:33:22,711 INFO  L181        SettingsManager]: Finished resetting all preferences to default values...
+[2020-11-24 17:33:22,712 INFO  L98         SettingsManager]: Beginning loading settings from /mnt/data0/jon/SmartPulseTool/SmartPulse/settings.epf
+[2020-11-24 17:33:22,719 INFO  L110        SettingsManager]: Loading preferences was successful
+[2020-11-24 17:33:22,719 INFO  L112        SettingsManager]: Preferences different from defaults after loading the file:
+[2020-11-24 17:33:22,720 INFO  L131        SettingsManager]: Preferences of LTL2Aut differ from their defaults:
+[2020-11-24 17:33:22,720 INFO  L133        SettingsManager]:  * Read property from file=true
+[2020-11-24 17:33:22,720 INFO  L133        SettingsManager]:  * Path to LTL*BA executable (LTL2BA, LTL3BA)=/mnt/data0/jon/SmartPulseTool/ltl2ba
+[2020-11-24 17:33:22,720 INFO  L131        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Maximize final states=false
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2020-11-24 17:33:22,721 INFO  L131        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Use old map elimination=false
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Try twofold refinement=false
+[2020-11-24 17:33:22,721 INFO  L131        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2020-11-24 17:33:22,721 INFO  L133        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Overapproximate operations on floating types=true
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Check division by zero=IGNORE
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Check if freed pointer was valid=false
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Use constant arrays=true
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2020-11-24 17:33:22,722 INFO  L131        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2020-11-24 17:33:22,722 INFO  L133        SettingsManager]:  * Size of a code block=SingleStatement
+[2020-11-24 17:33:22,723 INFO  L133        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+[2020-11-24 17:33:22,742 INFO  L81    nceAwareModelManager]: Repository-Root is: /tmp
+[2020-11-24 17:33:22,749 INFO  L259   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2020-11-24 17:33:22,751 INFO  L215   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2020-11-24 17:33:22,752 INFO  L271        PluginConnector]: Initializing Boogie PL CUP Parser...
+[2020-11-24 17:33:22,752 INFO  L276        PluginConnector]: Boogie PL CUP Parser initialized
+[2020-11-24 17:33:22,753 INFO  L430   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /mnt/data0/jon/SmartPulseTool/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl
+[2020-11-24 17:33:22,753 INFO  L111           BoogieParser]: Parsing: '/mnt/data0/jon/SmartPulseTool/Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl'
+[2020-11-24 17:33:22,795 INFO  L297   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2020-11-24 17:33:22,795 INFO  L131        ToolchainWalker]: Walking toolchain with 8 elements.
+[2020-11-24 17:33:22,796 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2020-11-24 17:33:22,796 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2020-11-24 17:33:22,796 INFO  L276        PluginConnector]: Boogie Preprocessor initialized
+[2020-11-24 17:33:22,811 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,812 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,826 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,827 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,840 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,847 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,854 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,860 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2020-11-24 17:33:22,861 INFO  L113        PluginConnector]: ------------------------UtopiaSpecLang----------------------------
+[2020-11-24 17:33:22,861 INFO  L271        PluginConnector]: Initializing UtopiaSpecLang...
+[2020-11-24 17:33:22,863 INFO  L276        PluginConnector]: UtopiaSpecLang initialized
+[2020-11-24 17:33:22,866 INFO  L185        PluginConnector]: Executing the observer UtopiaSpecLangObserver from plugin UtopiaSpecLang for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/1) ...
+[2020-11-24 17:33:22,879 INFO  L1012  opiaSpecLangObserver]: Parsing LTLPlus Formula to AstNode: [](started(Team3D.transfer(to, value), msg.sender == to && value <= balances_Team3D[this][msg.sender] && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][to] >= 0 && balances_Team3D[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][msg.sender] >= 0 &&  balances_Team3D[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(Team3D.transfer(to, value), return == true && _totalSupply_Team3D[this] == old(_totalSupply_Team3D[this]) && balances_Team3D[this] == old(balances_Team3D[this]) && allowed_Team3D[this] == old(allowed_Team3D[this]) && owner_Team3D[this] == old(owner_Team3D[this]) && initialized_Team3D[this] == old(initialized_Team3D[this]) && startBlock_Team3D[this] == old(startBlock_Team3D[this]) && presale_Team3D[this] == old(presale_Team3D[this]))))
+[2020-11-24 17:33:22,884 INFO  L1016  opiaSpecLangObserver]: Successfully lexed: [](started(Team3D.transfer(to, value), msg.sender == to && value <= balances_Team3D[this][msg.sender] && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][to] >= 0 && balances_Team3D[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][msg.sender] >= 0 &&  balances_Team3D[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(Team3D.transfer(to, value), return == true && _totalSupply_Team3D[this] == old(_totalSupply_Team3D[this]) && balances_Team3D[this] == old(balances_Team3D[this]) && allowed_Team3D[this] == old(allowed_Team3D[this]) && owner_Team3D[this] == old(owner_Team3D[this]) && initialized_Team3D[this] == old(initialized_Team3D[this]) && startBlock_Team3D[this] == old(startBlock_Team3D[this]) && presale_Team3D[this] == old(presale_Team3D[this]))))
+[2020-11-24 17:33:22,891 INFO  L1018  opiaSpecLangObserver]: Successfully parsed: [](started(Team3D.transfer(to, value), msg.sender == to && value <= balances_Team3D[this][msg.sender] && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][to] >= 0 && balances_Team3D[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][msg.sender] >= 0 &&  balances_Team3D[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(Team3D.transfer(to, value), return == true && _totalSupply_Team3D[this] == old(_totalSupply_Team3D[this]) && balances_Team3D[this] == old(balances_Team3D[this]) && allowed_Team3D[this] == old(allowed_Team3D[this]) && owner_Team3D[this] == old(owner_Team3D[this]) && initialized_Team3D[this] == old(initialized_Team3D[this]) && startBlock_Team3D[this] == old(startBlock_Team3D[this]) && presale_Team3D[this] == old(presale_Team3D[this]))))
+[2020-11-24 17:33:22,896 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( msg.sender==to_s373 && value_s373<=balances_Team3D[this][msg.sender] ) && value_s373>=0 ) && value_s373<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && balances_Team3D[this][to_s373]>=0 ) && balances_Team3D[this][to_s373]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && balances_Team3D[this][msg.sender]>=0 ) && balances_Team3D[this][msg.sender]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPEQ,IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>],IdentifierExpression[to_s373,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]],BinaryExpression[COMPLEQ,IdentifierExpression[value_s373,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>],ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]],BinaryExpression[COMPGEQ,IdentifierExpression[value_s373,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>],IntegerLiteral[0]]],BinaryExpression[COMPLT,IdentifierExpression[value_s373,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],[IdentifierExpression[to_s373,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],[IdentifierExpression[to_s373,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]]
+[2020-11-24 17:33:22,898 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( __ret_0_==true && _totalSupply_Team3D[this]==( old(_totalSupply_Team3D[this]) ) ) && balances_Team3D[this]==( old(balances_Team3D[this]) ) ) && allowed_Team3D[this]==( old(allowed_Team3D[this]) ) ) && owner_Team3D[this]==( old(owner_Team3D[this]) ) ) && initialized_Team3D[this]==( old(initialized_Team3D[this]) ) ) && startBlock_Team3D[this]==( old(startBlock_Team3D[this]) ) ) && presale_Team3D[this]==( old(presale_Team3D[this]) ) ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPEQ,IdentifierExpression[__ret_0_,<IMPLEMENTATION_OUTPARAM,transfer~address~uint256_Team3D>],BooleanLiteral[true]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[_totalSupply_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[_totalSupply_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[balances_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[allowed_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[allowed_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[owner_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[owner_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[initialized_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[initialized_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[startBlock_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[startBlock_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[presale_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[presale_Team3D,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_Team3D>]]]]]]
+[2020-11-24 17:33:22,901 INFO  L1005  opiaSpecLangObserver]: Compiling: [](started(Team3D.transfer(to, value), msg.sender == to && value <= balances_Team3D[this][msg.sender] && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][to] >= 0 && balances_Team3D[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_Team3D[this][msg.sender] >= 0 &&  balances_Team3D[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(Team3D.transfer(to, value), return == true && _totalSupply_Team3D[this] == old(_totalSupply_Team3D[this]) && balances_Team3D[this] == old(balances_Team3D[this]) && allowed_Team3D[this] == old(allowed_Team3D[this]) && owner_Team3D[this] == old(owner_Team3D[this]) && initialized_Team3D[this] == old(initialized_Team3D[this]) && startBlock_Team3D[this] == old(startBlock_Team3D[this]) && presale_Team3D[this] == old(presale_Team3D[this]))))
+[2020-11-24 17:33:22,901 INFO  L1007  opiaSpecLangObserver]: Compiled to ( []( AP(call_transfer_Team3D0) ==> ( <>AP(success_transfer_Team3D0) ) ) )
+Executed UtopiaSpecLang
+[2020-11-24 17:33:22,905 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:33:22 PropertyContainer
+[2020-11-24 17:33:22,905 INFO  L132        PluginConnector]: ------------------------ END UtopiaSpecLang----------------------------
+[2020-11-24 17:33:22,906 INFO  L113        PluginConnector]: ------------------------Boogie Printer----------------------------
+[2020-11-24 17:33:22,906 INFO  L271        PluginConnector]: Initializing Boogie Printer...
+[2020-11-24 17:33:22,906 INFO  L276        PluginConnector]: Boogie Printer initialized
+[2020-11-24 17:33:22,907 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/2) ...
+[2020-11-24 17:33:22,907 INFO  L116   oogiePrinterObserver]: File already exists and will be overwritten: /tmp/boogiePrinter.bpl
+[2020-11-24 17:33:22,907 INFO  L120   oogiePrinterObserver]: Writing to file /tmp/boogiePrinter.bpl
+[2020-11-24 17:33:22,914 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:33:22" (2/2) ...
+[2020-11-24 17:33:22,914 INFO  L132        PluginConnector]: ------------------------ END Boogie Printer----------------------------
+[2020-11-24 17:33:22,915 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2020-11-24 17:33:22,915 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2020-11-24 17:33:22,915 INFO  L276        PluginConnector]: RCFGBuilder initialized
+[2020-11-24 17:33:22,915 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/2) ...
+[2020-11-24 17:33:22,965 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__success
+[2020-11-24 17:33:22,966 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_Team3D
+[2020-11-24 17:33:22,966 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_Team3D
+[2020-11-24 17:33:22,966 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_Team3D
+[2020-11-24 17:33:22,966 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_Team3D
+[2020-11-24 17:33:22,966 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_Team3D
+[2020-11-24 17:33:22,966 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_Team3D
+[2020-11-24 17:33:22,966 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_Team3D
+[2020-11-24 17:33:22,966 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_Team3D
+[2020-11-24 17:33:22,966 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_Team3D
+[2020-11-24 17:33:22,966 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_Team3D
+[2020-11-24 17:33:22,966 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_Team3D
+[2020-11-24 17:33:22,967 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_Team3D
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__success
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__success
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure send__success
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure fairStart_pre__success
+[2020-11-24 17:33:22,967 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ERC20
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ERC20
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ApproveAndCallFallBack
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ApproveAndCallFallBack
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_Presale
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_Presale
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_Team3D
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_SafeMath
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_SafeMath
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__fail
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_Team3D__success
+[2020-11-24 17:33:22,968 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_Team3D__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_Team3D__success
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_Team3D__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_Team3D__success
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_Team3D__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_Team3D__success
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_Team3D__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_Team3D__success
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_Team3D__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_Team3D__success
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_Team3D__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 17:33:22,969 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__fail
+[2020-11-24 17:33:22,970 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__fail
+[2020-11-24 17:33:22,970 INFO  L130     BoogieDeclarations]: Found specification of procedure send__fail
+[2020-11-24 17:33:22,970 INFO  L130     BoogieDeclarations]: Found specification of procedure fairStart_pre__fail
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__fail
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__success
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_Team3D__fail
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_Team3D__success
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_Team3D__fail
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_Team3D__success
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_Team3D__fail
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_Team3D__success
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_Team3D__fail
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_Team3D__success
+[2020-11-24 17:33:22,970 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_Team3D__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_Team3D__success
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_Team3D__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_Team3D__success
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__success
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__success
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__fail
+[2020-11-24 17:33:22,971 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__success
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure fairStart_pre__fail
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure fairStart_pre__success
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ERC20
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ERC20
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ApproveAndCallFallBack
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ApproveAndCallFallBack
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_Presale
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_Presale
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_Team3D
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_SafeMath
+[2020-11-24 17:33:22,972 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_SafeMath
+[2020-11-24 17:33:22,973 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2020-11-24 17:33:22,973 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2020-11-24 17:33:23,272 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:33:23,273 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:33:23,273 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:33:23,375 INFO  L281             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2020-11-24 17:33:23,375 INFO  L286             CfgBuilder]: Removed 5 assue(true) statements.
+[2020-11-24 17:33:23,376 INFO  L202        PluginConnector]: Adding new model Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:33:23 BoogieIcfgContainer
+[2020-11-24 17:33:23,376 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:33:22" (2/2) ...
+[2020-11-24 17:33:23,377 INFO  L85     RCFGBuilderObserver]: No WrapperNode. Let Ultimate process with next node
+[2020-11-24 17:33:23,377 INFO  L205        PluginConnector]: Invalid model from RCFGBuilder for observer de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder.RCFGBuilderObserver@1657e82d and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:33:23, skipping insertion in model container
+[2020-11-24 17:33:23,377 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2020-11-24 17:33:23,377 INFO  L113        PluginConnector]: ------------------------UtopiaLTL2Aut----------------------------
+[2020-11-24 17:33:23,377 INFO  L271        PluginConnector]: Initializing UtopiaLTL2Aut...
+[2020-11-24 17:33:23,379 INFO  L276        PluginConnector]: UtopiaLTL2Aut initialized
+[2020-11-24 17:33:23,379 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/3) ...
+[2020-11-24 17:33:23,379 INFO  L205        PluginConnector]: Invalid model from UtopiaLTL2Aut for observer edu.utexas.cs.utopia.ltl2aut.UtopiaLTL2AutObserver@47dd696f and model type Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:33:23, skipping insertion in model container
+[2020-11-24 17:33:23,380 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:33:22" (2/3) ...
+No working directory specified, using /mnt/data0/jon/SmartPulseTool/ltl2ba
+Starting monitored process 1 with /mnt/data0/jon/SmartPulseTool/ltl2ba -f ! ( ( [] ( a -> ( <>b ) ) ) )  (exit command is null, workingDir is null)
+[2020-11-24 17:33:23,417 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:33:23 NWAContainer
+[2020-11-24 17:33:23,417 INFO  L132        PluginConnector]: ------------------------ END UtopiaLTL2Aut----------------------------
+[2020-11-24 17:33:23,417 INFO  L113        PluginConnector]: ------------------------Büchi Program Product----------------------------
+[2020-11-24 17:33:23,417 INFO  L271        PluginConnector]: Initializing Büchi Program Product...
+[2020-11-24 17:33:23,418 INFO  L276        PluginConnector]: Büchi Program Product initialized
+[2020-11-24 17:33:23,418 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:33:23" (3/4) ...
+[2020-11-24 17:33:23,419 INFO  L205        PluginConnector]: Invalid model from Büchi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@37b769b8 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:33:23, skipping insertion in model container
+[2020-11-24 17:33:23,419 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:33:23" (4/4) ...
+[2020-11-24 17:33:23,422 INFO  L104   BuchiProductObserver]: Initial property automaton 2 locations, 3 edges
+[2020-11-24 17:33:23,425 INFO  L110   BuchiProductObserver]: Initial RCFG 646 locations, 773 edges
+[2020-11-24 17:33:23,425 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2020-11-24 17:33:23,436 INFO  L136       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2020-11-24 17:33:24,332 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2020-11-24 17:33:24,335 INFO  L110   BuchiProductObserver]: BuchiProgram size 1474 locations, 2472 edges
+[2020-11-24 17:33:24,335 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:33:24 BoogieIcfgContainer
+[2020-11-24 17:33:24,335 INFO  L132        PluginConnector]: ------------------------ END Büchi Program Product----------------------------
+[2020-11-24 17:33:24,336 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2020-11-24 17:33:24,336 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2020-11-24 17:33:24,338 INFO  L276        PluginConnector]: BlockEncodingV2 initialized
+[2020-11-24 17:33:24,338 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:33:24" (1/1) ...
+[2020-11-24 17:33:24,383 INFO  L313           BlockEncoder]: Initial Icfg 1474 locations, 2472 edges
+[2020-11-24 17:33:24,383 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2020-11-24 17:33:24,384 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2020-11-24 17:33:24,384 INFO  L296           BlockEncoder]: Using Remove sink states
+[2020-11-24 17:33:24,385 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2020-11-24 17:33:24,393 INFO  L70    emoveInfeasibleEdges]: Removed 45 edges and 13 locations because of local infeasibility
+[2020-11-24 17:33:24,397 INFO  L70        RemoveSinkStates]: Removed 2 edges and 1 locations by removing sink states
+[2020-11-24 17:33:24,403 INFO  L70    emoveInfeasibleEdges]: Removed 0 edges and 0 locations because of local infeasibility
+[2020-11-24 17:33:24,406 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2020-11-24 17:33:24,407 INFO  L237           BlockEncoder]: Using Create parallel compositions if possible
+[2020-11-24 17:33:24,408 INFO  L66        ParallelComposer]: Creating parallel compositions
+[2020-11-24 17:33:24,410 INFO  L313           BlockEncoder]: Encoded RCFG 1444 locations, 2402 edges
+[2020-11-24 17:33:24,411 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 05:33:24 BasicIcfg
+[2020-11-24 17:33:24,411 INFO  L132        PluginConnector]: ------------------------ END BlockEncodingV2----------------------------
+[2020-11-24 17:33:24,412 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2020-11-24 17:33:24,412 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2020-11-24 17:33:24,416 INFO  L276        PluginConnector]: BuchiAutomizer initialized
+[2020-11-24 17:33:24,416 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:33:24,416 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:33:22" (1/6) ...
+[2020-11-24 17:33:24,418 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@593069a3 and model type Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:33:24, skipping insertion in model container
+[2020-11-24 17:33:24,418 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:33:24,418 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:33:22" (2/6) ...
+[2020-11-24 17:33:24,419 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@593069a3 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:33:24, skipping insertion in model container
+[2020-11-24 17:33:24,419 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:33:24,419 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:33:23" (3/6) ...
+[2020-11-24 17:33:24,419 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@593069a3 and model type Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 05:33:24, skipping insertion in model container
+[2020-11-24 17:33:24,419 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:33:24,420 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:33:23" (4/6) ...
+[2020-11-24 17:33:24,420 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@593069a3 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:33:24, skipping insertion in model container
+[2020-11-24 17:33:24,420 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:33:24,420 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:33:24" (5/6) ...
+[2020-11-24 17:33:24,421 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@593069a3 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer OTHER 24.11 05:33:24, skipping insertion in model container
+[2020-11-24 17:33:24,421 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:33:24,421 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 05:33:24" (6/6) ...
+[2020-11-24 17:33:24,423 INFO  L404   chiAutomizerObserver]: Analyzing ICFG Team3D_0x3D3D35bb9bEC23b06Ca00fe472b50E7A4c692C30_transfer-self.bpl_BEv2
+[2020-11-24 17:33:24,462 INFO  L133   ementStrategyFactory]: Using default assertion order modulation
+[2020-11-24 17:33:24,462 INFO  L377         BuchiCegarLoop]: Interprodecural is true
+[2020-11-24 17:33:24,462 INFO  L378         BuchiCegarLoop]: Hoare is false
+[2020-11-24 17:33:24,462 INFO  L379         BuchiCegarLoop]: Compute interpolants for Craig_TreeInterpolation
+[2020-11-24 17:33:24,462 INFO  L380         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2020-11-24 17:33:24,462 INFO  L381         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2020-11-24 17:33:24,463 INFO  L382         BuchiCegarLoop]: Difference is false
+[2020-11-24 17:33:24,463 INFO  L383         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2020-11-24 17:33:24,463 INFO  L386         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2020-11-24 17:33:24,480 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1444 states.
+[2020-11-24 17:33:24,520 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:33:24,521 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:33:24,521 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:33:24,530 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:33:24,530 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2020-11-24 17:33:24,530 INFO  L445         BuchiCegarLoop]: ======== Iteration 1============
+[2020-11-24 17:33:24,530 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1444 states.
+[2020-11-24 17:33:24,541 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:33:24,541 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:33:24,541 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:33:24,542 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:33:24,543 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 success_transfer_Team3D0 := false;
+[L2]                 call_transfer_Team3D0 := false;
+[L2]     CALL        call main();
+[L1763]              assume null == 0;
+[L1764]  CALL        call this := FreshRefGenerator__success();
+[L785]               havoc newRef;
+[L786]               assume Alloc[newRef] == false;
+[L787]               Alloc[newRef] := true;
+[L788]               assume newRef != null;
+[L1764]  RET         call this := FreshRefGenerator__success();
+[L1765]              assume now >= 0;
+[L1766]              assume DType[this] == Team3D;
+[L1767]              assume !revert && gas >= 0;
+[L1768]  CALL        call CorralChoice_Team3D(this);
+[L1674]              havoc msgsender_MSG;
+[L1675]              havoc msgvalue_MSG;
+[L1676]              havoc choice;
+[L1677]              havoc __ret_0_totalSupply;
+[L1678]              havoc addr_s295;
+[L1679]              havoc __ret_0_balanceOf;
+[L1680]              havoc addr_s311;
+[L1681]              havoc spender_s311;
+[L1682]              havoc __ret_0_allowance;
+[L1683]              havoc to_s373;
+[L1684]              havoc value_s373;
+[L1685]              havoc __ret_0_transfer;
+[L1686]              havoc spender_s409;
+[L1687]              havoc value_s409;
+[L1688]              havoc __ret_0_approve;
+[L1689]              havoc from_s538;
+[L1690]              havoc to_s538;
+[L1691]              havoc value_s538;
+[L1692]              havoc __ret_0_transferFrom;
+[L1693]              havoc __ret_0_name;
+[L1694]              havoc __ret_0_symbol;
+[L1695]              havoc __ret_0_decimals;
+[L1696]              havoc _presaleAddr_s233;
+[L1697]              havoc _min_s275;
+[L1698]              havoc _max_s275;
+[L1699]              havoc spender_s452;
+[L1700]              havoc tokens_s452;
+[L1701]              havoc data_s452;
+[L1702]              havoc __ret_0_approveAndCall;
+[L1703]              havoc spender_s587;
+[L1704]              havoc addedValue_s587;
+[L1705]              havoc __ret_0_increaseAllowance;
+[L1706]              havoc spender_s636;
+[L1707]              havoc subtractedValue_s636;
+[L1708]              havoc __ret_0_decreaseAllowance;
+[L1709]              havoc tmpNow;
+[L1710]              havoc gas;
+[L1711]              assume gas > 4000000 && gas <= 8000000;
+[L1712]              tmpNow := now;
+[L1713]              havoc now;
+[L1714]              assume now > tmpNow;
+[L1715]              assume msgsender_MSG != null;
+[L1716]  COND TRUE   choice == 6
+[L1717]              gas := gas - 21000;
+[L1718]  COND FALSE  !(gas >= 0)
+[L1768]  RET         call CorralChoice_Team3D(this);
+
+Loop:
+[L1768]        assume true;
+
+[2020-11-24 17:33:24,560 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:33:24,560 INFO  L82        PathProgramCache]: Analyzing trace with hash 1821151047, now seen corresponding path program 1 times
+[2020-11-24 17:33:24,567 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:33:24,592 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:33:24,654 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 17:33:24,656 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:33:24,657 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [5] imperfect sequences [] total 5
+[2020-11-24 17:33:24,660 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:33:24,672 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 5 interpolants.
+[2020-11-24 17:33:24,673 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=9, Invalid=11, Unknown=0, NotChecked=0, Total=20
+[2020-11-24 17:33:24,674 INFO  L87              Difference]: Start difference. First operand 1444 states. Second operand 5 states.
+[2020-11-24 17:33:24,939 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:33:24,939 INFO  L93              Difference]: Finished difference Result 701 states and 783 transitions.
+[2020-11-24 17:33:24,939 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:33:24,941 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 701 states and 783 transitions.
+[2020-11-24 17:33:24,947 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:33:24,952 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 701 states to 217 states and 238 transitions.
+[2020-11-24 17:33:24,953 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 4
+[2020-11-24 17:33:24,954 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 217
+[2020-11-24 17:33:24,954 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 217 states and 238 transitions.
+[2020-11-24 17:33:24,956 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:33:24,956 INFO  L728         BuchiCegarLoop]: Abstraction has 217 states and 238 transitions.
+[2020-11-24 17:33:24,971 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 217 states and 238 transitions.
+[2020-11-24 17:33:24,984 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 217 to 217.
+[2020-11-24 17:33:24,985 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 217 states.
+[2020-11-24 17:33:24,986 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 217 states to 217 states and 238 transitions.
+[2020-11-24 17:33:24,986 INFO  L751         BuchiCegarLoop]: Abstraction has 217 states and 238 transitions.
+[2020-11-24 17:33:24,987 INFO  L631         BuchiCegarLoop]: Abstraction has 217 states and 238 transitions.
+[2020-11-24 17:33:24,987 INFO  L445         BuchiCegarLoop]: ======== Iteration 2============
+[2020-11-24 17:33:24,987 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 217 states and 238 transitions.
+[2020-11-24 17:33:24,988 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:33:24,988 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:33:24,988 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:33:24,989 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:33:24,990 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 success_transfer_Team3D0 := false;
+[L2]                 call_transfer_Team3D0 := false;
+[L2]     CALL        call main();
+[L1763]              assume null == 0;
+[L1764]  CALL        call this := FreshRefGenerator__success();
+[L785]               havoc newRef;
+[L786]               assume Alloc[newRef] == false;
+[L787]               Alloc[newRef] := true;
+[L788]               assume newRef != null;
+[L1764]  RET         call this := FreshRefGenerator__success();
+[L1765]              assume now >= 0;
+[L1766]              assume DType[this] == Team3D;
+[L1767]              assume !revert && gas >= 0;
+[L1768]  CALL        call CorralChoice_Team3D(this);
+[L1674]              havoc msgsender_MSG;
+[L1675]              havoc msgvalue_MSG;
+[L1676]              havoc choice;
+[L1677]              havoc __ret_0_totalSupply;
+[L1678]              havoc addr_s295;
+[L1679]              havoc __ret_0_balanceOf;
+[L1680]              havoc addr_s311;
+[L1681]              havoc spender_s311;
+[L1682]              havoc __ret_0_allowance;
+[L1683]              havoc to_s373;
+[L1684]              havoc value_s373;
+[L1685]              havoc __ret_0_transfer;
+[L1686]              havoc spender_s409;
+[L1687]              havoc value_s409;
+[L1688]              havoc __ret_0_approve;
+[L1689]              havoc from_s538;
+[L1690]              havoc to_s538;
+[L1691]              havoc value_s538;
+[L1692]              havoc __ret_0_transferFrom;
+[L1693]              havoc __ret_0_name;
+[L1694]              havoc __ret_0_symbol;
+[L1695]              havoc __ret_0_decimals;
+[L1696]              havoc _presaleAddr_s233;
+[L1697]              havoc _min_s275;
+[L1698]              havoc _max_s275;
+[L1699]              havoc spender_s452;
+[L1700]              havoc tokens_s452;
+[L1701]              havoc data_s452;
+[L1702]              havoc __ret_0_approveAndCall;
+[L1703]              havoc spender_s587;
+[L1704]              havoc addedValue_s587;
+[L1705]              havoc __ret_0_increaseAllowance;
+[L1706]              havoc spender_s636;
+[L1707]              havoc subtractedValue_s636;
+[L1708]              havoc __ret_0_decreaseAllowance;
+[L1709]              havoc tmpNow;
+[L1710]              havoc gas;
+[L1711]              assume gas > 4000000 && gas <= 8000000;
+[L1712]              tmpNow := now;
+[L1713]              havoc now;
+[L1714]              assume now > tmpNow;
+[L1715]              assume msgsender_MSG != null;
+[L1716]  COND FALSE  !(choice == 6)
+[L1722]  COND FALSE  !(choice == 5)
+[L1728]  COND FALSE  !(choice == 4)
+[L1734]  COND TRUE   choice == 3
+[L1735]              gas := gas - 21000;
+[L1736]  COND TRUE   gas >= 0
+[L1737]              assume value_s373 >= 0 && value_s373 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1738]              assume msgvalue_MSG == 0;
+[L1739]  CALL        call __ret_0_transfer := transfer~address~uint256_Team3D(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume ((((((msgsender_MSG == to_s373 && value_s373 <= balances_Team3D[this][msgsender_MSG]) && value_s373 >= 0) && value_s373 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_Team3D[this][to_s373] >= 0) && balances_Team3D[this][to_s373] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_Team3D[this][msgsender_MSG] >= 0) && balances_Team3D[this][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_transfer_Team3D0 := true;
+[L2]                 call_transfer_Team3D0 := false;
+[L2]                 revert := revert_hold;
+[L310]               havoc __exception;
+[L311]               revert := false;
+[L312]   COND FALSE  !(__exception)
+[L344]   CALL        call __ret_0_ := transfer~address~uint256_Team3D__success(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L868]   CALL        call fairStart_pre__success(this, msgsender_MSG, msgvalue_MSG);
+[L1510]  COND TRUE   !(now > (startBlock_Team3D[this] + 5) % 115792089237316195423570985008687907853269984665640564039457584007913129639936)
+[L1511]              revert := true;
+[L868]   RET         call fairStart_pre__success(this, msgsender_MSG, msgvalue_MSG);
+[L869]   COND TRUE   revert
+[L344]   RET         call __ret_0_ := transfer~address~uint256_Team3D__success(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L345]               assume !revert && gas >= 0;
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume !(((((((__ret_0_ == true && _totalSupply_Team3D[this] == old(_totalSupply_Team3D[this])) && balances_Team3D[this] == old(balances_Team3D[this])) && allowed_Team3D[this] == old(allowed_Team3D[this])) && owner_Team3D[this] == old(owner_Team3D[this])) && initialized_Team3D[this] == old(initialized_Team3D[this])) && startBlock_Team3D[this] == old(startBlock_Team3D[this])) && presale_Team3D[this] == old(presale_Team3D[this]));
+[L2]                 revert := revert_hold;
+[L1739]  RET         call __ret_0_transfer := transfer~address~uint256_Team3D(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L1768]  RET         call CorralChoice_Team3D(this);
+
+Loop:
+[L1768]        assume true;
+
+[2020-11-24 17:33:24,993 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:33:24,993 INFO  L82        PathProgramCache]: Analyzing trace with hash 748477767, now seen corresponding path program 1 times
+[2020-11-24 17:33:24,994 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:33:25,006 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:33:25,023 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 17:33:25,024 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:33:25,024 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 17:33:25,025 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:33:25,025 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 17:33:25,025 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 17:33:25,026 INFO  L87              Difference]: Start difference. First operand 217 states and 238 transitions. cyclomatic complexity: 22 Second operand 3 states.
+[2020-11-24 17:33:25,034 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:33:25,034 INFO  L93              Difference]: Finished difference Result 256 states and 276 transitions.
+[2020-11-24 17:33:25,034 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:33:25,035 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 256 states and 276 transitions.
+[2020-11-24 17:33:25,037 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 2
+[2020-11-24 17:33:25,038 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 256 states to 234 states and 246 transitions.
+[2020-11-24 17:33:25,038 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 234
+[2020-11-24 17:33:25,039 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 234
+[2020-11-24 17:33:25,039 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 234 states and 246 transitions.
+[2020-11-24 17:33:25,040 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:33:25,040 INFO  L728         BuchiCegarLoop]: Abstraction has 234 states and 246 transitions.
+[2020-11-24 17:33:25,041 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 234 states and 246 transitions.
+[2020-11-24 17:33:25,046 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 234 to 223.
+[2020-11-24 17:33:25,046 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 223 states.
+[2020-11-24 17:33:25,046 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 223 states to 223 states and 235 transitions.
+[2020-11-24 17:33:25,047 INFO  L751         BuchiCegarLoop]: Abstraction has 223 states and 235 transitions.
+[2020-11-24 17:33:25,047 INFO  L631         BuchiCegarLoop]: Abstraction has 223 states and 235 transitions.
+[2020-11-24 17:33:25,047 INFO  L445         BuchiCegarLoop]: ======== Iteration 3============
+[2020-11-24 17:33:25,047 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 223 states and 235 transitions.
+[2020-11-24 17:33:25,048 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:33:25,048 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:33:25,048 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:33:25,049 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:33:25,049 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 success_transfer_Team3D0 := false;
+[L2]                 call_transfer_Team3D0 := false;
+[L2]     CALL        call main();
+[L1763]              assume null == 0;
+[L1764]  CALL        call this := FreshRefGenerator__success();
+[L785]               havoc newRef;
+[L786]               assume Alloc[newRef] == false;
+[L787]               Alloc[newRef] := true;
+[L788]               assume newRef != null;
+[L1764]  RET         call this := FreshRefGenerator__success();
+[L1765]              assume now >= 0;
+[L1766]              assume DType[this] == Team3D;
+[L1767]              assume !revert && gas >= 0;
+[L1768]  CALL        call CorralChoice_Team3D(this);
+[L1674]              havoc msgsender_MSG;
+[L1675]              havoc msgvalue_MSG;
+[L1676]              havoc choice;
+[L1677]              havoc __ret_0_totalSupply;
+[L1678]              havoc addr_s295;
+[L1679]              havoc __ret_0_balanceOf;
+[L1680]              havoc addr_s311;
+[L1681]              havoc spender_s311;
+[L1682]              havoc __ret_0_allowance;
+[L1683]              havoc to_s373;
+[L1684]              havoc value_s373;
+[L1685]              havoc __ret_0_transfer;
+[L1686]              havoc spender_s409;
+[L1687]              havoc value_s409;
+[L1688]              havoc __ret_0_approve;
+[L1689]              havoc from_s538;
+[L1690]              havoc to_s538;
+[L1691]              havoc value_s538;
+[L1692]              havoc __ret_0_transferFrom;
+[L1693]              havoc __ret_0_name;
+[L1694]              havoc __ret_0_symbol;
+[L1695]              havoc __ret_0_decimals;
+[L1696]              havoc _presaleAddr_s233;
+[L1697]              havoc _min_s275;
+[L1698]              havoc _max_s275;
+[L1699]              havoc spender_s452;
+[L1700]              havoc tokens_s452;
+[L1701]              havoc data_s452;
+[L1702]              havoc __ret_0_approveAndCall;
+[L1703]              havoc spender_s587;
+[L1704]              havoc addedValue_s587;
+[L1705]              havoc __ret_0_increaseAllowance;
+[L1706]              havoc spender_s636;
+[L1707]              havoc subtractedValue_s636;
+[L1708]              havoc __ret_0_decreaseAllowance;
+[L1709]              havoc tmpNow;
+[L1710]              havoc gas;
+[L1711]              assume gas > 4000000 && gas <= 8000000;
+[L1712]              tmpNow := now;
+[L1713]              havoc now;
+[L1714]              assume now > tmpNow;
+[L1715]              assume msgsender_MSG != null;
+[L1716]  COND FALSE  !(choice == 6)
+[L1722]  COND FALSE  !(choice == 5)
+[L1728]  COND FALSE  !(choice == 4)
+[L1734]  COND TRUE   choice == 3
+[L1735]              gas := gas - 21000;
+[L1736]  COND TRUE   gas >= 0
+[L1737]              assume value_s373 >= 0 && value_s373 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1738]              assume msgvalue_MSG == 0;
+[L1739]  CALL        call __ret_0_transfer := transfer~address~uint256_Team3D(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume ((((((msgsender_MSG == to_s373 && value_s373 <= balances_Team3D[this][msgsender_MSG]) && value_s373 >= 0) && value_s373 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_Team3D[this][to_s373] >= 0) && balances_Team3D[this][to_s373] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_Team3D[this][msgsender_MSG] >= 0) && balances_Team3D[this][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_transfer_Team3D0 := true;
+[L2]                 call_transfer_Team3D0 := false;
+[L2]                 revert := revert_hold;
+[L310]               havoc __exception;
+[L311]               revert := false;
+[L312]   COND TRUE   __exception
+[L313]               __tmp__Balance := Balance;
+[L314]               __tmp__DType := DType;
+[L315]               __tmp__Alloc := Alloc;
+[L316]               __tmp__balance_ADDR := balance_ADDR;
+[L317]               __tmp__M_Ref_int := M_Ref_int;
+[L318]               __tmp__sum_balances0 := sum_balances0;
+[L319]               __tmp__sum_balances2 := sum_balances2;
+[L320]               __tmp__alloc_allowed_Team3D_lvl0 := alloc_allowed_Team3D_lvl0;
+[L321]               __tmp__M_Ref_Ref := M_Ref_Ref;
+[L322]               __tmp__sum_allowed3 := sum_allowed3;
+[L323]               __tmp__M_int_Ref := M_int_Ref;
+[L324]               __tmp__sum_keys1 := sum_keys1;
+[L325]               __tmp__Length := Length;
+[L326]               __tmp__now := now;
+[L327]               __tmp__balances_Presale := balances_Presale;
+[L328]               __tmp__Length_keys_Presale_lvl0 := Length_keys_Presale_lvl0;
+[L329]               __tmp__keys_Presale := keys_Presale;
+[L330]               __tmp__initialTokens_Presale := initialTokens_Presale;
+[L331]               __tmp__balances_Team3D := balances_Team3D;
+[L332]               __tmp__allowed_Team3D := allowed_Team3D;
+[L333]               __tmp__name_Team3D := name_Team3D;
+[L334]               __tmp__symbol_Team3D := symbol_Team3D;
+[L335]               __tmp__decimals_Team3D := decimals_Team3D;
+[L336]               __tmp__owner_Team3D := owner_Team3D;
+[L337]               __tmp__initialized_Team3D := initialized_Team3D;
+[L338]               __tmp__startBlock_Team3D := startBlock_Team3D;
+[L339]               __tmp___totalSupply_Team3D := _totalSupply_Team3D;
+[L340]               __tmp__presale_Team3D := presale_Team3D;
+[L341]   CALL        call __ret_0_ := transfer~address~uint256_Team3D__fail(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L832]   CALL        call fairStart_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+[L1493]  COND TRUE   !(__tmp__now > (__tmp__startBlock_Team3D[this] + 5) % 115792089237316195423570985008687907853269984665640564039457584007913129639936)
+[L1494]              revert := true;
+[L832]   RET         call fairStart_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+[L833]   COND TRUE   revert
+[L341]   RET         call __ret_0_ := transfer~address~uint256_Team3D__fail(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L342]               assume revert || gas < 0;
+[L1739]  RET         call __ret_0_transfer := transfer~address~uint256_Team3D(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L1768]  RET         call CorralChoice_Team3D(this);
+
+Loop:
+[L1768]        assume true;
+
+[2020-11-24 17:33:25,052 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:33:25,052 INFO  L82        PathProgramCache]: Analyzing trace with hash -1401051300, now seen corresponding path program 1 times
+[2020-11-24 17:33:25,053 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:33:25,063 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:33:25,074 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:33:25,113 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:33:25,113 INFO  L82        PathProgramCache]: Analyzing trace with hash 5291, now seen corresponding path program 1 times
+[2020-11-24 17:33:25,115 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:33:25,115 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:33:25,116 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:33:25,118 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:33:25,118 INFO  L82        PathProgramCache]: Analyzing trace with hash -482912080, now seen corresponding path program 1 times
+[2020-11-24 17:33:25,119 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:33:25,129 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:33:25,139 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+Garbage collection #1: 11 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 11 to 19
+Garbage collection #2: 19 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 19 to 37
+Garbage collection #1: 11 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 11 to 19
+Garbage collection #2: 19 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 19 to 37
+Garbage collection #3: 37 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 37 to 73
+Garbage collection #1: 11 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 11 to 19
+Garbage collection #2: 19 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 19 to 37
+Garbage collection #1: 19 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 19 to 37
+Garbage collection #2: 37 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 37 to 73
+Garbage collection #3: 73 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 73 to 139
+Garbage collection #4: 139 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 139 to 277
+[2020-11-24 17:33:25,393 WARN  L188               SmtUtils]: Spent 163.00 ms on a formula simplification. DAG size of input: 161 DAG size of output: 153
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #6: 1759 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 1759 to 3517
+Garbage collection #1: 47 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 47 to 89
+Garbage collection #2: 89 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 89 to 173
+Garbage collection #3: 173 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 173 to 337
+Garbage collection #4: 337 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 337 to 673
+Garbage collection #5: 673 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 673 to 1327
+Garbage collection #6: 1327 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 1327 to 2647
+Garbage collection #7: 2647 nodes / 0 free / 0.001s / 0.003s total
+Resizing node table from 2647 to 5281
+[2020-11-24 17:33:25,694 WARN  L188               SmtUtils]: Spent 183.00 ms on a formula simplification that was a NOOP. DAG size: 299
+Garbage collection #1: 127 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 127 to 251
+Garbage collection #2: 251 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 251 to 499
+Garbage collection #3: 499 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 499 to 997
+Garbage collection #4: 997 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 997 to 1993
+Garbage collection #5: 1993 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1993 to 3967
+Garbage collection #6: 3967 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 3967 to 7933
+[2020-11-24 17:33:25,968 WARN  L188               SmtUtils]: Spent 253.00 ms on a formula simplification that was a NOOP. DAG size: 235
+[2020-11-24 17:33:26,395 WARN  L188               SmtUtils]: Spent 423.00 ms on a formula simplification. DAG size of input: 267 DAG size of output: 256
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 3019 to 6037
+Garbage collection #7: 6037 nodes / 0 free / 0.001s / 0.003s total
+Resizing node table from 6037 to 12073
+Garbage collection #1: 53 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 53 to 103
+Garbage collection #2: 103 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 103 to 199
+Garbage collection #3: 199 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 199 to 397
+Garbage collection #4: 397 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 397 to 787
+Garbage collection #5: 787 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 787 to 1571
+Garbage collection #6: 1571 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 1571 to 3137
+Garbage collection #7: 3137 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 3137 to 6271
+[2020-11-24 17:33:26,519 WARN  L188               SmtUtils]: Spent 104.00 ms on a formula simplification. DAG size of input: 140 DAG size of output: 136
+[2020-11-24 17:33:26,644 WARN  L188               SmtUtils]: Spent 122.00 ms on a formula simplification that was a NOOP. DAG size: 322
+Garbage collection #1: 127 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 127 to 251
+Garbage collection #2: 251 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 251 to 499
+Garbage collection #3: 499 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 499 to 997
+Garbage collection #4: 997 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 997 to 1993
+Garbage collection #5: 1993 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1993 to 3967
+Garbage collection #6: 3967 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3967 to 7933
+Garbage collection #7: 7933 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 7933 to 15859
+[2020-11-24 17:33:26,760 WARN  L188               SmtUtils]: Spent 109.00 ms on a formula simplification that was a NOOP. DAG size: 249
+[2020-11-24 17:33:26,951 WARN  L188               SmtUtils]: Spent 189.00 ms on a formula simplification. DAG size of input: 269 DAG size of output: 266
+Garbage collection #1: 101 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 101 to 199
+Garbage collection #2: 199 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 199 to 397
+Garbage collection #3: 397 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 397 to 787
+Garbage collection #4: 787 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 787 to 1571
+Garbage collection #5: 1571 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 1571 to 3137
+Garbage collection #6: 3137 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 3137 to 6271
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+[2020-11-24 17:33:27,218 WARN  L188               SmtUtils]: Spent 122.00 ms on a formula simplification. DAG size of input: 252 DAG size of output: 251
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+[2020-11-24 17:33:27,282 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:33:27,287 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 05:33:27 BasicIcfg
+[2020-11-24 17:33:27,287 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2020-11-24 17:33:27,287 INFO  L168              Benchmark]: Toolchain (without parser) took 4492.05 ms. Allocated memory was 1.0 GB in the beginning and 1.5 GB in the end (delta: 442.0 MB). Free memory was 945.9 MB in the beginning and 1.2 GB in the end (delta: -258.6 MB). Peak memory consumption was 463.8 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,288 INFO  L168              Benchmark]: Boogie PL CUP Parser took 0.14 ms. Allocated memory is still 1.0 GB. Free memory is still 956.7 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,289 INFO  L168              Benchmark]: Boogie Preprocessor took 64.86 ms. Allocated memory is still 1.0 GB. Free memory was 945.9 MB in the beginning and 935.2 MB in the end (delta: 10.7 MB). Peak memory consumption was 10.7 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,289 INFO  L168              Benchmark]: UtopiaSpecLang took 44.55 ms. Allocated memory is still 1.0 GB. Free memory is still 935.2 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,289 INFO  L168              Benchmark]: Boogie Printer took 8.77 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,289 INFO  L168              Benchmark]: RCFGBuilder took 462.59 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 881.5 MB in the end (delta: 48.3 MB). Peak memory consumption was 48.3 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,290 INFO  L168              Benchmark]: UtopiaLTL2Aut took 39.44 ms. Allocated memory is still 1.0 GB. Free memory was 881.5 MB in the beginning and 872.6 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,290 INFO  L168              Benchmark]: Büchi Program Product took 918.59 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 49.3 MB). Free memory was 872.6 MB in the beginning and 948.9 MB in the end (delta: -76.4 MB). Peak memory consumption was 155.0 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,290 INFO  L168              Benchmark]: BlockEncodingV2 took 75.21 ms. Allocated memory is still 1.1 GB. Free memory was 948.9 MB in the beginning and 914.3 MB in the end (delta: 34.6 MB). Peak memory consumption was 34.6 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,291 INFO  L168              Benchmark]: BuchiAutomizer took 2875.30 ms. Allocated memory was 1.1 GB in the beginning and 1.5 GB in the end (delta: 392.7 MB). Free memory was 914.3 MB in the beginning and 1.2 GB in the end (delta: -290.2 MB). Peak memory consumption was 382.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:33:27,293 INFO  L337   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.blockencoding:
+  - StatisticsResult: Initial Icfg
+    1474 locations, 2472 edges
+  - StatisticsResult: Encoded RCFG
+    1444 locations, 2402 edges
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * Boogie PL CUP Parser took 0.14 ms. Allocated memory is still 1.0 GB. Free memory is still 956.7 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * Boogie Preprocessor took 64.86 ms. Allocated memory is still 1.0 GB. Free memory was 945.9 MB in the beginning and 935.2 MB in the end (delta: 10.7 MB). Peak memory consumption was 10.7 MB. Max. memory is 15.3 GB.
+ * UtopiaSpecLang took 44.55 ms. Allocated memory is still 1.0 GB. Free memory is still 935.2 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * Boogie Printer took 8.77 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * RCFGBuilder took 462.59 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 881.5 MB in the end (delta: 48.3 MB). Peak memory consumption was 48.3 MB. Max. memory is 15.3 GB.
+ * UtopiaLTL2Aut took 39.44 ms. Allocated memory is still 1.0 GB. Free memory was 881.5 MB in the beginning and 872.6 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+ * Büchi Program Product took 918.59 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 49.3 MB). Free memory was 872.6 MB in the beginning and 948.9 MB in the end (delta: -76.4 MB). Peak memory consumption was 155.0 MB. Max. memory is 15.3 GB.
+ * BlockEncodingV2 took 75.21 ms. Allocated memory is still 1.1 GB. Free memory was 948.9 MB in the beginning and 914.3 MB in the end (delta: 34.6 MB). Peak memory consumption was 34.6 MB. Max. memory is 15.3 GB.
+ * BuchiAutomizer took 2875.30 ms. Allocated memory was 1.1 GB in the beginning and 1.5 GB in the end (delta: 392.7 MB). Free memory was 914.3 MB in the beginning and 1.2 GB in the end (delta: -290.2 MB). Peak memory consumption was 382.9 MB. Max. memory is 15.3 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.buchiprogramproduct:
+  - StatisticsResult: Initial property automaton
+    2 locations, 3 edges
+  - StatisticsResult: Initial RCFG
+    646 locations, 773 edges
+  - StatisticsResult: BuchiProgram size
+    1474 locations, 2472 edges
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Your program was decomposed into 2 terminating modules (2 trivial, 0 deterministic, 0 nondeterministic) and one nonterminating remainder module.2 modules have a trivial ranking function, the largest among these consists of 5 locations. The remainder module has 223 locations.
+  - StatisticsResult: Timing statistics
+    BüchiAutomizer plugin needed 2.8s and 3 iterations.  TraceHistogramMax:1. Analysis of lassos took 2.3s. Construction of modules took 0.0s. Büchi inclusion checks took 0.1s. Highest rank in rank-based complementation 0. Minimization of det autom 2. Minimization of nondet autom 0. Automata minimization 0.0s AutomataMinimizationTime, 2 MinimizatonAttempts, 11 StatesRemovedByMinimization, 1 NontrivialMinimizations. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had 223 states and ocurred in iteration 2.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: 1014 SDtfs, 806 SDslu, 443 SDs, 0 SdLazy, 570 SolverSat, 543 SolverUnsat, 0 SolverUnknown, 0 SolverNotchecked, 0.0s Time	LassoAnalysisResults: nont1 unkn0 SFLI0 SFLT0 conc0 concLT0 SILN0 SILU2 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - TransactionCounterexample: Violation of LTL property LTL
+    Found an infinite, lasso-shaped execution that violates the LTL property LTL.
+Stem:
+Team3D(3).transfer~address~uint256.gas(3979001)({from : 6, to : 6, value : 0});
+[L2]                revert_hold := revert;
+[L2]                revert := false;
+[L2]                assume ((((((msgsender_MSG == to_s373 && value_s373 <= balances_Team3D[this][msgsender_MSG]) && value_s373 >= 0) && value_s373 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_Team3D[this][to_s373] >= 0) && balances_Team3D[this][to_s373] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_Team3D[this][msgsender_MSG] >= 0) && balances_Team3D[this][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                call_transfer_Team3D0 := true;
+[L2]                call_transfer_Team3D0 := false;
+[L2]                revert := revert_hold;
+[L310]              havoc __exception;
+[L311]              revert := false;
+[L312]   COND TRUE  __exception
+[L313]              __tmp__Balance := Balance;
+[L314]              __tmp__DType := DType;
+[L315]              __tmp__Alloc := Alloc;
+[L316]              __tmp__balance_ADDR := balance_ADDR;
+[L317]              __tmp__M_Ref_int := M_Ref_int;
+[L318]              __tmp__sum_balances0 := sum_balances0;
+[L319]              __tmp__sum_balances2 := sum_balances2;
+[L320]              __tmp__alloc_allowed_Team3D_lvl0 := alloc_allowed_Team3D_lvl0;
+[L321]              __tmp__M_Ref_Ref := M_Ref_Ref;
+[L322]              __tmp__sum_allowed3 := sum_allowed3;
+[L323]              __tmp__M_int_Ref := M_int_Ref;
+[L324]              __tmp__sum_keys1 := sum_keys1;
+[L325]              __tmp__Length := Length;
+[L326]              __tmp__now := now;
+[L327]              __tmp__balances_Presale := balances_Presale;
+[L328]              __tmp__Length_keys_Presale_lvl0 := Length_keys_Presale_lvl0;
+[L329]              __tmp__keys_Presale := keys_Presale;
+[L330]              __tmp__initialTokens_Presale := initialTokens_Presale;
+[L331]              __tmp__balances_Team3D := balances_Team3D;
+[L332]              __tmp__allowed_Team3D := allowed_Team3D;
+[L333]              __tmp__name_Team3D := name_Team3D;
+[L334]              __tmp__symbol_Team3D := symbol_Team3D;
+[L335]              __tmp__decimals_Team3D := decimals_Team3D;
+[L336]              __tmp__owner_Team3D := owner_Team3D;
+[L337]              __tmp__initialized_Team3D := initialized_Team3D;
+[L338]              __tmp__startBlock_Team3D := startBlock_Team3D;
+[L339]              __tmp___totalSupply_Team3D := _totalSupply_Team3D;
+[L340]              __tmp__presale_Team3D := presale_Team3D;
+[L341]   CALL       call __ret_0_ := transfer~address~uint256_Team3D__fail(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L832]   CALL       call fairStart_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+[L1493]  COND TRUE  !(__tmp__now > (__tmp__startBlock_Team3D[this] + 5) % 115792089237316195423570985008687907853269984665640564039457584007913129639936)
+[L1494]             revert := true;
+[L832]   RET        call fairStart_pre__fail(this, msgsender_MSG, msgvalue_MSG);
+[L833]   COND TRUE  revert
+[L341]   RET        call __ret_0_ := transfer~address~uint256_Team3D__fail(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+[L342]              assume revert || gas < 0;
+[L1739]  RET        call __ret_0_transfer := transfer~address~uint256_Team3D(this, msgsender_MSG, msgvalue_MSG, to_s373, value_s373);
+
+Loop:
+
+End of lasso representation.
+RESULT: Ultimate could not prove your program: Toolchain returned no result.
+Received shutdown request...

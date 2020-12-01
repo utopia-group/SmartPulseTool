@@ -342,7 +342,8 @@ contract BZRXToken is CheckpointingToken {
     string public constant symbol = "BZRX";
     uint8 public constant decimals = 18;
 
-    uint256 internal constant totalSupply_ = 1030000000e18; // 1,030,000,000 BZRX
+    //uint256 internal constant totalSupply_ = 1030000000e18; // 1,030,000,000 BZRX
+    uint256 internal totalSupply_ = 1030000000e18; // 1,030,000,000 BZRX
 
     constructor(
         address _to)

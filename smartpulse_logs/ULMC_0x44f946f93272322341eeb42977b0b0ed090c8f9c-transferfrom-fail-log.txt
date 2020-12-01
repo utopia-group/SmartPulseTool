@@ -1,0 +1,884 @@
+This is Ultimate 0.1.24-f1553f5-m
+[2020-11-24 17:46:49,274 INFO  L170        SettingsManager]: Resetting all preferences to default values...
+[2020-11-24 17:46:49,276 INFO  L174        SettingsManager]: Resetting UltimateCore preferences to default values
+[2020-11-24 17:46:49,286 INFO  L177        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2020-11-24 17:46:49,286 INFO  L174        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2020-11-24 17:46:49,287 INFO  L174        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2020-11-24 17:46:49,288 INFO  L174        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2020-11-24 17:46:49,289 INFO  L174        SettingsManager]: Resetting LassoRanker preferences to default values
+[2020-11-24 17:46:49,291 INFO  L174        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2020-11-24 17:46:49,291 INFO  L174        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2020-11-24 17:46:49,292 INFO  L177        SettingsManager]: Büchi Program Product provides no preferences, ignoring...
+[2020-11-24 17:46:49,292 INFO  L174        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2020-11-24 17:46:49,293 INFO  L174        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2020-11-24 17:46:49,294 INFO  L174        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2020-11-24 17:46:49,294 INFO  L174        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2020-11-24 17:46:49,295 INFO  L174        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2020-11-24 17:46:49,295 INFO  L174        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2020-11-24 17:46:49,296 INFO  L174        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2020-11-24 17:46:49,297 INFO  L174        SettingsManager]: Resetting CodeCheck preferences to default values
+[2020-11-24 17:46:49,298 INFO  L174        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2020-11-24 17:46:49,299 INFO  L174        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2020-11-24 17:46:49,300 INFO  L174        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2020-11-24 17:46:49,301 INFO  L177        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2020-11-24 17:46:49,302 INFO  L177        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2020-11-24 17:46:49,302 INFO  L174        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2020-11-24 17:46:49,302 INFO  L174        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2020-11-24 17:46:49,302 INFO  L174        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2020-11-24 17:46:49,303 INFO  L177        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2020-11-24 17:46:49,303 INFO  L174        SettingsManager]: Resetting UtopiaLTL2Aut preferences to default values
+[2020-11-24 17:46:49,303 INFO  L174        SettingsManager]: Resetting UtopiaSpecLang preferences to default values
+[2020-11-24 17:46:49,304 INFO  L174        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2020-11-24 17:46:49,304 INFO  L174        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2020-11-24 17:46:49,305 INFO  L174        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2020-11-24 17:46:49,305 INFO  L174        SettingsManager]: Resetting Witness Printer preferences to default values
+[2020-11-24 17:46:49,306 INFO  L177        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2020-11-24 17:46:49,306 INFO  L174        SettingsManager]: Resetting CDTParser preferences to default values
+[2020-11-24 17:46:49,306 INFO  L177        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2020-11-24 17:46:49,307 INFO  L177        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2020-11-24 17:46:49,307 INFO  L174        SettingsManager]: Resetting SmtParser preferences to default values
+[2020-11-24 17:46:49,307 INFO  L174        SettingsManager]: Resetting Witness Parser preferences to default values
+[2020-11-24 17:46:49,308 INFO  L181        SettingsManager]: Finished resetting all preferences to default values...
+[2020-11-24 17:46:49,308 INFO  L98         SettingsManager]: Beginning loading settings from /mnt/data0/jon/SmartPulseTool/SmartPulse/settings.epf
+[2020-11-24 17:46:49,316 INFO  L110        SettingsManager]: Loading preferences was successful
+[2020-11-24 17:46:49,316 INFO  L112        SettingsManager]: Preferences different from defaults after loading the file:
+[2020-11-24 17:46:49,317 INFO  L131        SettingsManager]: Preferences of LTL2Aut differ from their defaults:
+[2020-11-24 17:46:49,317 INFO  L133        SettingsManager]:  * Read property from file=true
+[2020-11-24 17:46:49,317 INFO  L133        SettingsManager]:  * Path to LTL*BA executable (LTL2BA, LTL3BA)=/mnt/data0/jon/SmartPulseTool/ltl2ba
+[2020-11-24 17:46:49,317 INFO  L131        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2020-11-24 17:46:49,317 INFO  L133        SettingsManager]:  * Maximize final states=false
+[2020-11-24 17:46:49,317 INFO  L133        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2020-11-24 17:46:49,317 INFO  L133        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2020-11-24 17:46:49,317 INFO  L131        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2020-11-24 17:46:49,317 INFO  L133        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Use old map elimination=false
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Try twofold refinement=false
+[2020-11-24 17:46:49,318 INFO  L131        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Overapproximate operations on floating types=true
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Check division by zero=IGNORE
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2020-11-24 17:46:49,318 INFO  L133        SettingsManager]:  * Check if freed pointer was valid=false
+[2020-11-24 17:46:49,319 INFO  L133        SettingsManager]:  * Use constant arrays=true
+[2020-11-24 17:46:49,319 INFO  L133        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2020-11-24 17:46:49,319 INFO  L131        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2020-11-24 17:46:49,319 INFO  L133        SettingsManager]:  * Size of a code block=SingleStatement
+[2020-11-24 17:46:49,319 INFO  L133        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+[2020-11-24 17:46:49,340 INFO  L81    nceAwareModelManager]: Repository-Root is: /tmp
+[2020-11-24 17:46:49,355 INFO  L259   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2020-11-24 17:46:49,357 INFO  L215   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2020-11-24 17:46:49,358 INFO  L271        PluginConnector]: Initializing Boogie PL CUP Parser...
+[2020-11-24 17:46:49,359 INFO  L276        PluginConnector]: Boogie PL CUP Parser initialized
+[2020-11-24 17:46:49,359 INFO  L430   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /mnt/data0/jon/SmartPulseTool/ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl
+[2020-11-24 17:46:49,359 INFO  L111           BoogieParser]: Parsing: '/mnt/data0/jon/SmartPulseTool/ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl'
+[2020-11-24 17:46:49,424 INFO  L297   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2020-11-24 17:46:49,425 INFO  L131        ToolchainWalker]: Walking toolchain with 8 elements.
+[2020-11-24 17:46:49,425 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2020-11-24 17:46:49,425 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2020-11-24 17:46:49,425 INFO  L276        PluginConnector]: Boogie Preprocessor initialized
+[2020-11-24 17:46:49,441 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,442 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,462 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,462 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,483 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,491 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,495 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,502 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2020-11-24 17:46:49,502 INFO  L113        PluginConnector]: ------------------------UtopiaSpecLang----------------------------
+[2020-11-24 17:46:49,502 INFO  L271        PluginConnector]: Initializing UtopiaSpecLang...
+[2020-11-24 17:46:49,504 INFO  L276        PluginConnector]: UtopiaSpecLang initialized
+[2020-11-24 17:46:49,508 INFO  L185        PluginConnector]: Executing the observer UtopiaSpecLangObserver from plugin UtopiaSpecLang for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/1) ...
+[2020-11-24 17:46:49,521 INFO  L1012  opiaSpecLangObserver]: Parsing LTLPlus Formula to AstNode: [](started(ERC20.transferFrom(from, to, value), from != to && (value > _balances_ERC20[this][from] || value > _allowances_ERC20[this][from][msg.sender] || _balances_ERC20[this][to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000) && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][to] >= 0 && _balances_ERC20[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][from] >= 0 &&  _balances_ERC20[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _allowances_ERC20[this][from][msg.sender] >= 0 && _allowances_ERC20[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(reverted(ERC20.transferFrom)))
+[2020-11-24 17:46:49,526 INFO  L1016  opiaSpecLangObserver]: Successfully lexed: [](started(ERC20.transferFrom(from, to, value), from != to && (value > _balances_ERC20[this][from] || value > _allowances_ERC20[this][from][msg.sender] || _balances_ERC20[this][to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000) && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][to] >= 0 && _balances_ERC20[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][from] >= 0 &&  _balances_ERC20[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _allowances_ERC20[this][from][msg.sender] >= 0 && _allowances_ERC20[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(reverted(ERC20.transferFrom)))
+[2020-11-24 17:46:49,533 INFO  L1018  opiaSpecLangObserver]: Successfully parsed: [](started(ERC20.transferFrom(from, to, value), from != to && (value > _balances_ERC20[this][from] || value > _allowances_ERC20[this][from][msg.sender] || _balances_ERC20[this][to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000) && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][to] >= 0 && _balances_ERC20[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][from] >= 0 &&  _balances_ERC20[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _allowances_ERC20[this][from][msg.sender] >= 0 && _allowances_ERC20[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(reverted(ERC20.transferFrom)))
+[2020-11-24 17:46:49,539 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( ( ( sender_s325!=recipient_s325 && ( ( amount_s325>_balances_ERC20[this][sender_s325] || amount_s325>_allowances_ERC20[this][sender_s325][msg.sender] ) || ( _balances_ERC20[this][recipient_s325] + amount_s325 )>=115792089237316195423570985008687907853269984665640564039457584007913129639936 ) ) && amount_s325>=0 ) && amount_s325<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && _balances_ERC20[this][recipient_s325]>=0 ) && _balances_ERC20[this][recipient_s325]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && _balances_ERC20[this][sender_s325]>=0 ) && _balances_ERC20[this][sender_s325]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && _allowances_ERC20[this][sender_s325][msg.sender]>=0 ) && _allowances_ERC20[this][sender_s325][msg.sender]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPNEQ,IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>],IdentifierExpression[recipient_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]],BinaryExpression[LOGICOR,BinaryExpression[LOGICOR,BinaryExpression[COMPGT,IdentifierExpression[amount_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>],ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_balances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]]],BinaryExpression[COMPGT,IdentifierExpression[amount_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>],ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_allowances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]]]],BinaryExpression[COMPGEQ,BinaryExpression[ARITHPLUS,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_balances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[recipient_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IdentifierExpression[amount_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]]],BinaryExpression[COMPGEQ,IdentifierExpression[amount_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>],IntegerLiteral[0]]],BinaryExpression[COMPLT,IdentifierExpression[amount_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_balances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[recipient_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_balances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[recipient_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_balances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_balances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_allowances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[_allowances_ERC20,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[sender_s325,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_ERC20>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]]
+[2020-11-24 17:46:49,543 INFO  L1005  opiaSpecLangObserver]: Compiling: [](started(ERC20.transferFrom(from, to, value), from != to && (value > _balances_ERC20[this][from] || value > _allowances_ERC20[this][from][msg.sender] || _balances_ERC20[this][to] + value >= 0x10000000000000000000000000000000000000000000000000000000000000000) && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][to] >= 0 && _balances_ERC20[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _balances_ERC20[this][from] >= 0 &&  _balances_ERC20[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && _allowances_ERC20[this][from][msg.sender] >= 0 && _allowances_ERC20[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(reverted(ERC20.transferFrom)))
+[2020-11-24 17:46:49,543 INFO  L1007  opiaSpecLangObserver]: Compiled to ( []( AP(call_transferFrom_ERC200) ==> ( <>AP(fail_transferFrom_ERC200) ) ) )
+Executed UtopiaSpecLang
+[2020-11-24 17:46:49,547 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:46:49 PropertyContainer
+[2020-11-24 17:46:49,547 INFO  L132        PluginConnector]: ------------------------ END UtopiaSpecLang----------------------------
+[2020-11-24 17:46:49,548 INFO  L113        PluginConnector]: ------------------------Boogie Printer----------------------------
+[2020-11-24 17:46:49,548 INFO  L271        PluginConnector]: Initializing Boogie Printer...
+[2020-11-24 17:46:49,548 INFO  L276        PluginConnector]: Boogie Printer initialized
+[2020-11-24 17:46:49,549 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/2) ...
+[2020-11-24 17:46:49,549 INFO  L116   oogiePrinterObserver]: File already exists and will be overwritten: /tmp/boogiePrinter.bpl
+[2020-11-24 17:46:49,549 INFO  L120   oogiePrinterObserver]: Writing to file /tmp/boogiePrinter.bpl
+[2020-11-24 17:46:49,557 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:46:49" (2/2) ...
+[2020-11-24 17:46:49,557 INFO  L132        PluginConnector]: ------------------------ END Boogie Printer----------------------------
+[2020-11-24 17:46:49,557 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2020-11-24 17:46:49,557 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2020-11-24 17:46:49,557 INFO  L276        PluginConnector]: RCFGBuilder initialized
+[2020-11-24 17:46:49,558 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/2) ...
+[2020-11-24 17:46:49,610 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__success
+[2020-11-24 17:46:49,610 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 17:46:49,610 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 17:46:49,610 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_ERC20
+[2020-11-24 17:46:49,610 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_ERC20
+[2020-11-24 17:46:49,610 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_ERC20
+[2020-11-24 17:46:49,610 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_ERC20
+[2020-11-24 17:46:49,611 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_ERC20
+[2020-11-24 17:46:49,611 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_ERC20
+[2020-11-24 17:46:49,611 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_ERC20
+[2020-11-24 17:46:49,611 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_ERC20
+[2020-11-24 17:46:49,611 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_ERC20
+[2020-11-24 17:46:49,611 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_ERC20
+[2020-11-24 17:46:49,611 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_ERC20
+[2020-11-24 17:46:49,611 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_ERC20
+[2020-11-24 17:46:49,611 INFO  L130     BoogieDeclarations]: Found specification of procedure _transfer~address~address~uint256_ERC20__success
+[2020-11-24 17:46:49,611 INFO  L130     BoogieDeclarations]: Found specification of procedure _approve~address~address~uint256_ERC20__success
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__success
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__success
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure send__success
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_SafeMath
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_SafeMath
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_IERC20
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_IERC20
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ERC20
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ERC20
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ERC20Detailed
+[2020-11-24 17:46:49,612 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ERC20Detailed
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ULMC
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__fail
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_ERC20__success
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_ERC20__fail
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_ERC20__success
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_ERC20__fail
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_ERC20__success
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_ERC20__success
+[2020-11-24 17:46:49,613 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_ERC20__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_ERC20__success
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_ERC20__success
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure _transfer~address~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure _approve~address~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__fail
+[2020-11-24 17:46:49,614 INFO  L130     BoogieDeclarations]: Found specification of procedure send__fail
+[2020-11-24 17:46:49,614 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__fail
+[2020-11-24 17:46:49,614 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__success
+[2020-11-24 17:46:49,614 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 17:46:49,614 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_ERC20__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_ERC20__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_ERC20__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_ERC20__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_ERC20__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_ERC20__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_ERC20__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_ERC20__success
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,615 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_ERC20__success
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure _transfer~address~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure _transfer~address~address~uint256_ERC20__success
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure _approve~address~address~uint256_ERC20__fail
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure _approve~address~address~uint256_ERC20__success
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__fail
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__success
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__fail
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__success
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__fail
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__success
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_SafeMath
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_SafeMath
+[2020-11-24 17:46:49,616 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_IERC20
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_IERC20
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ERC20
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ERC20
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ERC20Detailed
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ERC20Detailed
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ULMC
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2020-11-24 17:46:49,617 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2020-11-24 17:46:49,617 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2020-11-24 17:46:49,890 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:46:49,890 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:46:50,052 INFO  L281             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2020-11-24 17:46:50,053 INFO  L286             CfgBuilder]: Removed 5 assue(true) statements.
+[2020-11-24 17:46:50,054 INFO  L202        PluginConnector]: Adding new model ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:46:50 BoogieIcfgContainer
+[2020-11-24 17:46:50,054 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:46:49" (2/2) ...
+[2020-11-24 17:46:50,055 INFO  L85     RCFGBuilderObserver]: No WrapperNode. Let Ultimate process with next node
+[2020-11-24 17:46:50,055 INFO  L205        PluginConnector]: Invalid model from RCFGBuilder for observer de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder.RCFGBuilderObserver@337ad587 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:46:50, skipping insertion in model container
+[2020-11-24 17:46:50,055 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2020-11-24 17:46:50,055 INFO  L113        PluginConnector]: ------------------------UtopiaLTL2Aut----------------------------
+[2020-11-24 17:46:50,055 INFO  L271        PluginConnector]: Initializing UtopiaLTL2Aut...
+[2020-11-24 17:46:50,057 INFO  L276        PluginConnector]: UtopiaLTL2Aut initialized
+[2020-11-24 17:46:50,057 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/3) ...
+[2020-11-24 17:46:50,058 INFO  L205        PluginConnector]: Invalid model from UtopiaLTL2Aut for observer edu.utexas.cs.utopia.ltl2aut.UtopiaLTL2AutObserver@7e18b578 and model type Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:46:50, skipping insertion in model container
+[2020-11-24 17:46:50,058 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:46:49" (2/3) ...
+No working directory specified, using /mnt/data0/jon/SmartPulseTool/ltl2ba
+Starting monitored process 1 with /mnt/data0/jon/SmartPulseTool/ltl2ba -f ! ( ( [] ( a -> ( <>b ) ) ) )  (exit command is null, workingDir is null)
+[2020-11-24 17:46:50,094 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:46:50 NWAContainer
+[2020-11-24 17:46:50,094 INFO  L132        PluginConnector]: ------------------------ END UtopiaLTL2Aut----------------------------
+[2020-11-24 17:46:50,094 INFO  L113        PluginConnector]: ------------------------Büchi Program Product----------------------------
+[2020-11-24 17:46:50,094 INFO  L271        PluginConnector]: Initializing Büchi Program Product...
+[2020-11-24 17:46:50,095 INFO  L276        PluginConnector]: Büchi Program Product initialized
+[2020-11-24 17:46:50,096 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:46:50" (3/4) ...
+[2020-11-24 17:46:50,097 INFO  L205        PluginConnector]: Invalid model from Büchi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@3989f4bd and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:46:50, skipping insertion in model container
+[2020-11-24 17:46:50,097 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:46:50" (4/4) ...
+[2020-11-24 17:46:50,100 INFO  L104   BuchiProductObserver]: Initial property automaton 2 locations, 3 edges
+[2020-11-24 17:46:50,102 INFO  L110   BuchiProductObserver]: Initial RCFG 660 locations, 868 edges
+[2020-11-24 17:46:50,102 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2020-11-24 17:46:50,111 INFO  L136       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2020-11-24 17:46:50,991 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2020-11-24 17:46:50,994 INFO  L110   BuchiProductObserver]: BuchiProgram size 1590 locations, 2822 edges
+[2020-11-24 17:46:50,994 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:46:50 BoogieIcfgContainer
+[2020-11-24 17:46:50,994 INFO  L132        PluginConnector]: ------------------------ END Büchi Program Product----------------------------
+[2020-11-24 17:46:50,995 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2020-11-24 17:46:50,995 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2020-11-24 17:46:50,997 INFO  L276        PluginConnector]: BlockEncodingV2 initialized
+[2020-11-24 17:46:50,997 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:46:50" (1/1) ...
+[2020-11-24 17:46:51,047 INFO  L313           BlockEncoder]: Initial Icfg 1590 locations, 2822 edges
+[2020-11-24 17:46:51,047 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2020-11-24 17:46:51,048 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2020-11-24 17:46:51,048 INFO  L296           BlockEncoder]: Using Remove sink states
+[2020-11-24 17:46:51,049 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2020-11-24 17:46:51,057 INFO  L70    emoveInfeasibleEdges]: Removed 66 edges and 13 locations because of local infeasibility
+[2020-11-24 17:46:51,062 INFO  L70        RemoveSinkStates]: Removed 64 edges and 36 locations by removing sink states
+[2020-11-24 17:46:51,069 INFO  L70    emoveInfeasibleEdges]: Removed 0 edges and 0 locations because of local infeasibility
+[2020-11-24 17:46:51,071 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2020-11-24 17:46:51,073 INFO  L237           BlockEncoder]: Using Create parallel compositions if possible
+[2020-11-24 17:46:51,073 INFO  L66        ParallelComposer]: Creating parallel compositions
+[2020-11-24 17:46:51,076 INFO  L313           BlockEncoder]: Encoded RCFG 1527 locations, 2672 edges
+[2020-11-24 17:46:51,076 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 05:46:51 BasicIcfg
+[2020-11-24 17:46:51,076 INFO  L132        PluginConnector]: ------------------------ END BlockEncodingV2----------------------------
+[2020-11-24 17:46:51,077 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2020-11-24 17:46:51,077 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2020-11-24 17:46:51,079 INFO  L276        PluginConnector]: BuchiAutomizer initialized
+[2020-11-24 17:46:51,080 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:46:51,080 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:46:49" (1/6) ...
+[2020-11-24 17:46:51,081 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@111a2231 and model type ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:46:51, skipping insertion in model container
+[2020-11-24 17:46:51,081 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:46:51,081 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:46:49" (2/6) ...
+[2020-11-24 17:46:51,081 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@111a2231 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:46:51, skipping insertion in model container
+[2020-11-24 17:46:51,081 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:46:51,082 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:46:50" (3/6) ...
+[2020-11-24 17:46:51,082 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@111a2231 and model type ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 05:46:51, skipping insertion in model container
+[2020-11-24 17:46:51,082 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:46:51,082 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:46:50" (4/6) ...
+[2020-11-24 17:46:51,082 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@111a2231 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:46:51, skipping insertion in model container
+[2020-11-24 17:46:51,082 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:46:51,083 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:46:50" (5/6) ...
+[2020-11-24 17:46:51,083 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@111a2231 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer OTHER 24.11 05:46:51, skipping insertion in model container
+[2020-11-24 17:46:51,083 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:46:51,083 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 05:46:51" (6/6) ...
+[2020-11-24 17:46:51,084 INFO  L404   chiAutomizerObserver]: Analyzing ICFG ULMC_0x44f946f93272322341eeb42977b0b0ed090c8f9c_transferfrom-fail.bpl_BEv2
+[2020-11-24 17:46:51,128 INFO  L133   ementStrategyFactory]: Using default assertion order modulation
+[2020-11-24 17:46:51,129 INFO  L377         BuchiCegarLoop]: Interprodecural is true
+[2020-11-24 17:46:51,130 INFO  L378         BuchiCegarLoop]: Hoare is false
+[2020-11-24 17:46:51,130 INFO  L379         BuchiCegarLoop]: Compute interpolants for Craig_TreeInterpolation
+[2020-11-24 17:46:51,130 INFO  L380         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2020-11-24 17:46:51,130 INFO  L381         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2020-11-24 17:46:51,130 INFO  L382         BuchiCegarLoop]: Difference is false
+[2020-11-24 17:46:51,130 INFO  L383         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2020-11-24 17:46:51,131 INFO  L386         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2020-11-24 17:46:51,163 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1527 states.
+[2020-11-24 17:46:51,203 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,203 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:46:51,203 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:46:51,212 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:46:51,212 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2020-11-24 17:46:51,212 INFO  L445         BuchiCegarLoop]: ======== Iteration 1============
+[2020-11-24 17:46:51,213 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1527 states.
+[2020-11-24 17:46:51,223 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,223 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:46:51,223 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:46:51,225 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:46:51,225 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 fail_transferFrom_ERC200 := false;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]     CALL        call main();
+[L1874]              assume null == 0;
+[L1875]  CALL        call this := FreshRefGenerator__success();
+[L642]               havoc newRef;
+[L643]               assume Alloc[newRef] == false;
+[L644]               Alloc[newRef] := true;
+[L645]               assume newRef != null;
+[L1875]  RET         call this := FreshRefGenerator__success();
+[L1876]              assume now >= 0;
+[L1877]              assume DType[this] == ULMC;
+[L1878]              assume !revert && gas >= 0;
+[L1879]  CALL        call CorralChoice_ULMC(this);
+[L1789]              havoc msgsender_MSG;
+[L1790]              havoc msgvalue_MSG;
+[L1791]              havoc choice;
+[L1792]              havoc __ret_0_totalSupply;
+[L1793]              havoc account_s236;
+[L1794]              havoc __ret_0_balanceOf;
+[L1795]              havoc recipient_s255;
+[L1796]              havoc amount_s255;
+[L1797]              havoc __ret_0_transfer;
+[L1798]              havoc owner_s271;
+[L1799]              havoc spender_s271;
+[L1800]              havoc __ret_0_allowance;
+[L1801]              havoc spender_s290;
+[L1802]              havoc value_s290;
+[L1803]              havoc __ret_0_approve;
+[L1804]              havoc sender_s325;
+[L1805]              havoc recipient_s325;
+[L1806]              havoc amount_s325;
+[L1807]              havoc __ret_0_transferFrom;
+[L1808]              havoc spender_s352;
+[L1809]              havoc addedValue_s352;
+[L1810]              havoc __ret_0_increaseAllowance;
+[L1811]              havoc spender_s379;
+[L1812]              havoc subtractedValue_s379;
+[L1813]              havoc __ret_0_decreaseAllowance;
+[L1814]              havoc name_s622;
+[L1815]              havoc symbol_s622;
+[L1816]              havoc decimals_s622;
+[L1817]              havoc __ret_0_name;
+[L1818]              havoc __ret_0_symbol;
+[L1819]              havoc __ret_0_decimals;
+[L1820]              havoc tmpNow;
+[L1821]              havoc gas;
+[L1822]              assume gas > 4000000 && gas <= 8000000;
+[L1823]              tmpNow := now;
+[L1824]              havoc now;
+[L1825]              assume now > tmpNow;
+[L1826]              assume msgsender_MSG != null;
+[L1827]  COND TRUE   choice == 6
+[L1828]              gas := gas - 21000;
+[L1829]  COND FALSE  !(gas >= 0)
+[L1879]  RET         call CorralChoice_ULMC(this);
+
+Loop:
+[L1879]        assume true;
+
+[2020-11-24 17:46:51,241 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:46:51,241 INFO  L82        PathProgramCache]: Analyzing trace with hash 829477591, now seen corresponding path program 1 times
+[2020-11-24 17:46:51,246 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:46:51,266 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:46:51,322 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 17:46:51,324 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:46:51,324 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [5] imperfect sequences [] total 5
+[2020-11-24 17:46:51,328 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:46:51,339 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 5 interpolants.
+[2020-11-24 17:46:51,340 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=9, Invalid=11, Unknown=0, NotChecked=0, Total=20
+[2020-11-24 17:46:51,342 INFO  L87              Difference]: Start difference. First operand 1527 states. Second operand 5 states.
+[2020-11-24 17:46:51,599 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:46:51,599 INFO  L93              Difference]: Finished difference Result 602 states and 696 transitions.
+[2020-11-24 17:46:51,600 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:46:51,601 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 602 states and 696 transitions.
+[2020-11-24 17:46:51,606 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,612 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 602 states to 162 states and 180 transitions.
+[2020-11-24 17:46:51,613 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 3
+[2020-11-24 17:46:51,614 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 110
+[2020-11-24 17:46:51,614 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 162 states and 180 transitions.
+[2020-11-24 17:46:51,616 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:46:51,616 INFO  L728         BuchiCegarLoop]: Abstraction has 162 states and 180 transitions.
+[2020-11-24 17:46:51,630 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 162 states and 180 transitions.
+[2020-11-24 17:46:51,644 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 162 to 162.
+[2020-11-24 17:46:51,644 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 162 states.
+[2020-11-24 17:46:51,645 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 162 states to 162 states and 180 transitions.
+[2020-11-24 17:46:51,646 INFO  L751         BuchiCegarLoop]: Abstraction has 162 states and 180 transitions.
+[2020-11-24 17:46:51,646 INFO  L631         BuchiCegarLoop]: Abstraction has 162 states and 180 transitions.
+[2020-11-24 17:46:51,646 INFO  L445         BuchiCegarLoop]: ======== Iteration 2============
+[2020-11-24 17:46:51,646 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 162 states and 180 transitions.
+[2020-11-24 17:46:51,647 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,647 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:46:51,647 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:46:51,649 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:46:51,649 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 fail_transferFrom_ERC200 := false;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]     CALL        call main();
+[L1874]              assume null == 0;
+[L1875]  CALL        call this := FreshRefGenerator__success();
+[L642]               havoc newRef;
+[L643]               assume Alloc[newRef] == false;
+[L644]               Alloc[newRef] := true;
+[L645]               assume newRef != null;
+[L1875]  RET         call this := FreshRefGenerator__success();
+[L1876]              assume now >= 0;
+[L1877]              assume DType[this] == ULMC;
+[L1878]              assume !revert && gas >= 0;
+[L1879]  CALL        call CorralChoice_ULMC(this);
+[L1789]              havoc msgsender_MSG;
+[L1790]              havoc msgvalue_MSG;
+[L1791]              havoc choice;
+[L1792]              havoc __ret_0_totalSupply;
+[L1793]              havoc account_s236;
+[L1794]              havoc __ret_0_balanceOf;
+[L1795]              havoc recipient_s255;
+[L1796]              havoc amount_s255;
+[L1797]              havoc __ret_0_transfer;
+[L1798]              havoc owner_s271;
+[L1799]              havoc spender_s271;
+[L1800]              havoc __ret_0_allowance;
+[L1801]              havoc spender_s290;
+[L1802]              havoc value_s290;
+[L1803]              havoc __ret_0_approve;
+[L1804]              havoc sender_s325;
+[L1805]              havoc recipient_s325;
+[L1806]              havoc amount_s325;
+[L1807]              havoc __ret_0_transferFrom;
+[L1808]              havoc spender_s352;
+[L1809]              havoc addedValue_s352;
+[L1810]              havoc __ret_0_increaseAllowance;
+[L1811]              havoc spender_s379;
+[L1812]              havoc subtractedValue_s379;
+[L1813]              havoc __ret_0_decreaseAllowance;
+[L1814]              havoc name_s622;
+[L1815]              havoc symbol_s622;
+[L1816]              havoc decimals_s622;
+[L1817]              havoc __ret_0_name;
+[L1818]              havoc __ret_0_symbol;
+[L1819]              havoc __ret_0_decimals;
+[L1820]              havoc tmpNow;
+[L1821]              havoc gas;
+[L1822]              assume gas > 4000000 && gas <= 8000000;
+[L1823]              tmpNow := now;
+[L1824]              havoc now;
+[L1825]              assume now > tmpNow;
+[L1826]              assume msgsender_MSG != null;
+[L1827]  COND FALSE  !(choice == 6)
+[L1833]  COND FALSE  !(choice == 5)
+[L1839]  COND FALSE  !(choice == 4)
+[L1846]  COND FALSE  !(choice == 3)
+[L1852]  COND FALSE  !(choice == 2)
+[L1859]  COND TRUE   choice == 1
+[L1860]              gas := gas - 21000;
+[L1861]  COND TRUE   gas >= 0
+[L1862]              assume amount_s325 >= 0 && amount_s325 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1863]              assume msgvalue_MSG == 0;
+[L1864]  CALL        call __ret_0_transferFrom := transferFrom~address~address~uint256_ERC20(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume ((((((((sender_s325 != recipient_s325 && ((amount_s325 > _balances_ERC20[this][sender_s325] || amount_s325 > _allowances_ERC20[this][sender_s325][msgsender_MSG]) || _balances_ERC20[this][recipient_s325] + amount_s325 >= 115792089237316195423570985008687907853269984665640564039457584007913129639936)) && amount_s325 >= 0) && amount_s325 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _balances_ERC20[this][recipient_s325] >= 0) && _balances_ERC20[this][recipient_s325] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _balances_ERC20[this][sender_s325] >= 0) && _balances_ERC20[this][sender_s325] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _allowances_ERC20[this][sender_s325][msgsender_MSG] >= 0) && _allowances_ERC20[this][sender_s325][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_transferFrom_ERC200 := true;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]                 revert := revert_hold;
+[L328]               havoc __exception;
+[L329]               revert := false;
+[L330]   COND FALSE  !(__exception)
+[L351]   CALL        call __ret_0_ := transferFrom~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L848]   COND TRUE   DType[this] == ULMC
+[L849]   CALL        call _transfer~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L920]               __var_2 := null;
+[L921]   COND TRUE   !(sender_s435 != null)
+[L922]               revert := true;
+[L849]   RET         call _transfer~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L850]   COND TRUE   revert
+[L351]   RET         call __ret_0_ := transferFrom~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L352]               assume !revert && gas >= 0;
+[L1864]  RET         call __ret_0_transferFrom := transferFrom~address~address~uint256_ERC20(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L1879]  RET         call CorralChoice_ULMC(this);
+
+Loop:
+[L1879]        assume true;
+
+[2020-11-24 17:46:51,652 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:46:51,652 INFO  L82        PathProgramCache]: Analyzing trace with hash -747412553, now seen corresponding path program 1 times
+[2020-11-24 17:46:51,653 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:46:51,664 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:46:51,681 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 17:46:51,681 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:46:51,681 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 17:46:51,683 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:46:51,683 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 17:46:51,683 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 17:46:51,683 INFO  L87              Difference]: Start difference. First operand 162 states and 180 transitions. cyclomatic complexity: 19 Second operand 3 states.
+[2020-11-24 17:46:51,690 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:46:51,690 INFO  L93              Difference]: Finished difference Result 188 states and 208 transitions.
+[2020-11-24 17:46:51,691 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:46:51,691 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 188 states and 208 transitions.
+[2020-11-24 17:46:51,693 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,694 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 188 states to 156 states and 161 transitions.
+[2020-11-24 17:46:51,694 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 108
+[2020-11-24 17:46:51,694 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 108
+[2020-11-24 17:46:51,695 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 156 states and 161 transitions.
+[2020-11-24 17:46:51,696 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:46:51,696 INFO  L728         BuchiCegarLoop]: Abstraction has 156 states and 161 transitions.
+[2020-11-24 17:46:51,696 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 156 states and 161 transitions.
+[2020-11-24 17:46:51,700 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 156 to 156.
+[2020-11-24 17:46:51,700 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 156 states.
+[2020-11-24 17:46:51,700 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 156 states to 156 states and 161 transitions.
+[2020-11-24 17:46:51,701 INFO  L751         BuchiCegarLoop]: Abstraction has 156 states and 161 transitions.
+[2020-11-24 17:46:51,701 INFO  L631         BuchiCegarLoop]: Abstraction has 156 states and 161 transitions.
+[2020-11-24 17:46:51,701 INFO  L445         BuchiCegarLoop]: ======== Iteration 3============
+[2020-11-24 17:46:51,701 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 156 states and 161 transitions.
+[2020-11-24 17:46:51,702 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,702 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:46:51,702 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:46:51,704 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:46:51,704 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 fail_transferFrom_ERC200 := false;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]     CALL        call main();
+[L1874]              assume null == 0;
+[L1875]  CALL        call this := FreshRefGenerator__success();
+[L642]               havoc newRef;
+[L643]               assume Alloc[newRef] == false;
+[L644]               Alloc[newRef] := true;
+[L645]               assume newRef != null;
+[L1875]  RET         call this := FreshRefGenerator__success();
+[L1876]              assume now >= 0;
+[L1877]              assume DType[this] == ULMC;
+[L1878]              assume !revert && gas >= 0;
+[L1879]  CALL        call CorralChoice_ULMC(this);
+[L1789]              havoc msgsender_MSG;
+[L1790]              havoc msgvalue_MSG;
+[L1791]              havoc choice;
+[L1792]              havoc __ret_0_totalSupply;
+[L1793]              havoc account_s236;
+[L1794]              havoc __ret_0_balanceOf;
+[L1795]              havoc recipient_s255;
+[L1796]              havoc amount_s255;
+[L1797]              havoc __ret_0_transfer;
+[L1798]              havoc owner_s271;
+[L1799]              havoc spender_s271;
+[L1800]              havoc __ret_0_allowance;
+[L1801]              havoc spender_s290;
+[L1802]              havoc value_s290;
+[L1803]              havoc __ret_0_approve;
+[L1804]              havoc sender_s325;
+[L1805]              havoc recipient_s325;
+[L1806]              havoc amount_s325;
+[L1807]              havoc __ret_0_transferFrom;
+[L1808]              havoc spender_s352;
+[L1809]              havoc addedValue_s352;
+[L1810]              havoc __ret_0_increaseAllowance;
+[L1811]              havoc spender_s379;
+[L1812]              havoc subtractedValue_s379;
+[L1813]              havoc __ret_0_decreaseAllowance;
+[L1814]              havoc name_s622;
+[L1815]              havoc symbol_s622;
+[L1816]              havoc decimals_s622;
+[L1817]              havoc __ret_0_name;
+[L1818]              havoc __ret_0_symbol;
+[L1819]              havoc __ret_0_decimals;
+[L1820]              havoc tmpNow;
+[L1821]              havoc gas;
+[L1822]              assume gas > 4000000 && gas <= 8000000;
+[L1823]              tmpNow := now;
+[L1824]              havoc now;
+[L1825]              assume now > tmpNow;
+[L1826]              assume msgsender_MSG != null;
+[L1827]  COND FALSE  !(choice == 6)
+[L1833]  COND FALSE  !(choice == 5)
+[L1839]  COND FALSE  !(choice == 4)
+[L1846]  COND FALSE  !(choice == 3)
+[L1852]  COND FALSE  !(choice == 2)
+[L1859]  COND TRUE   choice == 1
+[L1860]              gas := gas - 21000;
+[L1861]  COND TRUE   gas >= 0
+[L1862]              assume amount_s325 >= 0 && amount_s325 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1863]              assume msgvalue_MSG == 0;
+[L1864]  CALL        call __ret_0_transferFrom := transferFrom~address~address~uint256_ERC20(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume ((((((((sender_s325 != recipient_s325 && ((amount_s325 > _balances_ERC20[this][sender_s325] || amount_s325 > _allowances_ERC20[this][sender_s325][msgsender_MSG]) || _balances_ERC20[this][recipient_s325] + amount_s325 >= 115792089237316195423570985008687907853269984665640564039457584007913129639936)) && amount_s325 >= 0) && amount_s325 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _balances_ERC20[this][recipient_s325] >= 0) && _balances_ERC20[this][recipient_s325] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _balances_ERC20[this][sender_s325] >= 0) && _balances_ERC20[this][sender_s325] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _allowances_ERC20[this][sender_s325][msgsender_MSG] >= 0) && _allowances_ERC20[this][sender_s325][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_transferFrom_ERC200 := true;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]                 revert := revert_hold;
+[L328]               havoc __exception;
+[L329]               revert := false;
+[L330]   COND FALSE  !(__exception)
+[L351]   CALL        call __ret_0_ := transferFrom~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L848]   COND TRUE   DType[this] == ULMC
+[L849]   CALL        call _transfer~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L920]               __var_2 := null;
+[L921]   COND FALSE  !(!(sender_s435 != null))
+[L925]               __var_3 := null;
+[L926]   COND FALSE  !(!(recipient_s435 != null))
+[L930]   CALL        call __var_4 := sub~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][sender_s435], amount_s435);
+[L687]   COND FALSE  !(!(b_s51 <= a_s51))
+[L691]               c_s51 := (a_s51 - b_s51) % 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L692]               __ret_0_ := c_s51;
+[L930]   RET         call __var_4 := sub~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][sender_s435], amount_s435);
+[L931]   COND FALSE  !(revert)
+[L934]               sum__balances0[this] := sum__balances0[this] - _balances_ERC20[this][sender_s435];
+[L935]               _balances_ERC20[this][sender_s435] := __var_4;
+[L936]               sum__balances0[this] := sum__balances0[this] + _balances_ERC20[this][sender_s435];
+[L937]   CALL        call __var_5 := add~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][recipient_s435], amount_s435);
+[L663]               c_s26 := (a_s26 + b_s26) % 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L664]   COND FALSE  !(!(c_s26 >= a_s26))
+[L668]               __ret_0_ := c_s26;
+[L937]   RET         call __var_5 := add~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][recipient_s435], amount_s435);
+[L938]   COND FALSE  !(revert)
+[L941]               sum__balances0[this] := sum__balances0[this] - _balances_ERC20[this][recipient_s435];
+[L942]               _balances_ERC20[this][recipient_s435] := __var_5;
+[L943]               sum__balances0[this] := sum__balances0[this] + _balances_ERC20[this][recipient_s435];
+[L944]               assert { :EventEmitted "Transfer_ERC20" } true;
+[L849]   RET         call _transfer~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L850]   COND FALSE  !(revert)
+[L861]   CALL        call __var_1 := sub~uint256~uint256_SafeMath__success(this, this, 0, _allowances_ERC20[this][sender_s325][msgsender_MSG], amount_s325);
+[L687]   COND FALSE  !(!(b_s51 <= a_s51))
+[L691]               c_s51 := (a_s51 - b_s51) % 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L692]               __ret_0_ := c_s51;
+[L861]   RET         call __var_1 := sub~uint256~uint256_SafeMath__success(this, this, 0, _allowances_ERC20[this][sender_s325][msgsender_MSG], amount_s325);
+[L862]   COND FALSE  !(revert)
+[L865]   COND FALSE  !(DType[this] == ULMC)
+[L870]   COND TRUE   DType[this] == ERC20
+[L871]   CALL        call _approve~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, msgsender_MSG, __var_1);
+[L970]               __var_6 := null;
+[L971]   COND FALSE  !(!(owner_s563 != null))
+[L975]               __var_7 := null;
+[L976]   COND FALSE  !(!(spender_s563 != null))
+[L980]               sum__allowances1[owner_s563] := sum__allowances1[owner_s563] - _allowances_ERC20[this][owner_s563][spender_s563];
+[L981]               _allowances_ERC20[this][owner_s563][spender_s563] := value_s563;
+[L982]               sum__allowances1[owner_s563] := sum__allowances1[owner_s563] + _allowances_ERC20[this][owner_s563][spender_s563];
+[L983]               assert { :EventEmitted "Approval_ERC20" } true;
+[L871]   RET         call _approve~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, msgsender_MSG, __var_1);
+[L872]   COND FALSE  !(revert)
+[L878]               __ret_0_ := true;
+[L351]   RET         call __ret_0_ := transferFrom~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L352]               assume !revert && gas >= 0;
+[L1864]  RET         call __ret_0_transferFrom := transferFrom~address~address~uint256_ERC20(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L1879]  RET         call CorralChoice_ULMC(this);
+
+Loop:
+[L1879]        assume true;
+
+[2020-11-24 17:46:51,706 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:46:51,706 INFO  L82        PathProgramCache]: Analyzing trace with hash -1928246684, now seen corresponding path program 1 times
+[2020-11-24 17:46:51,707 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:46:51,720 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:46:51,746 INFO  L134       CoverageAnalysis]: Checked inductivity of 5 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 5 trivial. 0 not checked.
+[2020-11-24 17:46:51,747 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:46:51,747 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 17:46:51,747 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:46:51,747 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 17:46:51,748 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 17:46:51,748 INFO  L87              Difference]: Start difference. First operand 156 states and 161 transitions. cyclomatic complexity: 6 Second operand 3 states.
+[2020-11-24 17:46:51,754 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:46:51,754 INFO  L93              Difference]: Finished difference Result 163 states and 169 transitions.
+[2020-11-24 17:46:51,755 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:46:51,755 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 163 states and 169 transitions.
+[2020-11-24 17:46:51,756 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,757 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 163 states to 163 states and 169 transitions.
+[2020-11-24 17:46:51,758 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 114
+[2020-11-24 17:46:51,758 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 114
+[2020-11-24 17:46:51,758 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 163 states and 169 transitions.
+[2020-11-24 17:46:51,759 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:46:51,759 INFO  L728         BuchiCegarLoop]: Abstraction has 163 states and 169 transitions.
+[2020-11-24 17:46:51,759 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 163 states and 169 transitions.
+[2020-11-24 17:46:51,766 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 163 to 160.
+[2020-11-24 17:46:51,766 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 160 states.
+[2020-11-24 17:46:51,768 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 160 states to 160 states and 166 transitions.
+[2020-11-24 17:46:51,768 INFO  L751         BuchiCegarLoop]: Abstraction has 160 states and 166 transitions.
+[2020-11-24 17:46:51,768 INFO  L631         BuchiCegarLoop]: Abstraction has 160 states and 166 transitions.
+[2020-11-24 17:46:51,768 INFO  L445         BuchiCegarLoop]: ======== Iteration 4============
+[2020-11-24 17:46:51,768 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 160 states and 166 transitions.
+[2020-11-24 17:46:51,770 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:46:51,771 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:46:51,771 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:46:51,775 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:46:51,776 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 fail_transferFrom_ERC200 := false;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]     CALL        call main();
+[L1874]              assume null == 0;
+[L1875]  CALL        call this := FreshRefGenerator__success();
+[L642]               havoc newRef;
+[L643]               assume Alloc[newRef] == false;
+[L644]               Alloc[newRef] := true;
+[L645]               assume newRef != null;
+[L1875]  RET         call this := FreshRefGenerator__success();
+[L1876]              assume now >= 0;
+[L1877]              assume DType[this] == ULMC;
+[L1878]              assume !revert && gas >= 0;
+[L1879]  CALL        call CorralChoice_ULMC(this);
+[L1789]              havoc msgsender_MSG;
+[L1790]              havoc msgvalue_MSG;
+[L1791]              havoc choice;
+[L1792]              havoc __ret_0_totalSupply;
+[L1793]              havoc account_s236;
+[L1794]              havoc __ret_0_balanceOf;
+[L1795]              havoc recipient_s255;
+[L1796]              havoc amount_s255;
+[L1797]              havoc __ret_0_transfer;
+[L1798]              havoc owner_s271;
+[L1799]              havoc spender_s271;
+[L1800]              havoc __ret_0_allowance;
+[L1801]              havoc spender_s290;
+[L1802]              havoc value_s290;
+[L1803]              havoc __ret_0_approve;
+[L1804]              havoc sender_s325;
+[L1805]              havoc recipient_s325;
+[L1806]              havoc amount_s325;
+[L1807]              havoc __ret_0_transferFrom;
+[L1808]              havoc spender_s352;
+[L1809]              havoc addedValue_s352;
+[L1810]              havoc __ret_0_increaseAllowance;
+[L1811]              havoc spender_s379;
+[L1812]              havoc subtractedValue_s379;
+[L1813]              havoc __ret_0_decreaseAllowance;
+[L1814]              havoc name_s622;
+[L1815]              havoc symbol_s622;
+[L1816]              havoc decimals_s622;
+[L1817]              havoc __ret_0_name;
+[L1818]              havoc __ret_0_symbol;
+[L1819]              havoc __ret_0_decimals;
+[L1820]              havoc tmpNow;
+[L1821]              havoc gas;
+[L1822]              assume gas > 4000000 && gas <= 8000000;
+[L1823]              tmpNow := now;
+[L1824]              havoc now;
+[L1825]              assume now > tmpNow;
+[L1826]              assume msgsender_MSG != null;
+[L1827]  COND FALSE  !(choice == 6)
+[L1833]  COND FALSE  !(choice == 5)
+[L1839]  COND FALSE  !(choice == 4)
+[L1846]  COND FALSE  !(choice == 3)
+[L1852]  COND FALSE  !(choice == 2)
+[L1859]  COND TRUE   choice == 1
+[L1860]              gas := gas - 21000;
+[L1861]  COND TRUE   gas >= 0
+[L1862]              assume amount_s325 >= 0 && amount_s325 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1863]              assume msgvalue_MSG == 0;
+[L1864]  CALL        call __ret_0_transferFrom := transferFrom~address~address~uint256_ERC20(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume ((((((((sender_s325 != recipient_s325 && ((amount_s325 > _balances_ERC20[this][sender_s325] || amount_s325 > _allowances_ERC20[this][sender_s325][msgsender_MSG]) || _balances_ERC20[this][recipient_s325] + amount_s325 >= 115792089237316195423570985008687907853269984665640564039457584007913129639936)) && amount_s325 >= 0) && amount_s325 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _balances_ERC20[this][recipient_s325] >= 0) && _balances_ERC20[this][recipient_s325] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _balances_ERC20[this][sender_s325] >= 0) && _balances_ERC20[this][sender_s325] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && _allowances_ERC20[this][sender_s325][msgsender_MSG] >= 0) && _allowances_ERC20[this][sender_s325][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_transferFrom_ERC200 := true;
+[L2]                 call_transferFrom_ERC200 := false;
+[L2]                 revert := revert_hold;
+[L328]               havoc __exception;
+[L329]               revert := false;
+[L330]   COND FALSE  !(__exception)
+[L351]   CALL        call __ret_0_ := transferFrom~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L848]   COND TRUE   DType[this] == ULMC
+[L849]   CALL        call _transfer~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L920]               __var_2 := null;
+[L921]   COND FALSE  !(!(sender_s435 != null))
+[L925]               __var_3 := null;
+[L926]   COND FALSE  !(!(recipient_s435 != null))
+[L930]   CALL        call __var_4 := sub~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][sender_s435], amount_s435);
+[L687]   COND FALSE  !(!(b_s51 <= a_s51))
+[L691]               c_s51 := (a_s51 - b_s51) % 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L692]               __ret_0_ := c_s51;
+[L930]   RET         call __var_4 := sub~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][sender_s435], amount_s435);
+[L931]   COND FALSE  !(revert)
+[L934]               sum__balances0[this] := sum__balances0[this] - _balances_ERC20[this][sender_s435];
+[L935]               _balances_ERC20[this][sender_s435] := __var_4;
+[L936]               sum__balances0[this] := sum__balances0[this] + _balances_ERC20[this][sender_s435];
+[L937]   CALL        call __var_5 := add~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][recipient_s435], amount_s435);
+[L663]               c_s26 := (a_s26 + b_s26) % 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L664]   COND FALSE  !(!(c_s26 >= a_s26))
+[L668]               __ret_0_ := c_s26;
+[L937]   RET         call __var_5 := add~uint256~uint256_SafeMath__success(this, this, 0, _balances_ERC20[this][recipient_s435], amount_s435);
+[L938]   COND FALSE  !(revert)
+[L941]               sum__balances0[this] := sum__balances0[this] - _balances_ERC20[this][recipient_s435];
+[L942]               _balances_ERC20[this][recipient_s435] := __var_5;
+[L943]               sum__balances0[this] := sum__balances0[this] + _balances_ERC20[this][recipient_s435];
+[L944]               assert { :EventEmitted "Transfer_ERC20" } true;
+[L849]   RET         call _transfer~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L850]   COND FALSE  !(revert)
+[L861]   CALL        call __var_1 := sub~uint256~uint256_SafeMath__success(this, this, 0, _allowances_ERC20[this][sender_s325][msgsender_MSG], amount_s325);
+[L687]   COND FALSE  !(!(b_s51 <= a_s51))
+[L691]               c_s51 := (a_s51 - b_s51) % 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L692]               __ret_0_ := c_s51;
+[L861]   RET         call __var_1 := sub~uint256~uint256_SafeMath__success(this, this, 0, _allowances_ERC20[this][sender_s325][msgsender_MSG], amount_s325);
+[L862]   COND FALSE  !(revert)
+[L865]   COND TRUE   DType[this] == ULMC
+[L866]   CALL        call _approve~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, msgsender_MSG, __var_1);
+[L970]               __var_6 := null;
+[L971]   COND FALSE  !(!(owner_s563 != null))
+[L975]               __var_7 := null;
+[L976]   COND FALSE  !(!(spender_s563 != null))
+[L980]               sum__allowances1[owner_s563] := sum__allowances1[owner_s563] - _allowances_ERC20[this][owner_s563][spender_s563];
+[L981]               _allowances_ERC20[this][owner_s563][spender_s563] := value_s563;
+[L982]               sum__allowances1[owner_s563] := sum__allowances1[owner_s563] + _allowances_ERC20[this][owner_s563][spender_s563];
+[L983]               assert { :EventEmitted "Approval_ERC20" } true;
+[L866]   RET         call _approve~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, msgsender_MSG, __var_1);
+[L867]   COND FALSE  !(revert)
+[L878]               __ret_0_ := true;
+[L351]   RET         call __ret_0_ := transferFrom~address~address~uint256_ERC20__success(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L352]               assume !revert && gas >= 0;
+[L1864]  RET         call __ret_0_transferFrom := transferFrom~address~address~uint256_ERC20(this, msgsender_MSG, msgvalue_MSG, sender_s325, recipient_s325, amount_s325);
+[L1879]  RET         call CorralChoice_ULMC(this);
+
+Loop:
+[L1879]        assume true;
+
+[2020-11-24 17:46:51,778 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:46:51,778 INFO  L82        PathProgramCache]: Analyzing trace with hash 2080304540, now seen corresponding path program 1 times
+[2020-11-24 17:46:51,779 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:46:51,803 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:46:52,008 INFO  L134       CoverageAnalysis]: Checked inductivity of 5 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 5 trivial. 0 not checked.
+[2020-11-24 17:46:52,009 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:46:52,009 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [15] imperfect sequences [] total 15
+[2020-11-24 17:46:52,009 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:46:52,010 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 15 interpolants.
+[2020-11-24 17:46:52,010 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=32, Invalid=178, Unknown=0, NotChecked=0, Total=210
+[2020-11-24 17:46:52,010 INFO  L87              Difference]: Start difference. First operand 160 states and 166 transitions. cyclomatic complexity: 7 Second operand 15 states.
+[2020-11-24 17:46:52,330 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:46:52,331 INFO  L93              Difference]: Finished difference Result 151 states and 156 transitions.
+[2020-11-24 17:46:52,331 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 15 states. 
+[2020-11-24 17:46:52,331 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 151 states and 156 transitions.
+[2020-11-24 17:46:52,332 INFO  L131   ngComponentsAnalysis]: Automaton has 0 accepting balls. 0
+[2020-11-24 17:46:52,333 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 151 states to 0 states and 0 transitions.
+[2020-11-24 17:46:52,333 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 0
+[2020-11-24 17:46:52,333 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 0
+[2020-11-24 17:46:52,333 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 0 states and 0 transitions.
+[2020-11-24 17:46:52,333 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:46:52,333 INFO  L728         BuchiCegarLoop]: Abstraction has 0 states and 0 transitions.
+[2020-11-24 17:46:52,333 INFO  L751         BuchiCegarLoop]: Abstraction has 0 states and 0 transitions.
+[2020-11-24 17:46:52,333 INFO  L631         BuchiCegarLoop]: Abstraction has 0 states and 0 transitions.
+[2020-11-24 17:46:52,333 INFO  L445         BuchiCegarLoop]: ======== Iteration 5============
+[2020-11-24 17:46:52,333 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 0 states and 0 transitions.
+[2020-11-24 17:46:52,333 INFO  L131   ngComponentsAnalysis]: Automaton has 0 accepting balls. 0
+[2020-11-24 17:46:52,334 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is true
+[2020-11-24 17:46:52,338 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 05:46:52 BasicIcfg
+[2020-11-24 17:46:52,338 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2020-11-24 17:46:52,338 INFO  L168              Benchmark]: Toolchain (without parser) took 2914.30 ms. Allocated memory was 1.0 GB in the beginning and 1.3 GB in the end (delta: 228.1 MB). Free memory was 940.6 MB in the beginning and 902.5 MB in the end (delta: 38.1 MB). Peak memory consumption was 266.2 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,340 INFO  L168              Benchmark]: Boogie PL CUP Parser took 0.15 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,340 INFO  L168              Benchmark]: Boogie Preprocessor took 76.92 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,341 INFO  L168              Benchmark]: UtopiaSpecLang took 45.34 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,341 INFO  L168              Benchmark]: Boogie Printer took 9.22 ms. Allocated memory is still 1.0 GB. Free memory is still 929.8 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,341 INFO  L168              Benchmark]: RCFGBuilder took 498.07 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 876.2 MB in the end (delta: 53.7 MB). Peak memory consumption was 53.7 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,342 INFO  L168              Benchmark]: UtopiaLTL2Aut took 38.58 ms. Allocated memory is still 1.0 GB. Free memory was 876.2 MB in the beginning and 867.2 MB in the end (delta: 9.0 MB). Peak memory consumption was 9.0 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,342 INFO  L168              Benchmark]: Büchi Program Product took 900.44 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 59.8 MB). Free memory was 867.2 MB in the beginning and 941.0 MB in the end (delta: -73.8 MB). Peak memory consumption was 150.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,343 INFO  L168              Benchmark]: BlockEncodingV2 took 81.74 ms. Allocated memory is still 1.1 GB. Free memory was 941.0 MB in the beginning and 902.9 MB in the end (delta: 38.1 MB). Peak memory consumption was 38.1 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,343 INFO  L168              Benchmark]: BuchiAutomizer took 1261.07 ms. Allocated memory was 1.1 GB in the beginning and 1.3 GB in the end (delta: 168.3 MB). Free memory was 902.9 MB in the beginning and 902.5 MB in the end (delta: 400.3 kB). Peak memory consumption was 168.7 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:46:52,347 INFO  L337   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.blockencoding:
+  - StatisticsResult: Initial Icfg
+    1590 locations, 2822 edges
+  - StatisticsResult: Encoded RCFG
+    1527 locations, 2672 edges
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * Boogie PL CUP Parser took 0.15 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * Boogie Preprocessor took 76.92 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * UtopiaSpecLang took 45.34 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * Boogie Printer took 9.22 ms. Allocated memory is still 1.0 GB. Free memory is still 929.8 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * RCFGBuilder took 498.07 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 876.2 MB in the end (delta: 53.7 MB). Peak memory consumption was 53.7 MB. Max. memory is 15.3 GB.
+ * UtopiaLTL2Aut took 38.58 ms. Allocated memory is still 1.0 GB. Free memory was 876.2 MB in the beginning and 867.2 MB in the end (delta: 9.0 MB). Peak memory consumption was 9.0 MB. Max. memory is 15.3 GB.
+ * Büchi Program Product took 900.44 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 59.8 MB). Free memory was 867.2 MB in the beginning and 941.0 MB in the end (delta: -73.8 MB). Peak memory consumption was 150.4 MB. Max. memory is 15.3 GB.
+ * BlockEncodingV2 took 81.74 ms. Allocated memory is still 1.1 GB. Free memory was 941.0 MB in the beginning and 902.9 MB in the end (delta: 38.1 MB). Peak memory consumption was 38.1 MB. Max. memory is 15.3 GB.
+ * BuchiAutomizer took 1261.07 ms. Allocated memory was 1.1 GB in the beginning and 1.3 GB in the end (delta: 168.3 MB). Free memory was 902.9 MB in the beginning and 902.5 MB in the end (delta: 400.3 kB). Peak memory consumption was 168.7 MB. Max. memory is 15.3 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.buchiprogramproduct:
+  - StatisticsResult: Initial property automaton
+    2 locations, 3 edges
+  - StatisticsResult: Initial RCFG
+    660 locations, 868 edges
+  - StatisticsResult: BuchiProgram size
+    1590 locations, 2822 edges
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Your program was decomposed into 4 terminating modules (4 trivial, 0 deterministic, 0 nondeterministic). 4 modules have a trivial ranking function, the largest among these consists of 15 locations.
+  - StatisticsResult: Timing statistics
+    BüchiAutomizer plugin needed 1.2s and 5 iterations.  TraceHistogramMax:2. Analysis of lassos took 0.4s. Construction of modules took 0.3s. Büchi inclusion checks took 0.3s. Highest rank in rank-based complementation 0. Minimization of det autom 4. Minimization of nondet autom 0. Automata minimization 0.0s AutomataMinimizationTime, 3 MinimizatonAttempts, 3 StatesRemovedByMinimization, 1 NontrivialMinimizations. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had 162 states and ocurred in iteration 1.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: 1157 SDtfs, 844 SDslu, 1425 SDs, 0 SdLazy, 1247 SolverSat, 477 SolverUnsat, 0 SolverUnknown, 0 SolverNotchecked, 0.3s Time	LassoAnalysisResults: nont0 unkn0 SFLI0 SFLT0 conc0 concLT0 SILN0 SILU4 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - AllSpecificationsHoldResult: All specifications hold
+    Buchi Automizer proved that the LTL property ! ( ( []( (call_transferFrom_ERC200) ==> ( <>(fail_transferFrom_ERC200) ) ) )) holds
+RESULT: Ultimate proved your program to be correct!
+Received shutdown request...

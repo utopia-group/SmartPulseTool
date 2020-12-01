@@ -1,0 +1,456 @@
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/totalSupply-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.031s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/totalSupply-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 26.637s
+
+Parsing finished:   53.199 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/totalSupply-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/totalSupply-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/balanceOf-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.023s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/balanceOf-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 33.199s
+
+Parsing finished:   62.967 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/balanceOf-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/balanceOf-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/allowance-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.025s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/allowance-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+
+Initialization finished
+==================================
+Stats for each phase, time, used memory, implicit main GC time percentage:
+Total init            :  904.438 s,	13906 MB, gc: 52.778 %
+  JVM init            :    0.089 s
+  Parsing             :   62.967 s,	 2313 MB, gc:  4.285 %
+  Rewriter init       :  841.382 s,	13906 MB, gc: 56.412 %
+
+Init+Execution time:     841.382 s
+  query build time                 :    0.023 s,      #          8
+  Z3 Function rule implication time:    0.110 s,      #          8
+      sat           :       8
+
+  Time and top-level event counts:
+  resolveFunctionAndAnywhere time  :  841.140 s,      #        303
+    evaluateFunction time            :  841.134 s,      #         56
+      builtin evaluation               :           ,      #          7
+      function rule                    :           ,      #         11
+      no rule applicable               :           ,      #         38
+    applyAnywhereRules time          :    0.000 s,      #        141
+      no anywhere rules                :           ,      #        141
+    remaining time & # cached        :    0.006 s,      #        106
+  impliesSMT time                  :    0.135 s,      #          8
+
+  Recursive event counts:
+  resolveFunctionAndAnywhere time  :           ,      #   93586723
+    evaluateFunction time            :           ,      #   46805437
+      builtin evaluation               :           ,      #      75042
+      function rule                    :           ,      #   46730324
+      no rule applicable               :           ,      #         15
+    applyAnywhereRules time          :           ,      #       9878
+      no anywhere rules                :           ,      #       9878
+    # cached                         :           ,      #   46771408
+==================================
+
+Parse spec modules [1/1256 rules]                            = 28.047s
+
+Parsing finished:   54.679 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/allowance-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/allowance-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/approve-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/approve-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 33.308s
+
+Parsing finished:   70.794 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/approve-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/approve-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.025s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 35.614s
+
+Parsing finished:   61.758 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 35.229s
+
+Parsing finished:   65.763 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-success-2-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 38.651s
+
+Parsing finished:   66.086 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.021s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 32.842s
+
+Parsing finished:   58.450 s
+
+Initialization finished
+==================================
+Stats for each phase, time, used memory, implicit main GC time percentage:
+Total init            :  870.142 s,	12837 MB, gc: 56.649 %
+  JVM init            :    0.061 s
+  Parsing             :   58.450 s,	 2641 MB, gc:  3.959 %
+  Rewriter init       :  811.630 s,	12837 MB, gc: 60.448 %
+
+Init+Execution time:     811.630 s
+  query build time                 :    0.025 s,      #          8
+  Z3 Function rule implication time:    0.103 s,      #          8
+      sat           :       8
+
+  Time and top-level event counts:
+  resolveFunctionAndAnywhere time  :  811.369 s,      #        405
+    evaluateFunction time            :  811.363 s,      #         73
+      builtin evaluation               :           ,      #          9
+      function rule                    :           ,      #         14
+      no rule applicable               :           ,      #         50
+    applyAnywhereRules time          :    0.000 s,      #        149
+      no anywhere rules                :           ,      #        149
+    remaining time & # cached        :    0.006 s,      #        183
+  impliesSMT time                  :    0.133 s,      #          8
+
+  Recursive event counts:
+  resolveFunctionAndAnywhere time  :           ,      #   93596425
+    evaluateFunction time            :           ,      #   46805459
+      builtin evaluation               :           ,      #      75045
+      function rule                    :           ,      #   46730335
+      no rule applicable               :           ,      #         23
+    applyAnywhereRules time          :           ,      #       9878
+      no anywhere rules                :           ,      #       9878
+    # cached                         :           ,      #   46781088
+==================================
+
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transfer-failure-2-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.029s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 27.800s
+
+Parsing finished:   53.961 s
+
+Initialization finished
+==================================
+Stats for each phase, time, used memory, implicit main GC time percentage:
+Total init            :  889.576 s,	12547 MB, gc: 58.285 %
+  JVM init            :    0.065 s
+  Parsing             :   53.961 s,	 1783 MB, gc:  4.034 %
+  Rewriter init       :  835.551 s,	12547 MB, gc: 61.793 %
+
+Init+Execution time:     835.551 s
+  query build time                 :    0.023 s,      #          8
+  Z3 Function rule implication time:    0.107 s,      #          8
+      sat           :       8
+
+  Time and top-level event counts:
+  resolveFunctionAndAnywhere time  :  835.241 s,      #        359
+    evaluateFunction time            :  835.234 s,      #        117
+      builtin evaluation               :           ,      #          9
+      function rule                    :           ,      #         20
+      no rule applicable               :           ,      #         88
+    applyAnywhereRules time          :    0.000 s,      #        154
+      no anywhere rules                :           ,      #        154
+    remaining time & # cached        :    0.006 s,      #         88
+  impliesSMT time                  :    0.134 s,      #          8
+
+  Recursive event counts:
+  resolveFunctionAndAnywhere time  :           ,      #   93587047
+    evaluateFunction time            :           ,      #   46805563
+      builtin evaluation               :           ,      #      75065
+      function rule                    :           ,      #   46730403
+      no rule applicable               :           ,      #         39
+    applyAnywhereRules time          :           ,      #       9915
+      no anywhere rules                :           ,      #       9915
+    # cached                         :           ,      #   46771569
+==================================
+
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.028s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 25.647s
+
+Parsing finished:   51.890 s
+
+Initialization finished
+==================================
+Stats for each phase, time, used memory, implicit main GC time percentage:
+Total init            :  885.288 s,	13116 MB, gc: 58.753 %
+  JVM init            :    0.075 s
+  Parsing             :   51.890 s,	 1891 MB, gc:  3.617 %
+  Rewriter init       :  833.323 s,	13116 MB, gc: 62.191 %
+
+Init+Execution time:     833.323 s
+  query build time                 :    0.023 s,      #          8
+  Z3 Function rule implication time:    0.090 s,      #          8
+      sat           :       8
+
+  Time and top-level event counts:
+  resolveFunctionAndAnywhere time  :  833.081 s,      #        475
+    evaluateFunction time            :  833.074 s,      #        100
+      builtin evaluation               :           ,      #          9
+      function rule                    :           ,      #         16
+      no rule applicable               :           ,      #         75
+    applyAnywhereRules time          :    0.000 s,      #        152
+      no anywhere rules                :           ,      #        152
+    remaining time & # cached        :    0.007 s,      #        223
+  impliesSMT time                  :    0.117 s,      #          8
+
+  Recursive event counts:
+  resolveFunctionAndAnywhere time  :           ,      #   93596666
+    evaluateFunction time            :           ,      #   46805520
+      builtin evaluation               :           ,      #      75057
+      function rule                    :           ,      #   46730381
+      no rule applicable               :           ,      #         26
+    applyAnywhereRules time          :           ,      #       9914
+      no anywhere rules                :           ,      #       9914
+    # cached                         :           ,      #   46781232
+==================================
+
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-success-2-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.026s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 25.353s
+
+Parsing finished:   50.728 s
+
+Initialization finished
+==================================
+Stats for each phase, time, used memory, implicit main GC time percentage:
+Total init            :  782.094 s,	13620 MB, gc: 53.444 %
+  JVM init            :    0.066 s
+  Parsing             :   50.728 s,	 1739 MB, gc:  4.307 %
+  Rewriter init       :  731.301 s,	13620 MB, gc: 56.858 %
+
+Init+Execution time:     731.301 s
+  query build time                 :    0.022 s,      #          8
+  Z3 Function rule implication time:    0.099 s,      #          8
+      sat           :       8
+
+  Time and top-level event counts:
+  resolveFunctionAndAnywhere time  :  731.035 s,      #        358
+    evaluateFunction time            :  731.029 s,      #        120
+      builtin evaluation               :           ,      #          9
+      function rule                    :           ,      #         20
+      no rule applicable               :           ,      #         91
+    applyAnywhereRules time          :    0.000 s,      #        154
+      no anywhere rules                :           ,      #        154
+    remaining time & # cached        :    0.006 s,      #         84
+  impliesSMT time                  :    0.124 s,      #          8
+
+  Recursive event counts:
+  resolveFunctionAndAnywhere time  :           ,      #   93586806
+    evaluateFunction time            :           ,      #   46805492
+      builtin evaluation               :           ,      #      75050
+      function rule                    :           ,      #   46730351
+      no rule applicable               :           ,      #         35
+    applyAnywhereRules time          :           ,      #       9883
+      no anywhere rules                :           ,      #       9883
+    # cached                         :           ,      #   46771431
+==================================
+
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 25.972s
+
+Parsing finished:   51.470 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/ZildFinanceCoin_0x006699d34AA3013605d468d2755A2Fe59A16B12B/transferFrom-failure-2-spec.k.test] Terminated

@@ -83,14 +83,14 @@ exception=0
 timedout=0
 
 # create /logs if it doesn't exist
-mkdir -p logs
+mkdir -p smartpulse_logs
 
 
 for i in ${!properties[@]}
 do
 	# set up the .bpl file with the correct property
     propBpl=${FILE_NAME%.sol}_${property_names[$i]}.bpl
-    logName=./logs/${FILE_NAME%.sol}-${property_names[$i]}-log.txt
+    logName=./smartpulse_logs/${FILE_NAME%.sol}-${property_names[$i]}-log.txt
 	echo -e "${properties[$i]}" > ${propBpl}
 	cat  ${baseBpl} >> ${propBpl}
 
@@ -125,7 +125,7 @@ do
 			((++exception));
 		fi
 	fi
-    rm -f ${propBpl}
+    #rm -f ${propBpl}
 done
 
 echo "Verified ${correct} out of ${#properties[@]} properties";
@@ -135,4 +135,4 @@ echo "${timedout} timed out";
 
 # clean-up
 # But leave FILE_NAME.bpl in case user would like to read the Boogie code
-# rm -f ${baseBpl}
+ rm -f ${baseBpl}

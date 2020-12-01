@@ -1,0 +1,276 @@
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/totalSupply-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/totalSupply-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 34.012s
+
+Parsing finished:   60.759 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/totalSupply-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/totalSupply-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/balanceOf-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.029s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/balanceOf-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 31.937s
+
+Parsing finished:   64.669 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/balanceOf-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/balanceOf-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/allowance-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.038s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/allowance-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 40.245s
+
+Parsing finished:   70.319 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/allowance-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/allowance-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/approve-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/approve-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 34.711s
+
+Parsing finished:   64.118 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/approve-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/approve-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.024s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 34.378s
+
+Parsing finished:   61.793 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.038s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 33.957s
+
+Parsing finished:   68.630 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-success-2-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.028s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 35.108s
+
+Parsing finished:   61.803 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 32.953s
+
+Parsing finished:   64.004 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transfer-failure-2-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.033s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 34.149s
+
+Parsing finished:   64.048 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 30.423s
+
+Parsing finished:   56.656 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-success-2-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-1-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-1-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 32.403s
+
+Parsing finished:   67.613 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-1-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-1-spec.k.test] Terminated
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be'
+/mnt/data0/jon/verified-smart-contracts/.build/k/k-distribution/target/release/k/bin/kprove -v --debug -d /mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java -m VERIFICATION --z3-impl-timeout 500 --shutdown-wait-time 5s  --concrete-rules EDSL.#ceil32,EDSL.keccakIntList,EVM-TYPES.#signed.positive,EVM-TYPES.#signed.negative,EVM-TYPES.#unsigned.positive,EVM-TYPES.#unsigned.negative,EVM-TYPES.powmod.nonzero,EVM-TYPES.powmod.zero,EVM-TYPES.signextend.invalid,EVM-TYPES.signextend.negative,EVM-TYPES.signextend.positive,SERIALIZATION.keccak,EVM-TYPES.#take.zero-pad,EVM-TYPES.#asWord.recursive,EVM-TYPES.#asByteStack,EVM-TYPES.#asByteStackAux.recursive,EVM-TYPES.#padToWidth,EVM-TYPES.#padRightToWidth,SERIALIZATION.#newAddr,SERIALIZATION.#newAddrCreate2,EVM-TYPES.mapWriteBytes.recursive,EVM-TYPES.#range,EVM-TYPES.#lookup.some,EVM-TYPES.#lookup.none,EVM.#memoryUsageUpdate.some,EVM.Cgascap,EVM.Csstore.new,EVM.Csstore.old,EVM.Rsstore.new,EVM.Rsstore.old,EVM.Cextra,EVM.Cmem, --no-exc-wrap --no-alpha-renaming --deterministic-functions --cache-func-optimized --format-failures --boundary-cells k,pc --log-cells k,output,statusCode,localMem,pc,gas,wordStack,callData,accounts,memoryUsed,#pc,#result --smt-prelude /mnt/data0/jon/verified-smart-contracts/resources/evm.smt2  /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-2-spec.k
+Picked up _JAVA_OPTIONS: -Xmx16g -Xms1g
+Parse command line options                                   =  0.030s
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-2-spec.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/abstract-semantics-segmented-gas.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/edsl.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/data.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/krypto.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/evm-types.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/json.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/serialization.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/erc20/.build/evm-semantics/.build/defn/java/network.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/verification.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/evm-data-map-symbolic.k)
+Importing: Source(/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/lemmas-buf.k)
+Parse spec modules [1/1256 rules]                            = 32.137s
+
+Parsing finished:   63.188 s
+../../resources/kprove.mak:239: recipe for target '/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-2-spec.k.test' failed
+make: *** [/mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/MainToken_0xabe580e7ee158da464b51ee1a83ac0289622e6be/transferFrom-failure-2-spec.k.test] Terminated

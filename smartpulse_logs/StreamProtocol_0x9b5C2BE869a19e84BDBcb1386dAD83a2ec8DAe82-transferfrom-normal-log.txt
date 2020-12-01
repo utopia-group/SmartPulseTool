@@ -1,0 +1,928 @@
+This is Ultimate 0.1.24-f1553f5-m
+[2020-11-24 17:31:17,964 INFO  L170        SettingsManager]: Resetting all preferences to default values...
+[2020-11-24 17:31:17,964 INFO  L174        SettingsManager]: Resetting UltimateCore preferences to default values
+[2020-11-24 17:31:17,972 INFO  L177        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2020-11-24 17:31:17,972 INFO  L174        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2020-11-24 17:31:17,972 INFO  L174        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2020-11-24 17:31:17,973 INFO  L174        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2020-11-24 17:31:17,974 INFO  L174        SettingsManager]: Resetting LassoRanker preferences to default values
+[2020-11-24 17:31:17,975 INFO  L174        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2020-11-24 17:31:17,976 INFO  L174        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2020-11-24 17:31:17,976 INFO  L177        SettingsManager]: Büchi Program Product provides no preferences, ignoring...
+[2020-11-24 17:31:17,976 INFO  L174        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2020-11-24 17:31:17,977 INFO  L174        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2020-11-24 17:31:17,977 INFO  L174        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2020-11-24 17:31:17,978 INFO  L174        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2020-11-24 17:31:17,978 INFO  L174        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2020-11-24 17:31:17,979 INFO  L174        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2020-11-24 17:31:17,980 INFO  L174        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2020-11-24 17:31:17,980 INFO  L174        SettingsManager]: Resetting CodeCheck preferences to default values
+[2020-11-24 17:31:17,981 INFO  L174        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2020-11-24 17:31:17,982 INFO  L174        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2020-11-24 17:31:17,982 INFO  L174        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2020-11-24 17:31:17,983 INFO  L177        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2020-11-24 17:31:17,983 INFO  L177        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2020-11-24 17:31:17,984 INFO  L174        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2020-11-24 17:31:17,985 INFO  L174        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2020-11-24 17:31:17,985 INFO  L174        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2020-11-24 17:31:17,985 INFO  L177        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2020-11-24 17:31:17,985 INFO  L174        SettingsManager]: Resetting UtopiaLTL2Aut preferences to default values
+[2020-11-24 17:31:17,986 INFO  L174        SettingsManager]: Resetting UtopiaSpecLang preferences to default values
+[2020-11-24 17:31:17,986 INFO  L174        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2020-11-24 17:31:17,986 INFO  L174        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2020-11-24 17:31:17,987 INFO  L174        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2020-11-24 17:31:17,987 INFO  L174        SettingsManager]: Resetting Witness Printer preferences to default values
+[2020-11-24 17:31:17,988 INFO  L177        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2020-11-24 17:31:17,988 INFO  L174        SettingsManager]: Resetting CDTParser preferences to default values
+[2020-11-24 17:31:17,988 INFO  L177        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2020-11-24 17:31:17,988 INFO  L177        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2020-11-24 17:31:17,988 INFO  L174        SettingsManager]: Resetting SmtParser preferences to default values
+[2020-11-24 17:31:17,989 INFO  L174        SettingsManager]: Resetting Witness Parser preferences to default values
+[2020-11-24 17:31:17,989 INFO  L181        SettingsManager]: Finished resetting all preferences to default values...
+[2020-11-24 17:31:17,990 INFO  L98         SettingsManager]: Beginning loading settings from /mnt/data0/jon/SmartPulseTool/SmartPulse/settings.epf
+[2020-11-24 17:31:17,997 INFO  L110        SettingsManager]: Loading preferences was successful
+[2020-11-24 17:31:17,997 INFO  L112        SettingsManager]: Preferences different from defaults after loading the file:
+[2020-11-24 17:31:17,998 INFO  L131        SettingsManager]: Preferences of LTL2Aut differ from their defaults:
+[2020-11-24 17:31:17,998 INFO  L133        SettingsManager]:  * Read property from file=true
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Path to LTL*BA executable (LTL2BA, LTL3BA)=/mnt/data0/jon/SmartPulseTool/ltl2ba
+[2020-11-24 17:31:17,999 INFO  L131        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Maximize final states=false
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2020-11-24 17:31:17,999 INFO  L131        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Use old map elimination=false
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Try twofold refinement=false
+[2020-11-24 17:31:17,999 INFO  L131        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2020-11-24 17:31:17,999 INFO  L133        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Overapproximate operations on floating types=true
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Check division by zero=IGNORE
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Check if freed pointer was valid=false
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Use constant arrays=true
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2020-11-24 17:31:18,000 INFO  L131        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * Size of a code block=SingleStatement
+[2020-11-24 17:31:18,000 INFO  L133        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+[2020-11-24 17:31:18,016 INFO  L81    nceAwareModelManager]: Repository-Root is: /tmp
+[2020-11-24 17:31:18,025 INFO  L259   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2020-11-24 17:31:18,027 INFO  L215   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2020-11-24 17:31:18,028 INFO  L271        PluginConnector]: Initializing Boogie PL CUP Parser...
+[2020-11-24 17:31:18,029 INFO  L276        PluginConnector]: Boogie PL CUP Parser initialized
+[2020-11-24 17:31:18,029 INFO  L430   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /mnt/data0/jon/SmartPulseTool/StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl
+[2020-11-24 17:31:18,029 INFO  L111           BoogieParser]: Parsing: '/mnt/data0/jon/SmartPulseTool/StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl'
+[2020-11-24 17:31:18,077 INFO  L297   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2020-11-24 17:31:18,078 INFO  L131        ToolchainWalker]: Walking toolchain with 8 elements.
+[2020-11-24 17:31:18,078 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2020-11-24 17:31:18,078 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2020-11-24 17:31:18,078 INFO  L276        PluginConnector]: Boogie Preprocessor initialized
+[2020-11-24 17:31:18,089 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,090 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,106 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,107 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,119 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,125 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,127 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,131 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2020-11-24 17:31:18,132 INFO  L113        PluginConnector]: ------------------------UtopiaSpecLang----------------------------
+[2020-11-24 17:31:18,132 INFO  L271        PluginConnector]: Initializing UtopiaSpecLang...
+[2020-11-24 17:31:18,133 INFO  L276        PluginConnector]: UtopiaSpecLang initialized
+[2020-11-24 17:31:18,136 INFO  L185        PluginConnector]: Executing the observer UtopiaSpecLangObserver from plugin UtopiaSpecLang for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/1) ...
+[2020-11-24 17:31:18,149 INFO  L1012  opiaSpecLangObserver]: Parsing LTLPlus Formula to AstNode: [](started(StreamProtocol.transferFrom(from, to, value), p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= balances_StreamProtocol[this][from] && value <= allowed_StreamProtocol[this][from][msg.sender] && balances_StreamProtocol[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][to] >= 0 && balances_StreamProtocol[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][from] >= 0 &&  balances_StreamProtocol[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && allowed_StreamProtocol[this][from][msg.sender] >= 0 && allowed_StreamProtocol[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(StreamProtocol.transferFrom(from, to, value), return == true && balances_StreamProtocol[this][from] == old(balances_StreamProtocol[this][from]) - value && balances_StreamProtocol[this][to] == old(balances_StreamProtocol[this][to]) + value && allowed_StreamProtocol[this][from][msg.sender] == old(allowed_StreamProtocol[this][from][msg.sender]) - value && _totalSupply_StreamProtocol[this] == old(_totalSupply_StreamProtocol[this]) && balances_StreamProtocol[this][p1] == old(balances_StreamProtocol[this][p1]) && allowed_StreamProtocol[this][p2][p3] == old(allowed_StreamProtocol[this][p2][p3]) && symbol_StreamProtocol[this] == old(symbol_StreamProtocol[this]) && name_StreamProtocol[this] == old(name_StreamProtocol[this]) && decimals_StreamProtocol[this] == old(decimals_StreamProtocol[this]) && _stopTrade_StreamProtocol[this] == old(_stopTrade_StreamProtocol[this]) && owner_Owned[this] == old(owner_Owned[this]))))
+[2020-11-24 17:31:18,153 INFO  L1016  opiaSpecLangObserver]: Successfully lexed: [](started(StreamProtocol.transferFrom(from, to, value), p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= balances_StreamProtocol[this][from] && value <= allowed_StreamProtocol[this][from][msg.sender] && balances_StreamProtocol[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][to] >= 0 && balances_StreamProtocol[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][from] >= 0 &&  balances_StreamProtocol[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && allowed_StreamProtocol[this][from][msg.sender] >= 0 && allowed_StreamProtocol[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(StreamProtocol.transferFrom(from, to, value), return == true && balances_StreamProtocol[this][from] == old(balances_StreamProtocol[this][from]) - value && balances_StreamProtocol[this][to] == old(balances_StreamProtocol[this][to]) + value && allowed_StreamProtocol[this][from][msg.sender] == old(allowed_StreamProtocol[this][from][msg.sender]) - value && _totalSupply_StreamProtocol[this] == old(_totalSupply_StreamProtocol[this]) && balances_StreamProtocol[this][p1] == old(balances_StreamProtocol[this][p1]) && allowed_StreamProtocol[this][p2][p3] == old(allowed_StreamProtocol[this][p2][p3]) && symbol_StreamProtocol[this] == old(symbol_StreamProtocol[this]) && name_StreamProtocol[this] == old(name_StreamProtocol[this]) && decimals_StreamProtocol[this] == old(decimals_StreamProtocol[this]) && _stopTrade_StreamProtocol[this] == old(_stopTrade_StreamProtocol[this]) && owner_Owned[this] == old(owner_Owned[this]))))
+[2020-11-24 17:31:18,160 INFO  L1018  opiaSpecLangObserver]: Successfully parsed: [](started(StreamProtocol.transferFrom(from, to, value), p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= balances_StreamProtocol[this][from] && value <= allowed_StreamProtocol[this][from][msg.sender] && balances_StreamProtocol[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][to] >= 0 && balances_StreamProtocol[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][from] >= 0 &&  balances_StreamProtocol[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && allowed_StreamProtocol[this][from][msg.sender] >= 0 && allowed_StreamProtocol[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(StreamProtocol.transferFrom(from, to, value), return == true && balances_StreamProtocol[this][from] == old(balances_StreamProtocol[this][from]) - value && balances_StreamProtocol[this][to] == old(balances_StreamProtocol[this][to]) + value && allowed_StreamProtocol[this][from][msg.sender] == old(allowed_StreamProtocol[this][from][msg.sender]) - value && _totalSupply_StreamProtocol[this] == old(_totalSupply_StreamProtocol[this]) && balances_StreamProtocol[this][p1] == old(balances_StreamProtocol[this][p1]) && allowed_StreamProtocol[this][p2][p3] == old(allowed_StreamProtocol[this][p2][p3]) && symbol_StreamProtocol[this] == old(symbol_StreamProtocol[this]) && name_StreamProtocol[this] == old(name_StreamProtocol[this]) && decimals_StreamProtocol[this] == old(decimals_StreamProtocol[this]) && _stopTrade_StreamProtocol[this] == old(_stopTrade_StreamProtocol[this]) && owner_Owned[this] == old(owner_Owned[this]))))
+[2020-11-24 17:31:18,167 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( ( ( ( ( ( ( ( p1!=from_s510 && p1!=to_s510 ) && ( p2!=from_s510 || p3!=msg.sender ) ) && from_s510!=to_s510 ) && tokens_s510<=balances_StreamProtocol[this][from_s510] ) && tokens_s510<=allowed_StreamProtocol[this][from_s510][msg.sender] ) && ( balances_StreamProtocol[this][to_s510] + tokens_s510 )<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && tokens_s510>=0 ) && tokens_s510<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && balances_StreamProtocol[this][to_s510]>=0 ) && balances_StreamProtocol[this][to_s510]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && balances_StreamProtocol[this][from_s510]>=0 ) && balances_StreamProtocol[this][from_s510]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && allowed_StreamProtocol[this][from_s510][msg.sender]>=0 ) && allowed_StreamProtocol[this][from_s510][msg.sender]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPNEQ,IdentifierExpression[p1,GLOBAL],IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]],BinaryExpression[COMPNEQ,IdentifierExpression[p1,GLOBAL],IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],BinaryExpression[LOGICOR,BinaryExpression[COMPNEQ,IdentifierExpression[p2,GLOBAL],IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]],BinaryExpression[COMPNEQ,IdentifierExpression[p3,GLOBAL],IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],BinaryExpression[COMPNEQ,IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>],IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],BinaryExpression[COMPLEQ,IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>],ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]],BinaryExpression[COMPLEQ,IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>],ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]],BinaryExpression[COMPLT,BinaryExpression[ARITHPLUS,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>],IntegerLiteral[0]]],BinaryExpression[COMPLT,IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]]
+[2020-11-24 17:31:18,170 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( ( ( ( ( success_s510==true && balances_StreamProtocol[this][from_s510]==( ( old(balances_StreamProtocol[this][from_s510]) ) - tokens_s510 ) ) && balances_StreamProtocol[this][to_s510]==( ( old(balances_StreamProtocol[this][to_s510]) ) + tokens_s510 ) ) && allowed_StreamProtocol[this][from_s510][msg.sender]==( ( old(allowed_StreamProtocol[this][from_s510][msg.sender]) ) - tokens_s510 ) ) && _totalSupply_StreamProtocol[this]==( old(_totalSupply_StreamProtocol[this]) ) ) && balances_StreamProtocol[this][p1]==( old(balances_StreamProtocol[this][p1]) ) ) && allowed_StreamProtocol[this][p2][p3]==( old(allowed_StreamProtocol[this][p2][p3]) ) ) && symbol_StreamProtocol[this]==( old(symbol_StreamProtocol[this]) ) ) && name_StreamProtocol[this]==( old(name_StreamProtocol[this]) ) ) && decimals_StreamProtocol[this]==( old(decimals_StreamProtocol[this]) ) ) && _stopTrade_StreamProtocol[this]==( old(_stopTrade_StreamProtocol[this]) ) ) && owner_Owned[this]==( old(owner_Owned[this]) ) ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPEQ,IdentifierExpression[success_s510,<IMPLEMENTATION_OUTPARAM,transferFrom~address~address~uint256_StreamProtocol>],BooleanLiteral[true]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],BinaryExpression[ARITHMINUS,UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],BinaryExpression[ARITHPLUS,UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[to_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],BinaryExpression[ARITHMINUS,UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[from_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],IdentifierExpression[tokens_s510,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[_totalSupply_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[_totalSupply_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[p1,GLOBAL]]],UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[p1,GLOBAL]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[p2,GLOBAL]]],[IdentifierExpression[p3,GLOBAL]]],UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowed_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],[IdentifierExpression[p2,GLOBAL]]],[IdentifierExpression[p3,GLOBAL]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[symbol_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[symbol_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[name_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[name_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[decimals_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[decimals_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[_stopTrade_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[_stopTrade_StreamProtocol,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[owner_Owned,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[owner_Owned,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transferFrom~address~address~uint256_StreamProtocol>]]]]]]
+[2020-11-24 17:31:18,173 INFO  L1005  opiaSpecLangObserver]: Compiling: [](started(StreamProtocol.transferFrom(from, to, value), p1 != from && p1 != to && (p2 != from || p3 != msg.sender) && from != to && value <= balances_StreamProtocol[this][from] && value <= allowed_StreamProtocol[this][from][msg.sender] && balances_StreamProtocol[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][to] >= 0 && balances_StreamProtocol[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_StreamProtocol[this][from] >= 0 &&  balances_StreamProtocol[this][from] < 0x10000000000000000000000000000000000000000000000000000000000000000 && allowed_StreamProtocol[this][from][msg.sender] >= 0 && allowed_StreamProtocol[this][from][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(StreamProtocol.transferFrom(from, to, value), return == true && balances_StreamProtocol[this][from] == old(balances_StreamProtocol[this][from]) - value && balances_StreamProtocol[this][to] == old(balances_StreamProtocol[this][to]) + value && allowed_StreamProtocol[this][from][msg.sender] == old(allowed_StreamProtocol[this][from][msg.sender]) - value && _totalSupply_StreamProtocol[this] == old(_totalSupply_StreamProtocol[this]) && balances_StreamProtocol[this][p1] == old(balances_StreamProtocol[this][p1]) && allowed_StreamProtocol[this][p2][p3] == old(allowed_StreamProtocol[this][p2][p3]) && symbol_StreamProtocol[this] == old(symbol_StreamProtocol[this]) && name_StreamProtocol[this] == old(name_StreamProtocol[this]) && decimals_StreamProtocol[this] == old(decimals_StreamProtocol[this]) && _stopTrade_StreamProtocol[this] == old(_stopTrade_StreamProtocol[this]) && owner_Owned[this] == old(owner_Owned[this]))))
+[2020-11-24 17:31:18,174 INFO  L1007  opiaSpecLangObserver]: Compiled to ( []( AP(call_transferFrom_StreamProtocol0) ==> ( <>AP(success_transferFrom_StreamProtocol0) ) ) )
+Executed UtopiaSpecLang
+[2020-11-24 17:31:18,178 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:31:18 PropertyContainer
+[2020-11-24 17:31:18,178 INFO  L132        PluginConnector]: ------------------------ END UtopiaSpecLang----------------------------
+[2020-11-24 17:31:18,178 INFO  L113        PluginConnector]: ------------------------Boogie Printer----------------------------
+[2020-11-24 17:31:18,178 INFO  L271        PluginConnector]: Initializing Boogie Printer...
+[2020-11-24 17:31:18,178 INFO  L276        PluginConnector]: Boogie Printer initialized
+[2020-11-24 17:31:18,179 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/2) ...
+[2020-11-24 17:31:18,179 INFO  L116   oogiePrinterObserver]: File already exists and will be overwritten: /tmp/boogiePrinter.bpl
+[2020-11-24 17:31:18,179 INFO  L120   oogiePrinterObserver]: Writing to file /tmp/boogiePrinter.bpl
+[2020-11-24 17:31:18,187 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:31:18" (2/2) ...
+[2020-11-24 17:31:18,187 INFO  L132        PluginConnector]: ------------------------ END Boogie Printer----------------------------
+[2020-11-24 17:31:18,187 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2020-11-24 17:31:18,187 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2020-11-24 17:31:18,187 INFO  L276        PluginConnector]: RCFGBuilder initialized
+[2020-11-24 17:31:18,188 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/2) ...
+[2020-11-24 17:31:18,239 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__success
+[2020-11-24 17:31:18,239 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 17:31:18,239 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 17:31:18,240 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_StreamProtocol
+[2020-11-24 17:31:18,240 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_StreamProtocol
+[2020-11-24 17:31:18,241 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__success
+[2020-11-24 17:31:18,241 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__success
+[2020-11-24 17:31:18,241 INFO  L130     BoogieDeclarations]: Found specification of procedure send__success
+[2020-11-24 17:31:18,241 INFO  L130     BoogieDeclarations]: Found specification of procedure onlyOwner_pre__success
+[2020-11-24 17:31:18,241 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_SafeMath
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_SafeMath
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ERC20Interface
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ERC20Interface
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ApproveAndCallFallBack
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ApproveAndCallFallBack
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_Owned
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_Owned
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_StreamProtocol
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__fail
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 17:31:18,242 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_StreamProtocol__success
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_StreamProtocol__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_StreamProtocol__success
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_StreamProtocol__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_StreamProtocol__success
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_StreamProtocol__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_StreamProtocol__success
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_StreamProtocol__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_StreamProtocol__success
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_StreamProtocol__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_StreamProtocol__success
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_StreamProtocol__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__fail
+[2020-11-24 17:31:18,243 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__fail
+[2020-11-24 17:31:18,244 INFO  L130     BoogieDeclarations]: Found specification of procedure send__fail
+[2020-11-24 17:31:18,244 INFO  L130     BoogieDeclarations]: Found specification of procedure onlyOwner_pre__fail
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__fail
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__success
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_StreamProtocol__fail
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_StreamProtocol__success
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_StreamProtocol__fail
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_StreamProtocol__success
+[2020-11-24 17:31:18,244 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_StreamProtocol__fail
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_StreamProtocol__success
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_StreamProtocol__fail
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_StreamProtocol__success
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_StreamProtocol__fail
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_StreamProtocol__success
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_StreamProtocol__fail
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_StreamProtocol__success
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__fail
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__success
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__fail
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__success
+[2020-11-24 17:31:18,245 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__fail
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__success
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure onlyOwner_pre__fail
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure onlyOwner_pre__success
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_SafeMath
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_SafeMath
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ERC20Interface
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ERC20Interface
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ApproveAndCallFallBack
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ApproveAndCallFallBack
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_Owned
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_Owned
+[2020-11-24 17:31:18,246 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_StreamProtocol
+[2020-11-24 17:31:18,247 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2020-11-24 17:31:18,247 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2020-11-24 17:31:18,247 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2020-11-24 17:31:18,455 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:31:18,542 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:31:18,542 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:31:18,543 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 17:31:18,664 INFO  L281             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2020-11-24 17:31:18,664 INFO  L286             CfgBuilder]: Removed 5 assue(true) statements.
+[2020-11-24 17:31:18,666 INFO  L202        PluginConnector]: Adding new model StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:31:18 BoogieIcfgContainer
+[2020-11-24 17:31:18,666 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:31:18" (2/2) ...
+[2020-11-24 17:31:18,666 INFO  L85     RCFGBuilderObserver]: No WrapperNode. Let Ultimate process with next node
+[2020-11-24 17:31:18,666 INFO  L205        PluginConnector]: Invalid model from RCFGBuilder for observer de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder.RCFGBuilderObserver@20086a78 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:31:18, skipping insertion in model container
+[2020-11-24 17:31:18,666 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2020-11-24 17:31:18,667 INFO  L113        PluginConnector]: ------------------------UtopiaLTL2Aut----------------------------
+[2020-11-24 17:31:18,667 INFO  L271        PluginConnector]: Initializing UtopiaLTL2Aut...
+[2020-11-24 17:31:18,668 INFO  L276        PluginConnector]: UtopiaLTL2Aut initialized
+[2020-11-24 17:31:18,668 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/3) ...
+[2020-11-24 17:31:18,669 INFO  L205        PluginConnector]: Invalid model from UtopiaLTL2Aut for observer edu.utexas.cs.utopia.ltl2aut.UtopiaLTL2AutObserver@1d3ddb90 and model type Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:31:18, skipping insertion in model container
+[2020-11-24 17:31:18,669 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:31:18" (2/3) ...
+No working directory specified, using /mnt/data0/jon/SmartPulseTool/ltl2ba
+Starting monitored process 1 with /mnt/data0/jon/SmartPulseTool/ltl2ba -f ! ( ( [] ( a -> ( <>b ) ) ) )  (exit command is null, workingDir is null)
+[2020-11-24 17:31:18,705 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:31:18 NWAContainer
+[2020-11-24 17:31:18,705 INFO  L132        PluginConnector]: ------------------------ END UtopiaLTL2Aut----------------------------
+[2020-11-24 17:31:18,705 INFO  L113        PluginConnector]: ------------------------Büchi Program Product----------------------------
+[2020-11-24 17:31:18,705 INFO  L271        PluginConnector]: Initializing Büchi Program Product...
+[2020-11-24 17:31:18,706 INFO  L276        PluginConnector]: Büchi Program Product initialized
+[2020-11-24 17:31:18,707 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:31:18" (3/4) ...
+[2020-11-24 17:31:18,708 INFO  L205        PluginConnector]: Invalid model from Büchi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@7cda5d4e and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:31:18, skipping insertion in model container
+[2020-11-24 17:31:18,709 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:31:18" (4/4) ...
+[2020-11-24 17:31:18,712 INFO  L104   BuchiProductObserver]: Initial property automaton 2 locations, 3 edges
+[2020-11-24 17:31:18,714 INFO  L110   BuchiProductObserver]: Initial RCFG 588 locations, 715 edges
+[2020-11-24 17:31:18,714 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2020-11-24 17:31:18,724 INFO  L136       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2020-11-24 17:31:19,589 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2020-11-24 17:31:19,591 INFO  L110   BuchiProductObserver]: BuchiProgram size 1358 locations, 2298 edges
+[2020-11-24 17:31:19,592 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:31:19 BoogieIcfgContainer
+[2020-11-24 17:31:19,592 INFO  L132        PluginConnector]: ------------------------ END Büchi Program Product----------------------------
+[2020-11-24 17:31:19,592 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2020-11-24 17:31:19,592 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2020-11-24 17:31:19,594 INFO  L276        PluginConnector]: BlockEncodingV2 initialized
+[2020-11-24 17:31:19,595 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:31:19" (1/1) ...
+[2020-11-24 17:31:19,635 INFO  L313           BlockEncoder]: Initial Icfg 1358 locations, 2298 edges
+[2020-11-24 17:31:19,636 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2020-11-24 17:31:19,636 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2020-11-24 17:31:19,636 INFO  L296           BlockEncoder]: Using Remove sink states
+[2020-11-24 17:31:19,637 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2020-11-24 17:31:19,645 INFO  L70    emoveInfeasibleEdges]: Removed 45 edges and 13 locations because of local infeasibility
+[2020-11-24 17:31:19,649 INFO  L70        RemoveSinkStates]: Removed 2 edges and 1 locations by removing sink states
+[2020-11-24 17:31:19,655 INFO  L70    emoveInfeasibleEdges]: Removed 0 edges and 0 locations because of local infeasibility
+[2020-11-24 17:31:19,657 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2020-11-24 17:31:19,658 INFO  L237           BlockEncoder]: Using Create parallel compositions if possible
+[2020-11-24 17:31:19,659 INFO  L66        ParallelComposer]: Creating parallel compositions
+[2020-11-24 17:31:19,661 INFO  L313           BlockEncoder]: Encoded RCFG 1328 locations, 2228 edges
+[2020-11-24 17:31:19,661 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 05:31:19 BasicIcfg
+[2020-11-24 17:31:19,661 INFO  L132        PluginConnector]: ------------------------ END BlockEncodingV2----------------------------
+[2020-11-24 17:31:19,662 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2020-11-24 17:31:19,662 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2020-11-24 17:31:19,664 INFO  L276        PluginConnector]: BuchiAutomizer initialized
+[2020-11-24 17:31:19,664 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:31:19,665 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 05:31:18" (1/6) ...
+[2020-11-24 17:31:19,666 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@789a4047 and model type StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:31:19, skipping insertion in model container
+[2020-11-24 17:31:19,666 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:31:19,666 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 05:31:18" (2/6) ...
+[2020-11-24 17:31:19,666 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@789a4047 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:31:19, skipping insertion in model container
+[2020-11-24 17:31:19,666 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:31:19,666 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 05:31:18" (3/6) ...
+[2020-11-24 17:31:19,667 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@789a4047 and model type StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 05:31:19, skipping insertion in model container
+[2020-11-24 17:31:19,667 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:31:19,667 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 05:31:18" (4/6) ...
+[2020-11-24 17:31:19,667 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@789a4047 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 05:31:19, skipping insertion in model container
+[2020-11-24 17:31:19,667 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:31:19,668 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 05:31:19" (5/6) ...
+[2020-11-24 17:31:19,668 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@789a4047 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer OTHER 24.11 05:31:19, skipping insertion in model container
+[2020-11-24 17:31:19,668 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 17:31:19,668 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 05:31:19" (6/6) ...
+[2020-11-24 17:31:19,669 INFO  L404   chiAutomizerObserver]: Analyzing ICFG StreamProtocol_0x9b5C2BE869a19e84BDBcb1386dAD83a2ec8DAe82_transferfrom-normal.bpl_BEv2
+[2020-11-24 17:31:19,709 INFO  L133   ementStrategyFactory]: Using default assertion order modulation
+[2020-11-24 17:31:19,709 INFO  L377         BuchiCegarLoop]: Interprodecural is true
+[2020-11-24 17:31:19,709 INFO  L378         BuchiCegarLoop]: Hoare is false
+[2020-11-24 17:31:19,709 INFO  L379         BuchiCegarLoop]: Compute interpolants for Craig_TreeInterpolation
+[2020-11-24 17:31:19,710 INFO  L380         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2020-11-24 17:31:19,710 INFO  L381         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2020-11-24 17:31:19,710 INFO  L382         BuchiCegarLoop]: Difference is false
+[2020-11-24 17:31:19,710 INFO  L383         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2020-11-24 17:31:19,710 INFO  L386         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2020-11-24 17:31:19,729 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1328 states.
+[2020-11-24 17:31:19,768 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:31:19,768 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:31:19,768 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:31:19,777 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:31:19,777 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2020-11-24 17:31:19,777 INFO  L445         BuchiCegarLoop]: ======== Iteration 1============
+[2020-11-24 17:31:19,777 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1328 states.
+[2020-11-24 17:31:19,791 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:31:19,792 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:31:19,792 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:31:19,793 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:31:19,793 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L3]                 success_transferFrom_StreamProtocol0 := false;
+[L3]                 call_transferFrom_StreamProtocol0 := false;
+[L3]     CALL        call main();
+[L3]                 havoc p3;
+[L3]                 havoc p2;
+[L3]                 havoc p1;
+[L1625]              assume null == 0;
+[L1626]  CALL        call this := FreshRefGenerator__success();
+[L625]               havoc newRef;
+[L626]               assume Alloc[newRef] == false;
+[L627]               Alloc[newRef] := true;
+[L628]               assume newRef != null;
+[L1626]  RET         call this := FreshRefGenerator__success();
+[L1627]              assume now >= 0;
+[L1628]              assume DType[this] == StreamProtocol;
+[L1629]              assume !revert && gas >= 0;
+[L1630]  CALL        call CorralChoice_StreamProtocol(this);
+[L1540]              havoc msgsender_MSG;
+[L1541]              havoc msgvalue_MSG;
+[L1542]              havoc choice;
+[L1543]              havoc __ret_0_totalSupply;
+[L1544]              havoc tokenOwner_s328;
+[L1545]              havoc balance_s328;
+[L1546]              havoc tokenOwner_s532;
+[L1547]              havoc spender_s532;
+[L1548]              havoc remaining_s532;
+[L1549]              havoc to_s385;
+[L1550]              havoc tokens_s385;
+[L1551]              havoc success_s385;
+[L1552]              havoc spender_s419;
+[L1553]              havoc tokens_s419;
+[L1554]              havoc success_s419;
+[L1555]              havoc from_s510;
+[L1556]              havoc to_s510;
+[L1557]              havoc tokens_s510;
+[L1558]              havoc success_s510;
+[L1559]              havoc __ret_0_owner;
+[L1560]              havoc __ret_0_symbol;
+[L1561]              havoc __ret_0_name;
+[L1562]              havoc __ret_0_decimals;
+[L1563]              havoc spender_s582;
+[L1564]              havoc tokens_s582;
+[L1565]              havoc data_s582;
+[L1566]              havoc success_s582;
+[L1567]              havoc tokenAddress_s609;
+[L1568]              havoc tokens_s609;
+[L1569]              havoc success_s609;
+[L1570]              havoc _value_s658;
+[L1571]              havoc tmpNow;
+[L1572]              havoc gas;
+[L1573]              assume gas > 4000000 && gas <= 8000000;
+[L1574]              tmpNow := now;
+[L1575]              havoc now;
+[L1576]              assume now > tmpNow;
+[L1577]              assume msgsender_MSG != null;
+[L1578]  COND TRUE   choice == 6
+[L1579]              gas := gas - 21000;
+[L1580]  COND FALSE  !(gas >= 0)
+[L1630]  RET         call CorralChoice_StreamProtocol(this);
+
+Loop:
+[L1630]        assume true;
+
+[2020-11-24 17:31:19,808 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:31:19,808 INFO  L82        PathProgramCache]: Analyzing trace with hash -1328402614, now seen corresponding path program 1 times
+[2020-11-24 17:31:19,812 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:31:19,826 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:31:19,868 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 17:31:19,870 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:31:19,870 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 17:31:19,873 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:31:19,882 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 17:31:19,882 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 17:31:19,883 INFO  L87              Difference]: Start difference. First operand 1328 states. Second operand 3 states.
+[2020-11-24 17:31:20,063 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:31:20,064 INFO  L93              Difference]: Finished difference Result 623 states and 705 transitions.
+[2020-11-24 17:31:20,064 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:31:20,065 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 623 states and 705 transitions.
+[2020-11-24 17:31:20,069 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:31:20,074 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 623 states to 205 states and 226 transitions.
+[2020-11-24 17:31:20,074 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 4
+[2020-11-24 17:31:20,075 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 139
+[2020-11-24 17:31:20,075 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 205 states and 226 transitions.
+[2020-11-24 17:31:20,077 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:31:20,077 INFO  L728         BuchiCegarLoop]: Abstraction has 205 states and 226 transitions.
+[2020-11-24 17:31:20,091 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 205 states and 226 transitions.
+[2020-11-24 17:31:20,102 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 205 to 205.
+[2020-11-24 17:31:20,103 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 205 states.
+[2020-11-24 17:31:20,103 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 205 states to 205 states and 226 transitions.
+[2020-11-24 17:31:20,104 INFO  L751         BuchiCegarLoop]: Abstraction has 205 states and 226 transitions.
+[2020-11-24 17:31:20,104 INFO  L631         BuchiCegarLoop]: Abstraction has 205 states and 226 transitions.
+[2020-11-24 17:31:20,104 INFO  L445         BuchiCegarLoop]: ======== Iteration 2============
+[2020-11-24 17:31:20,105 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 205 states and 226 transitions.
+[2020-11-24 17:31:20,106 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:31:20,106 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:31:20,106 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:31:20,107 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:31:20,107 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L3]                 success_transferFrom_StreamProtocol0 := false;
+[L3]                 call_transferFrom_StreamProtocol0 := false;
+[L3]     CALL        call main();
+[L3]                 havoc p3;
+[L3]                 havoc p2;
+[L3]                 havoc p1;
+[L1625]              assume null == 0;
+[L1626]  CALL        call this := FreshRefGenerator__success();
+[L625]               havoc newRef;
+[L626]               assume Alloc[newRef] == false;
+[L627]               Alloc[newRef] := true;
+[L628]               assume newRef != null;
+[L1626]  RET         call this := FreshRefGenerator__success();
+[L1627]              assume now >= 0;
+[L1628]              assume DType[this] == StreamProtocol;
+[L1629]              assume !revert && gas >= 0;
+[L1630]  CALL        call CorralChoice_StreamProtocol(this);
+[L1540]              havoc msgsender_MSG;
+[L1541]              havoc msgvalue_MSG;
+[L1542]              havoc choice;
+[L1543]              havoc __ret_0_totalSupply;
+[L1544]              havoc tokenOwner_s328;
+[L1545]              havoc balance_s328;
+[L1546]              havoc tokenOwner_s532;
+[L1547]              havoc spender_s532;
+[L1548]              havoc remaining_s532;
+[L1549]              havoc to_s385;
+[L1550]              havoc tokens_s385;
+[L1551]              havoc success_s385;
+[L1552]              havoc spender_s419;
+[L1553]              havoc tokens_s419;
+[L1554]              havoc success_s419;
+[L1555]              havoc from_s510;
+[L1556]              havoc to_s510;
+[L1557]              havoc tokens_s510;
+[L1558]              havoc success_s510;
+[L1559]              havoc __ret_0_owner;
+[L1560]              havoc __ret_0_symbol;
+[L1561]              havoc __ret_0_name;
+[L1562]              havoc __ret_0_decimals;
+[L1563]              havoc spender_s582;
+[L1564]              havoc tokens_s582;
+[L1565]              havoc data_s582;
+[L1566]              havoc success_s582;
+[L1567]              havoc tokenAddress_s609;
+[L1568]              havoc tokens_s609;
+[L1569]              havoc success_s609;
+[L1570]              havoc _value_s658;
+[L1571]              havoc tmpNow;
+[L1572]              havoc gas;
+[L1573]              assume gas > 4000000 && gas <= 8000000;
+[L1574]              tmpNow := now;
+[L1575]              havoc now;
+[L1576]              assume now > tmpNow;
+[L1577]              assume msgsender_MSG != null;
+[L1578]  COND FALSE  !(choice == 6)
+[L1584]  COND FALSE  !(choice == 5)
+[L1590]  COND FALSE  !(choice == 4)
+[L1596]  COND FALSE  !(choice == 3)
+[L1603]  COND FALSE  !(choice == 2)
+[L1610]  COND TRUE   choice == 1
+[L1611]              gas := gas - 21000;
+[L1612]  COND TRUE   gas >= 0
+[L1613]              assume tokens_s510 >= 0 && tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1614]              assume msgvalue_MSG == 0;
+[L1615]  CALL        call success_s510 := transferFrom~address~address~uint256_StreamProtocol(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L3]                 revert_hold := revert;
+[L3]                 revert := false;
+[L3]                 assume (((((((((((((p1 != from_s510 && p1 != to_s510) && (p2 != from_s510 || p3 != msgsender_MSG)) && from_s510 != to_s510) && tokens_s510 <= balances_StreamProtocol[this][from_s510]) && tokens_s510 <= allowed_StreamProtocol[this][from_s510][msgsender_MSG]) && balances_StreamProtocol[this][to_s510] + tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && tokens_s510 >= 0) && tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_StreamProtocol[this][to_s510] >= 0) && balances_StreamProtocol[this][to_s510] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_StreamProtocol[this][from_s510] >= 0) && balances_StreamProtocol[this][from_s510] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] >= 0) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L3]                 call_transferFrom_StreamProtocol0 := true;
+[L3]                 call_transferFrom_StreamProtocol0 := false;
+[L3]                 revert := revert_hold;
+[L302]               havoc __exception;
+[L303]               revert := false;
+[L304]   COND FALSE  !(__exception)
+[L327]   CALL        call success_s510 := transferFrom~address~address~uint256_StreamProtocol__success(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L852]   COND TRUE   !(_stopTrade_StreamProtocol[this] != true)
+[L853]               revert := true;
+[L327]   RET         call success_s510 := transferFrom~address~address~uint256_StreamProtocol__success(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L328]               assume !revert && gas >= 0;
+[L3]                 revert_hold := revert;
+[L3]                 revert := false;
+[L3]                 assume !(((((((((((success_s510 == true && balances_StreamProtocol[this][from_s510] == old(balances_StreamProtocol[this][from_s510]) - tokens_s510) && balances_StreamProtocol[this][to_s510] == old(balances_StreamProtocol[this][to_s510]) + tokens_s510) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] == old(allowed_StreamProtocol[this][from_s510][msgsender_MSG]) - tokens_s510) && _totalSupply_StreamProtocol[this] == old(_totalSupply_StreamProtocol[this])) && balances_StreamProtocol[this][p1] == old(balances_StreamProtocol[this][p1])) && allowed_StreamProtocol[this][p2][p3] == old(allowed_StreamProtocol[this][p2][p3])) && symbol_StreamProtocol[this] == old(symbol_StreamProtocol[this])) && name_StreamProtocol[this] == old(name_StreamProtocol[this])) && decimals_StreamProtocol[this] == old(decimals_StreamProtocol[this])) && _stopTrade_StreamProtocol[this] == old(_stopTrade_StreamProtocol[this])) && owner_Owned[this] == old(owner_Owned[this]));
+[L3]                 revert := revert_hold;
+[L1615]  RET         call success_s510 := transferFrom~address~address~uint256_StreamProtocol(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L1630]  RET         call CorralChoice_StreamProtocol(this);
+
+Loop:
+[L1630]        assume true;
+
+[2020-11-24 17:31:20,110 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:31:20,110 INFO  L82        PathProgramCache]: Analyzing trace with hash 567461172, now seen corresponding path program 1 times
+[2020-11-24 17:31:20,111 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:31:20,121 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 17:31:20,138 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 17:31:20,138 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 17:31:20,139 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 17:31:20,140 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 17:31:20,140 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 17:31:20,140 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 17:31:20,140 INFO  L87              Difference]: Start difference. First operand 205 states and 226 transitions. cyclomatic complexity: 22 Second operand 3 states.
+[2020-11-24 17:31:20,148 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 17:31:20,148 INFO  L93              Difference]: Finished difference Result 240 states and 262 transitions.
+[2020-11-24 17:31:20,148 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 17:31:20,148 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 240 states and 262 transitions.
+[2020-11-24 17:31:20,150 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 2
+[2020-11-24 17:31:20,151 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 240 states to 221 states and 235 transitions.
+[2020-11-24 17:31:20,151 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 152
+[2020-11-24 17:31:20,151 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 157
+[2020-11-24 17:31:20,152 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 221 states and 235 transitions.
+[2020-11-24 17:31:20,152 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 17:31:20,152 INFO  L728         BuchiCegarLoop]: Abstraction has 221 states and 235 transitions.
+[2020-11-24 17:31:20,153 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 221 states and 235 transitions.
+[2020-11-24 17:31:20,157 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 221 to 210.
+[2020-11-24 17:31:20,157 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 210 states.
+[2020-11-24 17:31:20,157 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 210 states to 210 states and 224 transitions.
+[2020-11-24 17:31:20,158 INFO  L751         BuchiCegarLoop]: Abstraction has 210 states and 224 transitions.
+[2020-11-24 17:31:20,158 INFO  L631         BuchiCegarLoop]: Abstraction has 210 states and 224 transitions.
+[2020-11-24 17:31:20,158 INFO  L445         BuchiCegarLoop]: ======== Iteration 3============
+[2020-11-24 17:31:20,158 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 210 states and 224 transitions.
+[2020-11-24 17:31:20,159 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 17:31:20,159 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 17:31:20,159 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 17:31:20,160 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 17:31:20,160 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L3]                 success_transferFrom_StreamProtocol0 := false;
+[L3]                 call_transferFrom_StreamProtocol0 := false;
+[L3]     CALL        call main();
+[L3]                 havoc p3;
+[L3]                 havoc p2;
+[L3]                 havoc p1;
+[L1625]              assume null == 0;
+[L1626]  CALL        call this := FreshRefGenerator__success();
+[L625]               havoc newRef;
+[L626]               assume Alloc[newRef] == false;
+[L627]               Alloc[newRef] := true;
+[L628]               assume newRef != null;
+[L1626]  RET         call this := FreshRefGenerator__success();
+[L1627]              assume now >= 0;
+[L1628]              assume DType[this] == StreamProtocol;
+[L1629]              assume !revert && gas >= 0;
+[L1630]  CALL        call CorralChoice_StreamProtocol(this);
+[L1540]              havoc msgsender_MSG;
+[L1541]              havoc msgvalue_MSG;
+[L1542]              havoc choice;
+[L1543]              havoc __ret_0_totalSupply;
+[L1544]              havoc tokenOwner_s328;
+[L1545]              havoc balance_s328;
+[L1546]              havoc tokenOwner_s532;
+[L1547]              havoc spender_s532;
+[L1548]              havoc remaining_s532;
+[L1549]              havoc to_s385;
+[L1550]              havoc tokens_s385;
+[L1551]              havoc success_s385;
+[L1552]              havoc spender_s419;
+[L1553]              havoc tokens_s419;
+[L1554]              havoc success_s419;
+[L1555]              havoc from_s510;
+[L1556]              havoc to_s510;
+[L1557]              havoc tokens_s510;
+[L1558]              havoc success_s510;
+[L1559]              havoc __ret_0_owner;
+[L1560]              havoc __ret_0_symbol;
+[L1561]              havoc __ret_0_name;
+[L1562]              havoc __ret_0_decimals;
+[L1563]              havoc spender_s582;
+[L1564]              havoc tokens_s582;
+[L1565]              havoc data_s582;
+[L1566]              havoc success_s582;
+[L1567]              havoc tokenAddress_s609;
+[L1568]              havoc tokens_s609;
+[L1569]              havoc success_s609;
+[L1570]              havoc _value_s658;
+[L1571]              havoc tmpNow;
+[L1572]              havoc gas;
+[L1573]              assume gas > 4000000 && gas <= 8000000;
+[L1574]              tmpNow := now;
+[L1575]              havoc now;
+[L1576]              assume now > tmpNow;
+[L1577]              assume msgsender_MSG != null;
+[L1578]  COND FALSE  !(choice == 6)
+[L1584]  COND FALSE  !(choice == 5)
+[L1590]  COND FALSE  !(choice == 4)
+[L1596]  COND FALSE  !(choice == 3)
+[L1603]  COND FALSE  !(choice == 2)
+[L1610]  COND TRUE   choice == 1
+[L1611]              gas := gas - 21000;
+[L1612]  COND TRUE   gas >= 0
+[L1613]              assume tokens_s510 >= 0 && tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1614]              assume msgvalue_MSG == 0;
+[L1615]  CALL        call success_s510 := transferFrom~address~address~uint256_StreamProtocol(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L3]                 revert_hold := revert;
+[L3]                 revert := false;
+[L3]                 assume (((((((((((((p1 != from_s510 && p1 != to_s510) && (p2 != from_s510 || p3 != msgsender_MSG)) && from_s510 != to_s510) && tokens_s510 <= balances_StreamProtocol[this][from_s510]) && tokens_s510 <= allowed_StreamProtocol[this][from_s510][msgsender_MSG]) && balances_StreamProtocol[this][to_s510] + tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && tokens_s510 >= 0) && tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_StreamProtocol[this][to_s510] >= 0) && balances_StreamProtocol[this][to_s510] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_StreamProtocol[this][from_s510] >= 0) && balances_StreamProtocol[this][from_s510] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] >= 0) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L3]                 call_transferFrom_StreamProtocol0 := true;
+[L3]                 call_transferFrom_StreamProtocol0 := false;
+[L3]                 revert := revert_hold;
+[L302]               havoc __exception;
+[L303]               revert := false;
+[L304]   COND TRUE   __exception
+[L305]               __tmp__Balance := Balance;
+[L306]               __tmp__DType := DType;
+[L307]               __tmp__Alloc := Alloc;
+[L308]               __tmp__balance_ADDR := balance_ADDR;
+[L309]               __tmp__M_Ref_int := M_Ref_int;
+[L310]               __tmp__sum_balances0 := sum_balances0;
+[L311]               __tmp__alloc_allowed_StreamProtocol_lvl0 := alloc_allowed_StreamProtocol_lvl0;
+[L312]               __tmp__M_Ref_Ref := M_Ref_Ref;
+[L313]               __tmp__sum_allowed1 := sum_allowed1;
+[L314]               __tmp__Length := Length;
+[L315]               __tmp__now := now;
+[L316]               __tmp__owner_Owned := owner_Owned;
+[L317]               __tmp__symbol_StreamProtocol := symbol_StreamProtocol;
+[L318]               __tmp__name_StreamProtocol := name_StreamProtocol;
+[L319]               __tmp__decimals_StreamProtocol := decimals_StreamProtocol;
+[L320]               __tmp___totalSupply_StreamProtocol := _totalSupply_StreamProtocol;
+[L321]               __tmp___stopTrade_StreamProtocol := _stopTrade_StreamProtocol;
+[L322]               __tmp__balances_StreamProtocol := balances_StreamProtocol;
+[L323]               __tmp__allowed_StreamProtocol := allowed_StreamProtocol;
+[L324]   CALL        call success_s510 := transferFrom~address~address~uint256_StreamProtocol__fail(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L804]   COND TRUE   !(__tmp___stopTrade_StreamProtocol[this] != true)
+[L805]               revert := true;
+[L324]   RET         call success_s510 := transferFrom~address~address~uint256_StreamProtocol__fail(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L325]               assume revert || gas < 0;
+[L1615]  RET         call success_s510 := transferFrom~address~address~uint256_StreamProtocol(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L1630]  RET         call CorralChoice_StreamProtocol(this);
+
+Loop:
+[L1630]        assume true;
+
+[2020-11-24 17:31:20,162 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:31:20,162 INFO  L82        PathProgramCache]: Analyzing trace with hash 1179184703, now seen corresponding path program 1 times
+[2020-11-24 17:31:20,163 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:31:20,173 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:31:20,182 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:31:20,213 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:31:20,213 INFO  L82        PathProgramCache]: Analyzing trace with hash 6091, now seen corresponding path program 1 times
+[2020-11-24 17:31:20,214 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:31:20,214 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:31:20,215 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:31:20,216 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 17:31:20,216 INFO  L82        PathProgramCache]: Analyzing trace with hash -2099973811, now seen corresponding path program 1 times
+[2020-11-24 17:31:20,216 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 17:31:20,223 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:31:20,230 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+Garbage collection #1: 11 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 11 to 19
+Garbage collection #2: 19 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 19 to 37
+Garbage collection #1: 23 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 23 to 43
+Garbage collection #2: 43 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 43 to 83
+Garbage collection #3: 83 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 83 to 163
+Garbage collection #4: 163 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 163 to 317
+[2020-11-24 17:31:20,428 WARN  L188               SmtUtils]: Spent 132.00 ms on a formula simplification. DAG size of input: 162 DAG size of output: 155
+Garbage collection #1: 61 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 61 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 883 to 1759
+Garbage collection #6: 1759 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 1759 to 3517
+Garbage collection #1: 47 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 47 to 89
+Garbage collection #2: 89 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 89 to 173
+Garbage collection #3: 173 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 173 to 337
+Garbage collection #4: 337 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 337 to 673
+Garbage collection #5: 673 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 673 to 1327
+Garbage collection #6: 1327 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1327 to 2647
+Garbage collection #7: 2647 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 2647 to 5281
+[2020-11-24 17:31:20,601 WARN  L188               SmtUtils]: Spent 141.00 ms on a formula simplification. DAG size of input: 113 DAG size of output: 107
+[2020-11-24 17:31:20,763 WARN  L188               SmtUtils]: Spent 160.00 ms on a formula simplification that was a NOOP. DAG size: 257
+Garbage collection #1: 103 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 103 to 199
+Garbage collection #2: 199 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 199 to 397
+Garbage collection #3: 397 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 397 to 787
+Garbage collection #4: 787 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 787 to 1571
+Garbage collection #5: 1571 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 1571 to 3137
+Garbage collection #6: 3137 nodes / 0 free / 0.001s / 0.003s total
+Resizing node table from 3137 to 6271
+Garbage collection #7: 6271 nodes / 0 free / 0.002s / 0.005s total
+Resizing node table from 6271 to 12541
+[2020-11-24 17:31:21,475 WARN  L188               SmtUtils]: Spent 692.00 ms on a formula simplification. DAG size of input: 213 DAG size of output: 213
+[2020-11-24 17:31:22,123 WARN  L188               SmtUtils]: Spent 644.00 ms on a formula simplification. DAG size of input: 252 DAG size of output: 234
+Garbage collection #1: 89 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 89 to 173
+Garbage collection #2: 173 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 173 to 337
+Garbage collection #3: 337 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 337 to 673
+Garbage collection #4: 673 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 673 to 1327
+Garbage collection #5: 1327 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 1327 to 2647
+Garbage collection #6: 2647 nodes / 0 free / 0.001s / 0.003s total
+Resizing node table from 2647 to 5281
+Garbage collection #7: 5281 nodes / 0 free / 0.001s / 0.004s total
+Resizing node table from 5281 to 10559
+Garbage collection #8: 10559 nodes / 0 free / 0.001s / 0.005s total
+Resizing node table from 10559 to 21107
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #6: 1759 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1759 to 3517
+Garbage collection #7: 3517 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3517 to 7027
+Garbage collection #8: 7027 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 7027 to 14051
+[2020-11-24 17:31:22,491 WARN  L188               SmtUtils]: Spent 339.00 ms on a formula simplification. DAG size of input: 152 DAG size of output: 136
+[2020-11-24 17:31:22,642 WARN  L188               SmtUtils]: Spent 149.00 ms on a formula simplification that was a NOOP. DAG size: 277
+Garbage collection #1: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #2: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #3: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #4: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #5: 1759 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1759 to 3517
+Garbage collection #6: 3517 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3517 to 7027
+Garbage collection #7: 7027 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 7027 to 14051
+[2020-11-24 17:31:22,840 WARN  L188               SmtUtils]: Spent 189.00 ms on a formula simplification that was a NOOP. DAG size: 218
+[2020-11-24 17:31:23,102 WARN  L188               SmtUtils]: Spent 260.00 ms on a formula simplification. DAG size of input: 238 DAG size of output: 235
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+Garbage collection #7: 6037 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 6037 to 12073
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #6: 1759 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1759 to 3517
+[2020-11-24 17:31:23,326 WARN  L188               SmtUtils]: Spent 213.00 ms on a formula simplification. DAG size of input: 147 DAG size of output: 142
+[2020-11-24 17:31:23,485 WARN  L188               SmtUtils]: Spent 146.00 ms on a formula simplification that was a NOOP. DAG size: 233
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+Garbage collection #1: 67 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 67 to 131
+Garbage collection #2: 131 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 131 to 257
+Garbage collection #3: 257 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 257 to 509
+Garbage collection #4: 509 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 509 to 1013
+Garbage collection #5: 1013 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 1013 to 2017
+Garbage collection #6: 2017 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 2017 to 4027
+Garbage collection #7: 4027 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 4027 to 8053
+[2020-11-24 17:31:23,788 WARN  L188               SmtUtils]: Spent 286.00 ms on a formula simplification. DAG size of input: 217 DAG size of output: 157
+[2020-11-24 17:31:24,101 WARN  L188               SmtUtils]: Spent 311.00 ms on a formula simplification. DAG size of input: 250 DAG size of output: 249
+Garbage collection #1: 101 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 101 to 199
+Garbage collection #2: 199 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 199 to 397
+Garbage collection #3: 397 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 397 to 787
+Garbage collection #4: 787 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 787 to 1571
+Garbage collection #5: 1571 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1571 to 3137
+Garbage collection #6: 3137 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3137 to 6271
+Garbage collection #7: 6271 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 6271 to 12541
+Garbage collection #1: 109 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 109 to 211
+Garbage collection #2: 211 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 211 to 421
+Garbage collection #3: 421 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 421 to 839
+Garbage collection #4: 839 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 839 to 1669
+Garbage collection #5: 1669 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1669 to 3331
+Garbage collection #6: 3331 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3331 to 6661
+Garbage collection #7: 6661 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 6661 to 13313
+Garbage collection #8: 13313 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 13313 to 26597
+Garbage collection #9: 26597 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 26597 to 53189
+Garbage collection #10: 53189 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 53189 to 103183
+[2020-11-24 17:31:26,970 WARN  L188               SmtUtils]: Spent 2.81 s on a formula simplification. DAG size of input: 343 DAG size of output: 251
+[2020-11-24 17:31:26,979 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 17:31:26,983 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 05:31:26 BasicIcfg
+[2020-11-24 17:31:26,983 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2020-11-24 17:31:26,983 INFO  L168              Benchmark]: Toolchain (without parser) took 8905.81 ms. Allocated memory was 1.0 GB in the beginning and 1.9 GB in the end (delta: 893.4 MB). Free memory was 940.6 MB in the beginning and 1.2 GB in the end (delta: -279.4 MB). Peak memory consumption was 933.0 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,983 INFO  L168              Benchmark]: Boogie PL CUP Parser took 0.15 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,984 INFO  L168              Benchmark]: Boogie Preprocessor took 53.76 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,984 INFO  L168              Benchmark]: UtopiaSpecLang took 46.25 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,984 INFO  L168              Benchmark]: Boogie Printer took 8.63 ms. Allocated memory is still 1.0 GB. Free memory is still 929.8 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,985 INFO  L168              Benchmark]: RCFGBuilder took 479.32 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 886.6 MB in the end (delta: 43.2 MB). Peak memory consumption was 43.2 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,985 INFO  L168              Benchmark]: UtopiaLTL2Aut took 38.57 ms. Allocated memory is still 1.0 GB. Free memory was 886.6 MB in the beginning and 877.7 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,986 INFO  L168              Benchmark]: Büchi Program Product took 886.65 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 60.3 MB). Free memory was 877.7 MB in the beginning and 980.8 MB in the end (delta: -103.1 MB). Peak memory consumption was 159.7 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,986 INFO  L168              Benchmark]: BlockEncodingV2 took 69.21 ms. Allocated memory is still 1.1 GB. Free memory was 980.8 MB in the beginning and 948.1 MB in the end (delta: 32.7 MB). Peak memory consumption was 32.7 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,986 INFO  L168              Benchmark]: BuchiAutomizer took 7320.93 ms. Allocated memory was 1.1 GB in the beginning and 1.9 GB in the end (delta: 833.1 MB). Free memory was 948.1 MB in the beginning and 1.2 GB in the end (delta: -271.9 MB). Peak memory consumption was 880.3 MB. Max. memory is 15.3 GB.
+[2020-11-24 17:31:26,988 INFO  L337   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.blockencoding:
+  - StatisticsResult: Initial Icfg
+    1358 locations, 2298 edges
+  - StatisticsResult: Encoded RCFG
+    1328 locations, 2228 edges
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * Boogie PL CUP Parser took 0.15 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * Boogie Preprocessor took 53.76 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * UtopiaSpecLang took 46.25 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * Boogie Printer took 8.63 ms. Allocated memory is still 1.0 GB. Free memory is still 929.8 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * RCFGBuilder took 479.32 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 886.6 MB in the end (delta: 43.2 MB). Peak memory consumption was 43.2 MB. Max. memory is 15.3 GB.
+ * UtopiaLTL2Aut took 38.57 ms. Allocated memory is still 1.0 GB. Free memory was 886.6 MB in the beginning and 877.7 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+ * Büchi Program Product took 886.65 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 60.3 MB). Free memory was 877.7 MB in the beginning and 980.8 MB in the end (delta: -103.1 MB). Peak memory consumption was 159.7 MB. Max. memory is 15.3 GB.
+ * BlockEncodingV2 took 69.21 ms. Allocated memory is still 1.1 GB. Free memory was 980.8 MB in the beginning and 948.1 MB in the end (delta: 32.7 MB). Peak memory consumption was 32.7 MB. Max. memory is 15.3 GB.
+ * BuchiAutomizer took 7320.93 ms. Allocated memory was 1.1 GB in the beginning and 1.9 GB in the end (delta: 833.1 MB). Free memory was 948.1 MB in the beginning and 1.2 GB in the end (delta: -271.9 MB). Peak memory consumption was 880.3 MB. Max. memory is 15.3 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.buchiprogramproduct:
+  - StatisticsResult: Initial property automaton
+    2 locations, 3 edges
+  - StatisticsResult: Initial RCFG
+    588 locations, 715 edges
+  - StatisticsResult: BuchiProgram size
+    1358 locations, 2298 edges
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Your program was decomposed into 2 terminating modules (2 trivial, 0 deterministic, 0 nondeterministic) and one nonterminating remainder module.2 modules have a trivial ranking function, the largest among these consists of 3 locations. The remainder module has 210 locations.
+  - StatisticsResult: Timing statistics
+    BüchiAutomizer plugin needed 7.2s and 3 iterations.  TraceHistogramMax:1. Analysis of lassos took 6.9s. Construction of modules took 0.0s. Büchi inclusion checks took 0.1s. Highest rank in rank-based complementation 0. Minimization of det autom 2. Minimization of nondet autom 0. Automata minimization 0.0s AutomataMinimizationTime, 2 MinimizatonAttempts, 11 StatesRemovedByMinimization, 1 NontrivialMinimizations. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had 210 states and ocurred in iteration 2.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: 932 SDtfs, 729 SDslu, 195 SDs, 0 SdLazy, 25 SolverSat, 472 SolverUnsat, 0 SolverUnknown, 0 SolverNotchecked, 0.0s Time	LassoAnalysisResults: nont1 unkn0 SFLI0 SFLT0 conc0 concLT0 SILN0 SILU2 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - TransactionCounterexample: Violation of LTL property LTL
+    Found an infinite, lasso-shaped execution that violates the LTL property LTL.
+Stem:
+StreamProtocol(16).transferFrom~address~address~uint256.gas(3979001)({from : 12, from : 11, to : 3, tokens : 0});
+[L3]                revert_hold := revert;
+[L3]                revert := false;
+[L3]                assume (((((((((((((p1 != from_s510 && p1 != to_s510) && (p2 != from_s510 || p3 != msgsender_MSG)) && from_s510 != to_s510) && tokens_s510 <= balances_StreamProtocol[this][from_s510]) && tokens_s510 <= allowed_StreamProtocol[this][from_s510][msgsender_MSG]) && balances_StreamProtocol[this][to_s510] + tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && tokens_s510 >= 0) && tokens_s510 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_StreamProtocol[this][to_s510] >= 0) && balances_StreamProtocol[this][to_s510] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_StreamProtocol[this][from_s510] >= 0) && balances_StreamProtocol[this][from_s510] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] >= 0) && allowed_StreamProtocol[this][from_s510][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L3]                call_transferFrom_StreamProtocol0 := true;
+[L3]                call_transferFrom_StreamProtocol0 := false;
+[L3]                revert := revert_hold;
+[L302]              havoc __exception;
+[L303]              revert := false;
+[L304]   COND TRUE  __exception
+[L305]              __tmp__Balance := Balance;
+[L306]              __tmp__DType := DType;
+[L307]              __tmp__Alloc := Alloc;
+[L308]              __tmp__balance_ADDR := balance_ADDR;
+[L309]              __tmp__M_Ref_int := M_Ref_int;
+[L310]              __tmp__sum_balances0 := sum_balances0;
+[L311]              __tmp__alloc_allowed_StreamProtocol_lvl0 := alloc_allowed_StreamProtocol_lvl0;
+[L312]              __tmp__M_Ref_Ref := M_Ref_Ref;
+[L313]              __tmp__sum_allowed1 := sum_allowed1;
+[L314]              __tmp__Length := Length;
+[L315]              __tmp__now := now;
+[L316]              __tmp__owner_Owned := owner_Owned;
+[L317]              __tmp__symbol_StreamProtocol := symbol_StreamProtocol;
+[L318]              __tmp__name_StreamProtocol := name_StreamProtocol;
+[L319]              __tmp__decimals_StreamProtocol := decimals_StreamProtocol;
+[L320]              __tmp___totalSupply_StreamProtocol := _totalSupply_StreamProtocol;
+[L321]              __tmp___stopTrade_StreamProtocol := _stopTrade_StreamProtocol;
+[L322]              __tmp__balances_StreamProtocol := balances_StreamProtocol;
+[L323]              __tmp__allowed_StreamProtocol := allowed_StreamProtocol;
+[L324]   CALL       call success_s510 := transferFrom~address~address~uint256_StreamProtocol__fail(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L804]   COND TRUE  !(__tmp___stopTrade_StreamProtocol[this] != true)
+[L805]              revert := true;
+[L324]   RET        call success_s510 := transferFrom~address~address~uint256_StreamProtocol__fail(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+[L325]              assume revert || gas < 0;
+[L1615]  RET        call success_s510 := transferFrom~address~address~uint256_StreamProtocol(this, msgsender_MSG, msgvalue_MSG, from_s510, to_s510, tokens_s510);
+
+Loop:
+
+End of lasso representation.
+RESULT: Ultimate could not prove your program: Toolchain returned no result.
+Received shutdown request...

@@ -83,32 +83,34 @@ exception=0
 timedout=0
 
 # create /logs if it doesn't exist
-mkdir -p logs
+mkdir -p live_logs1
 
 
 for i in ${!properties[@]}
 do
 	# set up the .bpl file with the correct property
     propBpl=${FILE_NAME%.sol}_${property_names[$i]}.bpl
-    logName=./logs/${FILE_NAME%.sol}-${property_names[$i]}-log.txt
+    logName=./live_logs1/${FILE_NAME%.sol}-${property_names[$i]}-log.txt
 	echo -e "${properties[$i]}" > ${propBpl}
 	cat  ${baseBpl} >> ${propBpl}
 
 	# time the running, allow the user to Ctrl-C out
-	TIME_OUT_LIMIT=300 # in seconds, 10m
-	START_TIME=$SECONDS
+	TIME_OUT_LIMIT=900 # in seconds, 10m
 	trap 'kill -INT -$PID' INT
 	timeout $TIME_OUT_LIMIT ${DIR}/SmartPulse/SmartPulse.sh ${propBpl} >& ${logName} &
 	PID=$! # pid of job most recently put in background
 	wait $PID
 	RETVAL=$?
-	ELAPSED_TIME=$(($SECONDS - $START_TIME))
+
 
 	if [[ $RETVAL == 124 ]]
 	then
 		echo "Property ${property_names[$i]} timed-out -- ${TIME_OUT_LIMIT}s";
 		((++timedout));
 	else
+		ELAPSED_TIME=$(awk '/Toolchain \(without parser\)/ {print $0}' ${logName} | sed -E 's/.*Toolchain \(without parser\) took ([0-9]*\.*[0-9]*) ms.*/\1/')
+		ELAPSED_TIME=$(echo "scale=2;$ELAPSED_TIME / 1000" | bc)
+
 		logtail=$(tail -n 20 ${logName})
 		if [[ "$logtail" == *" correct"* ]]
 		then

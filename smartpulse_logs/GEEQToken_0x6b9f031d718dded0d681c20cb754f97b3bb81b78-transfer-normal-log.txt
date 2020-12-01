@@ -1,0 +1,930 @@
+This is Ultimate 0.1.24-f1553f5-m
+[2020-11-24 19:09:17,823 INFO  L170        SettingsManager]: Resetting all preferences to default values...
+[2020-11-24 19:09:17,825 INFO  L174        SettingsManager]: Resetting UltimateCore preferences to default values
+[2020-11-24 19:09:17,834 INFO  L177        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2020-11-24 19:09:17,835 INFO  L174        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2020-11-24 19:09:17,835 INFO  L174        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2020-11-24 19:09:17,836 INFO  L174        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2020-11-24 19:09:17,838 INFO  L174        SettingsManager]: Resetting LassoRanker preferences to default values
+[2020-11-24 19:09:17,839 INFO  L174        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2020-11-24 19:09:17,840 INFO  L174        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2020-11-24 19:09:17,840 INFO  L177        SettingsManager]: Büchi Program Product provides no preferences, ignoring...
+[2020-11-24 19:09:17,841 INFO  L174        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2020-11-24 19:09:17,841 INFO  L174        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2020-11-24 19:09:17,842 INFO  L174        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2020-11-24 19:09:17,843 INFO  L174        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2020-11-24 19:09:17,843 INFO  L174        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2020-11-24 19:09:17,844 INFO  L174        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2020-11-24 19:09:17,845 INFO  L174        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2020-11-24 19:09:17,846 INFO  L174        SettingsManager]: Resetting CodeCheck preferences to default values
+[2020-11-24 19:09:17,847 INFO  L174        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2020-11-24 19:09:17,848 INFO  L174        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2020-11-24 19:09:17,849 INFO  L174        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2020-11-24 19:09:17,850 INFO  L177        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2020-11-24 19:09:17,851 INFO  L177        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2020-11-24 19:09:17,851 INFO  L174        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2020-11-24 19:09:17,851 INFO  L174        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2020-11-24 19:09:17,852 INFO  L174        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2020-11-24 19:09:17,852 INFO  L177        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2020-11-24 19:09:17,852 INFO  L174        SettingsManager]: Resetting UtopiaLTL2Aut preferences to default values
+[2020-11-24 19:09:17,853 INFO  L174        SettingsManager]: Resetting UtopiaSpecLang preferences to default values
+[2020-11-24 19:09:17,853 INFO  L174        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2020-11-24 19:09:17,853 INFO  L174        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2020-11-24 19:09:17,854 INFO  L174        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2020-11-24 19:09:17,854 INFO  L174        SettingsManager]: Resetting Witness Printer preferences to default values
+[2020-11-24 19:09:17,855 INFO  L177        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2020-11-24 19:09:17,855 INFO  L174        SettingsManager]: Resetting CDTParser preferences to default values
+[2020-11-24 19:09:17,856 INFO  L177        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2020-11-24 19:09:17,856 INFO  L177        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2020-11-24 19:09:17,856 INFO  L174        SettingsManager]: Resetting SmtParser preferences to default values
+[2020-11-24 19:09:17,857 INFO  L174        SettingsManager]: Resetting Witness Parser preferences to default values
+[2020-11-24 19:09:17,857 INFO  L181        SettingsManager]: Finished resetting all preferences to default values...
+[2020-11-24 19:09:17,857 INFO  L98         SettingsManager]: Beginning loading settings from /mnt/data0/jon/SmartPulseTool/SmartPulse/settings.epf
+[2020-11-24 19:09:17,868 INFO  L110        SettingsManager]: Loading preferences was successful
+[2020-11-24 19:09:17,868 INFO  L112        SettingsManager]: Preferences different from defaults after loading the file:
+[2020-11-24 19:09:17,869 INFO  L131        SettingsManager]: Preferences of LTL2Aut differ from their defaults:
+[2020-11-24 19:09:17,869 INFO  L133        SettingsManager]:  * Read property from file=true
+[2020-11-24 19:09:17,870 INFO  L133        SettingsManager]:  * Path to LTL*BA executable (LTL2BA, LTL3BA)=/mnt/data0/jon/SmartPulseTool/ltl2ba
+[2020-11-24 19:09:17,870 INFO  L131        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2020-11-24 19:09:17,870 INFO  L133        SettingsManager]:  * Maximize final states=false
+[2020-11-24 19:09:17,870 INFO  L133        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2020-11-24 19:09:17,870 INFO  L133        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2020-11-24 19:09:17,871 INFO  L131        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2020-11-24 19:09:17,871 INFO  L133        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2020-11-24 19:09:17,871 INFO  L133        SettingsManager]:  * Use old map elimination=false
+[2020-11-24 19:09:17,871 INFO  L133        SettingsManager]:  * Try twofold refinement=false
+[2020-11-24 19:09:17,871 INFO  L131        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2020-11-24 19:09:17,872 INFO  L133        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2020-11-24 19:09:17,872 INFO  L133        SettingsManager]:  * Overapproximate operations on floating types=true
+[2020-11-24 19:09:17,872 INFO  L133        SettingsManager]:  * Check division by zero=IGNORE
+[2020-11-24 19:09:17,872 INFO  L133        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2020-11-24 19:09:17,872 INFO  L133        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2020-11-24 19:09:17,872 INFO  L133        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2020-11-24 19:09:17,873 INFO  L133        SettingsManager]:  * Check if freed pointer was valid=false
+[2020-11-24 19:09:17,873 INFO  L133        SettingsManager]:  * Use constant arrays=true
+[2020-11-24 19:09:17,873 INFO  L133        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2020-11-24 19:09:17,873 INFO  L131        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2020-11-24 19:09:17,873 INFO  L133        SettingsManager]:  * Size of a code block=SingleStatement
+[2020-11-24 19:09:17,873 INFO  L133        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+[2020-11-24 19:09:17,897 INFO  L81    nceAwareModelManager]: Repository-Root is: /tmp
+[2020-11-24 19:09:17,910 INFO  L259   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2020-11-24 19:09:17,913 INFO  L215   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2020-11-24 19:09:17,914 INFO  L271        PluginConnector]: Initializing Boogie PL CUP Parser...
+[2020-11-24 19:09:17,914 INFO  L276        PluginConnector]: Boogie PL CUP Parser initialized
+[2020-11-24 19:09:17,915 INFO  L430   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /mnt/data0/jon/SmartPulseTool/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl
+[2020-11-24 19:09:17,915 INFO  L111           BoogieParser]: Parsing: '/mnt/data0/jon/SmartPulseTool/GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl'
+[2020-11-24 19:09:17,979 INFO  L297   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2020-11-24 19:09:17,981 INFO  L131        ToolchainWalker]: Walking toolchain with 8 elements.
+[2020-11-24 19:09:17,981 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2020-11-24 19:09:17,981 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2020-11-24 19:09:17,981 INFO  L276        PluginConnector]: Boogie Preprocessor initialized
+[2020-11-24 19:09:17,998 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:17,999 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,019 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,020 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,037 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,043 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,047 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,052 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2020-11-24 19:09:18,053 INFO  L113        PluginConnector]: ------------------------UtopiaSpecLang----------------------------
+[2020-11-24 19:09:18,053 INFO  L271        PluginConnector]: Initializing UtopiaSpecLang...
+[2020-11-24 19:09:18,055 INFO  L276        PluginConnector]: UtopiaSpecLang initialized
+[2020-11-24 19:09:18,059 INFO  L185        PluginConnector]: Executing the observer UtopiaSpecLangObserver from plugin UtopiaSpecLang for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/1) ...
+[2020-11-24 19:09:18,073 INFO  L1012  opiaSpecLangObserver]: Parsing LTLPlus Formula to AstNode: [](started(GEEQToken.transfer(to, value), p1 != msg.sender && p1 != to && msg.sender != to && value <= balances_GEEQToken[this][msg.sender] && balances_GEEQToken[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][to] >= 0 && balances_GEEQToken[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][msg.sender] >= 0 &&  balances_GEEQToken[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(GEEQToken.transfer(to, value), return == true && balances_GEEQToken[this][msg.sender] == old(balances_GEEQToken[this][msg.sender]) - value && balances_GEEQToken[this][to] == old(balances_GEEQToken[this][to]) + value && _totalSupply_GEEQToken[this] == old(_totalSupply_GEEQToken[this]) && allowed_GEEQToken[this] == old(allowed_GEEQToken[this]) && balances_GEEQToken[this][p1] == old(balances_GEEQToken[this][p1]) && symbol_GEEQToken[this] == old(symbol_GEEQToken[this]) && name_GEEQToken[this] == old(name_GEEQToken[this]) && decimals_GEEQToken[this] == old(decimals_GEEQToken[this]) && _totalMinted_GEEQToken[this] == old(_totalMinted_GEEQToken[this]) && _maxMintable_GEEQToken[this] == old(_maxMintable_GEEQToken[this]) && pauseOn_GEEQToken[this] == old(pauseOn_GEEQToken[this]) && migrationOn_GEEQToken[this] == old(migrationOn_GEEQToken[this]) && geeqaddress_GEEQToken[this] == old(geeqaddress_GEEQToken[this]) && owner_Owned[this] == old(owner_Owned[this]) && newOwner_Owned[this] == old(newOwner_Owned[this]))))
+[2020-11-24 19:09:18,078 INFO  L1016  opiaSpecLangObserver]: Successfully lexed: [](started(GEEQToken.transfer(to, value), p1 != msg.sender && p1 != to && msg.sender != to && value <= balances_GEEQToken[this][msg.sender] && balances_GEEQToken[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][to] >= 0 && balances_GEEQToken[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][msg.sender] >= 0 &&  balances_GEEQToken[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(GEEQToken.transfer(to, value), return == true && balances_GEEQToken[this][msg.sender] == old(balances_GEEQToken[this][msg.sender]) - value && balances_GEEQToken[this][to] == old(balances_GEEQToken[this][to]) + value && _totalSupply_GEEQToken[this] == old(_totalSupply_GEEQToken[this]) && allowed_GEEQToken[this] == old(allowed_GEEQToken[this]) && balances_GEEQToken[this][p1] == old(balances_GEEQToken[this][p1]) && symbol_GEEQToken[this] == old(symbol_GEEQToken[this]) && name_GEEQToken[this] == old(name_GEEQToken[this]) && decimals_GEEQToken[this] == old(decimals_GEEQToken[this]) && _totalMinted_GEEQToken[this] == old(_totalMinted_GEEQToken[this]) && _maxMintable_GEEQToken[this] == old(_maxMintable_GEEQToken[this]) && pauseOn_GEEQToken[this] == old(pauseOn_GEEQToken[this]) && migrationOn_GEEQToken[this] == old(migrationOn_GEEQToken[this]) && geeqaddress_GEEQToken[this] == old(geeqaddress_GEEQToken[this]) && owner_Owned[this] == old(owner_Owned[this]) && newOwner_Owned[this] == old(newOwner_Owned[this]))))
+[2020-11-24 19:09:18,086 INFO  L1018  opiaSpecLangObserver]: Successfully parsed: [](started(GEEQToken.transfer(to, value), p1 != msg.sender && p1 != to && msg.sender != to && value <= balances_GEEQToken[this][msg.sender] && balances_GEEQToken[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][to] >= 0 && balances_GEEQToken[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][msg.sender] >= 0 &&  balances_GEEQToken[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(GEEQToken.transfer(to, value), return == true && balances_GEEQToken[this][msg.sender] == old(balances_GEEQToken[this][msg.sender]) - value && balances_GEEQToken[this][to] == old(balances_GEEQToken[this][to]) + value && _totalSupply_GEEQToken[this] == old(_totalSupply_GEEQToken[this]) && allowed_GEEQToken[this] == old(allowed_GEEQToken[this]) && balances_GEEQToken[this][p1] == old(balances_GEEQToken[this][p1]) && symbol_GEEQToken[this] == old(symbol_GEEQToken[this]) && name_GEEQToken[this] == old(name_GEEQToken[this]) && decimals_GEEQToken[this] == old(decimals_GEEQToken[this]) && _totalMinted_GEEQToken[this] == old(_totalMinted_GEEQToken[this]) && _maxMintable_GEEQToken[this] == old(_maxMintable_GEEQToken[this]) && pauseOn_GEEQToken[this] == old(pauseOn_GEEQToken[this]) && migrationOn_GEEQToken[this] == old(migrationOn_GEEQToken[this]) && geeqaddress_GEEQToken[this] == old(geeqaddress_GEEQToken[this]) && owner_Owned[this] == old(owner_Owned[this]) && newOwner_Owned[this] == old(newOwner_Owned[this]))))
+[2020-11-24 19:09:18,091 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( ( ( ( p1!=msg.sender && p1!=to_s647 ) && msg.sender!=to_s647 ) && tokens_s647<=balances_GEEQToken[this][msg.sender] ) && ( balances_GEEQToken[this][to_s647] + tokens_s647 )<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && tokens_s647>=0 ) && tokens_s647<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && balances_GEEQToken[this][to_s647]>=0 ) && balances_GEEQToken[this][to_s647]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) && balances_GEEQToken[this][msg.sender]>=0 ) && balances_GEEQToken[this][msg.sender]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPNEQ,IdentifierExpression[p1,GLOBAL],IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]],BinaryExpression[COMPNEQ,IdentifierExpression[p1,GLOBAL],IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],BinaryExpression[COMPNEQ,IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>],IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],BinaryExpression[COMPLEQ,IdentifierExpression[tokens_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>],ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]],BinaryExpression[COMPLT,BinaryExpression[ARITHPLUS,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],IdentifierExpression[tokens_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,IdentifierExpression[tokens_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>],IntegerLiteral[0]]],BinaryExpression[COMPLT,IdentifierExpression[tokens_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]],BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],IntegerLiteral[0]]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]]
+[2020-11-24 19:09:18,094 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( success_s647==true && balances_GEEQToken[this][msg.sender]==( ( old(balances_GEEQToken[this][msg.sender]) ) - tokens_s647 ) ) && balances_GEEQToken[this][to_s647]==( ( old(balances_GEEQToken[this][to_s647]) ) + tokens_s647 ) ) && _totalSupply_GEEQToken[this]==( old(_totalSupply_GEEQToken[this]) ) ) && allowed_GEEQToken[this]==( old(allowed_GEEQToken[this]) ) ) && balances_GEEQToken[this][p1]==( old(balances_GEEQToken[this][p1]) ) ) && symbol_GEEQToken[this]==( old(symbol_GEEQToken[this]) ) ) && name_GEEQToken[this]==( old(name_GEEQToken[this]) ) ) && decimals_GEEQToken[this]==( old(decimals_GEEQToken[this]) ) ) && _totalMinted_GEEQToken[this]==( old(_totalMinted_GEEQToken[this]) ) ) && _maxMintable_GEEQToken[this]==( old(_maxMintable_GEEQToken[this]) ) ) && pauseOn_GEEQToken[this]==( old(pauseOn_GEEQToken[this]) ) ) && migrationOn_GEEQToken[this]==( old(migrationOn_GEEQToken[this]) ) ) && geeqaddress_GEEQToken[this]==( old(geeqaddress_GEEQToken[this]) ) ) && owner_Owned[this]==( old(owner_Owned[this]) ) ) && newOwner_Owned[this]==( old(newOwner_Owned[this]) ) ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPEQ,IdentifierExpression[success_s647,<IMPLEMENTATION_OUTPARAM,transfer~address~uint256_GEEQToken>],BooleanLiteral[true]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],BinaryExpression[ARITHMINUS,UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[msgsender_MSG,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]],IdentifierExpression[tokens_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],BinaryExpression[ARITHPLUS,UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[to_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]],IdentifierExpression[tokens_s647,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[_totalSupply_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[_totalSupply_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[allowed_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[allowed_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[p1,GLOBAL]]],UnaryExpression[OLD,ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[balances_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],[IdentifierExpression[p1,GLOBAL]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[symbol_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[symbol_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[name_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[name_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[decimals_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[decimals_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[_totalMinted_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[_totalMinted_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[_maxMintable_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[_maxMintable_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[pauseOn_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[pauseOn_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[migrationOn_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[migrationOn_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[geeqaddress_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[geeqaddress_GEEQToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[owner_Owned,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[owner_Owned,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[newOwner_Owned,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[newOwner_Owned,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,transfer~address~uint256_GEEQToken>]]]]]]
+[2020-11-24 19:09:18,097 INFO  L1005  opiaSpecLangObserver]: Compiling: [](started(GEEQToken.transfer(to, value), p1 != msg.sender && p1 != to && msg.sender != to && value <= balances_GEEQToken[this][msg.sender] && balances_GEEQToken[this][to] + value < 0x10000000000000000000000000000000000000000000000000000000000000000 && value >= 0  && value < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][to] >= 0 && balances_GEEQToken[this][to] < 0x10000000000000000000000000000000000000000000000000000000000000000 && balances_GEEQToken[this][msg.sender] >= 0 &&  balances_GEEQToken[this][msg.sender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(GEEQToken.transfer(to, value), return == true && balances_GEEQToken[this][msg.sender] == old(balances_GEEQToken[this][msg.sender]) - value && balances_GEEQToken[this][to] == old(balances_GEEQToken[this][to]) + value && _totalSupply_GEEQToken[this] == old(_totalSupply_GEEQToken[this]) && allowed_GEEQToken[this] == old(allowed_GEEQToken[this]) && balances_GEEQToken[this][p1] == old(balances_GEEQToken[this][p1]) && symbol_GEEQToken[this] == old(symbol_GEEQToken[this]) && name_GEEQToken[this] == old(name_GEEQToken[this]) && decimals_GEEQToken[this] == old(decimals_GEEQToken[this]) && _totalMinted_GEEQToken[this] == old(_totalMinted_GEEQToken[this]) && _maxMintable_GEEQToken[this] == old(_maxMintable_GEEQToken[this]) && pauseOn_GEEQToken[this] == old(pauseOn_GEEQToken[this]) && migrationOn_GEEQToken[this] == old(migrationOn_GEEQToken[this]) && geeqaddress_GEEQToken[this] == old(geeqaddress_GEEQToken[this]) && owner_Owned[this] == old(owner_Owned[this]) && newOwner_Owned[this] == old(newOwner_Owned[this]))))
+[2020-11-24 19:09:18,098 INFO  L1007  opiaSpecLangObserver]: Compiled to ( []( AP(call_transfer_GEEQToken0) ==> ( <>AP(success_transfer_GEEQToken0) ) ) )
+Executed UtopiaSpecLang
+[2020-11-24 19:09:18,103 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 07:09:18 PropertyContainer
+[2020-11-24 19:09:18,103 INFO  L132        PluginConnector]: ------------------------ END UtopiaSpecLang----------------------------
+[2020-11-24 19:09:18,103 INFO  L113        PluginConnector]: ------------------------Boogie Printer----------------------------
+[2020-11-24 19:09:18,103 INFO  L271        PluginConnector]: Initializing Boogie Printer...
+[2020-11-24 19:09:18,103 INFO  L276        PluginConnector]: Boogie Printer initialized
+[2020-11-24 19:09:18,105 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/2) ...
+[2020-11-24 19:09:18,105 INFO  L116   oogiePrinterObserver]: File already exists and will be overwritten: /tmp/boogiePrinter.bpl
+[2020-11-24 19:09:18,105 INFO  L120   oogiePrinterObserver]: Writing to file /tmp/boogiePrinter.bpl
+[2020-11-24 19:09:18,113 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 07:09:18" (2/2) ...
+[2020-11-24 19:09:18,113 INFO  L132        PluginConnector]: ------------------------ END Boogie Printer----------------------------
+[2020-11-24 19:09:18,113 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2020-11-24 19:09:18,113 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2020-11-24 19:09:18,114 INFO  L276        PluginConnector]: RCFGBuilder initialized
+[2020-11-24 19:09:18,114 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/2) ...
+[2020-11-24 19:09:18,170 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__success
+[2020-11-24 19:09:18,171 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 19:09:18,171 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 19:09:18,171 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_GEEQToken
+[2020-11-24 19:09:18,171 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_GEEQToken
+[2020-11-24 19:09:18,172 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_GEEQToken
+[2020-11-24 19:09:18,172 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_GEEQToken
+[2020-11-24 19:09:18,172 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_GEEQToken
+[2020-11-24 19:09:18,172 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_GEEQToken
+[2020-11-24 19:09:18,172 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__success
+[2020-11-24 19:09:18,173 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__success
+[2020-11-24 19:09:18,173 INFO  L130     BoogieDeclarations]: Found specification of procedure send__success
+[2020-11-24 19:09:18,173 INFO  L130     BoogieDeclarations]: Found specification of procedure onlyOwner_pre__success
+[2020-11-24 19:09:18,173 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_SafeMath
+[2020-11-24 19:09:18,173 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_SafeMath
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ERC20Interface
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ERC20Interface
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_ApproveAndCallFallBack
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_ApproveAndCallFallBack
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_Owned
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_Owned
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_GEEQToken
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__fail
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 19:09:18,174 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_GEEQToken__success
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_GEEQToken__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_GEEQToken__success
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_GEEQToken__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_GEEQToken__success
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_GEEQToken__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_GEEQToken__success
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_GEEQToken__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_GEEQToken__success
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_GEEQToken__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_GEEQToken__success
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_GEEQToken__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__fail
+[2020-11-24 19:09:18,175 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__fail
+[2020-11-24 19:09:18,176 INFO  L130     BoogieDeclarations]: Found specification of procedure send__fail
+[2020-11-24 19:09:18,176 INFO  L130     BoogieDeclarations]: Found specification of procedure onlyOwner_pre__fail
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__fail
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__success
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__fail
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_SafeMath__success
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__fail
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_SafeMath__success
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_GEEQToken__fail
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_GEEQToken__success
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_GEEQToken__fail
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_GEEQToken__success
+[2020-11-24 19:09:18,176 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_GEEQToken__fail
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_GEEQToken__success
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_GEEQToken__fail
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_GEEQToken__success
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_GEEQToken__fail
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_GEEQToken__success
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_GEEQToken__fail
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_GEEQToken__success
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__fail
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__success
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__fail
+[2020-11-24 19:09:18,177 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__success
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__fail
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__success
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure onlyOwner_pre__fail
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure onlyOwner_pre__success
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_SafeMath
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_SafeMath
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ERC20Interface
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ERC20Interface
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_ApproveAndCallFallBack
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_ApproveAndCallFallBack
+[2020-11-24 19:09:18,178 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_Owned
+[2020-11-24 19:09:18,179 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_Owned
+[2020-11-24 19:09:18,179 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_GEEQToken
+[2020-11-24 19:09:18,179 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2020-11-24 19:09:18,179 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2020-11-24 19:09:18,179 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2020-11-24 19:09:18,385 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 19:09:18,469 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 19:09:18,469 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 19:09:18,470 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 19:09:18,600 INFO  L281             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2020-11-24 19:09:18,600 INFO  L286             CfgBuilder]: Removed 5 assue(true) statements.
+[2020-11-24 19:09:18,602 INFO  L202        PluginConnector]: Adding new model GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 07:09:18 BoogieIcfgContainer
+[2020-11-24 19:09:18,602 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 07:09:18" (2/2) ...
+[2020-11-24 19:09:18,602 INFO  L85     RCFGBuilderObserver]: No WrapperNode. Let Ultimate process with next node
+[2020-11-24 19:09:18,602 INFO  L205        PluginConnector]: Invalid model from RCFGBuilder for observer de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder.RCFGBuilderObserver@7cda5d4e and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 07:09:18, skipping insertion in model container
+[2020-11-24 19:09:18,603 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2020-11-24 19:09:18,603 INFO  L113        PluginConnector]: ------------------------UtopiaLTL2Aut----------------------------
+[2020-11-24 19:09:18,603 INFO  L271        PluginConnector]: Initializing UtopiaLTL2Aut...
+[2020-11-24 19:09:18,604 INFO  L276        PluginConnector]: UtopiaLTL2Aut initialized
+[2020-11-24 19:09:18,605 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/3) ...
+[2020-11-24 19:09:18,605 INFO  L205        PluginConnector]: Invalid model from UtopiaLTL2Aut for observer edu.utexas.cs.utopia.ltl2aut.UtopiaLTL2AutObserver@d15140b and model type Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 07:09:18, skipping insertion in model container
+[2020-11-24 19:09:18,605 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 07:09:18" (2/3) ...
+No working directory specified, using /mnt/data0/jon/SmartPulseTool/ltl2ba
+Starting monitored process 1 with /mnt/data0/jon/SmartPulseTool/ltl2ba -f ! ( ( [] ( a -> ( <>b ) ) ) )  (exit command is null, workingDir is null)
+[2020-11-24 19:09:18,642 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 07:09:18 NWAContainer
+[2020-11-24 19:09:18,642 INFO  L132        PluginConnector]: ------------------------ END UtopiaLTL2Aut----------------------------
+[2020-11-24 19:09:18,642 INFO  L113        PluginConnector]: ------------------------Büchi Program Product----------------------------
+[2020-11-24 19:09:18,643 INFO  L271        PluginConnector]: Initializing Büchi Program Product...
+[2020-11-24 19:09:18,643 INFO  L276        PluginConnector]: Büchi Program Product initialized
+[2020-11-24 19:09:18,644 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 07:09:18" (3/4) ...
+[2020-11-24 19:09:18,645 INFO  L205        PluginConnector]: Invalid model from Büchi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@4b5737d1 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 07:09:18, skipping insertion in model container
+[2020-11-24 19:09:18,645 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 07:09:18" (4/4) ...
+[2020-11-24 19:09:18,649 INFO  L104   BuchiProductObserver]: Initial property automaton 2 locations, 3 edges
+[2020-11-24 19:09:18,651 INFO  L110   BuchiProductObserver]: Initial RCFG 615 locations, 724 edges
+[2020-11-24 19:09:18,651 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2020-11-24 19:09:18,662 INFO  L136       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2020-11-24 19:09:19,541 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2020-11-24 19:09:19,543 INFO  L110   BuchiProductObserver]: BuchiProgram size 1404 locations, 2327 edges
+[2020-11-24 19:09:19,543 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 07:09:19 BoogieIcfgContainer
+[2020-11-24 19:09:19,544 INFO  L132        PluginConnector]: ------------------------ END Büchi Program Product----------------------------
+[2020-11-24 19:09:19,544 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2020-11-24 19:09:19,544 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2020-11-24 19:09:19,546 INFO  L276        PluginConnector]: BlockEncodingV2 initialized
+[2020-11-24 19:09:19,547 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 07:09:19" (1/1) ...
+[2020-11-24 19:09:19,583 INFO  L313           BlockEncoder]: Initial Icfg 1404 locations, 2327 edges
+[2020-11-24 19:09:19,583 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2020-11-24 19:09:19,583 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2020-11-24 19:09:19,584 INFO  L296           BlockEncoder]: Using Remove sink states
+[2020-11-24 19:09:19,584 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2020-11-24 19:09:19,590 INFO  L70    emoveInfeasibleEdges]: Removed 51 edges and 13 locations because of local infeasibility
+[2020-11-24 19:09:19,593 INFO  L70        RemoveSinkStates]: Removed 2 edges and 1 locations by removing sink states
+[2020-11-24 19:09:19,597 INFO  L70    emoveInfeasibleEdges]: Removed 0 edges and 0 locations because of local infeasibility
+[2020-11-24 19:09:19,599 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2020-11-24 19:09:19,600 INFO  L237           BlockEncoder]: Using Create parallel compositions if possible
+[2020-11-24 19:09:19,600 INFO  L66        ParallelComposer]: Creating parallel compositions
+[2020-11-24 19:09:19,602 INFO  L313           BlockEncoder]: Encoded RCFG 1370 locations, 2245 edges
+[2020-11-24 19:09:19,602 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 07:09:19 BasicIcfg
+[2020-11-24 19:09:19,602 INFO  L132        PluginConnector]: ------------------------ END BlockEncodingV2----------------------------
+[2020-11-24 19:09:19,602 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2020-11-24 19:09:19,602 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2020-11-24 19:09:19,604 INFO  L276        PluginConnector]: BuchiAutomizer initialized
+[2020-11-24 19:09:19,604 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 19:09:19,604 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 07:09:17" (1/6) ...
+[2020-11-24 19:09:19,606 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@558080fd and model type GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 07:09:19, skipping insertion in model container
+[2020-11-24 19:09:19,606 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 19:09:19,606 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 07:09:18" (2/6) ...
+[2020-11-24 19:09:19,607 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@558080fd and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 07:09:19, skipping insertion in model container
+[2020-11-24 19:09:19,607 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 19:09:19,607 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 07:09:18" (3/6) ...
+[2020-11-24 19:09:19,607 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@558080fd and model type GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 07:09:19, skipping insertion in model container
+[2020-11-24 19:09:19,607 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 19:09:19,607 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 07:09:18" (4/6) ...
+[2020-11-24 19:09:19,607 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@558080fd and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 07:09:19, skipping insertion in model container
+[2020-11-24 19:09:19,607 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 19:09:19,607 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 07:09:19" (5/6) ...
+[2020-11-24 19:09:19,607 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@558080fd and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer OTHER 24.11 07:09:19, skipping insertion in model container
+[2020-11-24 19:09:19,607 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 19:09:19,608 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 07:09:19" (6/6) ...
+[2020-11-24 19:09:19,609 INFO  L404   chiAutomizerObserver]: Analyzing ICFG GEEQToken_0x6b9f031d718dded0d681c20cb754f97b3bb81b78_transfer-normal.bpl_BEv2
+[2020-11-24 19:09:19,642 INFO  L133   ementStrategyFactory]: Using default assertion order modulation
+[2020-11-24 19:09:19,643 INFO  L377         BuchiCegarLoop]: Interprodecural is true
+[2020-11-24 19:09:19,643 INFO  L378         BuchiCegarLoop]: Hoare is false
+[2020-11-24 19:09:19,643 INFO  L379         BuchiCegarLoop]: Compute interpolants for Craig_TreeInterpolation
+[2020-11-24 19:09:19,643 INFO  L380         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2020-11-24 19:09:19,643 INFO  L381         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2020-11-24 19:09:19,643 INFO  L382         BuchiCegarLoop]: Difference is false
+[2020-11-24 19:09:19,643 INFO  L383         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2020-11-24 19:09:19,643 INFO  L386         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2020-11-24 19:09:19,657 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1370 states.
+[2020-11-24 19:09:19,695 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 19:09:19,695 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 19:09:19,696 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 19:09:19,704 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 19:09:19,705 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2020-11-24 19:09:19,705 INFO  L445         BuchiCegarLoop]: ======== Iteration 1============
+[2020-11-24 19:09:19,705 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1370 states.
+[2020-11-24 19:09:19,715 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 19:09:19,715 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 19:09:19,715 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 19:09:19,717 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 19:09:19,717 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L3]                 success_transfer_GEEQToken0 := false;
+[L3]                 call_transfer_GEEQToken0 := false;
+[L3]     CALL        call main();
+[L3]                 havoc p1;
+[L1743]              assume null == 0;
+[L1744]  CALL        call this := FreshRefGenerator__success();
+[L727]               havoc newRef;
+[L728]               assume Alloc[newRef] == false;
+[L729]               Alloc[newRef] := true;
+[L730]               assume newRef != null;
+[L1744]  RET         call this := FreshRefGenerator__success();
+[L1745]              assume now >= 0;
+[L1746]              assume DType[this] == GEEQToken;
+[L1747]              assume !revert && gas >= 0;
+[L1748]  CALL        call CorralChoice_GEEQToken(this);
+[L1647]              havoc msgsender_MSG;
+[L1648]              havoc msgvalue_MSG;
+[L1649]              havoc choice;
+[L1650]              havoc __ret_0_totalSupply;
+[L1651]              havoc tokenOwner_s591;
+[L1652]              havoc balance_s591;
+[L1653]              havoc tokenOwner_s763;
+[L1654]              havoc spender_s763;
+[L1655]              havoc remaining_s763;
+[L1656]              havoc to_s647;
+[L1657]              havoc tokens_s647;
+[L1658]              havoc success_s647;
+[L1659]              havoc spender_s675;
+[L1660]              havoc tokens_s675;
+[L1661]              havoc success_s675;
+[L1662]              havoc from_s747;
+[L1663]              havoc to_s747;
+[L1664]              havoc tokens_s747;
+[L1665]              havoc success_s747;
+[L1666]              havoc __ret_0_owner;
+[L1667]              havoc __ret_0_newOwner;
+[L1668]              havoc _newOwner_s220;
+[L1669]              havoc __ret_0_symbol;
+[L1670]              havoc __ret_0_name;
+[L1671]              havoc __ret_0_decimals;
+[L1672]              havoc __ret_0_pauseOn;
+[L1673]              havoc __ret_0_migrationOn;
+[L1674]              havoc arg813_s0;
+[L1675]              havoc __ret_0_balances;
+[L1676]              havoc arg814_s0;
+[L1677]              havoc __ret_0_geeqaddress;
+[L1678]              havoc registeraddress_s387;
+[L1679]              havoc tokenAddress_s407;
+[L1680]              havoc tokens_s407;
+[L1681]              havoc success_s407;
+[L1682]              havoc __ret_0_totalMinted;
+[L1683]              havoc receiver_s579;
+[L1684]              havoc token_amt_s579;
+[L1685]              havoc spender_s806;
+[L1686]              havoc tokens_s806;
+[L1687]              havoc data_s806;
+[L1688]              havoc success_s806;
+[L1689]              havoc tmpNow;
+[L1690]              havoc gas;
+[L1691]              assume gas > 4000000 && gas <= 8000000;
+[L1692]              tmpNow := now;
+[L1693]              havoc now;
+[L1694]              assume now > tmpNow;
+[L1695]              assume msgsender_MSG != null;
+[L1696]  COND TRUE   choice == 6
+[L1697]              gas := gas - 21000;
+[L1698]  COND FALSE  !(gas >= 0)
+[L1748]  RET         call CorralChoice_GEEQToken(this);
+
+Loop:
+[L1748]        assume true;
+
+[2020-11-24 19:09:19,734 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 19:09:19,734 INFO  L82        PathProgramCache]: Analyzing trace with hash -642270211, now seen corresponding path program 1 times
+[2020-11-24 19:09:19,739 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 19:09:19,762 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 19:09:19,815 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 19:09:19,817 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 19:09:19,817 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [4] imperfect sequences [] total 4
+[2020-11-24 19:09:19,820 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 19:09:19,832 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 4 interpolants.
+[2020-11-24 19:09:19,833 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=5, Invalid=7, Unknown=0, NotChecked=0, Total=12
+[2020-11-24 19:09:19,834 INFO  L87              Difference]: Start difference. First operand 1370 states. Second operand 4 states.
+[2020-11-24 19:09:20,079 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 19:09:20,079 INFO  L93              Difference]: Finished difference Result 619 states and 675 transitions.
+[2020-11-24 19:09:20,079 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 4 states. 
+[2020-11-24 19:09:20,081 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 619 states and 675 transitions.
+[2020-11-24 19:09:20,086 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 19:09:20,091 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 619 states to 195 states and 206 transitions.
+[2020-11-24 19:09:20,092 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 4
+[2020-11-24 19:09:20,093 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 195
+[2020-11-24 19:09:20,093 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 195 states and 206 transitions.
+[2020-11-24 19:09:20,095 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 19:09:20,095 INFO  L728         BuchiCegarLoop]: Abstraction has 195 states and 206 transitions.
+[2020-11-24 19:09:20,109 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 195 states and 206 transitions.
+[2020-11-24 19:09:20,122 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 195 to 195.
+[2020-11-24 19:09:20,123 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 195 states.
+[2020-11-24 19:09:20,123 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 195 states to 195 states and 206 transitions.
+[2020-11-24 19:09:20,124 INFO  L751         BuchiCegarLoop]: Abstraction has 195 states and 206 transitions.
+[2020-11-24 19:09:20,124 INFO  L631         BuchiCegarLoop]: Abstraction has 195 states and 206 transitions.
+[2020-11-24 19:09:20,124 INFO  L445         BuchiCegarLoop]: ======== Iteration 2============
+[2020-11-24 19:09:20,124 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 195 states and 206 transitions.
+[2020-11-24 19:09:20,126 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 19:09:20,126 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 19:09:20,126 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 19:09:20,127 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 19:09:20,127 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L3]                 success_transfer_GEEQToken0 := false;
+[L3]                 call_transfer_GEEQToken0 := false;
+[L3]     CALL        call main();
+[L3]                 havoc p1;
+[L1743]              assume null == 0;
+[L1744]  CALL        call this := FreshRefGenerator__success();
+[L727]               havoc newRef;
+[L728]               assume Alloc[newRef] == false;
+[L729]               Alloc[newRef] := true;
+[L730]               assume newRef != null;
+[L1744]  RET         call this := FreshRefGenerator__success();
+[L1745]              assume now >= 0;
+[L1746]              assume DType[this] == GEEQToken;
+[L1747]              assume !revert && gas >= 0;
+[L1748]  CALL        call CorralChoice_GEEQToken(this);
+[L1647]              havoc msgsender_MSG;
+[L1648]              havoc msgvalue_MSG;
+[L1649]              havoc choice;
+[L1650]              havoc __ret_0_totalSupply;
+[L1651]              havoc tokenOwner_s591;
+[L1652]              havoc balance_s591;
+[L1653]              havoc tokenOwner_s763;
+[L1654]              havoc spender_s763;
+[L1655]              havoc remaining_s763;
+[L1656]              havoc to_s647;
+[L1657]              havoc tokens_s647;
+[L1658]              havoc success_s647;
+[L1659]              havoc spender_s675;
+[L1660]              havoc tokens_s675;
+[L1661]              havoc success_s675;
+[L1662]              havoc from_s747;
+[L1663]              havoc to_s747;
+[L1664]              havoc tokens_s747;
+[L1665]              havoc success_s747;
+[L1666]              havoc __ret_0_owner;
+[L1667]              havoc __ret_0_newOwner;
+[L1668]              havoc _newOwner_s220;
+[L1669]              havoc __ret_0_symbol;
+[L1670]              havoc __ret_0_name;
+[L1671]              havoc __ret_0_decimals;
+[L1672]              havoc __ret_0_pauseOn;
+[L1673]              havoc __ret_0_migrationOn;
+[L1674]              havoc arg813_s0;
+[L1675]              havoc __ret_0_balances;
+[L1676]              havoc arg814_s0;
+[L1677]              havoc __ret_0_geeqaddress;
+[L1678]              havoc registeraddress_s387;
+[L1679]              havoc tokenAddress_s407;
+[L1680]              havoc tokens_s407;
+[L1681]              havoc success_s407;
+[L1682]              havoc __ret_0_totalMinted;
+[L1683]              havoc receiver_s579;
+[L1684]              havoc token_amt_s579;
+[L1685]              havoc spender_s806;
+[L1686]              havoc tokens_s806;
+[L1687]              havoc data_s806;
+[L1688]              havoc success_s806;
+[L1689]              havoc tmpNow;
+[L1690]              havoc gas;
+[L1691]              assume gas > 4000000 && gas <= 8000000;
+[L1692]              tmpNow := now;
+[L1693]              havoc now;
+[L1694]              assume now > tmpNow;
+[L1695]              assume msgsender_MSG != null;
+[L1696]  COND FALSE  !(choice == 6)
+[L1702]  COND FALSE  !(choice == 5)
+[L1708]  COND FALSE  !(choice == 4)
+[L1714]  COND TRUE   choice == 3
+[L1715]              gas := gas - 21000;
+[L1716]  COND TRUE   gas >= 0
+[L1717]              assume tokens_s647 >= 0 && tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1718]              assume msgvalue_MSG == 0;
+[L1719]  CALL        call success_s647 := transfer~address~uint256_GEEQToken(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L3]                 revert_hold := revert;
+[L3]                 revert := false;
+[L3]                 assume (((((((((p1 != msgsender_MSG && p1 != to_s647) && msgsender_MSG != to_s647) && tokens_s647 <= balances_GEEQToken[this][msgsender_MSG]) && balances_GEEQToken[this][to_s647] + tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && tokens_s647 >= 0) && tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_GEEQToken[this][to_s647] >= 0) && balances_GEEQToken[this][to_s647] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_GEEQToken[this][msgsender_MSG] >= 0) && balances_GEEQToken[this][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L3]                 call_transfer_GEEQToken0 := true;
+[L3]                 call_transfer_GEEQToken0 := false;
+[L3]                 revert := revert_hold;
+[L224]               havoc __exception;
+[L225]               revert := false;
+[L226]   COND FALSE  !(__exception)
+[L255]   CALL        call success_s647 := transfer~address~uint256_GEEQToken__success(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L832]   COND TRUE   pauseOn_GEEQToken[this]
+[L833]               assert { :EventEmitted "ErrorEvent_GEEQToken" } true;
+[L834]               revert := true;
+[L255]   RET         call success_s647 := transfer~address~uint256_GEEQToken__success(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L256]               assume !revert && gas >= 0;
+[L3]                 revert_hold := revert;
+[L3]                 revert := false;
+[L3]                 assume !(((((((((((((((success_s647 == true && balances_GEEQToken[this][msgsender_MSG] == old(balances_GEEQToken[this][msgsender_MSG]) - tokens_s647) && balances_GEEQToken[this][to_s647] == old(balances_GEEQToken[this][to_s647]) + tokens_s647) && _totalSupply_GEEQToken[this] == old(_totalSupply_GEEQToken[this])) && allowed_GEEQToken[this] == old(allowed_GEEQToken[this])) && balances_GEEQToken[this][p1] == old(balances_GEEQToken[this][p1])) && symbol_GEEQToken[this] == old(symbol_GEEQToken[this])) && name_GEEQToken[this] == old(name_GEEQToken[this])) && decimals_GEEQToken[this] == old(decimals_GEEQToken[this])) && _totalMinted_GEEQToken[this] == old(_totalMinted_GEEQToken[this])) && _maxMintable_GEEQToken[this] == old(_maxMintable_GEEQToken[this])) && pauseOn_GEEQToken[this] == old(pauseOn_GEEQToken[this])) && migrationOn_GEEQToken[this] == old(migrationOn_GEEQToken[this])) && geeqaddress_GEEQToken[this] == old(geeqaddress_GEEQToken[this])) && owner_Owned[this] == old(owner_Owned[this])) && newOwner_Owned[this] == old(newOwner_Owned[this]));
+[L3]                 revert := revert_hold;
+[L1719]  RET         call success_s647 := transfer~address~uint256_GEEQToken(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L1748]  RET         call CorralChoice_GEEQToken(this);
+
+Loop:
+[L1748]        assume true;
+
+[2020-11-24 19:09:20,130 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 19:09:20,130 INFO  L82        PathProgramCache]: Analyzing trace with hash 2027529642, now seen corresponding path program 1 times
+[2020-11-24 19:09:20,131 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 19:09:20,143 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 19:09:20,160 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 19:09:20,161 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 19:09:20,161 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 19:09:20,162 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 19:09:20,162 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 19:09:20,162 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 19:09:20,163 INFO  L87              Difference]: Start difference. First operand 195 states and 206 transitions. cyclomatic complexity: 12 Second operand 3 states.
+[2020-11-24 19:09:20,170 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 19:09:20,170 INFO  L93              Difference]: Finished difference Result 226 states and 236 transitions.
+[2020-11-24 19:09:20,170 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 19:09:20,170 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 226 states and 236 transitions.
+[2020-11-24 19:09:20,172 INFO  L131   ngComponentsAnalysis]: Automaton has 2 accepting balls. 2
+[2020-11-24 19:09:20,174 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 226 states to 210 states and 216 transitions.
+[2020-11-24 19:09:20,174 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 210
+[2020-11-24 19:09:20,174 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 210
+[2020-11-24 19:09:20,174 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 210 states and 216 transitions.
+[2020-11-24 19:09:20,175 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 19:09:20,175 INFO  L728         BuchiCegarLoop]: Abstraction has 210 states and 216 transitions.
+[2020-11-24 19:09:20,176 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 210 states and 216 transitions.
+[2020-11-24 19:09:20,181 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 210 to 199.
+[2020-11-24 19:09:20,181 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 199 states.
+[2020-11-24 19:09:20,181 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 199 states to 199 states and 205 transitions.
+[2020-11-24 19:09:20,181 INFO  L751         BuchiCegarLoop]: Abstraction has 199 states and 205 transitions.
+[2020-11-24 19:09:20,182 INFO  L631         BuchiCegarLoop]: Abstraction has 199 states and 205 transitions.
+[2020-11-24 19:09:20,182 INFO  L445         BuchiCegarLoop]: ======== Iteration 3============
+[2020-11-24 19:09:20,182 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 199 states and 205 transitions.
+[2020-11-24 19:09:20,183 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 19:09:20,183 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 19:09:20,183 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 19:09:20,184 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 19:09:20,184 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L3]                 success_transfer_GEEQToken0 := false;
+[L3]                 call_transfer_GEEQToken0 := false;
+[L3]     CALL        call main();
+[L3]                 havoc p1;
+[L1743]              assume null == 0;
+[L1744]  CALL        call this := FreshRefGenerator__success();
+[L727]               havoc newRef;
+[L728]               assume Alloc[newRef] == false;
+[L729]               Alloc[newRef] := true;
+[L730]               assume newRef != null;
+[L1744]  RET         call this := FreshRefGenerator__success();
+[L1745]              assume now >= 0;
+[L1746]              assume DType[this] == GEEQToken;
+[L1747]              assume !revert && gas >= 0;
+[L1748]  CALL        call CorralChoice_GEEQToken(this);
+[L1647]              havoc msgsender_MSG;
+[L1648]              havoc msgvalue_MSG;
+[L1649]              havoc choice;
+[L1650]              havoc __ret_0_totalSupply;
+[L1651]              havoc tokenOwner_s591;
+[L1652]              havoc balance_s591;
+[L1653]              havoc tokenOwner_s763;
+[L1654]              havoc spender_s763;
+[L1655]              havoc remaining_s763;
+[L1656]              havoc to_s647;
+[L1657]              havoc tokens_s647;
+[L1658]              havoc success_s647;
+[L1659]              havoc spender_s675;
+[L1660]              havoc tokens_s675;
+[L1661]              havoc success_s675;
+[L1662]              havoc from_s747;
+[L1663]              havoc to_s747;
+[L1664]              havoc tokens_s747;
+[L1665]              havoc success_s747;
+[L1666]              havoc __ret_0_owner;
+[L1667]              havoc __ret_0_newOwner;
+[L1668]              havoc _newOwner_s220;
+[L1669]              havoc __ret_0_symbol;
+[L1670]              havoc __ret_0_name;
+[L1671]              havoc __ret_0_decimals;
+[L1672]              havoc __ret_0_pauseOn;
+[L1673]              havoc __ret_0_migrationOn;
+[L1674]              havoc arg813_s0;
+[L1675]              havoc __ret_0_balances;
+[L1676]              havoc arg814_s0;
+[L1677]              havoc __ret_0_geeqaddress;
+[L1678]              havoc registeraddress_s387;
+[L1679]              havoc tokenAddress_s407;
+[L1680]              havoc tokens_s407;
+[L1681]              havoc success_s407;
+[L1682]              havoc __ret_0_totalMinted;
+[L1683]              havoc receiver_s579;
+[L1684]              havoc token_amt_s579;
+[L1685]              havoc spender_s806;
+[L1686]              havoc tokens_s806;
+[L1687]              havoc data_s806;
+[L1688]              havoc success_s806;
+[L1689]              havoc tmpNow;
+[L1690]              havoc gas;
+[L1691]              assume gas > 4000000 && gas <= 8000000;
+[L1692]              tmpNow := now;
+[L1693]              havoc now;
+[L1694]              assume now > tmpNow;
+[L1695]              assume msgsender_MSG != null;
+[L1696]  COND FALSE  !(choice == 6)
+[L1702]  COND FALSE  !(choice == 5)
+[L1708]  COND FALSE  !(choice == 4)
+[L1714]  COND TRUE   choice == 3
+[L1715]              gas := gas - 21000;
+[L1716]  COND TRUE   gas >= 0
+[L1717]              assume tokens_s647 >= 0 && tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L1718]              assume msgvalue_MSG == 0;
+[L1719]  CALL        call success_s647 := transfer~address~uint256_GEEQToken(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L3]                 revert_hold := revert;
+[L3]                 revert := false;
+[L3]                 assume (((((((((p1 != msgsender_MSG && p1 != to_s647) && msgsender_MSG != to_s647) && tokens_s647 <= balances_GEEQToken[this][msgsender_MSG]) && balances_GEEQToken[this][to_s647] + tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && tokens_s647 >= 0) && tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_GEEQToken[this][to_s647] >= 0) && balances_GEEQToken[this][to_s647] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_GEEQToken[this][msgsender_MSG] >= 0) && balances_GEEQToken[this][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L3]                 call_transfer_GEEQToken0 := true;
+[L3]                 call_transfer_GEEQToken0 := false;
+[L3]                 revert := revert_hold;
+[L224]               havoc __exception;
+[L225]               revert := false;
+[L226]   COND TRUE   __exception
+[L227]               __tmp__Balance := Balance;
+[L228]               __tmp__DType := DType;
+[L229]               __tmp__Alloc := Alloc;
+[L230]               __tmp__balance_ADDR := balance_ADDR;
+[L231]               __tmp__M_Ref_int := M_Ref_int;
+[L232]               __tmp__sum_balances0 := sum_balances0;
+[L233]               __tmp__alloc_allowed_GEEQToken_lvl0 := alloc_allowed_GEEQToken_lvl0;
+[L234]               __tmp__M_Ref_Ref := M_Ref_Ref;
+[L235]               __tmp__sum_allowed1 := sum_allowed1;
+[L236]               __tmp__sum_geeqaddress2 := sum_geeqaddress2;
+[L237]               __tmp__Length := Length;
+[L238]               __tmp__now := now;
+[L239]               __tmp__owner_Owned := owner_Owned;
+[L240]               __tmp__newOwner_Owned := newOwner_Owned;
+[L241]               __tmp__symbol_GEEQToken := symbol_GEEQToken;
+[L242]               __tmp__name_GEEQToken := name_GEEQToken;
+[L243]               __tmp__decimals_GEEQToken := decimals_GEEQToken;
+[L244]               __tmp___totalSupply_GEEQToken := _totalSupply_GEEQToken;
+[L245]               __tmp___totalMinted_GEEQToken := _totalMinted_GEEQToken;
+[L246]               __tmp___maxMintable_GEEQToken := _maxMintable_GEEQToken;
+[L247]               __tmp__pauseOn_GEEQToken := pauseOn_GEEQToken;
+[L248]               __tmp__migrationOn_GEEQToken := migrationOn_GEEQToken;
+[L249]               __tmp__balances_GEEQToken := balances_GEEQToken;
+[L250]               __tmp__allowed_GEEQToken := allowed_GEEQToken;
+[L251]               __tmp__geeqaddress_GEEQToken := geeqaddress_GEEQToken;
+[L252]   CALL        call success_s647 := transfer~address~uint256_GEEQToken__fail(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L805]   COND TRUE   __tmp__pauseOn_GEEQToken[this]
+[L806]               revert := true;
+[L252]   RET         call success_s647 := transfer~address~uint256_GEEQToken__fail(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L253]               assume revert || gas < 0;
+[L1719]  RET         call success_s647 := transfer~address~uint256_GEEQToken(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L1748]  RET         call CorralChoice_GEEQToken(this);
+
+Loop:
+[L1748]        assume true;
+
+[2020-11-24 19:09:20,187 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 19:09:20,187 INFO  L82        PathProgramCache]: Analyzing trace with hash 328159754, now seen corresponding path program 1 times
+[2020-11-24 19:09:20,188 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 19:09:20,198 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 19:09:20,207 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 19:09:20,246 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 19:09:20,246 INFO  L82        PathProgramCache]: Analyzing trace with hash 7059, now seen corresponding path program 1 times
+[2020-11-24 19:09:20,247 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 19:09:20,247 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 19:09:20,248 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 19:09:20,249 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 19:09:20,249 INFO  L82        PathProgramCache]: Analyzing trace with hash 1583024810, now seen corresponding path program 1 times
+[2020-11-24 19:09:20,250 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 19:09:20,258 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 19:09:20,267 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+Garbage collection #1: 11 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 11 to 19
+Garbage collection #2: 19 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 19 to 37
+Garbage collection #1: 19 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 19 to 37
+Garbage collection #2: 37 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 37 to 73
+Garbage collection #3: 73 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 73 to 139
+Garbage collection #4: 139 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 139 to 277
+[2020-11-24 19:09:20,478 WARN  L188               SmtUtils]: Spent 143.00 ms on a formula simplification. DAG size of input: 156 DAG size of output: 150
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #6: 1759 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 1759 to 3517
+Garbage collection #1: 53 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 53 to 103
+Garbage collection #2: 103 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 103 to 199
+Garbage collection #3: 199 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 199 to 397
+Garbage collection #4: 397 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 397 to 787
+Garbage collection #5: 787 nodes / 0 free / 0.001s / 0.002s total
+Resizing node table from 787 to 1571
+Garbage collection #6: 1571 nodes / 0 free / 0.001s / 0.003s total
+Resizing node table from 1571 to 3137
+[2020-11-24 19:09:20,617 WARN  L188               SmtUtils]: Spent 111.00 ms on a formula simplification. DAG size of input: 115 DAG size of output: 111
+[2020-11-24 19:09:20,819 WARN  L188               SmtUtils]: Spent 200.00 ms on a formula simplification that was a NOOP. DAG size: 281
+Garbage collection #1: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #2: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #3: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #4: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #5: 1759 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1759 to 3517
+Garbage collection #6: 3517 nodes / 0 free / 0.003s / 0.003s total
+Resizing node table from 3517 to 7027
+[2020-11-24 19:09:21,112 WARN  L188               SmtUtils]: Spent 265.00 ms on a formula simplification that was a NOOP. DAG size: 223
+[2020-11-24 19:09:21,465 WARN  L188               SmtUtils]: Spent 348.00 ms on a formula simplification. DAG size of input: 256 DAG size of output: 244
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.001s total
+Resizing node table from 3019 to 6037
+Garbage collection #7: 6037 nodes / 0 free / 0.002s / 0.003s total
+Resizing node table from 6037 to 12073
+Garbage collection #8: 12073 nodes / 0 free / 0.003s / 0.006s total
+Resizing node table from 12073 to 24137
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #6: 1759 nodes / 0 free / 0.001s / 0.001s total
+Resizing node table from 1759 to 3517
+[2020-11-24 19:09:21,693 WARN  L188               SmtUtils]: Spent 132.00 ms on a formula simplification that was a NOOP. DAG size: 304
+Garbage collection #1: 127 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 127 to 251
+Garbage collection #2: 251 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 251 to 499
+Garbage collection #3: 499 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 499 to 997
+Garbage collection #4: 997 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 997 to 1993
+Garbage collection #5: 1993 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1993 to 3967
+Garbage collection #6: 3967 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3967 to 7933
+[2020-11-24 19:09:21,930 WARN  L188               SmtUtils]: Spent 136.00 ms on a formula simplification. DAG size of input: 257 DAG size of output: 254
+Garbage collection #1: 101 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 101 to 199
+Garbage collection #2: 199 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 199 to 397
+Garbage collection #3: 397 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 397 to 787
+Garbage collection #4: 787 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 787 to 1571
+Garbage collection #5: 1571 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1571 to 3137
+Garbage collection #6: 3137 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3137 to 6271
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+Garbage collection #1: 59 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 59 to 113
+Garbage collection #2: 113 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 113 to 223
+Garbage collection #3: 223 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 223 to 443
+Garbage collection #4: 443 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 443 to 883
+Garbage collection #5: 883 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 883 to 1759
+[2020-11-24 19:09:22,185 WARN  L188               SmtUtils]: Spent 120.00 ms on a formula simplification. DAG size of input: 245 DAG size of output: 244
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+Garbage collection #1: 97 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 97 to 193
+Garbage collection #2: 193 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 193 to 383
+Garbage collection #3: 383 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 383 to 761
+Garbage collection #4: 761 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 761 to 1511
+Garbage collection #5: 1511 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 1511 to 3019
+Garbage collection #6: 3019 nodes / 0 free / 0.0s / 0.0s total
+Resizing node table from 3019 to 6037
+[2020-11-24 19:09:22,250 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is sat
+[2020-11-24 19:09:22,256 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 07:09:22 BasicIcfg
+[2020-11-24 19:09:22,256 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2020-11-24 19:09:22,257 INFO  L168              Benchmark]: Toolchain (without parser) took 4276.84 ms. Allocated memory was 1.0 GB in the beginning and 1.5 GB in the end (delta: 440.9 MB). Free memory was 940.6 MB in the beginning and 1.4 GB in the end (delta: -424.3 MB). Peak memory consumption was 454.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,258 INFO  L168              Benchmark]: Boogie PL CUP Parser took 0.16 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,259 INFO  L168              Benchmark]: Boogie Preprocessor took 71.78 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,260 INFO  L168              Benchmark]: UtopiaSpecLang took 50.12 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,261 INFO  L168              Benchmark]: Boogie Printer took 9.92 ms. Allocated memory is still 1.0 GB. Free memory is still 929.8 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,262 INFO  L168              Benchmark]: RCFGBuilder took 489.32 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 886.7 MB in the end (delta: 43.1 MB). Peak memory consumption was 43.1 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,263 INFO  L168              Benchmark]: UtopiaLTL2Aut took 39.44 ms. Allocated memory is still 1.0 GB. Free memory was 886.7 MB in the beginning and 877.8 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,264 INFO  L168              Benchmark]: Büchi Program Product took 901.26 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 52.4 MB). Free memory was 877.8 MB in the beginning and 974.1 MB in the end (delta: -96.3 MB). Peak memory consumption was 159.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,264 INFO  L168              Benchmark]: BlockEncodingV2 took 58.00 ms. Allocated memory is still 1.1 GB. Free memory was 974.1 MB in the beginning and 945.5 MB in the end (delta: 28.6 MB). Peak memory consumption was 28.6 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,265 INFO  L168              Benchmark]: BuchiAutomizer took 2654.06 ms. Allocated memory was 1.1 GB in the beginning and 1.5 GB in the end (delta: 388.5 MB). Free memory was 945.5 MB in the beginning and 1.4 GB in the end (delta: -419.4 MB). Peak memory consumption was 407.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 19:09:22,269 INFO  L337   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.blockencoding:
+  - StatisticsResult: Initial Icfg
+    1404 locations, 2327 edges
+  - StatisticsResult: Encoded RCFG
+    1370 locations, 2245 edges
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * Boogie PL CUP Parser took 0.16 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * Boogie Preprocessor took 71.78 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * UtopiaSpecLang took 50.12 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 929.8 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * Boogie Printer took 9.92 ms. Allocated memory is still 1.0 GB. Free memory is still 929.8 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * RCFGBuilder took 489.32 ms. Allocated memory is still 1.0 GB. Free memory was 929.8 MB in the beginning and 886.7 MB in the end (delta: 43.1 MB). Peak memory consumption was 43.1 MB. Max. memory is 15.3 GB.
+ * UtopiaLTL2Aut took 39.44 ms. Allocated memory is still 1.0 GB. Free memory was 886.7 MB in the beginning and 877.8 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+ * Büchi Program Product took 901.26 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 52.4 MB). Free memory was 877.8 MB in the beginning and 974.1 MB in the end (delta: -96.3 MB). Peak memory consumption was 159.9 MB. Max. memory is 15.3 GB.
+ * BlockEncodingV2 took 58.00 ms. Allocated memory is still 1.1 GB. Free memory was 974.1 MB in the beginning and 945.5 MB in the end (delta: 28.6 MB). Peak memory consumption was 28.6 MB. Max. memory is 15.3 GB.
+ * BuchiAutomizer took 2654.06 ms. Allocated memory was 1.1 GB in the beginning and 1.5 GB in the end (delta: 388.5 MB). Free memory was 945.5 MB in the beginning and 1.4 GB in the end (delta: -419.4 MB). Peak memory consumption was 407.4 MB. Max. memory is 15.3 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.buchiprogramproduct:
+  - StatisticsResult: Initial property automaton
+    2 locations, 3 edges
+  - StatisticsResult: Initial RCFG
+    615 locations, 724 edges
+  - StatisticsResult: BuchiProgram size
+    1404 locations, 2327 edges
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Your program was decomposed into 2 terminating modules (2 trivial, 0 deterministic, 0 nondeterministic) and one nonterminating remainder module.2 modules have a trivial ranking function, the largest among these consists of 4 locations. The remainder module has 199 locations.
+  - StatisticsResult: Timing statistics
+    BüchiAutomizer plugin needed 2.6s and 3 iterations.  TraceHistogramMax:1. Analysis of lassos took 2.1s. Construction of modules took 0.0s. Büchi inclusion checks took 0.1s. Highest rank in rank-based complementation 0. Minimization of det autom 2. Minimization of nondet autom 0. Automata minimization 0.0s AutomataMinimizationTime, 2 MinimizatonAttempts, 11 StatesRemovedByMinimization, 1 NontrivialMinimizations. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had 199 states and ocurred in iteration 2.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: 876 SDtfs, 693 SDslu, 778 SDs, 0 SdLazy, 99 SolverSat, 470 SolverUnsat, 0 SolverUnknown, 0 SolverNotchecked, 0.0s Time	LassoAnalysisResults: nont1 unkn0 SFLI0 SFLT0 conc0 concLT0 SILN0 SILU2 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - TransactionCounterexample: Violation of LTL property LTL
+    Found an infinite, lasso-shaped execution that violates the LTL property LTL.
+Stem:
+GEEQToken(8).transfer~address~uint256.gas(3979001)({from : 12, to : 7, tokens : 0});
+[L3]                revert_hold := revert;
+[L3]                revert := false;
+[L3]                assume (((((((((p1 != msgsender_MSG && p1 != to_s647) && msgsender_MSG != to_s647) && tokens_s647 <= balances_GEEQToken[this][msgsender_MSG]) && balances_GEEQToken[this][to_s647] + tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && tokens_s647 >= 0) && tokens_s647 < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_GEEQToken[this][to_s647] >= 0) && balances_GEEQToken[this][to_s647] < 115792089237316195423570985008687907853269984665640564039457584007913129639936) && balances_GEEQToken[this][msgsender_MSG] >= 0) && balances_GEEQToken[this][msgsender_MSG] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L3]                call_transfer_GEEQToken0 := true;
+[L3]                call_transfer_GEEQToken0 := false;
+[L3]                revert := revert_hold;
+[L224]              havoc __exception;
+[L225]              revert := false;
+[L226]   COND TRUE  __exception
+[L227]              __tmp__Balance := Balance;
+[L228]              __tmp__DType := DType;
+[L229]              __tmp__Alloc := Alloc;
+[L230]              __tmp__balance_ADDR := balance_ADDR;
+[L231]              __tmp__M_Ref_int := M_Ref_int;
+[L232]              __tmp__sum_balances0 := sum_balances0;
+[L233]              __tmp__alloc_allowed_GEEQToken_lvl0 := alloc_allowed_GEEQToken_lvl0;
+[L234]              __tmp__M_Ref_Ref := M_Ref_Ref;
+[L235]              __tmp__sum_allowed1 := sum_allowed1;
+[L236]              __tmp__sum_geeqaddress2 := sum_geeqaddress2;
+[L237]              __tmp__Length := Length;
+[L238]              __tmp__now := now;
+[L239]              __tmp__owner_Owned := owner_Owned;
+[L240]              __tmp__newOwner_Owned := newOwner_Owned;
+[L241]              __tmp__symbol_GEEQToken := symbol_GEEQToken;
+[L242]              __tmp__name_GEEQToken := name_GEEQToken;
+[L243]              __tmp__decimals_GEEQToken := decimals_GEEQToken;
+[L244]              __tmp___totalSupply_GEEQToken := _totalSupply_GEEQToken;
+[L245]              __tmp___totalMinted_GEEQToken := _totalMinted_GEEQToken;
+[L246]              __tmp___maxMintable_GEEQToken := _maxMintable_GEEQToken;
+[L247]              __tmp__pauseOn_GEEQToken := pauseOn_GEEQToken;
+[L248]              __tmp__migrationOn_GEEQToken := migrationOn_GEEQToken;
+[L249]              __tmp__balances_GEEQToken := balances_GEEQToken;
+[L250]              __tmp__allowed_GEEQToken := allowed_GEEQToken;
+[L251]              __tmp__geeqaddress_GEEQToken := geeqaddress_GEEQToken;
+[L252]   CALL       call success_s647 := transfer~address~uint256_GEEQToken__fail(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L805]   COND TRUE  __tmp__pauseOn_GEEQToken[this]
+[L806]              revert := true;
+[L252]   RET        call success_s647 := transfer~address~uint256_GEEQToken__fail(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+[L253]              assume revert || gas < 0;
+[L1719]  RET        call success_s647 := transfer~address~uint256_GEEQToken(this, msgsender_MSG, msgvalue_MSG, to_s647, tokens_s647);
+
+Loop:
+
+End of lasso representation.
+RESULT: Ultimate could not prove your program: Toolchain returned no result.
+Received shutdown request...

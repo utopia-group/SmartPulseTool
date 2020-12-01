@@ -1,0 +1,36 @@
+/mnt/data0/jon/verified-smart-contracts/erc20/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/solc_out/TristersLightCoin.bin-runtime
+make: Entering directory '/mnt/data0/jon/verified-smart-contracts/erc20/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe'
+mkdir -p /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe
+#processing .k local lemmas
+cp ../verification.k ../../resources/abstract-semantics-segmented-gas.k ../../resources/evm-symbolic.k ../evm-data-map-symbolic.k /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe
+#processing .md local lemmas
+for i in ; do \
+	pandoc --from markdown --to "/mnt/data0/jon/verified-smart-contracts/.build/pandoc-tangle/tangle.lua" --metadata=code:".k" $i > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/"$(basename $i .md)".k; \
+done
+touch /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/lemmas.timestamp
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini totalSupply totalSupply > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/totalSupply-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini balanceOf balanceOf > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/balanceOf-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini allowance allowance > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/allowance-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini approve approve > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/approve-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-success-1 transfer-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-success-2 transfer-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-failure-1 transfer-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transfer-failure-2 transfer-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transfer-failure-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-success-1 transferFrom-success-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-success-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-success-2 transferFrom-success-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-success-2-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-failure-1 transferFrom-failure-1 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-failure-1-spec.k
+python3 /mnt/data0/jon/verified-smart-contracts/resources/gen-spec.py ../module-tmpl.k ../spec-tmpl.k TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe-erc20-spec.ini transferFrom-failure-2 transferFrom-failure-2 > /mnt/data0/jon/verified-smart-contracts/specs/java/erc20/buf/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe/transferFrom-failure-2-spec.k
+make: Leaving directory '/mnt/data0/jon/verified-smart-contracts/erc20/TristersLightCoin_0x9d5155fbffd5bbb7555f13819a5b435b7befdcbe'
+Proved: totalSupply -- 394.473
+Proved: balanceOf -- 420.053
+Proved: allowance -- 406.535
+Failed: approve -- 424.008
+Failed: transfer-success-1 -- 470.874
+Proved: transfer-success-2 -- 431.995
+Proved: transfer-failure-1 -- 436.250
+Proved: transfer-failure-2 -- 418.997
+Failed: transferFrom-success-1 -- 477.988
+Failed: transferFrom-success-2 -- 441.578
+Proved: transferFrom-failure-1 -- 460.560
+Proved: transferFrom-failure-2 -- 444.458
+Proved 8 out of 12 specs

@@ -1,0 +1,653 @@
+This is Ultimate 0.1.24-f1553f5-m
+[2020-11-24 16:11:54,010 INFO  L170        SettingsManager]: Resetting all preferences to default values...
+[2020-11-24 16:11:54,011 INFO  L174        SettingsManager]: Resetting UltimateCore preferences to default values
+[2020-11-24 16:11:54,018 INFO  L177        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2020-11-24 16:11:54,018 INFO  L174        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2020-11-24 16:11:54,019 INFO  L174        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2020-11-24 16:11:54,019 INFO  L174        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2020-11-24 16:11:54,020 INFO  L174        SettingsManager]: Resetting LassoRanker preferences to default values
+[2020-11-24 16:11:54,021 INFO  L174        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2020-11-24 16:11:54,022 INFO  L174        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2020-11-24 16:11:54,022 INFO  L177        SettingsManager]: Büchi Program Product provides no preferences, ignoring...
+[2020-11-24 16:11:54,022 INFO  L174        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2020-11-24 16:11:54,023 INFO  L174        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2020-11-24 16:11:54,023 INFO  L174        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2020-11-24 16:11:54,024 INFO  L174        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2020-11-24 16:11:54,024 INFO  L174        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2020-11-24 16:11:54,024 INFO  L174        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2020-11-24 16:11:54,025 INFO  L174        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2020-11-24 16:11:54,026 INFO  L174        SettingsManager]: Resetting CodeCheck preferences to default values
+[2020-11-24 16:11:54,027 INFO  L174        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2020-11-24 16:11:54,027 INFO  L174        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2020-11-24 16:11:54,028 INFO  L174        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2020-11-24 16:11:54,029 INFO  L177        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2020-11-24 16:11:54,029 INFO  L177        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2020-11-24 16:11:54,029 INFO  L174        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2020-11-24 16:11:54,030 INFO  L174        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2020-11-24 16:11:54,030 INFO  L174        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2020-11-24 16:11:54,030 INFO  L177        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2020-11-24 16:11:54,031 INFO  L174        SettingsManager]: Resetting UtopiaLTL2Aut preferences to default values
+[2020-11-24 16:11:54,031 INFO  L174        SettingsManager]: Resetting UtopiaSpecLang preferences to default values
+[2020-11-24 16:11:54,031 INFO  L174        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2020-11-24 16:11:54,031 INFO  L174        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2020-11-24 16:11:54,032 INFO  L174        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2020-11-24 16:11:54,032 INFO  L174        SettingsManager]: Resetting Witness Printer preferences to default values
+[2020-11-24 16:11:54,032 INFO  L177        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2020-11-24 16:11:54,033 INFO  L174        SettingsManager]: Resetting CDTParser preferences to default values
+[2020-11-24 16:11:54,033 INFO  L177        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2020-11-24 16:11:54,033 INFO  L177        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2020-11-24 16:11:54,033 INFO  L174        SettingsManager]: Resetting SmtParser preferences to default values
+[2020-11-24 16:11:54,033 INFO  L174        SettingsManager]: Resetting Witness Parser preferences to default values
+[2020-11-24 16:11:54,034 INFO  L181        SettingsManager]: Finished resetting all preferences to default values...
+[2020-11-24 16:11:54,034 INFO  L98         SettingsManager]: Beginning loading settings from /mnt/data0/jon/SmartPulseTool/SmartPulse/settings.epf
+[2020-11-24 16:11:54,039 INFO  L110        SettingsManager]: Loading preferences was successful
+[2020-11-24 16:11:54,039 INFO  L112        SettingsManager]: Preferences different from defaults after loading the file:
+[2020-11-24 16:11:54,040 INFO  L131        SettingsManager]: Preferences of LTL2Aut differ from their defaults:
+[2020-11-24 16:11:54,040 INFO  L133        SettingsManager]:  * Read property from file=true
+[2020-11-24 16:11:54,040 INFO  L133        SettingsManager]:  * Path to LTL*BA executable (LTL2BA, LTL3BA)=/mnt/data0/jon/SmartPulseTool/ltl2ba
+[2020-11-24 16:11:54,040 INFO  L131        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2020-11-24 16:11:54,040 INFO  L133        SettingsManager]:  * Maximize final states=false
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Minimize states even if more edges are added than removed.=true
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Minimize states using LBE with the strategy=NONE
+[2020-11-24 16:11:54,041 INFO  L131        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Compute Interpolants along a Counterexample=Craig_TreeInterpolation
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Use old map elimination=false
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Try twofold refinement=false
+[2020-11-24 16:11:54,041 INFO  L131        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Overapproximate operations on floating types=true
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Check division by zero=IGNORE
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2020-11-24 16:11:54,041 INFO  L133        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2020-11-24 16:11:54,042 INFO  L133        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2020-11-24 16:11:54,042 INFO  L133        SettingsManager]:  * Check if freed pointer was valid=false
+[2020-11-24 16:11:54,042 INFO  L133        SettingsManager]:  * Use constant arrays=true
+[2020-11-24 16:11:54,042 INFO  L133        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2020-11-24 16:11:54,042 INFO  L131        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2020-11-24 16:11:54,042 INFO  L133        SettingsManager]:  * Size of a code block=SingleStatement
+[2020-11-24 16:11:54,042 INFO  L133        SettingsManager]:  * SMT solver=Internal_SMTInterpol
+[2020-11-24 16:11:54,062 INFO  L81    nceAwareModelManager]: Repository-Root is: /tmp
+[2020-11-24 16:11:54,074 INFO  L259   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2020-11-24 16:11:54,076 INFO  L215   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2020-11-24 16:11:54,077 INFO  L271        PluginConnector]: Initializing Boogie PL CUP Parser...
+[2020-11-24 16:11:54,078 INFO  L276        PluginConnector]: Boogie PL CUP Parser initialized
+[2020-11-24 16:11:54,078 INFO  L430   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /mnt/data0/jon/SmartPulseTool/SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl
+[2020-11-24 16:11:54,078 INFO  L111           BoogieParser]: Parsing: '/mnt/data0/jon/SmartPulseTool/SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl'
+[2020-11-24 16:11:54,132 INFO  L297   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2020-11-24 16:11:54,133 INFO  L131        ToolchainWalker]: Walking toolchain with 8 elements.
+[2020-11-24 16:11:54,134 INFO  L113        PluginConnector]: ------------------------Boogie Preprocessor----------------------------
+[2020-11-24 16:11:54,134 INFO  L271        PluginConnector]: Initializing Boogie Preprocessor...
+[2020-11-24 16:11:54,134 INFO  L276        PluginConnector]: Boogie Preprocessor initialized
+[2020-11-24 16:11:54,150 INFO  L185        PluginConnector]: Executing the observer EnsureBoogieModelObserver from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,151 INFO  L185        PluginConnector]: Executing the observer TypeChecker from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,170 INFO  L185        PluginConnector]: Executing the observer ConstExpander from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,171 INFO  L185        PluginConnector]: Executing the observer StructExpander from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,186 INFO  L185        PluginConnector]: Executing the observer UnstructureCode from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,192 INFO  L185        PluginConnector]: Executing the observer FunctionInliner from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,196 INFO  L185        PluginConnector]: Executing the observer BoogieSymbolTableConstructor from plugin Boogie Preprocessor for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,202 INFO  L132        PluginConnector]: ------------------------ END Boogie Preprocessor----------------------------
+[2020-11-24 16:11:54,203 INFO  L113        PluginConnector]: ------------------------UtopiaSpecLang----------------------------
+[2020-11-24 16:11:54,203 INFO  L271        PluginConnector]: Initializing UtopiaSpecLang...
+[2020-11-24 16:11:54,205 INFO  L276        PluginConnector]: UtopiaSpecLang initialized
+[2020-11-24 16:11:54,209 INFO  L185        PluginConnector]: Executing the observer UtopiaSpecLangObserver from plugin UtopiaSpecLang for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/1) ...
+[2020-11-24 16:11:54,222 INFO  L1012  opiaSpecLangObserver]: Parsing LTLPlus Formula to AstNode: [](started(SpaghettiToken.allowance(owner, spender), allowance_SpaghettiToken[this][owner][spender] >= 0 && allowance_SpaghettiToken[this][owner][spender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(SpaghettiToken.allowance(owner, spender), return == allowance_SpaghettiToken[this][owner][spender] &&  totalSupply_SpaghettiToken[this] == old(totalSupply_SpaghettiToken[this]) && balanceOf_SpaghettiToken[this] == old(balanceOf_SpaghettiToken[this]) && allowance_SpaghettiToken[this] == old(allowance_SpaghettiToken[this]) && symbol_SpaghettiToken[this] == old(symbol_SpaghettiToken[this]) && decimals_SpaghettiToken[this] == old(decimals_SpaghettiToken[this]) && name_SpaghettiToken[this] == old(name_SpaghettiToken[this]))))
+[2020-11-24 16:11:54,228 INFO  L1016  opiaSpecLangObserver]: Successfully lexed: [](started(SpaghettiToken.allowance(owner, spender), allowance_SpaghettiToken[this][owner][spender] >= 0 && allowance_SpaghettiToken[this][owner][spender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(SpaghettiToken.allowance(owner, spender), return == allowance_SpaghettiToken[this][owner][spender] &&  totalSupply_SpaghettiToken[this] == old(totalSupply_SpaghettiToken[this]) && balanceOf_SpaghettiToken[this] == old(balanceOf_SpaghettiToken[this]) && allowance_SpaghettiToken[this] == old(allowance_SpaghettiToken[this]) && symbol_SpaghettiToken[this] == old(symbol_SpaghettiToken[this]) && decimals_SpaghettiToken[this] == old(decimals_SpaghettiToken[this]) && name_SpaghettiToken[this] == old(name_SpaghettiToken[this]))))
+[2020-11-24 16:11:54,235 INFO  L1018  opiaSpecLangObserver]: Successfully parsed: [](started(SpaghettiToken.allowance(owner, spender), allowance_SpaghettiToken[this][owner][spender] >= 0 && allowance_SpaghettiToken[this][owner][spender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(SpaghettiToken.allowance(owner, spender), return == allowance_SpaghettiToken[this][owner][spender] &&  totalSupply_SpaghettiToken[this] == old(totalSupply_SpaghettiToken[this]) && balanceOf_SpaghettiToken[this] == old(balanceOf_SpaghettiToken[this]) && allowance_SpaghettiToken[this] == old(allowance_SpaghettiToken[this]) && symbol_SpaghettiToken[this] == old(symbol_SpaghettiToken[this]) && decimals_SpaghettiToken[this] == old(decimals_SpaghettiToken[this]) && name_SpaghettiToken[this] == old(name_SpaghettiToken[this]))))
+[2020-11-24 16:11:54,240 INFO  L636   opiaSpecLangObserver]: Parsed ( allowance_SpaghettiToken[this][arg330_s0][arg331_s0]>=0 && allowance_SpaghettiToken[this][arg330_s0][arg331_s0]<115792089237316195423570985008687907853269984665640564039457584007913129639936 ) to BinaryExpression[LOGICAND,BinaryExpression[COMPGEQ,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowance_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],[IdentifierExpression[arg330_s0,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],[IdentifierExpression[arg331_s0,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],IntegerLiteral[0]],BinaryExpression[COMPLT,ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowance_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],[IdentifierExpression[arg330_s0,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],[IdentifierExpression[arg331_s0,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],IntegerLiteral[115792089237316195423570985008687907853269984665640564039457584007913129639936]]]
+[2020-11-24 16:11:54,243 INFO  L636   opiaSpecLangObserver]: Parsed ( ( ( ( ( ( __ret_0_==allowance_SpaghettiToken[this][arg330_s0][arg331_s0] && totalSupply_SpaghettiToken[this]==( old(totalSupply_SpaghettiToken[this]) ) ) && balanceOf_SpaghettiToken[this]==( old(balanceOf_SpaghettiToken[this]) ) ) && allowance_SpaghettiToken[this]==( old(allowance_SpaghettiToken[this]) ) ) && symbol_SpaghettiToken[this]==( old(symbol_SpaghettiToken[this]) ) ) && decimals_SpaghettiToken[this]==( old(decimals_SpaghettiToken[this]) ) ) && name_SpaghettiToken[this]==( old(name_SpaghettiToken[this]) ) ) to BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[LOGICAND,BinaryExpression[COMPEQ,IdentifierExpression[__ret_0_,<IMPLEMENTATION_OUTPARAM,allowance~address~address_SpaghettiToken>],ArrayAccessExpression[ArrayAccessExpression[ArrayAccessExpression[IdentifierExpression[allowance_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],[IdentifierExpression[arg330_s0,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],[IdentifierExpression[arg331_s0,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[totalSupply_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[totalSupply_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[balanceOf_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[balanceOf_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[allowance_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[allowance_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[symbol_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[symbol_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[decimals_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[decimals_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]]]],BinaryExpression[COMPEQ,ArrayAccessExpression[IdentifierExpression[name_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]],UnaryExpression[OLD,ArrayAccessExpression[IdentifierExpression[name_SpaghettiToken,GLOBAL],[IdentifierExpression[this,<IMPLEMENTATION_INPARAM,allowance~address~address_SpaghettiToken>]]]]]]
+[2020-11-24 16:11:54,246 INFO  L1005  opiaSpecLangObserver]: Compiling: [](started(SpaghettiToken.allowance(owner, spender), allowance_SpaghettiToken[this][owner][spender] >= 0 && allowance_SpaghettiToken[this][owner][spender] < 0x10000000000000000000000000000000000000000000000000000000000000000) ==> <>(finished(SpaghettiToken.allowance(owner, spender), return == allowance_SpaghettiToken[this][owner][spender] &&  totalSupply_SpaghettiToken[this] == old(totalSupply_SpaghettiToken[this]) && balanceOf_SpaghettiToken[this] == old(balanceOf_SpaghettiToken[this]) && allowance_SpaghettiToken[this] == old(allowance_SpaghettiToken[this]) && symbol_SpaghettiToken[this] == old(symbol_SpaghettiToken[this]) && decimals_SpaghettiToken[this] == old(decimals_SpaghettiToken[this]) && name_SpaghettiToken[this] == old(name_SpaghettiToken[this]))))
+[2020-11-24 16:11:54,246 INFO  L1007  opiaSpecLangObserver]: Compiled to ( []( AP(call_allowance_SpaghettiToken0) ==> ( <>AP(success_allowance_SpaghettiToken0) ) ) )
+Executed UtopiaSpecLang
+[2020-11-24 16:11:54,250 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 04:11:54 PropertyContainer
+[2020-11-24 16:11:54,250 INFO  L132        PluginConnector]: ------------------------ END UtopiaSpecLang----------------------------
+[2020-11-24 16:11:54,250 INFO  L113        PluginConnector]: ------------------------Boogie Printer----------------------------
+[2020-11-24 16:11:54,250 INFO  L271        PluginConnector]: Initializing Boogie Printer...
+[2020-11-24 16:11:54,251 INFO  L276        PluginConnector]: Boogie Printer initialized
+[2020-11-24 16:11:54,253 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/2) ...
+[2020-11-24 16:11:54,253 INFO  L116   oogiePrinterObserver]: File already exists and will be overwritten: /tmp/boogiePrinter.bpl
+[2020-11-24 16:11:54,253 INFO  L120   oogiePrinterObserver]: Writing to file /tmp/boogiePrinter.bpl
+[2020-11-24 16:11:54,261 INFO  L185        PluginConnector]: Executing the observer BoogiePrinterObserver from plugin Boogie Printer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 04:11:54" (2/2) ...
+[2020-11-24 16:11:54,261 INFO  L132        PluginConnector]: ------------------------ END Boogie Printer----------------------------
+[2020-11-24 16:11:54,261 INFO  L113        PluginConnector]: ------------------------RCFGBuilder----------------------------
+[2020-11-24 16:11:54,261 INFO  L271        PluginConnector]: Initializing RCFGBuilder...
+[2020-11-24 16:11:54,261 INFO  L276        PluginConnector]: RCFGBuilder initialized
+[2020-11-24 16:11:54,262 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/2) ...
+[2020-11-24 16:11:54,315 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__success
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_DSMath__success
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_DSMath__success
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_SpaghettiToken
+[2020-11-24 16:11:54,316 INFO  L130     BoogieDeclarations]: Found specification of procedure burn~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_SpaghettiToken
+[2020-11-24 16:11:54,317 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_SpaghettiToken
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_SpaghettiToken
+[2020-11-24 16:11:54,317 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_SpaghettiToken
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_SpaghettiToken
+[2020-11-24 16:11:54,317 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_SpaghettiToken
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__success
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__success
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure send__success
+[2020-11-24 16:11:54,317 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_DSMath
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralEntry_DSMath
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure CorralChoice_SpaghettiToken
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure main
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure FreshRefGenerator__fail
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure add~uint256~uint256_DSMath__fail
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure sub~uint256~uint256_DSMath__fail
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address_SpaghettiToken__success
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address_SpaghettiToken__fail
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure approve~address~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure transfer~address~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,318 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure transferFrom~address~address~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure burn~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_SpaghettiToken__success
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure totalSupply_SpaghettiToken__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_SpaghettiToken__success
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure balanceOf~address_SpaghettiToken__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_SpaghettiToken__success
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure allowance~address~address_SpaghettiToken__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure FallbackDispatch__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure Fallback_UnknownType__fail
+[2020-11-24 16:11:54,319 INFO  L130     BoogieDeclarations]: Found specification of procedure send__fail
+[2020-11-24 16:11:54,319 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure FreshRefGenerator__success
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_DSMath__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure add~uint256~uint256_DSMath__success
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_DSMath__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure sub~uint256~uint256_DSMath__success
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address_SpaghettiToken__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address_SpaghettiToken__success
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure approve~address~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure transfer~address~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,320 INFO  L138     BoogieDeclarations]: Found implementation of procedure transferFrom~address~address~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure burn~uint256_SpaghettiToken__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure burn~uint256_SpaghettiToken__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_SpaghettiToken__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure totalSupply_SpaghettiToken__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_SpaghettiToken__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure balanceOf~address_SpaghettiToken__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_SpaghettiToken__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure allowance~address~address_SpaghettiToken__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure FallbackDispatch__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure Fallback_UnknownType__success
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__fail
+[2020-11-24 16:11:54,321 INFO  L138     BoogieDeclarations]: Found implementation of procedure send__success
+[2020-11-24 16:11:54,322 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_DSMath
+[2020-11-24 16:11:54,322 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralEntry_DSMath
+[2020-11-24 16:11:54,322 INFO  L138     BoogieDeclarations]: Found implementation of procedure CorralChoice_SpaghettiToken
+[2020-11-24 16:11:54,322 INFO  L138     BoogieDeclarations]: Found implementation of procedure main
+[2020-11-24 16:11:54,322 INFO  L130     BoogieDeclarations]: Found specification of procedure ULTIMATE.start
+[2020-11-24 16:11:54,322 INFO  L138     BoogieDeclarations]: Found implementation of procedure ULTIMATE.start
+[2020-11-24 16:11:54,613 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 16:11:54,613 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 16:11:54,614 WARN  L745   $ProcedureCfgBuilder]: Label in the middle of a codeblock.
+[2020-11-24 16:11:54,702 INFO  L281             CfgBuilder]: Using the 1 location(s) as analysis (start of procedure ULTIMATE.start)
+[2020-11-24 16:11:54,702 INFO  L286             CfgBuilder]: Removed 2 assue(true) statements.
+[2020-11-24 16:11:54,703 INFO  L202        PluginConnector]: Adding new model SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 04:11:54 BoogieIcfgContainer
+[2020-11-24 16:11:54,704 INFO  L185        PluginConnector]: Executing the observer RCFGBuilderObserver from plugin RCFGBuilder for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 04:11:54" (2/2) ...
+[2020-11-24 16:11:54,704 INFO  L85     RCFGBuilderObserver]: No WrapperNode. Let Ultimate process with next node
+[2020-11-24 16:11:54,704 INFO  L205        PluginConnector]: Invalid model from RCFGBuilder for observer de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder.RCFGBuilderObserver@316a2798 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 04:11:54, skipping insertion in model container
+[2020-11-24 16:11:54,704 INFO  L132        PluginConnector]: ------------------------ END RCFGBuilder----------------------------
+[2020-11-24 16:11:54,704 INFO  L113        PluginConnector]: ------------------------UtopiaLTL2Aut----------------------------
+[2020-11-24 16:11:54,704 INFO  L271        PluginConnector]: Initializing UtopiaLTL2Aut...
+[2020-11-24 16:11:54,706 INFO  L276        PluginConnector]: UtopiaLTL2Aut initialized
+[2020-11-24 16:11:54,706 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/3) ...
+[2020-11-24 16:11:54,706 INFO  L205        PluginConnector]: Invalid model from UtopiaLTL2Aut for observer edu.utexas.cs.utopia.ltl2aut.UtopiaLTL2AutObserver@47662613 and model type Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 04:11:54, skipping insertion in model container
+[2020-11-24 16:11:54,706 INFO  L185        PluginConnector]: Executing the observer UtopiaLTL2AutObserver from plugin UtopiaLTL2Aut for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 04:11:54" (2/3) ...
+No working directory specified, using /mnt/data0/jon/SmartPulseTool/ltl2ba
+Starting monitored process 1 with /mnt/data0/jon/SmartPulseTool/ltl2ba -f ! ( ( [] ( a -> ( <>b ) ) ) )  (exit command is null, workingDir is null)
+[2020-11-24 16:11:54,739 INFO  L202        PluginConnector]: Adding new model Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 04:11:54 NWAContainer
+[2020-11-24 16:11:54,739 INFO  L132        PluginConnector]: ------------------------ END UtopiaLTL2Aut----------------------------
+[2020-11-24 16:11:54,740 INFO  L113        PluginConnector]: ------------------------Büchi Program Product----------------------------
+[2020-11-24 16:11:54,740 INFO  L271        PluginConnector]: Initializing Büchi Program Product...
+[2020-11-24 16:11:54,740 INFO  L276        PluginConnector]: Büchi Program Product initialized
+[2020-11-24 16:11:54,741 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 04:11:54" (3/4) ...
+[2020-11-24 16:11:54,742 INFO  L205        PluginConnector]: Invalid model from Büchi Program Product for observer de.uni_freiburg.informatik.ultimate.buchiprogramproduct.BuchiProductObserver@472ec102 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 04:11:54, skipping insertion in model container
+[2020-11-24 16:11:54,742 INFO  L185        PluginConnector]: Executing the observer BuchiProductObserver from plugin Büchi Program Product for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 04:11:54" (4/4) ...
+[2020-11-24 16:11:54,745 INFO  L104   BuchiProductObserver]: Initial property automaton 2 locations, 3 edges
+[2020-11-24 16:11:54,747 INFO  L110   BuchiProductObserver]: Initial RCFG 527 locations, 668 edges
+[2020-11-24 16:11:54,747 INFO  L93    BuchiProductObserver]: Beginning generation of product automaton
+[2020-11-24 16:11:54,757 INFO  L136       ProductGenerator]: The program has no step specification, so we assume maximum atomicity
+[2020-11-24 16:11:55,531 INFO  L97    BuchiProductObserver]: Finished generation of product automaton successfully
+[2020-11-24 16:11:55,534 INFO  L110   BuchiProductObserver]: BuchiProgram size 1250 locations, 2153 edges
+[2020-11-24 16:11:55,534 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 04:11:55 BoogieIcfgContainer
+[2020-11-24 16:11:55,534 INFO  L132        PluginConnector]: ------------------------ END Büchi Program Product----------------------------
+[2020-11-24 16:11:55,534 INFO  L113        PluginConnector]: ------------------------BlockEncodingV2----------------------------
+[2020-11-24 16:11:55,534 INFO  L271        PluginConnector]: Initializing BlockEncodingV2...
+[2020-11-24 16:11:55,536 INFO  L276        PluginConnector]: BlockEncodingV2 initialized
+[2020-11-24 16:11:55,537 INFO  L185        PluginConnector]: Executing the observer BlockEncodingObserver from plugin BlockEncodingV2 for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 04:11:55" (1/1) ...
+[2020-11-24 16:11:55,576 INFO  L313           BlockEncoder]: Initial Icfg 1250 locations, 2153 edges
+[2020-11-24 16:11:55,576 INFO  L258           BlockEncoder]: Using Remove infeasible edges
+[2020-11-24 16:11:55,577 INFO  L270           BlockEncoder]: Using Minimize states even if more edges are added than removed.=true
+[2020-11-24 16:11:55,577 INFO  L296           BlockEncoder]: Using Remove sink states
+[2020-11-24 16:11:55,578 INFO  L171           BlockEncoder]: Using Apply optimizations until nothing changes=true
+[2020-11-24 16:11:55,584 INFO  L70    emoveInfeasibleEdges]: Removed 57 edges and 7 locations because of local infeasibility
+[2020-11-24 16:11:55,588 INFO  L70        RemoveSinkStates]: Removed 32 edges and 21 locations by removing sink states
+[2020-11-24 16:11:55,593 INFO  L70    emoveInfeasibleEdges]: Removed 0 edges and 0 locations because of local infeasibility
+[2020-11-24 16:11:55,595 INFO  L70        RemoveSinkStates]: Removed 0 edges and 0 locations by removing sink states
+[2020-11-24 16:11:55,596 INFO  L237           BlockEncoder]: Using Create parallel compositions if possible
+[2020-11-24 16:11:55,597 INFO  L66        ParallelComposer]: Creating parallel compositions
+[2020-11-24 16:11:55,599 INFO  L313           BlockEncoder]: Encoded RCFG 1212 locations, 2050 edges
+[2020-11-24 16:11:55,599 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 04:11:55 BasicIcfg
+[2020-11-24 16:11:55,600 INFO  L132        PluginConnector]: ------------------------ END BlockEncodingV2----------------------------
+[2020-11-24 16:11:55,600 INFO  L113        PluginConnector]: ------------------------BuchiAutomizer----------------------------
+[2020-11-24 16:11:55,600 INFO  L271        PluginConnector]: Initializing BuchiAutomizer...
+[2020-11-24 16:11:55,602 INFO  L276        PluginConnector]: BuchiAutomizer initialized
+[2020-11-24 16:11:55,603 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 16:11:55,603 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.boogie.parser AST 24.11 04:11:54" (1/6) ...
+[2020-11-24 16:11:55,604 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@54eab581 and model type SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 04:11:55, skipping insertion in model container
+[2020-11-24 16:11:55,604 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 16:11:55,604 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.specLang AST 24.11 04:11:54" (2/6) ...
+[2020-11-24 16:11:55,605 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@54eab581 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 04:11:55, skipping insertion in model container
+[2020-11-24 16:11:55,605 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 16:11:55,605 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.rcfgbuilder CFG 24.11 04:11:54" (3/6) ...
+[2020-11-24 16:11:55,605 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@54eab581 and model type SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 04:11:55, skipping insertion in model container
+[2020-11-24 16:11:55,605 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 16:11:55,605 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "Hardcoded edu.utexas.cs.utopia.ltl2aut AST 24.11 04:11:54" (4/6) ...
+[2020-11-24 16:11:55,606 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@54eab581 and model type Hardcoded de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer AST 24.11 04:11:55, skipping insertion in model container
+[2020-11-24 16:11:55,606 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 16:11:55,606 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.buchiprogramproduct OTHER 24.11 04:11:55" (5/6) ...
+[2020-11-24 16:11:55,606 INFO  L205        PluginConnector]: Invalid model from BuchiAutomizer for observer de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer.BuchiAutomizerObserver@54eab581 and model type LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer OTHER 24.11 04:11:55, skipping insertion in model container
+[2020-11-24 16:11:55,606 INFO  L102         BuchiAutomizer]: Safety of program was proven or not checked, starting termination analysis
+[2020-11-24 16:11:55,606 INFO  L185        PluginConnector]: Executing the observer BuchiAutomizerObserver from plugin BuchiAutomizer for "LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.blockencoding CFG 24.11 04:11:55" (6/6) ...
+[2020-11-24 16:11:55,607 INFO  L404   chiAutomizerObserver]: Analyzing ICFG SpaghettiToken_0x08a2e41fb99a7599725190b9c970ad3893fa33cf_allowance.bpl_BEv2
+[2020-11-24 16:11:55,644 INFO  L133   ementStrategyFactory]: Using default assertion order modulation
+[2020-11-24 16:11:55,645 INFO  L377         BuchiCegarLoop]: Interprodecural is true
+[2020-11-24 16:11:55,645 INFO  L378         BuchiCegarLoop]: Hoare is false
+[2020-11-24 16:11:55,645 INFO  L379         BuchiCegarLoop]: Compute interpolants for Craig_TreeInterpolation
+[2020-11-24 16:11:55,645 INFO  L380         BuchiCegarLoop]: Backedges is STRAIGHT_LINE
+[2020-11-24 16:11:55,645 INFO  L381         BuchiCegarLoop]: Determinization is PREDICATE_ABSTRACTION
+[2020-11-24 16:11:55,645 INFO  L382         BuchiCegarLoop]: Difference is false
+[2020-11-24 16:11:55,645 INFO  L383         BuchiCegarLoop]: Minimize is MINIMIZE_SEVPA
+[2020-11-24 16:11:55,646 INFO  L386         BuchiCegarLoop]: ======== Iteration 0==of CEGAR loop == BuchiCegarLoop========
+[2020-11-24 16:11:55,662 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1212 states.
+[2020-11-24 16:11:55,702 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 16:11:55,702 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 16:11:55,702 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 16:11:55,711 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 16:11:55,711 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+[2020-11-24 16:11:55,711 INFO  L445         BuchiCegarLoop]: ======== Iteration 1============
+[2020-11-24 16:11:55,711 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 1212 states.
+[2020-11-24 16:11:55,721 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 16:11:55,721 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 16:11:55,722 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 16:11:55,723 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 16:11:55,723 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 success_allowance_SpaghettiToken0 := false;
+[L2]                 call_allowance_SpaghettiToken0 := false;
+[L2]     CALL        call main();
+[L1460]              assume null == 0;
+[L1461]  CALL        call this := FreshRefGenerator__success();
+[L639]               havoc newRef;
+[L640]               assume Alloc[newRef] == false;
+[L641]               Alloc[newRef] := true;
+[L642]               assume newRef != null;
+[L1461]  RET         call this := FreshRefGenerator__success();
+[L1462]              assume now >= 0;
+[L1463]              assume DType[this] == SpaghettiToken;
+[L1464]              assume !revert && gas >= 0;
+[L1465]  CALL        call CorralChoice_SpaghettiToken(this);
+[L1375]              havoc msgsender_MSG;
+[L1376]              havoc msgvalue_MSG;
+[L1377]              havoc choice;
+[L1378]              havoc __ret_0_totalSupply;
+[L1379]              havoc arg329_s0;
+[L1380]              havoc __ret_0_balanceOf;
+[L1381]              havoc arg330_s0;
+[L1382]              havoc arg331_s0;
+[L1383]              havoc __ret_0_allowance;
+[L1384]              havoc __ret_0_symbol;
+[L1385]              havoc __ret_0_decimals;
+[L1386]              havoc __ret_0_name;
+[L1387]              havoc chef_s113;
+[L1388]              havoc guy_s149;
+[L1389]              havoc __ret_0_approve;
+[L1390]              havoc guy_s177;
+[L1391]              havoc wad_s177;
+[L1392]              havoc dst_s194;
+[L1393]              havoc wad_s194;
+[L1394]              havoc __ret_0_transfer;
+[L1395]              havoc src_s309;
+[L1396]              havoc dst_s309;
+[L1397]              havoc wad_s309;
+[L1398]              havoc __ret_0_transferFrom;
+[L1399]              havoc tmpNow;
+[L1400]              havoc gas;
+[L1401]              assume gas > 4000000 && gas <= 8000000;
+[L1402]              tmpNow := now;
+[L1403]              havoc now;
+[L1404]              assume now > tmpNow;
+[L1405]              assume msgsender_MSG != null;
+[L1406]  COND TRUE   choice == 7
+[L1407]              gas := gas - 21000;
+[L1408]  COND FALSE  !(gas >= 0)
+[L1465]  RET         call CorralChoice_SpaghettiToken(this);
+
+Loop:
+[L1465]        assume true;
+
+[2020-11-24 16:11:55,739 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 16:11:55,739 INFO  L82        PathProgramCache]: Analyzing trace with hash 699374381, now seen corresponding path program 1 times
+[2020-11-24 16:11:55,743 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 16:11:55,763 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 16:11:55,808 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 16:11:55,810 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 16:11:55,810 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [3] imperfect sequences [] total 3
+[2020-11-24 16:11:55,814 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 16:11:55,826 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 3 interpolants.
+[2020-11-24 16:11:55,826 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=3, Invalid=3, Unknown=0, NotChecked=0, Total=6
+[2020-11-24 16:11:55,828 INFO  L87              Difference]: Start difference. First operand 1212 states. Second operand 3 states.
+[2020-11-24 16:11:56,013 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 16:11:56,013 INFO  L93              Difference]: Finished difference Result 561 states and 622 transitions.
+[2020-11-24 16:11:56,013 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 3 states. 
+[2020-11-24 16:11:56,015 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 561 states and 622 transitions.
+[2020-11-24 16:11:56,020 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 16:11:56,024 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 561 states to 108 states and 109 transitions.
+[2020-11-24 16:11:56,025 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 4
+[2020-11-24 16:11:56,026 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 108
+[2020-11-24 16:11:56,026 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 108 states and 109 transitions.
+[2020-11-24 16:11:56,027 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 16:11:56,027 INFO  L728         BuchiCegarLoop]: Abstraction has 108 states and 109 transitions.
+[2020-11-24 16:11:56,042 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 108 states and 109 transitions.
+[2020-11-24 16:11:56,052 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 108 to 108.
+[2020-11-24 16:11:56,052 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 108 states.
+[2020-11-24 16:11:56,053 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 108 states to 108 states and 109 transitions.
+[2020-11-24 16:11:56,054 INFO  L751         BuchiCegarLoop]: Abstraction has 108 states and 109 transitions.
+[2020-11-24 16:11:56,054 INFO  L631         BuchiCegarLoop]: Abstraction has 108 states and 109 transitions.
+[2020-11-24 16:11:56,054 INFO  L445         BuchiCegarLoop]: ======== Iteration 2============
+[2020-11-24 16:11:56,054 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 108 states and 109 transitions.
+[2020-11-24 16:11:56,055 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 16:11:56,055 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 16:11:56,055 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 16:11:56,056 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 16:11:56,056 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 success_allowance_SpaghettiToken0 := false;
+[L2]                 call_allowance_SpaghettiToken0 := false;
+[L2]     CALL        call main();
+[L1460]              assume null == 0;
+[L1461]  CALL        call this := FreshRefGenerator__success();
+[L639]               havoc newRef;
+[L640]               assume Alloc[newRef] == false;
+[L641]               Alloc[newRef] := true;
+[L642]               assume newRef != null;
+[L1461]  RET         call this := FreshRefGenerator__success();
+[L1462]              assume now >= 0;
+[L1463]              assume DType[this] == SpaghettiToken;
+[L1464]              assume !revert && gas >= 0;
+[L1465]  CALL        call CorralChoice_SpaghettiToken(this);
+[L1375]              havoc msgsender_MSG;
+[L1376]              havoc msgvalue_MSG;
+[L1377]              havoc choice;
+[L1378]              havoc __ret_0_totalSupply;
+[L1379]              havoc arg329_s0;
+[L1380]              havoc __ret_0_balanceOf;
+[L1381]              havoc arg330_s0;
+[L1382]              havoc arg331_s0;
+[L1383]              havoc __ret_0_allowance;
+[L1384]              havoc __ret_0_symbol;
+[L1385]              havoc __ret_0_decimals;
+[L1386]              havoc __ret_0_name;
+[L1387]              havoc chef_s113;
+[L1388]              havoc guy_s149;
+[L1389]              havoc __ret_0_approve;
+[L1390]              havoc guy_s177;
+[L1391]              havoc wad_s177;
+[L1392]              havoc dst_s194;
+[L1393]              havoc wad_s194;
+[L1394]              havoc __ret_0_transfer;
+[L1395]              havoc src_s309;
+[L1396]              havoc dst_s309;
+[L1397]              havoc wad_s309;
+[L1398]              havoc __ret_0_transferFrom;
+[L1399]              havoc tmpNow;
+[L1400]              havoc gas;
+[L1401]              assume gas > 4000000 && gas <= 8000000;
+[L1402]              tmpNow := now;
+[L1403]              havoc now;
+[L1404]              assume now > tmpNow;
+[L1405]              assume msgsender_MSG != null;
+[L1406]  COND FALSE  !(choice == 7)
+[L1412]  COND FALSE  !(choice == 6)
+[L1418]  COND TRUE   choice == 5
+[L1419]              gas := gas - 21000;
+[L1420]  COND TRUE   gas >= 0
+[L1421]              assume msgvalue_MSG == 0;
+[L1422]  CALL        call __ret_0_allowance := allowance~address~address_SpaghettiToken(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume allowance_SpaghettiToken[this][arg330_s0][arg331_s0] >= 0 && allowance_SpaghettiToken[this][arg330_s0][arg331_s0] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_allowance_SpaghettiToken0 := true;
+[L2]                 call_allowance_SpaghettiToken0 := false;
+[L2]                 revert := revert_hold;
+[L387]               havoc __exception;
+[L388]               revert := false;
+[L389]   COND FALSE  !(__exception)
+[L410]   CALL        call __ret_0_ := allowance~address~address_SpaghettiToken__success(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L950]               __ret_0_ := allowance_SpaghettiToken[this][arg330_s0][arg331_s0];
+[L410]   RET         call __ret_0_ := allowance~address~address_SpaghettiToken__success(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L411]               assume !revert && gas >= 0;
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume !((((((__ret_0_ == allowance_SpaghettiToken[this][arg330_s0][arg331_s0] && totalSupply_SpaghettiToken[this] == old(totalSupply_SpaghettiToken[this])) && balanceOf_SpaghettiToken[this] == old(balanceOf_SpaghettiToken[this])) && allowance_SpaghettiToken[this] == old(allowance_SpaghettiToken[this])) && symbol_SpaghettiToken[this] == old(symbol_SpaghettiToken[this])) && decimals_SpaghettiToken[this] == old(decimals_SpaghettiToken[this])) && name_SpaghettiToken[this] == old(name_SpaghettiToken[this]));
+[L2]                 revert := revert_hold;
+[L1422]  RET         call __ret_0_allowance := allowance~address~address_SpaghettiToken(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L1465]  RET         call CorralChoice_SpaghettiToken(this);
+
+Loop:
+[L1465]        assume true;
+
+[2020-11-24 16:11:56,059 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 16:11:56,059 INFO  L82        PathProgramCache]: Analyzing trace with hash 1222668796, now seen corresponding path program 1 times
+[2020-11-24 16:11:56,060 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 16:11:56,071 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 16:11:56,100 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 16:11:56,100 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 16:11:56,100 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [4] imperfect sequences [] total 4
+[2020-11-24 16:11:56,102 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 16:11:56,102 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 4 interpolants.
+[2020-11-24 16:11:56,102 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=5, Invalid=7, Unknown=0, NotChecked=0, Total=12
+[2020-11-24 16:11:56,102 INFO  L87              Difference]: Start difference. First operand 108 states and 109 transitions. cyclomatic complexity: 2 Second operand 4 states.
+[2020-11-24 16:11:56,109 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 16:11:56,109 INFO  L93              Difference]: Finished difference Result 107 states and 107 transitions.
+[2020-11-24 16:11:56,110 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 4 states. 
+[2020-11-24 16:11:56,110 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 107 states and 107 transitions.
+[2020-11-24 16:11:56,111 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 16:11:56,112 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 107 states to 97 states and 97 transitions.
+[2020-11-24 16:11:56,112 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 97
+[2020-11-24 16:11:56,113 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 97
+[2020-11-24 16:11:56,113 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 97 states and 97 transitions.
+[2020-11-24 16:11:56,113 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 16:11:56,113 INFO  L728         BuchiCegarLoop]: Abstraction has 97 states and 97 transitions.
+[2020-11-24 16:11:56,113 INFO  L82        GeneralOperation]: Start minimizeSevpa. Operand 97 states and 97 transitions.
+[2020-11-24 16:11:56,116 INFO  L88        GeneralOperation]: Finished minimizeSevpa. Reduced states from 97 to 97.
+[2020-11-24 16:11:56,116 INFO  L82        GeneralOperation]: Start removeUnreachable. Operand 97 states.
+[2020-11-24 16:11:56,117 INFO  L88        GeneralOperation]: Finished removeUnreachable. Reduced from 97 states to 97 states and 97 transitions.
+[2020-11-24 16:11:56,117 INFO  L751         BuchiCegarLoop]: Abstraction has 97 states and 97 transitions.
+[2020-11-24 16:11:56,117 INFO  L631         BuchiCegarLoop]: Abstraction has 97 states and 97 transitions.
+[2020-11-24 16:11:56,117 INFO  L445         BuchiCegarLoop]: ======== Iteration 3============
+[2020-11-24 16:11:56,117 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 97 states and 97 transitions.
+[2020-11-24 16:11:56,118 INFO  L131   ngComponentsAnalysis]: Automaton has 1 accepting balls. 1
+[2020-11-24 16:11:56,118 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is false
+[2020-11-24 16:11:56,118 INFO  L119           BuchiIsEmpty]: Starting construction of run
+[2020-11-24 16:11:56,119 INFO  L889         BuchiCegarLoop]: Counterexample stem histogram [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2020-11-24 16:11:56,119 INFO  L890         BuchiCegarLoop]: Counterexample loop histogram [1]
+Stem:
+[L2]                 success_allowance_SpaghettiToken0 := false;
+[L2]                 call_allowance_SpaghettiToken0 := false;
+[L2]     CALL        call main();
+[L1460]              assume null == 0;
+[L1461]  CALL        call this := FreshRefGenerator__success();
+[L639]               havoc newRef;
+[L640]               assume Alloc[newRef] == false;
+[L641]               Alloc[newRef] := true;
+[L642]               assume newRef != null;
+[L1461]  RET         call this := FreshRefGenerator__success();
+[L1462]              assume now >= 0;
+[L1463]              assume DType[this] == SpaghettiToken;
+[L1464]              assume !revert && gas >= 0;
+[L1465]  CALL        call CorralChoice_SpaghettiToken(this);
+[L1375]              havoc msgsender_MSG;
+[L1376]              havoc msgvalue_MSG;
+[L1377]              havoc choice;
+[L1378]              havoc __ret_0_totalSupply;
+[L1379]              havoc arg329_s0;
+[L1380]              havoc __ret_0_balanceOf;
+[L1381]              havoc arg330_s0;
+[L1382]              havoc arg331_s0;
+[L1383]              havoc __ret_0_allowance;
+[L1384]              havoc __ret_0_symbol;
+[L1385]              havoc __ret_0_decimals;
+[L1386]              havoc __ret_0_name;
+[L1387]              havoc chef_s113;
+[L1388]              havoc guy_s149;
+[L1389]              havoc __ret_0_approve;
+[L1390]              havoc guy_s177;
+[L1391]              havoc wad_s177;
+[L1392]              havoc dst_s194;
+[L1393]              havoc wad_s194;
+[L1394]              havoc __ret_0_transfer;
+[L1395]              havoc src_s309;
+[L1396]              havoc dst_s309;
+[L1397]              havoc wad_s309;
+[L1398]              havoc __ret_0_transferFrom;
+[L1399]              havoc tmpNow;
+[L1400]              havoc gas;
+[L1401]              assume gas > 4000000 && gas <= 8000000;
+[L1402]              tmpNow := now;
+[L1403]              havoc now;
+[L1404]              assume now > tmpNow;
+[L1405]              assume msgsender_MSG != null;
+[L1406]  COND FALSE  !(choice == 7)
+[L1412]  COND FALSE  !(choice == 6)
+[L1418]  COND TRUE   choice == 5
+[L1419]              gas := gas - 21000;
+[L1420]  COND TRUE   gas >= 0
+[L1421]              assume msgvalue_MSG == 0;
+[L1422]  CALL        call __ret_0_allowance := allowance~address~address_SpaghettiToken(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L2]                 revert_hold := revert;
+[L2]                 revert := false;
+[L2]                 assume allowance_SpaghettiToken[this][arg330_s0][arg331_s0] >= 0 && allowance_SpaghettiToken[this][arg330_s0][arg331_s0] < 115792089237316195423570985008687907853269984665640564039457584007913129639936;
+[L2]                 call_allowance_SpaghettiToken0 := true;
+[L2]                 call_allowance_SpaghettiToken0 := false;
+[L2]                 revert := revert_hold;
+[L387]               havoc __exception;
+[L388]               revert := false;
+[L389]   COND TRUE   __exception
+[L390]               __tmp__Balance := Balance;
+[L391]               __tmp__DType := DType;
+[L392]               __tmp__Alloc := Alloc;
+[L393]               __tmp__balance_ADDR := balance_ADDR;
+[L394]               __tmp__M_Ref_int := M_Ref_int;
+[L395]               __tmp__sum_balanceOf0 := sum_balanceOf0;
+[L396]               __tmp__alloc_allowance_SpaghettiToken_lvl0 := alloc_allowance_SpaghettiToken_lvl0;
+[L397]               __tmp__M_Ref_Ref := M_Ref_Ref;
+[L398]               __tmp__sum_allowance1 := sum_allowance1;
+[L399]               __tmp__Length := Length;
+[L400]               __tmp__now := now;
+[L401]               __tmp__totalSupply_SpaghettiToken := totalSupply_SpaghettiToken;
+[L402]               __tmp__balanceOf_SpaghettiToken := balanceOf_SpaghettiToken;
+[L403]               __tmp__allowance_SpaghettiToken := allowance_SpaghettiToken;
+[L404]               __tmp__symbol_SpaghettiToken := symbol_SpaghettiToken;
+[L405]               __tmp__decimals_SpaghettiToken := decimals_SpaghettiToken;
+[L406]               __tmp__name_SpaghettiToken := name_SpaghettiToken;
+[L407]   CALL        call __ret_0_ := allowance~address~address_SpaghettiToken__fail(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L944]               __ret_0_ := __tmp__allowance_SpaghettiToken[this][arg330_s0][arg331_s0];
+[L407]   RET         call __ret_0_ := allowance~address~address_SpaghettiToken__fail(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L408]               assume revert || gas < 0;
+[L1422]  RET         call __ret_0_allowance := allowance~address~address_SpaghettiToken(this, msgsender_MSG, msgvalue_MSG, arg330_s0, arg331_s0);
+[L1465]  RET         call CorralChoice_SpaghettiToken(this);
+
+Loop:
+[L1465]        assume true;
+
+[2020-11-24 16:11:56,121 INFO  L144       PredicateUnifier]: Initialized classic predicate unifier
+[2020-11-24 16:11:56,121 INFO  L82        PathProgramCache]: Analyzing trace with hash -811528744, now seen corresponding path program 1 times
+[2020-11-24 16:11:56,122 INFO  L69    tionRefinementEngine]: Using refinement strategy FixedRefinementStrategy
+[2020-11-24 16:11:56,129 INFO  L140    AnnotateAndAsserter]: Conjunction of SSA is unsat
+[2020-11-24 16:11:56,146 INFO  L134       CoverageAnalysis]: Checked inductivity of 0 backedges. 0 proven. 0 refuted. 0 times theorem prover too weak. 0 trivial. 0 not checked.
+[2020-11-24 16:11:56,146 INFO  L312   seRefinementStrategy]: Constructing automaton from 1 perfect and 0 imperfect interpolant sequences.
+[2020-11-24 16:11:56,146 INFO  L327   seRefinementStrategy]: Number of different interpolants: perfect sequences [5] imperfect sequences [] total 5
+[2020-11-24 16:11:56,146 INFO  L996   eck$LassoCheckResult]: stem already infeasible
+[2020-11-24 16:11:56,147 INFO  L142   InterpolantAutomaton]: Constructing interpolant automaton starting with 5 interpolants.
+[2020-11-24 16:11:56,147 INFO  L144   InterpolantAutomaton]: CoverageRelationStatistics Valid=7, Invalid=13, Unknown=0, NotChecked=0, Total=20
+[2020-11-24 16:11:56,147 INFO  L87              Difference]: Start difference. First operand 97 states and 97 transitions. cyclomatic complexity: 1 Second operand 5 states.
+[2020-11-24 16:11:56,157 INFO  L144             Difference]: Subtrahend was deterministic. Have not used determinization.
+[2020-11-24 16:11:56,157 INFO  L93              Difference]: Finished difference Result 90 states and 89 transitions.
+[2020-11-24 16:11:56,157 INFO  L142   InterpolantAutomaton]: Switched to read-only mode: deterministic interpolant automaton has 5 states. 
+[2020-11-24 16:11:56,158 INFO  L82        GeneralOperation]: Start removeNonLiveStates. Operand 90 states and 89 transitions.
+[2020-11-24 16:11:56,158 INFO  L131   ngComponentsAnalysis]: Automaton has 0 accepting balls. 0
+[2020-11-24 16:11:56,158 INFO  L88        GeneralOperation]: Finished removeNonLiveStates. Reduced from 90 states to 0 states and 0 transitions.
+[2020-11-24 16:11:56,158 INFO  L87         BuchiClosureNwa]: Accepting states before buchiClosure: 0
+[2020-11-24 16:11:56,159 INFO  L106        BuchiClosureNwa]: Accepting states after buchiClosure: 0
+[2020-11-24 16:11:56,159 INFO  L73         IsDeterministic]: Start isDeterministic. Operand 0 states and 0 transitions.
+[2020-11-24 16:11:56,159 INFO  L80         IsDeterministic]: Finished isDeterministic. Operand is deterministic.
+[2020-11-24 16:11:56,159 INFO  L728         BuchiCegarLoop]: Abstraction has 0 states and 0 transitions.
+[2020-11-24 16:11:56,159 INFO  L751         BuchiCegarLoop]: Abstraction has 0 states and 0 transitions.
+[2020-11-24 16:11:56,159 INFO  L631         BuchiCegarLoop]: Abstraction has 0 states and 0 transitions.
+[2020-11-24 16:11:56,159 INFO  L445         BuchiCegarLoop]: ======== Iteration 4============
+[2020-11-24 16:11:56,159 INFO  L72            BuchiIsEmpty]: Start buchiIsEmpty. Operand 0 states and 0 transitions.
+[2020-11-24 16:11:56,159 INFO  L131   ngComponentsAnalysis]: Automaton has 0 accepting balls. 0
+[2020-11-24 16:11:56,159 INFO  L87            BuchiIsEmpty]: Finished buchiIsEmpty Result is true
+[2020-11-24 16:11:56,163 INFO  L202        PluginConnector]: Adding new model LTL+Program Product de.uni_freiburg.informatik.ultimate.plugins.generator.buchiautomizer CFG 24.11 04:11:56 BasicIcfg
+[2020-11-24 16:11:56,163 INFO  L132        PluginConnector]: ------------------------ END BuchiAutomizer----------------------------
+[2020-11-24 16:11:56,164 INFO  L168              Benchmark]: Toolchain (without parser) took 2030.78 ms. Allocated memory was 1.0 GB in the beginning and 1.3 GB in the end (delta: 248.0 MB). Free memory was 940.6 MB in the beginning and 1.2 GB in the end (delta: -226.7 MB). Peak memory consumption was 21.3 MB. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,165 INFO  L168              Benchmark]: Boogie PL CUP Parser took 0.15 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,165 INFO  L168              Benchmark]: Boogie Preprocessor took 68.81 ms. Allocated memory is still 1.0 GB. Free memory is still 940.6 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,166 INFO  L168              Benchmark]: UtopiaSpecLang took 47.31 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,166 INFO  L168              Benchmark]: Boogie Printer took 10.44 ms. Allocated memory is still 1.0 GB. Free memory is still 935.2 MB. There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,166 INFO  L168              Benchmark]: RCFGBuilder took 443.10 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 892.3 MB in the end (delta: 42.9 MB). Peak memory consumption was 42.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,167 INFO  L168              Benchmark]: UtopiaLTL2Aut took 35.12 ms. Allocated memory is still 1.0 GB. Free memory was 892.3 MB in the beginning and 883.3 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,167 INFO  L168              Benchmark]: Büchi Program Product took 794.54 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 47.7 MB). Free memory was 883.3 MB in the beginning and 994.6 MB in the end (delta: -111.3 MB). Peak memory consumption was 165.1 MB. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,168 INFO  L168              Benchmark]: BlockEncodingV2 took 65.28 ms. Allocated memory is still 1.1 GB. Free memory was 994.6 MB in the beginning and 963.3 MB in the end (delta: 31.3 MB). Peak memory consumption was 31.3 MB. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,168 INFO  L168              Benchmark]: BuchiAutomizer took 563.31 ms. Allocated memory was 1.1 GB in the beginning and 1.3 GB in the end (delta: 200.3 MB). Free memory was 963.3 MB in the beginning and 1.2 GB in the end (delta: -204.0 MB). There was no memory consumed. Max. memory is 15.3 GB.
+[2020-11-24 16:11:56,171 INFO  L337   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.blockencoding:
+  - StatisticsResult: Initial Icfg
+    1250 locations, 2153 edges
+  - StatisticsResult: Encoded RCFG
+    1212 locations, 2050 edges
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * Boogie PL CUP Parser took 0.15 ms. Allocated memory is still 1.0 GB. Free memory is still 951.3 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * Boogie Preprocessor took 68.81 ms. Allocated memory is still 1.0 GB. Free memory is still 940.6 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * UtopiaSpecLang took 47.31 ms. Allocated memory is still 1.0 GB. Free memory was 940.6 MB in the beginning and 935.2 MB in the end (delta: 5.4 MB). Peak memory consumption was 5.4 MB. Max. memory is 15.3 GB.
+ * Boogie Printer took 10.44 ms. Allocated memory is still 1.0 GB. Free memory is still 935.2 MB. There was no memory consumed. Max. memory is 15.3 GB.
+ * RCFGBuilder took 443.10 ms. Allocated memory is still 1.0 GB. Free memory was 935.2 MB in the beginning and 892.3 MB in the end (delta: 42.9 MB). Peak memory consumption was 42.9 MB. Max. memory is 15.3 GB.
+ * UtopiaLTL2Aut took 35.12 ms. Allocated memory is still 1.0 GB. Free memory was 892.3 MB in the beginning and 883.3 MB in the end (delta: 8.9 MB). Peak memory consumption was 8.9 MB. Max. memory is 15.3 GB.
+ * Büchi Program Product took 794.54 ms. Allocated memory was 1.0 GB in the beginning and 1.1 GB in the end (delta: 47.7 MB). Free memory was 883.3 MB in the beginning and 994.6 MB in the end (delta: -111.3 MB). Peak memory consumption was 165.1 MB. Max. memory is 15.3 GB.
+ * BlockEncodingV2 took 65.28 ms. Allocated memory is still 1.1 GB. Free memory was 994.6 MB in the beginning and 963.3 MB in the end (delta: 31.3 MB). Peak memory consumption was 31.3 MB. Max. memory is 15.3 GB.
+ * BuchiAutomizer took 563.31 ms. Allocated memory was 1.1 GB in the beginning and 1.3 GB in the end (delta: 200.3 MB). Free memory was 963.3 MB in the beginning and 1.2 GB in the end (delta: -204.0 MB). There was no memory consumed. Max. memory is 15.3 GB.
+ * Results from de.uni_freiburg.informatik.ultimate.buchiprogramproduct:
+  - StatisticsResult: Initial property automaton
+    2 locations, 3 edges
+  - StatisticsResult: Initial RCFG
+    527 locations, 668 edges
+  - StatisticsResult: BuchiProgram size
+    1250 locations, 2153 edges
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.traceabstraction:
+  - StatisticsResult: Constructed decomposition of program
+    Your program was decomposed into 3 terminating modules (3 trivial, 0 deterministic, 0 nondeterministic). 3 modules have a trivial ranking function, the largest among these consists of 5 locations.
+  - StatisticsResult: Timing statistics
+    BüchiAutomizer plugin needed 0.5s and 4 iterations.  TraceHistogramMax:1. Analysis of lassos took 0.1s. Construction of modules took 0.0s. Büchi inclusion checks took 0.1s. Highest rank in rank-based complementation 0. Minimization of det autom 3. Minimization of nondet autom 0. Automata minimization 0.0s AutomataMinimizationTime, 2 MinimizatonAttempts, 0 StatesRemovedByMinimization, 0 NontrivialMinimizations. Non-live state removal took 0.0s Buchi closure took 0.0s. Biggest automaton had 108 states and ocurred in iteration 1.	Nontrivial modules had stage [0, 0, 0, 0, 0].	InterpolantCoveringCapabilityFinite: 0/0	InterpolantCoveringCapabilityBuchi: 0/0	HoareTripleCheckerStatistics: 815 SDtfs, 721 SDslu, 310 SDs, 0 SdLazy, 26 SolverSat, 463 SolverUnsat, 0 SolverUnknown, 0 SolverNotchecked, 0.0s Time	LassoAnalysisResults: nont0 unkn0 SFLI0 SFLT0 conc0 concLT0 SILN0 SILU3 SILI0 SILT0 lasso0 LassoPreprocessingBenchmarks: LassoTerminationAnalysisBenchmarks: not availableLassoTerminationAnalysisBenchmarks: LassoNonterminationAnalysisSatFixpoint: 0	LassoNonterminationAnalysisSatUnbounded: 0	LassoNonterminationAnalysisUnsat: 0	LassoNonterminationAnalysisUnknown: 0	LassoNonterminationAnalysisTime: 0.0s	
+  - AllSpecificationsHoldResult: All specifications hold
+    Buchi Automizer proved that the LTL property ! ( ( []( (call_allowance_SpaghettiToken0) ==> ( <>(success_allowance_SpaghettiToken0) ) ) )) holds
+RESULT: Ultimate proved your program to be correct!
+Received shutdown request...
