@@ -462,6 +462,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		newProg = this.initializeFSums(fsums, newProg);
 		
 		Set<Event> foundEvents = new HashSet<>();
+		Set<Fsum> foundFsums = new HashSet<>();
 		for (Declaration d : newProg.getDeclarations()) {
 			if (d instanceof Procedure) {
 				Procedure p = (Procedure) d;
@@ -502,6 +503,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 						Matcher fnMatch = fnPattern.matcher(pname);
 						if(fnMatch.matches()) {
 							this.instrumentVariableIncrement(p, b, f);
+							foundFsums.add(f);
 						}
 						// Initialize global variables in ULTIMATE.start()
 						else if (p.getIdentifier().equals("ULTIMATE.start")) {
@@ -551,7 +553,13 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		if(!foundEvents.containsAll(events)) {
 			Set<Event> eventSet = new HashSet<>(events);
 			eventSet.removeAll(foundEvents);
-			throw new RuntimeException("Could not find find the following functions: " + eventSet.stream().map(e -> e.getFunc().getName()).collect(Collectors.toSet()));
+			throw new RuntimeException("Could not find the following functions: " + eventSet.stream().map(e -> e.getFunc().getName()).collect(Collectors.toSet()));
+		}
+		
+		if(!foundFsums.containsAll(fsums)) {
+			Set<Fsum> fsumSet = new HashSet<>(fsums);
+			fsumSet.removeAll(foundFsums);
+			throw new RuntimeException("Could not find the following functions: " + fsumSet.stream().map(f -> f.getFunc().getName()).collect(Collectors.toSet()));
 		}
 
 

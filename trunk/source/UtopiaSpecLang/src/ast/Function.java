@@ -78,7 +78,7 @@ public class Function extends AstNode {
 		int numArgs = args.getArgs().size();
 		
 		if(numArgs == 0) {
-			patternStr += "[a-zA-Z0-9_~]*";
+			patternStr += "(~[a-zA-Z0-9_]+)*";
 		}
 		else {
 			for(int i = 0; i < numArgs; i++) {
