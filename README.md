@@ -46,5 +46,5 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 
 #### Instructions
 1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
-2. Follow [these](https://github.com/ultimate-pa/ultimate/wiki/Installation/f25b5519ba3ec2a486bb18e6096c5512780be8c6) instructions to build Ultimate Automizer.
+2. Follow [these](https://github.com/ultimate-pa/ultimate/wiki/Installation/2979de9af052431d7923beeb8a77dacc23d5e528) instructions to build Ultimate Automizer.
 
