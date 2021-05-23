@@ -18,7 +18,7 @@ Harness Modifiers: \
 ```
 #### Example
 ```
-./SmartPulse.py
+./SmartPulse.py LockedFunds.sol Wallet LockedFunds.spec
 ```
 
 ## Building
@@ -34,6 +34,7 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 #### Instructions
 1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
 2. Download a pre-built binary from [here]().
+3. Run createSmartPulse.sh
 
 ### Building from Scratch
 
