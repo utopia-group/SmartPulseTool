@@ -1,16 +1,51 @@
-# Ultimate
-[![Build Status Jenkins](https://monteverdi.informatik.uni-freiburg.de/ci/buildStatus/icon?job=Ultimate%20(GitHub))](https://monteverdi.informatik.uni-freiburg.de/ci/job/Ultimate%20(GitHub)/)
-[![Build Status](https://travis-ci.org/ultimate-pa/ultimate.svg)](https://travis-ci.org/ultimate-pa/ultimate)
-[![LGPL License](https://img.shields.io/badge/license-LGPLv3+LE-brightgreen.svg)](https://github.com/ultimate-pa/ultimate/wiki/License)
-[![Waffle.io](https://img.shields.io/waffle/label/ultimate-pa/ultimate/in%20progress.svg?maxAge=1800)](https://waffle.io/ultimate-pa/ultimate)
-[![Jenkins tests](https://img.shields.io/jenkins/t/https/monteverdi.informatik.uni-freiburg.de/ci/job/Ultimate%20Nightly.svg?maxAge=1800)](https://monteverdi.informatik.uni-freiburg.de/ci/job/Ultimate%20Nightly/lastBuild/testReport/)
-[![SonarQube Coverage](https://monteverdi.informatik.uni-freiburg.de/sonar/api/badges/measure?key=de.uni_freiburg.informatik.ultimate:mavenparent&metric=coverage)](https://monteverdi.informatik.uni-freiburg.de/sonar/component_measures/domain/Coverage?id=de.uni_freiburg.informatik.ultimate%3Amavenparent)
-[![SonarQube Tech Debt](https://monteverdi.informatik.uni-freiburg.de/sonar/api/badges/measure?key=de.uni_freiburg.informatik.ultimate:mavenparent&metric=sqale_debt_ratio)](https://monteverdi.informatik.uni-freiburg.de/sonar/component_measures/domain/Maintainability?id=de.uni_freiburg.informatik.ultimate%3Amavenparent)
-[![SonarQube LOC](https://monteverdi.informatik.uni-freiburg.de/sonar/api/badges/measure?key=de.uni_freiburg.informatik.ultimate:mavenparent&metric=ncloc)](https://monteverdi.informatik.uni-freiburg.de/sonar/component_measures/domain/Maintainability?id=de.uni_freiburg.informatik.ultimate%3Amavenparent)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/b03e97ce2ee948eb974a211bbbfc6a2e)](https://www.codacy.com/app/ultimate-pa/ultimate)
+# SmartPulse
+This is the main repository for SmartPulse, a tool for verifying temporal properties of Smart Contracts. SmartPulse is comprised of two tools. The first, a modified version of VeriSol, translates the Smart Contract from Solidity to Boogie. The second, a modified version of Ultimate Automizer, consumes the translated contract and verifies the given property. This repository contains SmartPulse's version of Ultimate Automizer and the modified version of VeriSol can be found [here](https://github.com/utopia-group/verisol).
 
-Ultimate is a program analysis framework. Ultimate consists of several plugins that perform steps of a program analysis, e.g., parsing source code, transforming programs from one representation to another, or analyzing programs. Toolchains of these plugins can perform complex tasks, e.g., verify that a C program fulfills a given specification.
+## Usage
+```
+./SmartPulse.py [args] contract.sol contractName spec.spec 
 
-The [official website](https://ultimate.informatik.uni-freiburg.de/) includes a web interface which allows you to use several toolchains online, a list of all developers, and a list of awards Ultimate received over the years.
+Behavioral Models: 
+  -modArith                   | Model integers using modular arithmetic rather than as mathematical integers 
+  -instrumentGas              | Instrument gas usage using model (assumes model comes from solc) 
+Adversary Models: 
+  -noReentrancy               | Assume attacker cannot make reentrant calls 
+  -singleCallback             | Assume attacker will only make one reentrant call 
+  -powerfulAdversary          | Assume attacker can make arbitrary reentrant calls 
+Harness Modifiers: \
+  -tnxsOnFields               | Allow transactions to be issued to contracts in fields of main contract 
+  -checkPrePost:<fn1,fn2,...> | Check pre/post conditions of the specified functions 
+```
+#### Example
+```
+./SmartPulse.py LockedFunds.sol Wallet LockedFunds.spec
+```
 
-The available documentation can be found in [our wiki](https://github.com/ultimate-pa/ultimate/wiki).
+## Building
+SmartPulse requires the modified version of Ultimate Automizer and VeriSol be built. To build VeriSol, follow the instructions in [this repository](https://github.com/utopia-group/verisol). As the build process for Ultimate automizer is complex, we provide pre-built binaries. We recommend using these binaries rather than building Ultimate Automizer from scratch.
+
+### Building from Pre-build Binaries
+
+#### Requirements
+ * Z3
+ * Java JDK (1.8)
+ * [VeriSol](https://github.com/utopia-group/verisol)
+
+#### Instructions
+1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
+2. Download a pre-built binary from [here]().
+3. Run createSmartPulse.sh
+
+### Building from Scratch
+
+#### Requirements
+ * Z3
+ * Java JDK (1.8)
+ * [VeriSol](https://github.com/utopia-group/verisol)
+ * Maven 3.0
+ * Eclipse IDE for RCP and RAP Developers 2019-09 or older
+
+#### Instructions
+1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
+2. Follow [these](https://github.com/ultimate-pa/ultimate/wiki/Installation/2979de9af052431d7923beeb8a77dacc23d5e528) instructions to build Ultimate Automizer.
+
