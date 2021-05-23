@@ -733,7 +733,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 	private TreeSet<String> getFunctionCallVarAssnStrs_help(AstNode node, HashMap<String, String> arg_map) {
 		TreeSet<String> fvds = new TreeSet<String>();
 		if (node instanceof FunctionCall) {
-			fvds.add(((FunctionCall) node).assignmentString(arg_map, this.currentEvent)+"; ");
+			fvds.add(((FunctionCall) node).assignmentString(unit, arg_map, this.currentEvent)+"; ");
 		}
 		for (AstNode n: node.getOutgoingNodes()) {
 			fvds.addAll(this.getFunctionCallVarAssnStrs_help(n, arg_map));
@@ -780,7 +780,7 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		for(int i = 0; i < fvs.size(); i++) {
 			String fv = fvs.get(i);
 			FunctionCall fc = fcs.get(i);			
-			Procedure p = this.fetchProcedure(fc.functionName(), false);
+			Procedure p = this.fetchProcedure(fc.functionName(unit), false);
 			String type = "int";
 			VarList[] vl = p.getOutParams();
 			if (vl.length > 0) {
@@ -1076,14 +1076,14 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 								String[] hint_split = hint.split("=");
 								String sol_var = hint_split[0];
 								String boogie_var = hint_split[1];
-								if (type.equals("sum")) { 
+								/*if (type.equals("sum")) { 
 									sol_var = "c"+sol_var; // Add "c" to solidity sum so that it is csum for sum map
 									// Add "c" to boogie and change brackets to parens for outermost on sum
 									int firstBrack = boogie_var.indexOf("[");
 									String sum_prefix = boogie_var.substring(0, firstBrack);
 									String sum_suffix = boogie_var.substring(firstBrack+1, boogie_var.length()-1);
 									boogie_var = "c" + sum_prefix + "(" + sum_suffix + ")";
-								}
+								}*/
 								access_map.put(sol_var, boogie_var);
 							}
 						}
@@ -1179,8 +1179,8 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 					spec = spec.replace(full_str, boogie_var.replace("[i1]", "["+i1_rep+"]"));
 				}
 			} else { // non-array global variable
-				spec = spec.replaceAll(sol_var + "([^a-zA-Z_0-9])", boogie_var + "$1");
-				//spec = spec.replace(sol_var, boogie_var);
+				//spec = spec.replaceAll(sol_var + "([^a-zA-Z_0-9])", boogie_var + "$1");
+				spec = spec.replace(sol_var, boogie_var);
 			}
 		}
 		
@@ -1199,13 +1199,14 @@ public class UtopiaSpecLangObserver implements IUnmanagedObserver {
 		String[] ltlvars = this.extractLTLVariablesFromInputFile();
 		
 		// Replace solidity variables with boogie variables (for both accesses and sums)
+		TreeMap<String, String> sum_map = this.get_sol_var_map("sum");
+		specification[0] = this.replace_solidity_vars(specification[0],sum_map);
+		fairness_constraint[0] = this.replace_solidity_vars(fairness_constraint[0], sum_map);	
+		
 		TreeMap<String, String> access_map = this.get_sol_var_map("access");
 		specification[0] = this.replace_solidity_vars(specification[0], access_map);
 		fairness_constraint[0] = this.replace_solidity_vars(fairness_constraint[0], access_map);			
-		TreeMap<String, String> sum_map = this.get_sol_var_map("sum");
-		specification[0] = this.replace_solidity_vars(specification[0],sum_map);
-		fairness_constraint[0] = this.replace_solidity_vars(fairness_constraint[0], sum_map);			
-		
+				
 		AstNode specAst = ltlPlus2Ast(specification[0]);
 		this.inFairness = false;
 		instrument2(specAst, ltlvars);

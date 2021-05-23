@@ -2,6 +2,8 @@ package ast;
 
 import java.util.List;
 
+import de.uni_freiburg.informatik.ultimate.boogie.ast.Unit;
+import de.uni_freiburg.informatik.ultimate.boogie.symboltable.BoogieSymbolTable;
 import de.uni_freiburg.informatik.ultimate.ltl2aut.ast.AstNode;
 
 public class ArrayAccessExpr extends AstNode {
@@ -37,5 +39,4 @@ public class ArrayAccessExpr extends AstNode {
 		}
 		return str;
 	}
-	
 }

@@ -2,7 +2,11 @@ package ast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
+import de.uni_freiburg.informatik.ultimate.boogie.ast.Declaration;
+import de.uni_freiburg.informatik.ultimate.boogie.ast.Procedure;
+import de.uni_freiburg.informatik.ultimate.boogie.ast.Unit;
 import de.uni_freiburg.informatik.ultimate.ltl2aut.ast.AstNode;
 
 public class FunctionCall extends AstNode {
@@ -36,20 +40,73 @@ public class FunctionCall extends AstNode {
 		return vname;
 	}
 	
-	public String functionName() {
+	public Pattern getNamePattern() {
+		String orig_name = this.name.toString();
+		String[] split_name = orig_name.split("\\.");
+		String patternStr = "^" + split_name[1];
+		if(args != null) {
+			int numArgs = args.getArgs().size();
+		
+			for(int i = 0; i < numArgs; i++) {
+				patternStr += "~[a-zA-Z0-9_]+";
+			}
+		}
+		
+		patternStr += "_" + split_name[0] + "$";
+		return Pattern.compile(patternStr);
+	}
+	
+	public String functionName(Unit prog) {
+		Pattern namePattern = getNamePattern();
+		String fnName = null;
+		for(Declaration decl : prog.getDeclarations()) {
+			if(decl instanceof Procedure) {
+				Procedure p = (Procedure) decl;
+				String pname = p.getIdentifier();
+				if(p.getBody() != null && namePattern.matcher(pname).matches()) {
+					if(fnName == null) {
+						fnName = pname;
+					}
+					else {
+						throw new RuntimeException("Found multiple candidates for " + name + ": " + fnName + ", " + pname);
+					}
+				}
+			}
+		}
+		
+		if(fnName == null) {
+			throw new RuntimeException("Could not find " + name);
+		}
+		
+		return fnName;
+		/*String[] split_name = this.name.split("\\.");
+		String var_str = "";
+		if (split_name.length != 2) {
+			System.out.println("WARNING: " + this.name + " does not include class!");
+			var_str += this.name;
+		} else {
+			var_str += split_name[1]; 
+
+			var_str += "_" + split_name[0];
+		}
+ 		return var_str;*/
+	}
+	
+	public String getVarRep() {
 		String[] split_name = this.name.split("\\.");
 		String var_str = "";
 		if (split_name.length != 2) {
 			System.out.println("WARNING: " + this.name + " does not include class!");
 			var_str += this.name;
 		} else {
-			var_str += split_name[1] + "_" + split_name[0];
+			var_str += split_name[1] + "_" + split_name[0]; 
 		}
+		
  		return var_str;
 	}
 	
 	public String toString() {
-		String var_str = "__" + this.functionName();
+		String var_str = "__" + this.getVarRep();
 		if (this.args != null) {
 			ArrayList<AstNode> arg_nodes = this.args.getArgs();
 			for (AstNode n: arg_nodes) {
@@ -59,9 +116,9 @@ public class FunctionCall extends AstNode {
 		return var_str;
 	}
 	
-	public String assignmentString(HashMap<String, String> arg_map, int currentEvent) {
+	public String assignmentString(Unit prog, HashMap<String, String> arg_map, int currentEvent) {
 //		String[] split_name = this.name.split("\\.");
-		String func_str = "call " + this.toString() + Integer.toString(currentEvent) + " := " + this.functionName() + "__success";
+		String func_str = "call " + this.toString() + Integer.toString(currentEvent) + " := " + this.functionName(prog) + "__success";
 //		if (split_name.length != 2) {
 //			System.out.println("WARNING: " + this.name + " does not include class!");
 //			func_str += this.name;

@@ -27,6 +27,8 @@
  */
 package de.uni_freiburg.informatik.ultimate.ltl2aut.ast;
 
+import de.uni_freiburg.informatik.ultimate.boogie.ast.Unit;
+import de.uni_freiburg.informatik.ultimate.boogie.symboltable.BoogieSymbolTable;
 import de.uni_freiburg.informatik.ultimate.core.lib.models.ModifiableSimpleAST;
 
 public class AstNode extends ModifiableSimpleAST<AstNode>{
