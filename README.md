@@ -33,7 +33,7 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 
 #### Instructions
 1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
-2. Download a pre-built binary from [here]().
+2. Download a pre-built binary from [here](https://github.com/utopia-group/SmartPulseTool/releases).
 3. Run createSmartPulse.sh
 
 ### Building from Scratch
@@ -49,3 +49,9 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
 2. Follow [these](https://github.com/ultimate-pa/ultimate/wiki/Installation/2979de9af052431d7923beeb8a77dacc23d5e528) instructions to build Ultimate Automizer.
 
+## Troubleshooting
+#### Cannot run program "ltl2ba"
+This occurs when ltl2ba cannot be found or executed. To ensure ltl2ba can be executed, run the ltl2ba executable in the base SmartPulse directory. If it does not execute, build a fresh version of ltl2ba from [here](http://www.lsv.fr/~gastin/ltl2ba/download.php). If ltl2ba can be executed, it is likely that you are executing SmartPulse from outside the base directory. If this is the case, edit line 11 of the settings.epf file like so:
+```
+/instance/de.uni_freiburg.informatik.ultimate.ltl2aut/Path\ to\ LTL*BA\ executable\ (LTL2BA,\ LTL3BA)=/path/to/executable/ltl2ba
+```
