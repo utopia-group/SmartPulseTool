@@ -21,6 +21,17 @@ Harness Modifiers: \
 ./SmartPulse.py LockedFunds.sol Wallet LockedFunds.spec
 ```
 
+## SmartLTL Specification Language
+SmartLTL is an ltl-like language specific to Smart Contracts. We classify it as LTL-like because SmartLTL is the same as LTL with the exception of its atoms. Here, we will provide information about the SmartLTL specification language, but some knowledge of LTL is assumed.
+### Specification Structure
+A SmartLTL specification has 3 parts: (1) the fresh variable declaration, (2) the fairness property and (3) the property to verify. Here, we will briefly discuss each part of the specification.
+#### Fresh Variable Declaration
+#### Fairness Property
+#### Verification Property
+### Atoms
+### Constraints on Atoms
+### Examples
+
 ## Building
 SmartPulse requires the modified version of Ultimate Automizer and VeriSol be built. To build VeriSol, follow the instructions in [this repository](https://github.com/utopia-group/verisol). As the build process for Ultimate automizer is complex, we provide pre-built binaries. We recommend using these binaries rather than building Ultimate Automizer from scratch.
 
@@ -34,6 +45,7 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 #### Instructions
 1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
 2. Download a pre-built binary from [here](https://github.com/utopia-group/SmartPulseTool/releases).
+3. Run createSmartPulse.sh
 
 ### Building from Scratch
 
@@ -47,7 +59,6 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 #### Instructions
 1. Build and install [VeriSol](https://github.com/utopia-group/verisol).
 2. Follow [these](https://github.com/ultimate-pa/ultimate/wiki/Installation/2979de9af052431d7923beeb8a77dacc23d5e528) instructions to build Ultimate Automizer.
-3. Run createSmartPulse.sh
 
 ## Troubleshooting
 #### Cannot run program "ltl2ba"
