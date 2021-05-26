@@ -29,6 +29,12 @@ A SmartLTL specification has 3 parts: (1) the fresh variable declaration, (2) th
 #### Fairness Property
 #### Verification Property
 ### Atoms
+#### started(f, &#968;)
+#### finished(f, &#968;)
+#### reverted(f, &#968;)
+#### sent(&#968;)
+This is syntactic sugar for started(send, &#968;) or started(transfer, &#968;).
+
 ### Constraints on Atoms
 ### Examples
 
