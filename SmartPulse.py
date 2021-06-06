@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import platform
 
 argTrans = {"-modArith": "/useModularArithmetic", 
             "-instrumentGas": "/instrumentGas",
@@ -44,6 +45,13 @@ def processArgs(args):
     for i in range(1,len(args)):
         if i == len(args) - 3:
             solFile = args[i]
+
+            if("CYGWIN" in platform.system()):
+                stream = os.popen('cygpath -m ' + solFile);
+                solFile = stream.read().strip()
+            elif("Linux" in platform.system() and "Microsoft" in platform.release()):
+                stream = os.popen('wslpath -m ' + solFile);
+                solFile = stream.read().strip()
         elif i == len(args) - 2:
             contractName = args[i]
         elif i == len(args) - 1:
@@ -55,7 +63,10 @@ def processArgs(args):
 
 
 def solToBoogie():
-    verisolCall = ['VeriSol', solFile, contractName]
+    veriSolName = 'VeriSol'
+    if("Linux" in platform.system() and "Microsoft" in platform.release()):
+        veriSolName = 'VeriSol.exe'
+    verisolCall = [veriSolName, solFile, contractName]
     verisolCall.append(verisolFlags)
 
     print(verisolCall)
