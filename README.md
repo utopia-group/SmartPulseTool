@@ -45,7 +45,7 @@ SmartPulse requires the modified version of Ultimate Automizer and VeriSol be bu
 
 #### Requirements
  * Z3
- * Java JDK (1.8)
+ * [Java JDK (1.8)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
  * [VeriSol](https://github.com/utopia-group/verisol)
 
 #### Instructions
